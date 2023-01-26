@@ -174,7 +174,7 @@ class FileHeaderSniff implements Sniff
 
                     if ($tokens[$docToken]['code'] === T_ATTRIBUTE
                         && isset($tokens[$docToken]['attribute_closer']) === true
-                    ) {
+                   ) {
                         $docToken = $tokens[$docToken]['attribute_closer'];
                         continue;
                     }
@@ -188,13 +188,13 @@ class FileHeaderSniff implements Sniff
 
                 if (isset($commentOpeners[$tokens[$docToken]['code']]) === false
                     && isset(Tokens::$methodPrefixes[$tokens[$docToken]['code']]) === false
-                ) {
+               ) {
                     // Check for an @var annotation.
                     $annotation = false;
                     for ($i = $next; $i < $end; $i++) {
                         if ($tokens[$i]['code'] === T_DOC_COMMENT_TAG
                             && strtolower($tokens[$i]['content']) === '@var'
-                        ) {
+                       ) {
                             $annotation = true;
                             break;
                         }
@@ -294,7 +294,7 @@ class FileHeaderSniff implements Sniff
         foreach ($headerLines as $i => $line) {
             if (isset($headerLines[($i + 1)]) === false
                 || $headerLines[($i + 1)]['type'] !== $line['type']
-            ) {
+           ) {
                 // We're at the end of the current header block.
                 // Make sure there is a single blank line after
                 // this block.
@@ -325,7 +325,7 @@ class FileHeaderSniff implements Sniff
                 // Make sure we haven't seen this next block before.
                 if (isset($headerLines[($i + 1)]) === true
                     && isset($found[$headerLines[($i + 1)]['type']]) === true
-                ) {
+               ) {
                     $error  = 'Similar statements must be grouped together inside header blocks; ';
                     $error .= 'the first "%s" statement was found on line %s';
                     $data   = [
@@ -408,7 +408,7 @@ class FileHeaderSniff implements Sniff
                     $orderedType = next($blockOrder);
                     if (isset($found[key($blockOrder)]) === true
                         && key($blockOrder) !== $type
-                    ) {
+                   ) {
                         $prevValidType = key($blockOrder);
                     }
                 } while ($orderedType !== false && key($blockOrder) !== $type);

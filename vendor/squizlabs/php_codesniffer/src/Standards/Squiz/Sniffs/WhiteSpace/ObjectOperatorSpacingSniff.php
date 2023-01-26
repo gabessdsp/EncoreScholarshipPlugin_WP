@@ -66,7 +66,7 @@ class ObjectOperatorSpacingSniff implements Sniff
 
         if (isset($tokens[($stackPtr + 1)]) === false
             || isset($tokens[($stackPtr + 2)]) === false
-        ) {
+       ) {
             return;
         }
 
@@ -101,7 +101,7 @@ class ObjectOperatorSpacingSniff implements Sniff
     {
         if ($before !== 0
             && ($before !== 'newline' || $this->ignoreNewlines === false)
-        ) {
+       ) {
             $error = 'Space found before object operator';
             $fix   = $phpcsFile->addFixableError($error, $stackPtr, 'Before');
             if ($fix === true) {
@@ -140,7 +140,7 @@ class ObjectOperatorSpacingSniff implements Sniff
     {
         if ($after !== 0
             && ($after !== 'newline' || $this->ignoreNewlines === false)
-        ) {
+       ) {
             $error = 'Space found after object operator';
             $fix   = $phpcsFile->addFixableError($error, $stackPtr, 'After');
             if ($fix === true) {

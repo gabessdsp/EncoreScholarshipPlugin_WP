@@ -81,7 +81,7 @@ class Emacs implements Report
         $width=80,
         $interactive=false,
         $toScreen=true
-    ) {
+   ) {
         echo $cachedData;
 
     }//end generate()

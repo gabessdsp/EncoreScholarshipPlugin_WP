@@ -48,9 +48,9 @@ if('string' === $value){}
 if('string' == $value){}
 
 if([] === $value){}
-if($value === [] ){}
+if($value === []){}
 if([] == $value){}
-if($value == [] ){}
+if($value == []){}
 
 if($value === array()){}
 if($value == array()){}

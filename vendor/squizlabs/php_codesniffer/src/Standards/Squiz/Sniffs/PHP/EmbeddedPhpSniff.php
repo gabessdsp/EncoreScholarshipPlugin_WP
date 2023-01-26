@@ -114,7 +114,7 @@ class EmbeddedPhpSniff implements Sniff
             // Check the indent of the first line, except if it is a scope closer.
             if (isset($tokens[$firstContent]['scope_closer']) === false
                 || $tokens[$firstContent]['scope_closer'] !== $firstContent
-            ) {
+           ) {
                 // Check for a blank line at the top.
                 if ($tokens[$firstContent]['line'] > ($tokens[$stackPtr]['line'] + 1)) {
                     // Find a token on the blank line to throw the error on.
@@ -130,7 +130,7 @@ class EmbeddedPhpSniff implements Sniff
                         for ($i = ($stackPtr + 1); $i < $firstContent; $i++) {
                             if ($tokens[$i]['line'] === $tokens[$firstContent]['line']
                                 || $tokens[$i]['line'] === $tokens[$stackPtr]['line']
-                            ) {
+                           ) {
                                 continue;
                             }
 
@@ -172,7 +172,7 @@ class EmbeddedPhpSniff implements Sniff
         $lastContent = $phpcsFile->findPrevious(T_WHITESPACE, ($stackPtr - 1), null, true);
         if ($tokens[$lastContent]['line'] === $tokens[$stackPtr]['line']
             && trim($tokens[$lastContent]['content']) !== ''
-        ) {
+       ) {
             $error = 'Opening PHP tag must be on a line by itself';
             $fix   = $phpcsFile->addFixableError($error, $stackPtr, 'ContentBeforeOpen');
             if ($fix === true) {
@@ -200,7 +200,7 @@ class EmbeddedPhpSniff implements Sniff
             $expected = 0;
             if ($tokens[$first]['code'] === T_INLINE_HTML
                 && trim($tokens[$first]['content']) !== ''
-            ) {
+           ) {
                 $expected = (strlen($tokens[$first]['content']) - strlen(ltrim($tokens[$first]['content'])));
             } else if ($tokens[$first]['code'] === T_WHITESPACE) {
                 $expected = ($tokens[($first + 1)]['column'] - 1);
@@ -259,7 +259,7 @@ class EmbeddedPhpSniff implements Sniff
         if ((isset($tokens[$lastContent]['scope_closer']) === false
             || $tokens[$lastContent]['scope_closer'] !== $lastContent)
             && $tokens[$lastContent]['line'] < ($tokens[$closingTag]['line'] - 1)
-        ) {
+       ) {
             // Find a token on the blank line to throw the error on.
             $i = $closingTag;
             do {
@@ -273,7 +273,7 @@ class EmbeddedPhpSniff implements Sniff
                 for ($i = ($lastContent + 1); $i < $closingTag; $i++) {
                     if ($tokens[$i]['line'] === $tokens[$lastContent]['line']
                         || $tokens[$i]['line'] === $tokens[$closingTag]['line']
-                    ) {
+                   ) {
                         continue;
                     }
 
@@ -347,7 +347,7 @@ class EmbeddedPhpSniff implements Sniff
                 && (isset($tokens[$prev]['scope_closer']) === false
                 || $tokens[$prev]['scope_closer'] !== $prev)
                 && $tokens[$prev]['code'] !== T_SEMICOLON
-            ) {
+           ) {
                 $error = 'Inline PHP statement must end with a semicolon';
                 $fix   = $phpcsFile->addFixableError($error, $stackPtr, 'NoSemicolon');
                 if ($fix === true) {
@@ -375,7 +375,7 @@ class EmbeddedPhpSniff implements Sniff
         } else if (($tokens[($closeTag - 1)]['code'] === T_COMMENT
             || isset(Tokens::$phpcsCommentTokens[$tokens[($closeTag - 1)]['code']]) === true)
             && substr($tokens[($closeTag - 1)]['content'], -1) === ' '
-        ) {
+       ) {
             $trailingSpace = (strlen($tokens[($closeTag - 1)]['content']) - strlen(rtrim($tokens[($closeTag - 1)]['content'])));
         }
 
@@ -388,7 +388,7 @@ class EmbeddedPhpSniff implements Sniff
                     $phpcsFile->fixer->addContentBefore($closeTag, ' ');
                 } else if ($tokens[($closeTag - 1)]['code'] === T_COMMENT
                     || isset(Tokens::$phpcsCommentTokens[$tokens[($closeTag - 1)]['code']]) === true
-                ) {
+               ) {
                     $phpcsFile->fixer->replaceToken(($closeTag - 1), rtrim($tokens[($closeTag - 1)]['content']).' ');
                 } else {
                     $phpcsFile->fixer->replaceToken(($closeTag - 1), ' ');

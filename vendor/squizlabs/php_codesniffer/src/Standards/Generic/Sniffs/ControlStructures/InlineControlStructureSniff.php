@@ -114,7 +114,7 @@ class InlineControlStructureSniff implements Sniff
 
         if (isset($tokens[$stackPtr]['parenthesis_opener'], $tokens[$stackPtr]['parenthesis_closer']) === false
             && $tokens[$stackPtr]['code'] !== T_ELSE
-        ) {
+       ) {
             if ($tokens[$stackPtr]['code'] !== T_DO) {
                 // Live coding or parse error.
                 return;
@@ -123,7 +123,7 @@ class InlineControlStructureSniff implements Sniff
             $nextWhile = $phpcsFile->findNext(T_WHILE, ($stackPtr + 1));
             if ($nextWhile !== false
                 && isset($tokens[$nextWhile]['parenthesis_opener'], $tokens[$nextWhile]['parenthesis_closer']) === false
-            ) {
+           ) {
                 // Live coding or parse error.
                 return;
             }
@@ -144,7 +144,7 @@ class InlineControlStructureSniff implements Sniff
 
         if ($tokens[$nextNonEmpty]['code'] === T_OPEN_CURLY_BRACKET
             || $tokens[$nextNonEmpty]['code'] === T_COLON
-        ) {
+       ) {
             // T_CLOSE_CURLY_BRACKET missing, or alternative control structure with
             // T_END... missing. Either live coding, parse error or end
             // tag in short open tags and scan run with short_open_tag=Off.
@@ -179,7 +179,7 @@ class InlineControlStructureSniff implements Sniff
 
         if ($tokens[($closer + 1)]['code'] === T_WHITESPACE
             || $tokens[($closer + 1)]['code'] === T_SEMICOLON
-        ) {
+       ) {
             $phpcsFile->fixer->addContent($closer, ' {');
         } else {
             $phpcsFile->fixer->addContent($closer, ' { ');
@@ -200,7 +200,7 @@ class InlineControlStructureSniff implements Sniff
 
             if (in_array($tokens[$end]['code'], $fixableScopeOpeners, true) === true
                 && isset($tokens[$end]['scope_opener']) === false
-            ) {
+           ) {
                 // The best way to fix nested inline scopes is middle-out.
                 // So skip this one. It will be detected and fixed on a future loop.
                 $phpcsFile->fixer->rollbackChangeset();
@@ -213,7 +213,7 @@ class InlineControlStructureSniff implements Sniff
                 if ($type === T_DO
                     || $type === T_IF || $type === T_ELSEIF
                     || $type === T_TRY || $type === T_CATCH || $type === T_FINALLY
-                ) {
+               ) {
                     $next = $phpcsFile->findNext(Tokens::$emptyTokens, ($end + 1), null, true);
                     if ($next === false) {
                         break;
@@ -226,7 +226,7 @@ class InlineControlStructureSniff implements Sniff
                         || $type === T_ELSEIF)
                         && ($nextType === T_ELSEIF
                         || $nextType === T_ELSE)
-                    ) {
+                   ) {
                         continue;
                     }
 
@@ -236,7 +236,7 @@ class InlineControlStructureSniff implements Sniff
                         || $type === T_FINALLY)
                         && ($nextType === T_CATCH
                         || $nextType === T_FINALLY)
-                    ) {
+                   ) {
                         continue;
                     }
 
@@ -254,7 +254,7 @@ class InlineControlStructureSniff implements Sniff
 
                 if ($tokens[$end]['code'] !== T_END_HEREDOC
                     && $tokens[$end]['code'] !== T_END_NOWDOC
-                ) {
+               ) {
                     break;
                 }
             }//end if
@@ -289,7 +289,7 @@ class InlineControlStructureSniff implements Sniff
                 for ($endLine = $end; $endLine < $phpcsFile->numTokens; $endLine++) {
                     if (isset($tokens[($endLine + 1)]) === false
                         || $tokens[$endLine]['line'] !== $tokens[($endLine + 1)]['line']
-                    ) {
+                   ) {
                         break;
                     }
                 }
@@ -297,7 +297,7 @@ class InlineControlStructureSniff implements Sniff
                 if (isset(Tokens::$commentTokens[$tokens[$endLine]['code']]) === false
                     && ($tokens[$endLine]['code'] !== T_WHITESPACE
                     || isset(Tokens::$commentTokens[$tokens[($endLine - 1)]['code']]) === false)
-                ) {
+               ) {
                     $endLine = $end;
                 }
             }
@@ -311,7 +311,7 @@ class InlineControlStructureSniff implements Sniff
 
                 if ($tokens[$end]['code'] !== T_SEMICOLON
                     && $tokens[$end]['code'] !== T_CLOSE_CURLY_BRACKET
-                ) {
+               ) {
                     $phpcsFile->fixer->addContent($end, '; ');
                 }
             }
@@ -320,7 +320,7 @@ class InlineControlStructureSniff implements Sniff
             if ($next !== false
                 && ($tokens[$next]['code'] === T_ELSE
                 || $tokens[$next]['code'] === T_ELSEIF)
-            ) {
+           ) {
                 $phpcsFile->fixer->addContentBefore($next, '} ');
             } else {
                 $indent = '';
@@ -334,7 +334,7 @@ class InlineControlStructureSniff implements Sniff
                     $indent = $tokens[$first]['content'];
                 } else if ($tokens[$first]['code'] === T_INLINE_HTML
                     || $tokens[$first]['code'] === T_OPEN_TAG
-                ) {
+               ) {
                     $addedContent = '';
                 }
 
@@ -351,7 +351,7 @@ class InlineControlStructureSniff implements Sniff
                 for ($endLine = $end; $endLine < $phpcsFile->numTokens; $endLine++) {
                     if (isset($tokens[($endLine + 1)]) === false
                         || $tokens[$endLine]['line'] !== $tokens[($endLine + 1)]['line']
-                    ) {
+                   ) {
                         break;
                     }
                 }
@@ -359,7 +359,7 @@ class InlineControlStructureSniff implements Sniff
                 if ($tokens[$endLine]['code'] !== T_COMMENT
                     && ($tokens[$endLine]['code'] !== T_WHITESPACE
                     || $tokens[($endLine - 1)]['code'] !== T_COMMENT)
-                ) {
+               ) {
                     $endLine = $end;
                 }
             }

@@ -66,14 +66,14 @@ class ClassInstantiationSniff implements Sniff
             // Skip over potential attributes for anonymous classes.
             if ($tokens[$i]['code'] === T_ATTRIBUTE
                 && isset($tokens[$i]['attribute_closer']) === true
-            ) {
+           ) {
                 $i = $tokens[$i]['attribute_closer'];
                 continue;
             }
 
             if ($tokens[$i]['code'] === T_OPEN_SQUARE_BRACKET
                 || $tokens[$i]['code'] === T_OPEN_CURLY_BRACKET
-            ) {
+           ) {
                 $i = $tokens[$i]['bracket_closer'];
                 continue;
             }

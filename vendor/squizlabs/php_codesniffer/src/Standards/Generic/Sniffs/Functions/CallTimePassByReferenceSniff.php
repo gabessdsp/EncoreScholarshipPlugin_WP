@@ -67,7 +67,7 @@ class CallTimePassByReferenceSniff implements Sniff
             ($functionName + 1),
             null,
             true
-        );
+       );
 
         if ($tokens[$openBracket]['code'] !== T_OPEN_PARENTHESIS) {
             return;
@@ -108,7 +108,7 @@ class CallTimePassByReferenceSniff implements Sniff
                 ($nextSeparator - 1),
                 null,
                 true
-            );
+           );
 
             if ($tokens[$tokenBefore]['code'] === T_BITWISE_AND) {
                 if ($phpcsFile->isReference($tokenBefore) === false) {
@@ -123,7 +123,7 @@ class CallTimePassByReferenceSniff implements Sniff
                     ($tokenBefore - 1),
                     null,
                     true
-                );
+               );
 
                 if (isset(Tokens::$assignmentTokens[$tokens[$tokenBefore]['code']]) === true) {
                     continue;

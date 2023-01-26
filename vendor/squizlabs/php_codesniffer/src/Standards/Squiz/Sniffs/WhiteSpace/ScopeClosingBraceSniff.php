@@ -55,7 +55,7 @@ class ScopeClosingBraceSniff implements Sniff
         $lineStart = $phpcsFile->findFirstOnLine([T_WHITESPACE, T_INLINE_HTML], $stackPtr, true);
         while ($tokens[$lineStart]['code'] === T_CONSTANT_ENCAPSED_STRING
             && $tokens[($lineStart - 1)]['code'] === T_CONSTANT_ENCAPSED_STRING
-        ) {
+       ) {
             $lineStart = $phpcsFile->findFirstOnLine([T_WHITESPACE, T_INLINE_HTML], ($lineStart - 1), true);
         }
 
@@ -70,7 +70,7 @@ class ScopeClosingBraceSniff implements Sniff
         if ($tokens[$lastContent]['line'] === $tokens[$scopeEnd]['line']
             || ($tokens[$lineStart]['code'] === T_INLINE_HTML
             && trim($tokens[$lineStart]['content']) !== '')
-        ) {
+       ) {
             $error = 'Closing brace must be on a line by itself';
             $fix   = $phpcsFile->addFixableError($error, $scopeEnd, 'ContentBefore');
             if ($fix === true) {
@@ -90,7 +90,7 @@ class ScopeClosingBraceSniff implements Sniff
         if ($tokens[$stackPtr]['code'] !== T_DEFAULT
             && $tokens[$stackPtr]['code'] !== T_CASE
             && $braceIndent !== $startColumn
-        ) {
+       ) {
             $error = 'Closing brace indented incorrectly; expected %s spaces, found %s';
             $data  = [
                 ($startColumn - 1),

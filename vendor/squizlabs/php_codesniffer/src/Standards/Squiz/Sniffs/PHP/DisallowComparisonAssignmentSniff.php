@@ -60,7 +60,7 @@ class DisallowComparisonAssignmentSniff implements Sniff
             false,
             null,
             true
-        );
+       );
 
         if ($array !== false) {
             return;
@@ -79,7 +79,7 @@ class DisallowComparisonAssignmentSniff implements Sniff
         if ($tokens[$next]['code'] === T_CLOSURE
             || ($tokens[$next]['code'] === T_OPEN_PARENTHESIS
             && $tokens[($next - 1)]['code'] === T_STRING)
-        ) {
+       ) {
             // Code will look like: $var = myFunction(
             // and will be ignored.
             return;
@@ -90,7 +90,7 @@ class DisallowComparisonAssignmentSniff implements Sniff
             if ((isset(Tokens::$comparisonTokens[$tokens[$i]['code']]) === true
                 && $tokens[$i]['code'] !== T_COALESCE)
                 || $tokens[$i]['code'] === T_INLINE_THEN
-            ) {
+           ) {
                 $error = 'The value of a comparison must not be assigned to a variable';
                 $phpcsFile->addError($error, $stackPtr, 'AssignedComparison');
                 break;
@@ -98,7 +98,7 @@ class DisallowComparisonAssignmentSniff implements Sniff
 
             if (isset(Tokens::$booleanOperators[$tokens[$i]['code']]) === true
                 || $tokens[$i]['code'] === T_BOOLEAN_NOT
-            ) {
+           ) {
                 $error = 'The value of a boolean operation must not be assigned to a variable';
                 $phpcsFile->addError($error, $stackPtr, 'AssignedBool');
                 break;

@@ -56,7 +56,7 @@ class ImportStatementSniff implements Sniff
         if ($tokens[$next]['code'] === T_STRING
             && (strtolower($tokens[$next]['content']) === 'function'
             || strtolower($tokens[$next]['content']) === 'const')
-        ) {
+       ) {
             $next = $phpcsFile->findNext(Tokens::$emptyTokens, ($next + 1), null, true);
         }
 

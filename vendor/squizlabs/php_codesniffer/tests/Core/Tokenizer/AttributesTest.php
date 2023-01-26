@@ -53,7 +53,7 @@ class AttributesTest extends AbstractMethodUnitTest
                 return $token['code'];
             },
             array_slice($tokens, ($attribute + 1), ($length - 1))
-        );
+       );
 
         $this->assertSame($tokenCodes, $map);
 
@@ -332,7 +332,7 @@ class AttributesTest extends AbstractMethodUnitTest
                 return $token['code'];
             },
             array_slice($tokens, ($attribute + 1), ($length - 1))
-        );
+       );
 
         $this->assertSame($tokenCodes, $map);
 
@@ -639,7 +639,7 @@ class AttributesTest extends AbstractMethodUnitTest
                 $attribute     => $attribute + 24,
                 $attribute + 8 => $attribute + 13,
             ]
-        );
+       );
 
         $test(array_slice($tokens, ($attribute + 13), 1), 8 + 5, [$attribute => $attribute + 24]);
         $test(array_slice($tokens, ($attribute + 14), 10), 24, [$attribute => $attribute + 24]);
@@ -649,7 +649,7 @@ class AttributesTest extends AbstractMethodUnitTest
                 return $token['code'];
             },
             array_slice($tokens, ($attribute + 1), 23)
-        );
+       );
 
         $this->assertSame($tokenCodes, $map);
 

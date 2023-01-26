@@ -2,9 +2,9 @@
 function myFunc() {}
 function myFunc() {}
 function myFunc($blah) {}
-function myFunc($blah ) {}
+function myFunc($blah) {}
 function myFunc($blah, $blah2, $blah3) {}
-function myFunc($blah , $blah2, $blah3 ) {}
+function myFunc($blah , $blah2, $blah3) {}
 function myFunc($blah,$blah2,$blah3) {}
 function myFunc($blah,   $blah2,  $blah3) {}
 function myFunc($blah='hello') {}
@@ -15,7 +15,7 @@ function myFunc(PHP_CodeSniffer   $object, array  $array=array(), $blah3='yo') {
 function myFunc(PHP_CodeSniffer $object,  array $array=array(), $blah3='yo') {}
 function myFunc(array  &$one,  array  &$two) {}
 function myFunc(&$blah) {}
-function myFunc(&$blah ) {}
+function myFunc(&$blah) {}
 
 function multiLineFunction(
     array $flatList,
@@ -49,11 +49,11 @@ function myFunc($blah  = 'hello') {}
 // phpcs:set Squiz.Functions.FunctionDeclarationArgumentSpacing requiredSpacesAfterOpen 1
 // phpcs:set Squiz.Functions.FunctionDeclarationArgumentSpacing requiredSpacesBeforeClose 1
 function myFunc($blah) {}
-function myFunc($blah ) {}
-function myFunc( $blah  ) {}
-function myFunc(array $blah ) {}
-function myFunc(array $blah ) {}
-function myFunc( array $blah ) {}
+function myFunc($blah) {}
+function myFunc( $blah ) {}
+function myFunc(array $blah) {}
+function myFunc(array $blah) {}
+function myFunc( array $blah) {}
 function myFunc() {}
 function myFunc() {}
 
@@ -86,7 +86,7 @@ function foo(// comment
 }
 
 function myFunc(/*...*/) {}
-function myFunc(/*...*/ ) {}
+function myFunc(/*...*/) {}
 
 function x(
     ?array    $a,
@@ -96,7 +96,7 @@ function x(
 ) {
 }
 
-function functionName( ?string  $arg1 = 'foo' ,  ?int  & $arg2   ,  $arg3  ) {}
+function functionName( ?string  $arg1 = 'foo' ,  ?int  & $arg2   ,  $arg3 ) {}
 function functionName(string $arg1,  ... $arg2) {}
 function functionName(string $arg1, int  ... $arg2) {}
 function functionName(string $arg1, & ... $arg2) {}

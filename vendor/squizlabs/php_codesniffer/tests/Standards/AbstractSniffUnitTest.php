@@ -271,7 +271,7 @@ abstract class AbstractSniffUnitTest extends TestCase
 
                     if ($foundError['fixable'] === true
                         && in_array($source, $GLOBALS['PHP_CODESNIFFER_FIXABLE_CODES'], true) === false
-                    ) {
+                   ) {
                         $GLOBALS['PHP_CODESNIFFER_FIXABLE_CODES'][] = $source;
                     }
                 }
@@ -328,7 +328,7 @@ abstract class AbstractSniffUnitTest extends TestCase
 
                     if ($warning['fixable'] === true
                         && in_array($source, $GLOBALS['PHP_CODESNIFFER_FIXABLE_CODES'], true) === false
-                    ) {
+                   ) {
                         $GLOBALS['PHP_CODESNIFFER_FIXABLE_CODES'][] = $source;
                     }
                 }

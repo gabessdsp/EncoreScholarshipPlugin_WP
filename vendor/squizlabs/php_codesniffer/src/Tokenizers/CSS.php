@@ -92,7 +92,7 @@ class CSS extends PHP
                 || $token['code'] === T_WHILE
                 || $token['code'] === T_DEC
                 || $token['code'] === T_NEW
-            ) {
+           ) {
                 $token['type'] = 'T_STRING';
                 $token['code'] = T_STRING;
             }
@@ -108,12 +108,12 @@ class CSS extends PHP
 
             if ($token['code'] === T_BITWISE_XOR
                 && $tokens[($stackPtr + 1)]['content'] === 'PHPCS_CSS_T_OPEN_TAG'
-            ) {
+           ) {
                 $content = '<?php';
                 for ($stackPtr += 3; $stackPtr < $numTokens; $stackPtr++) {
                     if ($tokens[$stackPtr]['code'] === T_BITWISE_XOR
                         && $tokens[($stackPtr + 1)]['content'] === 'PHPCS_CSS_T_CLOSE_TAG'
-                    ) {
+                   ) {
                         // Add the end tag and ignore the * we put at the end.
                         $content  .= '?>';
                         $stackPtr += 2;
@@ -171,7 +171,7 @@ class CSS extends PHP
 
             if ($token['code'] === T_COMMENT
                 && substr($token['content'], 0, 2) === '/*'
-            ) {
+           ) {
                 // Multi-line comment. Record it so we can ignore other
                 // comment tags until we get out of this one.
                 $multiLineComment = true;
@@ -181,7 +181,7 @@ class CSS extends PHP
                 && $multiLineComment === false
                 && (substr($token['content'], 0, 2) === '//'
                 || $token['content'][0] === '#')
-            ) {
+           ) {
                 $content = ltrim($token['content'], '#/');
 
                 // Guard against PHP7+ syntax errors by stripping
@@ -213,7 +213,7 @@ class CSS extends PHP
                     if (($commentTokens[0]['code'] === T_LNUMBER
                         || $commentTokens[0]['code'] === T_DNUMBER)
                         && $commentTokens[1]['code'] === T_STRING
-                    ) {
+                   ) {
                         $firstContent .= $commentTokens[1]['content'];
                         array_shift($commentTokens);
                     }
@@ -222,7 +222,7 @@ class CSS extends PHP
                     // definition, join the tokens together.
                     if (preg_match('/^[ABCDEF0-9]+$/i', $firstContent) === 1
                         && $commentTokens[1]['content'] !== '-'
-                    ) {
+                   ) {
                         array_shift($commentTokens);
                         // Work out what we trimmed off above and remember to re-add it.
                         $trimmed = substr($token['content'], 0, (strlen($token['content']) - strlen($content)));
@@ -256,7 +256,7 @@ class CSS extends PHP
 
             if ($token['code'] === T_COMMENT
                 && substr($token['content'], -2) === '*/'
-            ) {
+           ) {
                 // Multi-line comment is done.
                 $multiLineComment = false;
             }
@@ -452,10 +452,10 @@ class CSS extends PHP
                     }
                 } else if ($finalTokens[$stackPtr]['content'][0] === '-'
                     && $finalTokens[($stackPtr + 1)]['code'] === T_STRING
-                ) {
+               ) {
                     if (isset($finalTokens[($stackPtr - 1)]) === true
                         && $finalTokens[($stackPtr - 1)]['code'] === T_STRING
-                    ) {
+                   ) {
                         $newContent = $finalTokens[($stackPtr - 1)]['content'].$finalTokens[$stackPtr]['content'].$finalTokens[($stackPtr + 1)]['content'];
 
                         if (PHP_CODESNIFFER_VERBOSITY > 1) {
@@ -501,7 +501,7 @@ class CSS extends PHP
                 $finalTokens[($numTokens - 2)]['content'],
                 0,
                 (strlen($this->eolChar) * -1)
-            );
+           );
 
             if ($finalTokens[($numTokens - 2)]['content'] === '') {
                 unset($finalTokens[($numTokens - 2)]);

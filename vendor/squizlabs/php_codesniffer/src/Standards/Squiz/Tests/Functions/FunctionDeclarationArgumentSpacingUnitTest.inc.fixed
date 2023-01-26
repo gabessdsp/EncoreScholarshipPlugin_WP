@@ -48,12 +48,12 @@ function myFunc($blah = 'hello') {}
 
 // phpcs:set Squiz.Functions.FunctionDeclarationArgumentSpacing requiredSpacesAfterOpen 1
 // phpcs:set Squiz.Functions.FunctionDeclarationArgumentSpacing requiredSpacesBeforeClose 1
-function myFunc($blah ) {}
-function myFunc($blah ) {}
-function myFunc($blah ) {}
-function myFunc(array $blah ) {}
-function myFunc(array $blah ) {}
-function myFunc(array $blah ) {}
+function myFunc($blah) {}
+function myFunc($blah) {}
+function myFunc($blah) {}
+function myFunc(array $blah) {}
+function myFunc(array $blah) {}
+function myFunc(array $blah) {}
 function myFunc() {}
 function myFunc() {}
 

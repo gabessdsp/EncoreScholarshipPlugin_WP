@@ -111,7 +111,7 @@ function longArrayWithConstantKey() {
     $arr = array(
         /* testClassConstantAsLongArrayKey */
         SomeClass::DEFAULT => 1,
-    );
+   );
 }
 
 function yieldWithConstantKey() {
@@ -129,9 +129,9 @@ function longArrayWithConstantKeyNestedInMatch() {
                 DEFAULT => array(
                     /* testClassConstantAsLongArrayKeyNestedInMatchLevelDown */
                     SomeClass::DEFAULT => 1,
-                ),
+               ),
             },
-        ),
+       ),
     };
 }
 
@@ -159,7 +159,7 @@ function longArrayWithConstantKeyWithNestedMatch() {
             /* testMatchDefaultNestedInLongArray */
             DEFAULT => 'foo'
         },
-    );
+   );
 }
 
 function shortArrayWithConstantKeyWithNestedMatch() {

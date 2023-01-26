@@ -60,14 +60,14 @@ class EmptyPHPStatementSniff implements Sniff
             if ($tokens[$prevNonEmpty]['code'] !== T_SEMICOLON
                 && $tokens[$prevNonEmpty]['code'] !== T_OPEN_TAG
                 && $tokens[$prevNonEmpty]['code'] !== T_OPEN_TAG_WITH_ECHO
-            ) {
+           ) {
                 if (isset($tokens[$prevNonEmpty]['scope_condition']) === false) {
                     return;
                 }
 
                 if ($tokens[$prevNonEmpty]['scope_opener'] !== $prevNonEmpty
                     && $tokens[$prevNonEmpty]['code'] !== T_CLOSE_CURLY_BRACKET
-                ) {
+               ) {
                     return;
                 }
 
@@ -84,7 +84,7 @@ class EmptyPHPStatementSniff implements Sniff
                 $lastCloser = array_pop($nested);
                 if (isset($tokens[$lastCloser]['parenthesis_owner']) === true
                     && $tokens[$tokens[$lastCloser]['parenthesis_owner']]['code'] === T_FOR
-                ) {
+               ) {
                     // Empty for() condition.
                     return;
                 }
@@ -94,13 +94,13 @@ class EmptyPHPStatementSniff implements Sniff
                 'Empty PHP statement detected: superfluous semi-colon.',
                 $stackPtr,
                 'SemicolonWithoutCodeDetected'
-            );
+           );
             if ($fix === true) {
                 $phpcsFile->fixer->beginChangeset();
 
                 if ($tokens[$prevNonEmpty]['code'] === T_OPEN_TAG
                     || $tokens[$prevNonEmpty]['code'] === T_OPEN_TAG_WITH_ECHO
-                ) {
+               ) {
                     // Check for superfluous whitespace after the semi-colon which will be
                     // removed as the `<?php ` open tag token already contains whitespace,
                     // either a space or a new line.
@@ -113,7 +113,7 @@ class EmptyPHPStatementSniff implements Sniff
                 for ($i = $stackPtr; $i > $prevNonEmpty; $i--) {
                     if ($tokens[$i]['code'] !== T_SEMICOLON
                         && $tokens[$i]['code'] !== T_WHITESPACE
-                    ) {
+                   ) {
                         break;
                     }
 
@@ -131,7 +131,7 @@ class EmptyPHPStatementSniff implements Sniff
             if ($prevNonEmpty === false
                 || ($tokens[$prevNonEmpty]['code'] !== T_OPEN_TAG
                 && $tokens[$prevNonEmpty]['code'] !== T_OPEN_TAG_WITH_ECHO)
-            ) {
+           ) {
                 return;
             }
 
@@ -139,7 +139,7 @@ class EmptyPHPStatementSniff implements Sniff
                 'Empty PHP open/close tag combination detected.',
                 $prevNonEmpty,
                 'EmptyPHPOpenCloseTagsDetected'
-            );
+           );
             if ($fix === true) {
                 $phpcsFile->fixer->beginChangeset();
 

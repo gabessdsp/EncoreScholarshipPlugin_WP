@@ -25,9 +25,9 @@ make_foo(/*the string*/string, /*test*/true);
 
 // phpcs:set PEAR.Functions.FunctionCallSignature requiredSpacesAfterOpen 1
 // phpcs:set PEAR.Functions.FunctionCallSignature requiredSpacesBeforeClose 1
-test(arg, arg2 );
-test(arg, arg2 );
-test(arg, arg2 );
+test(arg, arg2);
+test(arg, arg2);
+test(arg, arg2);
 // phpcs:set PEAR.Functions.FunctionCallSignature requiredSpacesAfterOpen 0
 // phpcs:set PEAR.Functions.FunctionCallSignature requiredSpacesBeforeClose 0
 
@@ -51,11 +51,11 @@ this.init = function(data) {
                     function(itemid, target) {
                     _foo(itemid);
                     }
-                );
+               );
             }
-        );
+       );
         }
-    );
+   );
 };
 
 a.prototype = {
@@ -79,6 +79,6 @@ a.prototype = {
 
             },
             }
-        );
+       );
     }
 };

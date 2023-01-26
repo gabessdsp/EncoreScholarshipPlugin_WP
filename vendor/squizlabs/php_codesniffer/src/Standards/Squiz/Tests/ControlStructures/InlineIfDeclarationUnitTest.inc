@@ -19,7 +19,7 @@ $args = array(
          '"'.((isset($this->stepInfo['description']) === TRUE) ? $this->stepInfo['description'] : '').'"',
          '"'.(isset($this->stepInfo['description']) === TRUE ? $this->stepInfo['description'] : '').'"',
          '"'.$this->stepInfo['title'].'"',
-        );
+       );
 
 echo (TRUE)?'Hello':'Bye';
 

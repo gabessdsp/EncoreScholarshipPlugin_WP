@@ -13,22 +13,22 @@ defined('ABSPATH') || die('this file requires wordpress core');
 
 class UserWrapper {
     protected $user = null;
-    public function __construct(\WP_User $user ) {
+    public function __construct(\WP_User $user) {
         $this->user = $user;
     }
-    public function __get($name ) {
+    public function __get($name) {
         return $this->user->$name;
     }
-    public function __call($name, $arguments ) {
+    public function __call($name, $arguments) {
         return call_user_func_array(array(
             $this->user,
             $name,
-        ), $arguments );
+       ), $arguments);
     }
-    public function get_meta($meta ) {
-        return get_user_meta($this->user->ID, $meta, true );
+    public function get_meta($meta) {
+        return get_user_meta($this->user->ID, $meta, true);
     }
-    public function set_meta($meta, $value ) {
-        update_user_meta($this->user->ID, $meta, $value );
+    public function set_meta($meta, $value) {
+        update_user_meta($this->user->ID, $meta, $value);
     }
 }

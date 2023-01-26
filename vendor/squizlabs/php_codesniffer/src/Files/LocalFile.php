@@ -50,7 +50,7 @@ class LocalFile extends File
 
                 if (strpos($firstContent, '@codingStandardsIgnoreFile') !== false
                     || stripos($firstContent, 'phpcs:ignorefile') !== false
-                ) {
+               ) {
                     // We are ignoring the whole file.
                     $this->ignored = true;
                     return;
@@ -114,7 +114,7 @@ class LocalFile extends File
 
             if (PHP_CODESNIFFER_VERBOSITY > 0
                 || (PHP_CODESNIFFER_CBF === true && empty($this->config->files) === false)
-            ) {
+           ) {
                 echo "[loaded from cache]... ";
             }
 
@@ -188,7 +188,7 @@ class LocalFile extends File
                         [],
                         $error['severity'],
                         $error['fixable']
-                    );
+                   );
                 }
             }
         }
@@ -206,7 +206,7 @@ class LocalFile extends File
                         [],
                         $error['severity'],
                         $error['fixable']
-                    );
+                   );
                 }
             }
         }

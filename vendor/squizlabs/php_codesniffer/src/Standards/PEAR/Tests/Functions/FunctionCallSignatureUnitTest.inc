@@ -6,8 +6,8 @@ isset ();
 test();
 test() ;
 test($arg);
-empty($arg );
-eval ($arg );
+empty($arg);
+eval ($arg);
 
 if (is_array($arg) === true) {
 
@@ -28,7 +28,7 @@ class TestClass extends MyClass
 }
 
 make_foo($string/*the string*/, true/*test*/);
-make_foo($string/*the string*/, true/*test*/ );
+make_foo($string/*the string*/, true/*test*/);
 make_foo($string /*the string*/, true /*test*/);
 make_foo(/*the string*/$string, /*test*/true);
 make_foo(/*the string*/$string, /*test*/true);
@@ -61,7 +61,7 @@ fputs(STDOUT,
     $ {$app} --all
     $ {$app} --all",
 $something
-    );
+   );
 
 // This is not a function call.
 function &testFunction($arg1,
@@ -112,7 +112,7 @@ function doSomething()
             $this->getX() // no comma here
                 ->doY()  // this is still the first method argument
                 ->doZ()  // this is still the first method argument
-        );
+       );
 }
 
 $var = myFunction(
@@ -149,7 +149,7 @@ function doSomething()
             $this->getX() // no comma here
                 ->doY()  // this is still the first method argument
                 ->doZ()  // this is still the first method argument
-        );
+       );
 }
 
 doError(
@@ -179,13 +179,13 @@ foo(
         'is',
 'an',
 'array'
-    ),
+   ),
     array(
         'this',
         'is',
         'an',
         'array'
-     ),
+    ),
     function($x)
     {
         echo 'wee';
@@ -205,17 +205,17 @@ function foo()
          * comment
         */
         'string'
-    );
+   );
 }
 
 // phpcs:set PEAR.Functions.FunctionCallSignature requiredSpacesAfterOpen 1
 // phpcs:set PEAR.Functions.FunctionCallSignature requiredSpacesBeforeClose 1
 test($arg, $arg2);
-test($arg, $arg2 );
-test( $arg, $arg2  );
+test($arg, $arg2);
+test( $arg, $arg2 );
 test();
 test();
-test( );
+test();
 // phpcs:set PEAR.Functions.FunctionCallSignature requiredSpacesAfterOpen 0
 // phpcs:set PEAR.Functions.FunctionCallSignature requiredSpacesBeforeClose 0
 
@@ -223,12 +223,12 @@ test( );
 <script>
     var foo = <?php echo bar(
         'baz'
-    ); ?>;
+   ); ?>;
 </script>
     <script>
         var foo = <?php echo bar(
             'baz'
-        ); ?>;
+       ); ?>;
     </script>
 <?php
 
@@ -249,7 +249,7 @@ $this->log(// ...
         isset($e->getData()['object']['evidence_details'])
             ? $e->getData()['object']['evidence_details']['due_by']
             : ''
-    ),
+   ),
     array($e->getData()['object'])
 );
 
@@ -260,7 +260,7 @@ $this->log(// ...
         [
             'class' => $class
         ]
-    ); ?>
+   ); ?>
 </div>
 
 <?php
@@ -268,7 +268,7 @@ if (true) {
     $test = '
    ' . function_0(
         $argument_0
-    );
+   );
 }
 
 if (true) {
@@ -276,7 +276,7 @@ if (true) {
    ' . function_0(
     $argument_0,
            $argument_1
-    );
+   );
 }
 
 myFunction(
@@ -285,7 +285,7 @@ myFunction(
             return true;
         },
         'baz' => false
-    )
+   )
 );
 $qux = array_filter(
     $quux, function ($x) {
@@ -319,7 +319,7 @@ foo(
 
 test(
         1,2,3,4
-    );
+   );
 
 class Test
 {
@@ -328,14 +328,14 @@ class Test
         return new static(
           'arg',
               'foo'
-        );
+       );
     }
 
     public function getSelf()
     {
         return new self(
          'a','b', 'c'
-        );
+       );
     }
 }
 
@@ -377,7 +377,7 @@ function foo()
      Bar(
         function () {
         }
-    );
+   );
 }
 
 $deprecated_functions = [
@@ -385,7 +385,7 @@ $deprecated_functions = [
        => function_call(// 7 spaces, not 8. This is the problem line.
         $a,
         $b
-    ),
+   ),
 ];
 
 $deprecated_functions = [
@@ -393,7 +393,7 @@ $deprecated_functions = [
          => function_call(// 9 spaces, not 8. This is the problem line.
         $a,
         $b
-    ),
+   ),
 ];
 
 // phpcs:set PEAR.Functions.FunctionCallSignature allowMultipleArguments false
@@ -439,7 +439,7 @@ function m()
     ' . f(
                 '1',
                 '2',
-            ) . '
+           ) . '
     ' : '');
 }
 
@@ -454,7 +454,7 @@ class C
 WHERE f IN(" . implode(
                 ",",
                 $a
-            ) . ")";
+           ) . ")";
     }
 }
 
@@ -462,7 +462,7 @@ $notices = array(
     'index' => sprintf(
         translation_function('a text string with %s placeholder'),
     'replacement'
-    ),
+   ),
 );
 
 $componentType = $this->componentTypeRepository->findByType($this->identifier) ?:
@@ -471,18 +471,18 @@ $componentType = $this->componentTypeRepository->findByType($this->identifier) ?
         $this->className,
         true,
         $this->isPrototypal
-    );
+   );
 
 return [
     'export-path' => 'exports/database/'
         . env(
             'APP_CUSTOMER',
             'not-configured'
-        )
+       )
         . '/' . env(
             'APP_IDENTIFIER',
             'not-configured'
-        ),
+       ),
 ];
 
 $methods .=
@@ -490,22 +490,22 @@ $methods .=
         array_keys($replacements),
         array_values($replacements),
         $methodTemplate
-    )
+   )
     . PHP_EOL . PHP_EOL . str_repeat(' ', 4);
 
 $rangeValues['min'] =
     $this->adjustLowerThreshold(
         $this->normalizeRatingForFilter($rangeValues['min'])
-    );
+   );
 
 $salesOrderThresholdTransfer->fromArray($salesOrderThresholdEntity->toArray(), true)
     ->setSalesOrderThresholdValue(
         $this->mapSalesOrderThresholdValueTransfer($salesOrderThresholdTransfer, $salesOrderThresholdEntity)
-    )->setCurrency(
+   )->setCurrency(
         (new CurrencyTransfer())->fromArray($salesOrderThresholdEntity->getCurrency()->toArray(), true)
-    )->setStore(
+   )->setStore(
         (new StoreTransfer())->fromArray($salesOrderThresholdEntity->getStore()->toArray(), true)
-    );
+   );
 
 return trim(preg_replace_callback(
             // sprintf replaces IGNORED_CHARS multiple times: for %s as well as %1$s (argument numbering)
@@ -521,30 +521,30 @@ return trim(preg_replace_callback(
                     return '';
                 },
                 $search
-            ));
+           ));
 
 $a = ['a' => function ($b) { return $b; }];
-$a['a'](1 );
+$a['a'](1);
 
 // PHP 8.0 named parameters.
 array_fill_keys(
     keys: range(
         1,
         12,
-    ),
+   ),
     value: true,
 );
 
 array_fill_keys(
     keys: range(1,
             12,
-    ), value: true,
+   ), value: true,
 );
 
 // phpcs:set PEAR.Functions.FunctionCallSignature allowMultipleArguments false
 array_fill_keys(
     keys: range(1,
             12,
-    ), value: true,
+   ), value: true,
 );
 // phpcs:set PEAR.Functions.FunctionCallSignature allowMultipleArguments true

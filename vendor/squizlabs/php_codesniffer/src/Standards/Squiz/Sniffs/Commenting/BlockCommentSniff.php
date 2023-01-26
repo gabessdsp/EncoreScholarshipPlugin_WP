@@ -132,7 +132,7 @@ class BlockCommentSniff implements Sniff
         while (($nextComment = $phpcsFile->findNext(T_WHITESPACE, ($nextComment + 1), null, true)) !== false) {
             if ($tokens[$nextComment]['code'] !== $tokens[$stackPtr]['code']
                 && isset(Tokens::$phpcsCommentTokens[$tokens[$nextComment]['code']]) === false
-            ) {
+           ) {
                 // Found the next bit of code.
                 break;
             }
@@ -147,7 +147,7 @@ class BlockCommentSniff implements Sniff
             $commentString .= $tokens[$nextComment]['content'];
             if ($tokens[$nextComment]['code'] === T_DOC_COMMENT_CLOSE_TAG
                 || substr($tokens[$nextComment]['content'], -2) === '*/'
-            ) {
+           ) {
                 break;
             }
         }//end while
@@ -208,7 +208,7 @@ class BlockCommentSniff implements Sniff
                     '$1'.$phpcsFile->eolChar.$indent,
                     $tokens[$stackPtr]['content'],
                     1
-                );
+               );
                 $phpcsFile->fixer->replaceToken($stackPtr, $comment);
             }
 
@@ -253,7 +253,7 @@ class BlockCommentSniff implements Sniff
                 if ($fix === true) {
                     if (isset($tokens[$commentLines[1]]['orig_content']) === true
                         && $tokens[$commentLines[1]]['orig_content'][0] === "\t"
-                    ) {
+                   ) {
                         // Line is indented using tabs.
                         $padding  = str_repeat("\t", floor($expected / $this->tabWidth));
                         $padding .= str_repeat(' ', ($expected % $this->tabWidth));
@@ -313,7 +313,7 @@ class BlockCommentSniff implements Sniff
                 if ($fix === true) {
                     if (isset($tokens[$line]['orig_content']) === true
                         && $tokens[$line]['orig_content'][0] === "\t"
-                    ) {
+                   ) {
                         // Line is indented using tabs.
                         $padding  = str_repeat("\t", floor($expected / $this->tabWidth));
                         $padding .= str_repeat(' ', ($expected % $this->tabWidth));
@@ -357,7 +357,7 @@ class BlockCommentSniff implements Sniff
                 if ($fix === true) {
                     if (isset($tokens[$line]['orig_content']) === true
                         && $tokens[$line]['orig_content'][0] === "\t"
-                    ) {
+                   ) {
                         // Line is indented using tabs.
                         $padding  = str_repeat("\t", floor($expected / $this->tabWidth));
                         $padding .= str_repeat(' ', ($expected % $this->tabWidth));
@@ -376,7 +376,7 @@ class BlockCommentSniff implements Sniff
             && $tokens[$contentBefore]['scope_opener'] === $contentBefore)
             || $tokens[$contentBefore]['code'] === T_OPEN_TAG
             || $tokens[$contentBefore]['code'] === T_OPEN_TAG_WITH_ECHO
-        ) {
+       ) {
             if (($tokens[$stackPtr]['line'] - $tokens[$contentBefore]['line']) !== 1) {
                 $error = 'Empty line not required before block comment';
                 $phpcsFile->addError($error, $stackPtr, 'HasEmptyLineBefore');

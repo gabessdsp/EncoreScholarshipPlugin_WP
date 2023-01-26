@@ -102,7 +102,7 @@ class ConcatenationSpacingSniff implements Sniff
             && ($after === $this->spacing
             || ($after === 'newline'
             && $this->ignoreNewlines === true))
-        ) {
+       ) {
             return;
         }
 
@@ -130,7 +130,7 @@ class ConcatenationSpacingSniff implements Sniff
                     if ($this->spacing === 0
                         && ($tokens[($stackPtr - 2)]['code'] === T_LNUMBER
                         || $tokens[($stackPtr - 2)]['code'] === T_DNUMBER)
-                    ) {
+                   ) {
                         $phpcsFile->fixer->replaceToken(($stackPtr - 2), '('.$tokens[($stackPtr - 2)]['content'].')');
                     }
 
@@ -147,7 +147,7 @@ class ConcatenationSpacingSniff implements Sniff
                     if ($this->spacing === 0
                         && ($tokens[($stackPtr + 2)]['code'] === T_LNUMBER
                         || $tokens[($stackPtr + 2)]['code'] === T_DNUMBER)
-                    ) {
+                   ) {
                         $phpcsFile->fixer->replaceToken(($stackPtr + 2), '('.$tokens[($stackPtr + 2)]['content'].')');
                     }
 

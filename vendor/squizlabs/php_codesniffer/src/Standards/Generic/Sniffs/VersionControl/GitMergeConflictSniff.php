@@ -85,7 +85,7 @@ class GitMergeConflictSniff implements Sniff
                         && $tokens[($i + 1)]['code'] === T_SL
                         && $tokens[($i + 2)]['code'] === T_STRING
                         && trim($tokens[($i + 2)]['content']) === '<<< HEAD'
-                    ) {
+                   ) {
                         $phpcsFile->addError($error, $i, 'OpenerFound', ['opener']);
                         $i += 2;
                     }
@@ -99,7 +99,7 @@ class GitMergeConflictSniff implements Sniff
                         && $tokens[($i + 3)]['code'] === T_GREATER_THAN
                         && $tokens[($i + 4)]['code'] === T_WHITESPACE
                         && $tokens[($i + 4)]['content'] === ' '
-                    ) {
+                   ) {
                         $phpcsFile->addError($error, $i, 'CloserFound', ['closer']);
                         $i += 4;
                     }
@@ -112,7 +112,7 @@ class GitMergeConflictSniff implements Sniff
                         && $tokens[($i + 2)]['code'] === T_EQUAL
                         && $tokens[($i + 3)]['code'] === T_WHITESPACE
                         && $tokens[($i + 3)]['content'] === "\n"
-                    ) {
+                   ) {
                         $phpcsFile->addError($error, $i, 'DelimiterFound', ['delimiter']);
                         $i += 3;
                     }
@@ -138,7 +138,7 @@ class GitMergeConflictSniff implements Sniff
                     if ($tokens[$i]['code'] === T_DOC_COMMENT_STRING) {
                         if ($tokens[$i]['content'] === '======='
                             && $tokens[($i + 1)]['code'] === T_DOC_COMMENT_WHITESPACE
-                        ) {
+                       ) {
                             $phpcsFile->addError($error, $i, 'DelimiterFound', ['delimiter']);
                             break;
                         }
@@ -160,7 +160,7 @@ class GitMergeConflictSniff implements Sniff
                         && $tokens[($i + 3)]['code'] === T_LESS_THAN
                         && $tokens[($i + 4)]['code'] === T_WHITESPACE
                         && trim($tokens[($i + 5)]['content']) === 'HEAD'
-                    ) {
+                   ) {
                         $phpcsFile->addError($error, $i, 'OpenerFound', ['opener']);
                         $i += 5;
                     }
@@ -173,7 +173,7 @@ class GitMergeConflictSniff implements Sniff
                         && $tokens[($i + 2)]['code'] === T_EQUAL
                         && $tokens[($i + 3)]['code'] === T_WHITESPACE
                         && $tokens[($i + 3)]['content'] === "\n"
-                    ) {
+                   ) {
                         $phpcsFile->addError($error, $i, 'DelimiterFound', ['delimiter']);
                         $i += 3;
                     }
@@ -185,7 +185,7 @@ class GitMergeConflictSniff implements Sniff
                         && isset($tokens[($i + 1)], $tokens[($i + 2)]) === true
                         && $tokens[($i + 1)]['code'] === T_ZSR
                         && $tokens[($i + 2)]['code'] === T_GREATER_THAN
-                    ) {
+                   ) {
                         $phpcsFile->addError($error, $i, 'CloserFound', ['closer']);
                         $i += 2;
                     }
@@ -205,7 +205,7 @@ class GitMergeConflictSniff implements Sniff
                     if ($tokens[$i]['code'] === T_DOC_COMMENT_STRING) {
                         if ($tokens[$i]['content'] === '======='
                             && $tokens[($i + 1)]['code'] === T_DOC_COMMENT_WHITESPACE
-                        ) {
+                       ) {
                             $phpcsFile->addError($error, $i, 'DelimiterFound', ['delimiter']);
                             break;
                         }

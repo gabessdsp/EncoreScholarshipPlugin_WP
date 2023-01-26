@@ -110,7 +110,7 @@ namespace /* testNamespaceNameIsString1 */ my\ /* testNamespaceNameIsString2 */ 
         self $self,
         /* testParentIsKeyword */
         parent $parent
-    ) {
+   ) {
         /* testReturnIsKeyword */
         return $this;
     }

@@ -141,7 +141,7 @@ class Filter extends \RecursiveFilterIterator
             $this->basedir,
             $this->config,
             $this->ruleset
-        );
+       );
 
         // Set the ignore patterns so we don't have to generate them again.
         $children->ignoreDirPatterns  = $this->ignoreDirPatterns;

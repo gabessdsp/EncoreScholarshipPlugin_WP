@@ -17,7 +17,7 @@ $var = array(
 
         /* testClosureReturnType */
         'closure' => function($a) use($global) : Array {},
-    ),
+   ),
 );
 
 /* testFunctionDeclarationParamType */

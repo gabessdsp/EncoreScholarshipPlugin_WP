@@ -97,7 +97,7 @@ class Checkstyle implements Report
         $width=80,
         $interactive=false,
         $toScreen=true
-    ) {
+   ) {
         echo '<?xml version="1.0" encoding="UTF-8"?>'.PHP_EOL;
         echo '<checkstyle version="'.Config::VERSION.'">'.PHP_EOL;
         echo $cachedData;

@@ -25,10 +25,10 @@ $instance6 = new class {
 
 // Bad
 
-$instance1 = new class($arg )
+$instance1 = new class($arg)
 
 {};
-$instance2 = new class   ($one ,  $two ) {};
+$instance2 = new class   ($one ,  $two) {};
 $instance3 = new class(
 
 

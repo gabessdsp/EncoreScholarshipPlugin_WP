@@ -28,7 +28,7 @@ function test()
 =======
             'c' => 'c'
 >>>>>>> master
-        );
+       );
     }
 
 /*

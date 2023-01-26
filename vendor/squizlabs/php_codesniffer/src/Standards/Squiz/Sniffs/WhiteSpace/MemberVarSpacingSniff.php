@@ -66,7 +66,7 @@ class MemberVarSpacingSniff extends AbstractVariableSniff
 
             if ($tokens[$prev]['code'] === T_ATTRIBUTE_END
                 && isset($tokens[$prev]['attribute_opener']) === true
-            ) {
+           ) {
                 $prev  = $tokens[$prev]['attribute_opener'];
                 $start = $prev;
                 continue;
@@ -89,7 +89,7 @@ class MemberVarSpacingSniff extends AbstractVariableSniff
 
                         if ($tokens[$i]['code'] === T_WHITESPACE
                             && $tokens[$i]['line'] !== $tokens[($i + 1)]['line']
-                        ) {
+                       ) {
                             $error = 'Expected 0 blank lines after member var comment; %s found';
                             $data  = [$foundLines];
                             $fix   = $phpcsFile->addFixableError($error, $prev, 'AfterComment', $data);
@@ -112,7 +112,7 @@ class MemberVarSpacingSniff extends AbstractVariableSniff
                                         && $tokens[$i]['line'] === $tokens[$prev]['line']
                                         || ($tokens[$i]['column'] === 1
                                         && $tokens[$i]['line'] !== $tokens[($i + 1)]['line'])
-                                    ) {
+                                   ) {
                                         $phpcsFile->fixer->replaceToken($i, '');
                                     }
                                 }
@@ -149,13 +149,13 @@ class MemberVarSpacingSniff extends AbstractVariableSniff
         if ($tokens[$prev]['code'] === T_CLOSE_CURLY_BRACKET
             && isset($tokens[$prev]['scope_condition']) === true
             && $tokens[$tokens[$prev]['scope_condition']]['code'] === T_FUNCTION
-        ) {
+       ) {
             return;
         }
 
         if ($tokens[$prev]['code'] === T_OPEN_CURLY_BRACKET
             && isset(Tokens::$ooScopeTokens[$tokens[$tokens[$prev]['scope_condition']]['code']]) === true
-        ) {
+       ) {
             $errorMsg  = 'Expected %s blank line(s) before first member var; %s found';
             $errorCode = 'FirstIncorrect';
             $spacing   = (int) $this->spacingBeforeFirst;

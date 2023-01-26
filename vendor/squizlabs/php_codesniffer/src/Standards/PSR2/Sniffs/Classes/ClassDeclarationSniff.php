@@ -73,7 +73,7 @@ class ClassDeclarationSniff extends PEARClassDeclarationSniff
 
                 if (in_array($tokens[($stackPtr - 2)]['code'], [T_ABSTRACT, T_FINAL], true) === true
                     && $spaces !== 1
-                ) {
+               ) {
                     $prevContent = strtolower($tokens[($stackPtr - 2)]['content']);
                     $error       = 'Expected 1 space between %s and %s keywords; %s found';
                     $data        = [
@@ -89,7 +89,7 @@ class ClassDeclarationSniff extends PEARClassDeclarationSniff
                 }
             } else if ($tokens[($stackPtr - 2)]['code'] === T_ABSTRACT
                 || $tokens[($stackPtr - 2)]['code'] === T_FINAL
-            ) {
+           ) {
                 $prevContent = strtolower($tokens[($stackPtr - 2)]['content']);
                 $error       = 'Expected 1 space between %s and %s keywords; newline found';
                 $data        = [
@@ -129,7 +129,7 @@ class ClassDeclarationSniff extends PEARClassDeclarationSniff
             $next = $phpcsFile->findNext(T_WHITESPACE, ($stackPtr + 1), null, true);
             if ($next === $tokens[$stackPtr]['scope_opener']
                 && $tokens[$next]['line'] > $tokens[$stackPtr]['line']
-            ) {
+           ) {
                 $checkSpacing = false;
             }
         }
@@ -165,7 +165,7 @@ class ClassDeclarationSniff extends PEARClassDeclarationSniff
         // Check after the class/interface name.
         if ($className !== null
             && $tokens[($className + 2)]['line'] === $tokens[$className]['line']
-        ) {
+       ) {
             $gap = $tokens[($className + 1)]['content'];
             if (strlen($gap) !== 1) {
                 $found = strlen($gap);
@@ -214,7 +214,7 @@ class ClassDeclarationSniff extends PEARClassDeclarationSniff
 
                             if ($tokens[$i]['code'] === T_WHITESPACE
                                 || $tokens[$i]['code'] === T_COMMENT
-                            ) {
+                           ) {
                                 $phpcsFile->fixer->replaceToken($i, ' ');
                             }
                         }
@@ -305,7 +305,7 @@ class ClassDeclarationSniff extends PEARClassDeclarationSniff
                 && $multiLineImplements === true
                 && ($tokens[($className - 1)]['code'] !== T_NS_SEPARATOR
                 || $tokens[($className - 2)]['code'] !== T_STRING)
-            ) {
+           ) {
                 $prev = $phpcsFile->findPrevious(
                     [
                         T_NS_SEPARATOR,
@@ -314,7 +314,7 @@ class ClassDeclarationSniff extends PEARClassDeclarationSniff
                     ($className - 1),
                     $implements,
                     true
-                );
+               );
 
                 if ($prev === $implementsToken && $tokens[$className]['line'] !== ($tokens[$prev]['line'] + 1)) {
                     if ($keywordTokenType === T_EXTENDS) {
@@ -388,12 +388,12 @@ class ClassDeclarationSniff extends PEARClassDeclarationSniff
                 }//end if
             } else if ($tokens[($className - 1)]['code'] !== T_NS_SEPARATOR
                 || $tokens[($className - 2)]['code'] !== T_STRING
-            ) {
+           ) {
                 // Not part of a longer fully qualified class name.
                 if ($tokens[($className - 1)]['code'] === T_COMMA
                     || ($tokens[($className - 1)]['code'] === T_NS_SEPARATOR
                     && $tokens[($className - 2)]['code'] === T_COMMA)
-                ) {
+               ) {
                     $error = 'Expected 1 space before "%s"; 0 found';
                     $data  = [$tokens[$className]['content']];
                     $fix   = $phpcsFile->addFixableError($error, ($nextComma + 1), 'NoSpaceBeforeName', $data);
@@ -439,7 +439,7 @@ class ClassDeclarationSniff extends PEARClassDeclarationSniff
             if ($checkingImplements === true
                 && $tokens[($className + 1)]['code'] !== T_NS_SEPARATOR
                 && $tokens[($className + 1)]['code'] !== T_COMMA
-            ) {
+           ) {
                 if ($n !== ($classCount - 1)) {
                     // This is not the last class name, and the comma
                     // is not where we expect it to be.
@@ -484,7 +484,7 @@ class ClassDeclarationSniff extends PEARClassDeclarationSniff
         $prevContent = $phpcsFile->findPrevious(T_WHITESPACE, ($closeBrace - 1), null, true);
         if ($prevContent !== $tokens[$stackPtr]['scope_opener']
             && $tokens[$prevContent]['line'] !== ($tokens[$closeBrace]['line'] - 1)
-        ) {
+       ) {
             $error = 'The closing brace for the %s must go on the next line after the body';
             $data  = [$tokens[$stackPtr]['content']];
             $fix   = $phpcsFile->addFixableError($error, $closeBrace, 'CloseBraceAfterBody', $data);
@@ -514,7 +514,7 @@ class ClassDeclarationSniff extends PEARClassDeclarationSniff
             $nextContent    = $phpcsFile->findNext($ignoreTokens, ($closeBrace + 1), null, true);
             if ($tokens[$nextContent]['content'] !== $phpcsFile->eolChar
                 && $tokens[$nextContent]['line'] === $tokens[$closeBrace]['line']
-            ) {
+           ) {
                 $type  = strtolower($tokens[$stackPtr]['content']);
                 $error = 'Closing %s brace must be on a line by itself';
                 $data  = [$type];

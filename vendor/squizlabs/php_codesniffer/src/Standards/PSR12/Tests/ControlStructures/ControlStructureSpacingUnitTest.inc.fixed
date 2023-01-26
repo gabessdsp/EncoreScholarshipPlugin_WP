@@ -33,12 +33,12 @@ if (
     while (
         $expr1
         && $expr2
-    ) {
+   ) {
     }
     while (
         $expr1
         && $expr2
-    ) {
+   ) {
     }
 }
 
@@ -70,7 +70,7 @@ if (
             <<<EOD
 foobar!
 EOD
-        )
+       )
 ) {
     return;
 }
@@ -82,7 +82,7 @@ EOD
          * A multi-line comment.
          */
         && $foo === true
-    ) {
+   ) {
         break;
     }
 

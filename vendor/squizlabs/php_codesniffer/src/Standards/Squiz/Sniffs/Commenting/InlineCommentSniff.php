@@ -107,7 +107,7 @@ class InlineCommentSniff implements Sniff
                     || $tokens[$nextToken]['code'] === T_CLOSURE
                     || $tokens[$nextToken]['code'] === T_OBJECT
                     || $tokens[$nextToken]['code'] === T_PROTOTYPE
-                ) {
+               ) {
                     return;
                 }
             }
@@ -117,7 +117,7 @@ class InlineCommentSniff implements Sniff
                 ($stackPtr - 1),
                 null,
                 true
-            );
+           );
 
             if ($tokens[$prevToken]['code'] === T_OPEN_TAG) {
                 return;
@@ -149,7 +149,7 @@ class InlineCommentSniff implements Sniff
             // Special case for JS files.
             if ($tokens[$previousContent]['code'] === T_COMMA
                 || $tokens[$previousContent]['code'] === T_SEMICOLON
-            ) {
+           ) {
                 $lastContent = $phpcsFile->findPrevious(T_WHITESPACE, ($previousContent - 1), null, true);
                 if ($tokens[$lastContent]['code'] === T_CLOSE_CURLY_BRACKET) {
                     return;
@@ -309,7 +309,7 @@ class InlineCommentSniff implements Sniff
 
                 if (($type === T_FUNCTION || $type === T_CLOSURE)
                     && $tokens[$conditionPtr]['scope_closer'] === $next
-                ) {
+               ) {
                     $errorCode = 'SpacingAfterAtFunctionEnd';
                 }
             }

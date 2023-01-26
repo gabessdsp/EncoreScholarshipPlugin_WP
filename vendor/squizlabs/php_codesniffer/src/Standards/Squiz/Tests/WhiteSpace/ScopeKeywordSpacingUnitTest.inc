@@ -120,7 +120,7 @@ class ConstructorPropertyPromotionTest {
         protected $y = '',
         private   $z = null,
         $normalParam,
-    ) {}
+   ) {}
 }
 
 class ConstructorPropertyPromotionWithTypesTest {

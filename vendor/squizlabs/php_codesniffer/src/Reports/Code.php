@@ -298,7 +298,7 @@ class Code implements Report
                         $message,
                         $maxErrorSpace,
                         PHP_EOL.$errorPadding
-                    );
+                   );
 
                     echo $errorMsg.PHP_EOL;
                 }//end foreach
@@ -345,7 +345,7 @@ class Code implements Report
         $width=80,
         $interactive=false,
         $toScreen=true
-    ) {
+   ) {
         if ($cachedData === '') {
             return;
         }

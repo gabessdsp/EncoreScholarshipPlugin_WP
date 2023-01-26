@@ -49,7 +49,7 @@ class ReturnTypeDeclarationSniff implements Sniff
             || isset($tokens[$stackPtr]['parenthesis_closer']) === false
             || $tokens[$stackPtr]['parenthesis_opener'] === null
             || $tokens[$stackPtr]['parenthesis_closer'] === null
-        ) {
+       ) {
             return;
         }
 
@@ -66,11 +66,11 @@ class ReturnTypeDeclarationSniff implements Sniff
         if ($tokens[($returnType - 1)]['code'] !== T_WHITESPACE
             || $tokens[($returnType - 1)]['content'] !== ' '
             || $tokens[($returnType - 2)]['code'] !== T_COLON
-        ) {
+       ) {
             $error = 'There must be a single space between the colon and type in a return type declaration';
             if ($tokens[($returnType - 1)]['code'] === T_WHITESPACE
                 && $tokens[($returnType - 2)]['code'] === T_COLON
-            ) {
+           ) {
                 $fix = $phpcsFile->addFixableError($error, $returnType, 'SpaceBeforeReturnType');
                 if ($fix === true) {
                     $phpcsFile->fixer->replaceToken(($returnType - 1), ' ');

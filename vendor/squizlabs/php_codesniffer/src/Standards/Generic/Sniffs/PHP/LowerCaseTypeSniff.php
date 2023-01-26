@@ -79,7 +79,7 @@ class LowerCaseTypeSniff implements Sniff
                 $tokens[$stackPtr]['content'],
                 'PHP type casts must be lowercase; expected "%s" but found "%s"',
                 'TypeCastFound'
-            );
+           );
 
             return;
         }
@@ -112,7 +112,7 @@ class LowerCaseTypeSniff implements Sniff
                         $props['type_end_token'],
                         $error,
                         $errorCode
-                    );
+                   );
                 } else if (isset($this->phpTypes[strtolower($type)]) === true) {
                     $this->processType($phpcsFile, $props['type_token'], $type, $error, $errorCode);
                 }
@@ -143,7 +143,7 @@ class LowerCaseTypeSniff implements Sniff
                     $props['return_type_end_token'],
                     $error,
                     $errorCode
-                );
+               );
             } else if (isset($this->phpTypes[strtolower($returnType)]) === true) {
                 $this->processType($phpcsFile, $props['return_type_token'], $returnType, $error, $errorCode);
             }
@@ -175,7 +175,7 @@ class LowerCaseTypeSniff implements Sniff
                         $param['type_hint_end_token'],
                         $error,
                         $errorCode
-                    );
+                   );
                 } else if (isset($this->phpTypes[strtolower($typeHint)]) === true) {
                     $this->processType($phpcsFile, $param['type_hint_token'], $typeHint, $error, $errorCode);
                 }

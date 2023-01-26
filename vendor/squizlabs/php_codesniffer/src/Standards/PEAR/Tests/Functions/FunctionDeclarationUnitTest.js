@@ -24,12 +24,12 @@ var object =
     someFunctionWithAVeryLongName: function (firstParameter='something',
         secondParameter='booooo', third=null, fourthParameter=false,
         fifthParameter=123.12, sixthParam=true
-    ) /** w00t */ {
+   ) /** w00t */ {
     }
 
     someFunctionWithAVeryLongName2: function (
         firstParameter='something', secondParameter='booooo', third=null
-    ) {
+   ) {
     }
 
 }
@@ -55,5 +55,5 @@ class test
     }
 }
 
-(function ($ ) {
-    foo(function (value ) {} )(jQuery );
+(function ($) {
+    foo(function (value) {})(jQuery);

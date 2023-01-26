@@ -67,7 +67,7 @@ class OpeningFunctionBraceBsdAllmanSniff implements Sniff
             && (bool) $this->checkFunctions === false)
             || ($tokens[$stackPtr]['code'] === T_CLOSURE
             && (bool) $this->checkClosures === false)
-        ) {
+       ) {
             return;
         }
 

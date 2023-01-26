@@ -106,7 +106,7 @@ class ForbiddenStylesSniff implements Sniff
                 $style,
                 1,
                 $count
-            );
+           );
 
             if ($count === 0) {
                 return;

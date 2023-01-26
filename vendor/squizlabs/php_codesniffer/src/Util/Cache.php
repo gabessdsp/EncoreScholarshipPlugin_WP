@@ -98,7 +98,7 @@ class Cache
         $di     = new \RecursiveDirectoryIterator(
             $installDir,
             (\FilesystemIterator::KEY_AS_PATHNAME | \FilesystemIterator::CURRENT_AS_FILEINFO | \FilesystemIterator::SKIP_DOTS)
-        );
+       );
         $filter = new \RecursiveCallbackFilterIterator(
             $di,
             function ($file, $key, $iterator) {
@@ -118,13 +118,13 @@ class Cache
                     || $filename === 'Exceptions'
                     || $filename === 'Reports'
                     || $filename === 'Generators')
-                ) {
+               ) {
                     return false;
                 }
 
                 return true;
             }
-        );
+       );
 
         $iterator = new \RecursiveIteratorIterator($filter);
         foreach ($iterator as $file) {

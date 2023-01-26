@@ -80,7 +80,7 @@ class EmptyStatementSniff implements Sniff
             ($token['scope_opener'] + 1),
             ($token['scope_closer'] - 1),
             true
-        );
+       );
 
         if ($next !== false) {
             return;

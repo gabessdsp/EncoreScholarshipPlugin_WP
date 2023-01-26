@@ -121,7 +121,7 @@ abstract class AbstractPatternSniff implements Sniff
      *   array(
      *      T_WHITESPACE => 0, // 0 is the position where the T_WHITESPACE token
      *                         // should occur in the pattern.
-     *   );
+     *  );
      * </code>
      *
      * @param array $pattern The parsed pattern to find the acquire the token
@@ -295,11 +295,11 @@ abstract class AbstractPatternSniff implements Sniff
                             $stackPtr,
                             null,
                             true
-                        );
+                       );
 
                         if ($prev === false
                             || $tokens[$prev]['code'] !== $pattern[$i]['token']
-                        ) {
+                       ) {
                             return false;
                         }
 
@@ -308,13 +308,13 @@ abstract class AbstractPatternSniff implements Sniff
                         $tokenContent = $phpcsFile->getTokensAsString(
                             ($prev + 1),
                             ($stackPtr - $prev - 1)
-                        );
+                       );
 
                         $found = $tokens[$prev]['content'].$tokenContent.$found;
 
                         if (isset($pattern[($i - 1)]) === true
                             && $pattern[($i - 1)]['type'] === 'skip'
-                        ) {
+                       ) {
                             $stackPtr = $prev;
                         } else {
                             $stackPtr = ($prev - 1);
@@ -334,7 +334,7 @@ abstract class AbstractPatternSniff implements Sniff
                         $stackPtr,
                         null,
                         true
-                    );
+                   );
 
                     if ($next === false || isset($tokens[$next][$to]) === false) {
                         // If there was not opener, then we must be
@@ -357,13 +357,13 @@ abstract class AbstractPatternSniff implements Sniff
                 } else if ($pattern[$i]['type'] === 'newline') {
                     if ($this->ignoreComments === true
                         && isset(Tokens::$commentTokens[$tokens[$stackPtr]['code']]) === true
-                    ) {
+                   ) {
                         $startComment = $phpcsFile->findPrevious(
                             Tokens::$commentTokens,
                             ($stackPtr - 1),
                             null,
                             true
-                        );
+                       );
 
                         if ($tokens[$startComment]['line'] !== $tokens[($startComment + 1)]['line']) {
                             $startComment++;
@@ -372,7 +372,7 @@ abstract class AbstractPatternSniff implements Sniff
                         $tokenContent = $phpcsFile->getTokensAsString(
                             $startComment,
                             ($stackPtr - $startComment + 1)
-                        );
+                       );
 
                         $found    = $tokenContent.$found;
                         $stackPtr = ($startComment - 1);
@@ -388,7 +388,7 @@ abstract class AbstractPatternSniff implements Sniff
                             if (($tokens[($stackPtr - 1)]['content'] !== $phpcsFile->eolChar)
                                 && ($this->ignoreComments === true
                                 && isset(Tokens::$commentTokens[$tokens[($stackPtr - 1)]['code']]) === false)
-                            ) {
+                           ) {
                                 $hasError = true;
                             } else {
                                 $stackPtr--;
@@ -435,7 +435,7 @@ abstract class AbstractPatternSniff implements Sniff
                         // comment for readability.
                         if (isset($tokens[($stackPtr + 1)]) === true
                             && isset(Tokens::$commentTokens[$tokens[($stackPtr + 1)]['code']]) === true
-                        ) {
+                       ) {
                             continue;
                         }
                     }
@@ -453,12 +453,12 @@ abstract class AbstractPatternSniff implements Sniff
                                 $stackPtr,
                                 null,
                                 true
-                            );
+                           );
 
                             $tokenContent = $phpcsFile->getTokensAsString(
                                 $stackPtr,
                                 ($next - $stackPtr)
-                            );
+                           );
 
                             $lastAddedStackPtr = $stackPtr;
                             $stackPtr          = $next;
@@ -476,7 +476,7 @@ abstract class AbstractPatternSniff implements Sniff
 
                     if (isset($pattern[($i + 1)]) === true
                         && $pattern[($i + 1)]['type'] === 'skip'
-                    ) {
+                   ) {
                         // The next token is a skip token, so we just need to make
                         // sure the whitespace we found has *at least* the
                         // whitespace required.
@@ -497,11 +497,11 @@ abstract class AbstractPatternSniff implements Sniff
                         $stackPtr,
                         null,
                         true
-                    );
+                   );
 
                     if ($next === false
                         || $tokens[$next]['code'] !== $pattern[$i]['token']
-                    ) {
+                   ) {
                         // The next important token did not match the pattern.
                         return false;
                     }
@@ -511,7 +511,7 @@ abstract class AbstractPatternSniff implements Sniff
                             || $tokens[$next]['code'] === T_CLOSE_CURLY_BRACKET)
                             && isset($tokens[$next]['scope_condition']) === true
                             && $tokens[$next]['scope_condition'] > $lastAddedStackPtr
-                        ) {
+                       ) {
                             // This is a brace, but the owner of it is after the current
                             // token, which means it does not belong to any token in
                             // our pattern. This means the pattern is not for us.
@@ -522,7 +522,7 @@ abstract class AbstractPatternSniff implements Sniff
                             || $tokens[$next]['code'] === T_CLOSE_PARENTHESIS)
                             && isset($tokens[$next]['parenthesis_owner']) === true
                             && $tokens[$next]['parenthesis_owner'] > $lastAddedStackPtr
-                        ) {
+                       ) {
                             // This is a bracket, but the owner of it is after the current
                             // token, which means it does not belong to any token in
                             // our pattern. This means the pattern is not for us.
@@ -548,7 +548,7 @@ abstract class AbstractPatternSniff implements Sniff
                         if ($this->ignoreComments === false
                             || ($this->ignoreComments === true
                             && $hasComment === false)
-                        ) {
+                       ) {
                             $hasError = true;
                         }
 
@@ -567,7 +567,7 @@ abstract class AbstractPatternSniff implements Sniff
 
                     if (isset($pattern[($i + 1)]) === true
                         && $pattern[($i + 1)]['type'] === 'skip'
-                    ) {
+                   ) {
                         $stackPtr = $next;
                     } else {
                         $stackPtr = ($next + 1);
@@ -578,7 +578,7 @@ abstract class AbstractPatternSniff implements Sniff
                     $next = $phpcsFile->findNext(
                         $pattern[($i + 1)]['token'],
                         $stackPtr
-                    );
+                   );
 
                     if ($next === false) {
                         // Couldn't find the next token, so we must
@@ -593,11 +593,11 @@ abstract class AbstractPatternSniff implements Sniff
                     $next = $phpcsFile->findPrevious(
                         Tokens::$blockOpeners,
                         $stackPtr
-                    );
+                   );
 
                     if ($next === false
                         || isset($tokens[$next][$pattern[$i]['to']]) === false
-                    ) {
+                   ) {
                         // If there was not opener, then we must
                         // be using the wrong pattern.
                         return false;
@@ -656,7 +656,7 @@ abstract class AbstractPatternSniff implements Sniff
                             $stackPtr,
                             null,
                             true
-                        );
+                       );
 
                         if ($next < $newline) {
                             // We skipped a non-ignored token.
@@ -671,7 +671,7 @@ abstract class AbstractPatternSniff implements Sniff
                     $found .= $phpcsFile->getTokensAsString(
                         $stackPtr,
                         ($next - $stackPtr)
-                    );
+                   );
 
                     $lastAddedStackPtr = ($next - 1);
                 }

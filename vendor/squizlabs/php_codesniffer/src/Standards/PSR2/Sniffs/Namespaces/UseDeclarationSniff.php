@@ -60,7 +60,7 @@ class UseDeclarationSniff implements Sniff
         if ($next !== false
             && $tokens[$next]['code'] !== T_SEMICOLON
             && $tokens[$next]['code'] !== T_CLOSE_TAG
-        ) {
+       ) {
             $error = 'There must be one USE keyword per declaration';
 
             if ($tokens[$next]['code'] === T_COMMA) {
@@ -223,7 +223,7 @@ class UseDeclarationSniff implements Sniff
             || isset(Tokens::$phpcsCommentTokens[$tokens[$end]['code']]) === true)
             && substr($tokens[$end]['content'], 0, 2) === '/*'
             && substr($tokens[$end]['content'], -2) !== '*/'
-        ) {
+       ) {
             // Multi-line block comments are not allowed as trailing comment after a use statement.
             --$end;
         }

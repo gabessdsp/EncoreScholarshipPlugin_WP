@@ -84,7 +84,7 @@ class UpperCaseConstantNameSniff implements Sniff
         if ($tokens[$prev]['code'] === T_OBJECT_OPERATOR
             || $tokens[$prev]['code'] === T_DOUBLE_COLON
             || $tokens[$prev]['code'] === T_NULLSAFE_OBJECT_OPERATOR
-        ) {
+       ) {
             return;
         }
 

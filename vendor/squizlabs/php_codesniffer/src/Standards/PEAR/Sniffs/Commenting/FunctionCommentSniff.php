@@ -64,7 +64,7 @@ class FunctionCommentSniff implements Sniff
             && $this->minimumVisibility === 'public'
             || $scopeModifier === 'private'
             && ($this->minimumVisibility === 'public' || $this->minimumVisibility === 'protected')
-        ) {
+       ) {
             return;
         }
 
@@ -79,7 +79,7 @@ class FunctionCommentSniff implements Sniff
 
             if ($tokens[$commentEnd]['code'] === T_ATTRIBUTE_END
                 && isset($tokens[$commentEnd]['attribute_opener']) === true
-            ) {
+           ) {
                 $commentEnd = $tokens[$commentEnd]['attribute_opener'];
                 continue;
             }
@@ -100,14 +100,14 @@ class FunctionCommentSniff implements Sniff
 
         if ($tokens[$commentEnd]['code'] !== T_DOC_COMMENT_CLOSE_TAG
             && $tokens[$commentEnd]['code'] !== T_COMMENT
-        ) {
+       ) {
             $function = $phpcsFile->getDeclarationName($stackPtr);
             $phpcsFile->addError(
                 'Missing doc comment for function %s()',
                 $stackPtr,
                 'Missing',
                 [$function]
-            );
+           );
             $phpcsFile->recordMetric($stackPtr, 'Function has doc comment', 'no');
             return;
         } else {
@@ -127,7 +127,7 @@ class FunctionCommentSniff implements Sniff
 
                 if ($tokens[$i]['code'] === T_WHITESPACE
                     && $tokens[$i]['line'] !== $tokens[($i + 1)]['line']
-                ) {
+               ) {
                     $error = 'There must be no blank lines after the function comment';
                     $phpcsFile->addError($error, $commentEnd, 'SpacingAfter');
                     break;
@@ -382,7 +382,7 @@ class FunctionCommentSniff implements Sniff
                             $param['comment'],
                             $wrapLength,
                             $phpcsFile->eolChar.$padding
-                        );
+                       );
 
                         $phpcsFile->fixer->replaceToken($commentToken, $content);
                         for ($i = ($commentToken + 1); $i <= $param['comment_end']; $i++) {
@@ -453,7 +453,7 @@ class FunctionCommentSniff implements Sniff
                         $param['comment'],
                         $wrapLength,
                         $phpcsFile->eolChar.$padding
-                    );
+                   );
 
                     $phpcsFile->fixer->replaceToken($commentToken, $content);
                     for ($i = ($commentToken + 1); $i <= $param['comment_end']; $i++) {

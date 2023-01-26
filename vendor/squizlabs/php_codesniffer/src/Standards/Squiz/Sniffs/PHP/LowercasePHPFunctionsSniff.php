@@ -93,7 +93,7 @@ class LowercasePHPFunctionsSniff implements Sniff
                 && $tokens[$prev]['content'] === 'function'
                 && $prevPrev !== false
                 && $tokens[$prevPrev]['code'] === T_USE
-            ) {
+           ) {
                 $error = 'Use statements for PHP native functions must be lowercase; expected "%s" but found "%s"';
                 $data  = [
                     $contentLc,
@@ -120,7 +120,7 @@ class LowercasePHPFunctionsSniff implements Sniff
                 && ($tokens[$prevPrev]['code'] === T_STRING
                 || $tokens[$prevPrev]['code'] === T_NAMESPACE
                 || $tokens[$prevPrev]['code'] === T_NEW)
-            ) {
+           ) {
                 // Namespaced class/function, not an inbuilt function.
                 // Could potentially give false negatives for non-namespaced files
                 // when namespace\functionName() is encountered.
@@ -135,7 +135,7 @@ class LowercasePHPFunctionsSniff implements Sniff
 
         if ($tokens[$prev]['code'] === T_OBJECT_OPERATOR
             || $tokens[$prev]['code'] === T_NULLSAFE_OBJECT_OPERATOR
-        ) {
+       ) {
             // Not an inbuilt function.
             return;
         }

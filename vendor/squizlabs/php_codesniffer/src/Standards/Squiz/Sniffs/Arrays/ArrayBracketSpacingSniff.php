@@ -48,7 +48,7 @@ class ArrayBracketSpacingSniff implements Sniff
             && isset($tokens[$stackPtr]['bracket_closer']) === false)
             || ($tokens[$stackPtr]['code'] === T_CLOSE_SQUARE_BRACKET
             && isset($tokens[$stackPtr]['bracket_opener']) === false)
-        ) {
+       ) {
             // Bow out for parse error/during live coding.
             return;
         }

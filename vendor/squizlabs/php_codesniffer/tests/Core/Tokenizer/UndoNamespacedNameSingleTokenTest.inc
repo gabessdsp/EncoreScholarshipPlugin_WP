@@ -67,7 +67,7 @@ class MyClass
         ?Sublevel\Name $paramD,
 
     /* testReturnTypeFQN */
-    ) : ?\Name {
+   ) : ?\Name {
 
         try {
             /* testFunctionCallRelative */

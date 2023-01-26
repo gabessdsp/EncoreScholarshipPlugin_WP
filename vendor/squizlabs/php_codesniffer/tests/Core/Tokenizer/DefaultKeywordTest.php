@@ -157,7 +157,7 @@ class DefaultKeywordTest extends AbstractMethodUnitTest
                     $token,
                     $tokens[$i]['conditions'],
                     'T_DEFAULT condition not added for token belonging to the T_DEFAULT structure'
-                );
+               );
             }
         }
 

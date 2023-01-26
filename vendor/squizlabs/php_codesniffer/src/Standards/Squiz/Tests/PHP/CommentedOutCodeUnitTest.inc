@@ -88,17 +88,17 @@ function myFunction()
 
 // T_STRING is not a function call or not listed in _getFunctionListWithCallableArgument().
 
-	// function myFunction($param )
+	// function myFunction($param)
 	// {
 	//    do_something();
 	// }//end myFunction()
 	//
 
 /*
-function myFunction($param )
+function myFunction($param)
 {
 	// phpcs:disable Standard.Category.Sniff -- for reasons.
-	if (preg_match('`[abc]`', $param ) > 0 ) {
+	if (preg_match('`[abc]`', $param) > 0) {
 		do_something();
 	}
 	// phpcs:enable Standard.Category.Sniff -- for reasons.
@@ -107,17 +107,17 @@ function myFunction($param )
 */
 
 	/*
-	 * function myFunction($param ) // @phpcs:ignore Standard.Category.Sniff -- for reasons.
+	 * function myFunction($param) // @phpcs:ignore Standard.Category.Sniff -- for reasons.
 	 * {
 	 *
 	 * }//end myFunction()
 	 */
 
     /*
-     * function myFunction($param )
+     * function myFunction($param)
      * {
      *  // phpcs:disable Standard.Category.Sniff -- for reasons.
-     *  if (preg_match('`[abc]`', $param ) > 0 ) {
+     *  if (preg_match('`[abc]`', $param) > 0) {
      *      do_something();
      *  }
      *  // phpcs:enable Standard.Category.Sniff -- for reasons.
@@ -125,7 +125,7 @@ function myFunction($param )
      * }//end myFunction()
      */
 
-    // function myFunction($param )
+    // function myFunction($param)
     // {
           // phpcs:disable Standard.Category.Sniff -- for reasons.
     //    do_something();
@@ -145,11 +145,11 @@ echo 'something'; // @SuppressWarnings(PHPMD.UnusedLocalVariable)
 
 			// But override with a different text if any.
 			/*
-			$id = intval(str_replace('hook_name', '', $order_method['method_id'] ));
-			if (! empty($id )) {
+			$id = intval(str_replace('hook_name', '', $order_method['method_id']));
+			if (! empty($id)) {
 				$info_text = get_post_meta($location_id, 'meta_name');
 
-				if (! empty($info_text )) {
+				if (! empty($info_text)) {
 					$text = $info_text;
 				}
 

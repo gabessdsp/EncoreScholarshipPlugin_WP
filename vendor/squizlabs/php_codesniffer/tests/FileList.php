@@ -55,12 +55,12 @@ class FileList
         $directory = new \RecursiveDirectoryIterator(
             $directory,
             \RecursiveDirectoryIterator::UNIX_PATHS
-        );
+       );
         $flattened = new \RecursiveIteratorIterator(
             $directory,
             \RecursiveIteratorIterator::LEAVES_ONLY,
             \RecursiveIteratorIterator::CATCH_GET_CHILD
-        );
+       );
 
         if ($filter === '') {
             $filter = sprintf($this->baseRegex, preg_quote($this->rootPath));

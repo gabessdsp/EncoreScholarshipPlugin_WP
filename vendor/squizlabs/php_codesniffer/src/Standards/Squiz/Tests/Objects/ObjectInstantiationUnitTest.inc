@@ -32,7 +32,7 @@ function_call($time1 ?? new \DateTime());
 $return = function_call($time1 ?? new \DateTime()); // False negative depending on interpretation of the sniff.
 
 function returnViaTernary() {
-    return ($y == false ) ? ($x === true ? new Foo : new Bar) : new FooBar;
+    return ($y == false) ? ($x === true ? new Foo : new Bar) : new FooBar;
 }
 
 function nonAssignmentTernary() {

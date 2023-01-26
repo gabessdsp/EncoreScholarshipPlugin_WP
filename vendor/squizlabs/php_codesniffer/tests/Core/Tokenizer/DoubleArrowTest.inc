@@ -4,7 +4,7 @@ function simpleLongArray($x) {
     return array(
         /* testLongArrayArrowSimple */
         0 => 'Zero',
-    );
+   );
 }
 
 function simpleShortArray($x) {
@@ -18,7 +18,7 @@ function simpleLongList($x) {
     list(
         /* testLongListArrowSimple */
         0 => $a,
-    ) = $x;
+   ) = $x;
 }
 
 function simpleShortList($x) {
@@ -83,7 +83,7 @@ function matchNestedInLongArrayValue() {
             /* testMatchArrowInLongArrayValue3 */
             1 => 'a',
         },
-    );
+   );
 }
 
 function matchNestedInShortArrayValue() {
@@ -108,7 +108,7 @@ function matchNestedInLongArrayKey() {
         match ($test) { /* testMatchArrowInLongArrayKey1 */ 1 => 'a', /* testMatchArrowInLongArrayKey2 */ 2 => 'b' }
             /* testLongArrayArrowWithMatchKey */
             => 'dynamic keys, woho!',
-    );
+   );
 }
 
 function matchNestedInShortArrayKey() {
@@ -129,7 +129,7 @@ function arraysNestedInMatch() {
             'a' => 2,
             /* testLongArrayArrowInMatchBody3 */
             'b' => 3
-        ),
+       ),
         /* testMatchArrowWithShortArrayBodyWithoutKeys */
         1 => [1, 2, 3],
         /* testMatchArrowWithLongArrayBodyWithoutKeys */
@@ -224,7 +224,7 @@ function longArrayWithConstantKey() {
     $arr = array(
         /* testLongArrayArrowWithClassConstantKey */
         SomeClass::DEFAULT => 1,
-    );
+   );
 }
 
 function shortArrayWithConstantKey() {
@@ -245,7 +245,7 @@ function longArrayWithConstantKeyNestedInMatch() {
         default => array(
             /* testLongArrayArrowWithClassConstantKeyNestedInMatch */
             SomeClass::DEFAULT => 1,
-        ),
+       ),
     };
 }
 
@@ -267,7 +267,7 @@ function longArrayWithConstantKeyWithNestedMatch() {
             /* testMatchArrowNestedInLongArrayWithClassConstantKey */
             default => 'foo'
         },
-    );
+   );
 }
 
 function shortArrayWithConstantKeyWithNestedMatch() {

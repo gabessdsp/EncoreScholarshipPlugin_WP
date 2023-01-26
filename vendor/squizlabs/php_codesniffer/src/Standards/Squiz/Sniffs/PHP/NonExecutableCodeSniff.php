@@ -71,7 +71,7 @@ class NonExecutableCodeSniff implements Sniff
         if ($tokens[$i]['code'] === T_IF
             || $tokens[$i]['code'] === T_ELSE
             || $tokens[$i]['code'] === T_ELSEIF
-        ) {
+       ) {
             return;
         }
 
@@ -108,7 +108,7 @@ class NonExecutableCodeSniff implements Sniff
                         T_ENDSWITCH,
                     ],
                     ($end + 1)
-                );
+               );
 
                 if ($next !== false) {
                     $lastLine = $tokens[$end]['line'];
@@ -168,7 +168,7 @@ class NonExecutableCodeSniff implements Sniff
             // a case). So we need to ignore this token.
             if ($tokens[$condition]['code'] === T_SWITCH
                 && $tokens[$stackPtr]['code'] === T_BREAK
-            ) {
+           ) {
                 return;
             }
 
@@ -213,14 +213,14 @@ class NonExecutableCodeSniff implements Sniff
 
             if (isset($tokens[$start]['parenthesis_closer']) === true
                 && $tokens[$start]['code'] === T_OPEN_PARENTHESIS
-            ) {
+           ) {
                 $start = $tokens[$start]['parenthesis_closer'];
                 continue;
             }
 
             if (isset($tokens[$start]['bracket_closer']) === true
                 && $tokens[$start]['code'] === T_OPEN_CURLY_BRACKET
-            ) {
+           ) {
                 $start = $tokens[$start]['bracket_closer'];
                 continue;
             }
@@ -239,7 +239,7 @@ class NonExecutableCodeSniff implements Sniff
             if (isset(Tokens::$emptyTokens[$tokens[$i]['code']]) === true
                 || isset(Tokens::$bracketTokens[$tokens[$i]['code']]) === true
                 || $tokens[$i]['code'] === T_SEMICOLON
-            ) {
+           ) {
                 continue;
             }
 
@@ -248,7 +248,7 @@ class NonExecutableCodeSniff implements Sniff
             if (isset(Tokens::$ooScopeTokens[$tokens[$i]['code']]) === true
                 || $tokens[$i]['code'] === T_FUNCTION
                 || $tokens[$i]['code'] === T_CLOSURE
-            ) {
+           ) {
                 if (isset($tokens[$i]['scope_closer']) === false) {
                     // Parse error/Live coding.
                     return;

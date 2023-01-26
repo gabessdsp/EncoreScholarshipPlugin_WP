@@ -85,7 +85,7 @@ class FunctionClosingBraceSpaceSniff implements Sniff
         $nestedFunction = false;
         if ($phpcsFile->hasCondition($stackPtr, [T_FUNCTION, T_CLOSURE]) === true
             || isset($tokens[$stackPtr]['nested_parenthesis']) === true
-        ) {
+       ) {
             $nestedFunction = true;
         }
 

@@ -110,7 +110,7 @@ class Foo extends \SoapClient
         $options = array(),
         $inputHeaders = null,
         &$outputHeaders = array()
-    ) {
+   ) {
         // body
     }
 }

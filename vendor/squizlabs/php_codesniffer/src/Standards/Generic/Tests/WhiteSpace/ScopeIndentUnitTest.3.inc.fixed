@@ -13,7 +13,7 @@ function test()
     $x = f1(
         'test1', 'test2',
         'test3'
-    );
+   );
 }
 
 if ($foo) {

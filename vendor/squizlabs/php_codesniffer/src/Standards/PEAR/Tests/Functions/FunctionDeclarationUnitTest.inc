@@ -24,19 +24,19 @@ abstract class MyClass
     public function someFunctionWithAVeryLongName($firstParameter='something',
         $secondParameter='booooo', $third=null, $fourthParameter=false,
         $fifthParameter=123.12, $sixthParam=true
-    ) /** w00t */ {
+   ) /** w00t */ {
     }
 
     public function someFunctionWithAVeryLongName2(
         $firstParameter='something', $secondParameter='booooo', $third=null
-    ) {
+   ) {
     }
 
     protected abstract function processTokenWithinScope(
         PHP_CodeSniffer_File $phpcsFile,
         $stackPtr,
         $currScope
-    );
+   );
 
     protected abstract function processToken(
         PHP_CodeSniffer_File $phpcsFile,
@@ -67,7 +67,7 @@ function validateUrl(
     array $allowedSchemes=array(
                            'http',
                            'https',
-                          ),
+                         ),
     array $notAllowedSchemes=array('ftp', 'sftp')
 ) {
 }
@@ -107,7 +107,7 @@ $longArgs_longVars = function (
     $longArgument,
     $longerArgument,
     $muchLongerArgument
-    )  use (
+   )  use (
     $longVar1,
     $longerVar2,
     $muchLongerVar3
@@ -128,11 +128,11 @@ function test()
         $longArgument,
         $longerArgument,
         $muchLongerArgument
-    ) use (
+   ) use (
         $longVar1,
         $longerVar2,
         $muchLongerVar3
-    ) {
+   ) {
         // body
     };
 }
@@ -260,13 +260,13 @@ interface Foo {
         $longArgument,
         $longerArgument,
         $muchLongerArgument
-    ) ;
+   ) ;
 
     function qux (
         $longArgument,
         $longerArgument,
         $muchLongerArgument
-    ) : void ;
+   ) : void ;
 }
 
 trait Foo {
@@ -296,13 +296,13 @@ if(true) {
             $longArgument,
             $longerArgument,
             $muchLongerArgument
-        ) ;
+       ) ;
 
         function qux (
             $longArgument,
             $longerArgument,
             $muchLongerArgument
-        ) : void ;
+       ) : void ;
     }
 
     trait Foo {
@@ -322,7 +322,7 @@ class ConstructorPropertyPromotionSingleLineDocblockIndentOK
         public string $public,
         /** @var string */
         private string $private,
-    ) {
+   ) {
     }
 }
 
@@ -340,7 +340,7 @@ class ConstructorPropertyPromotionMultiLineDocblockAndAttributeIndentOK
          */
         #[NotBlank]
         private string $private,
-    ) {
+   ) {
     }
 }
 
@@ -351,7 +351,7 @@ class ConstructorPropertyPromotionSingleLineDocblockIncorrectIndent
       public string $public,
           /** @var string */
           private string $private,
-    ) {
+   ) {
     }
 }
 
@@ -369,7 +369,7 @@ class ConstructorPropertyPromotionMultiLineDocblockAndAttributeIncorrectIndent
  */
 #[NotBlank]
 private string $private,
-    ) {
+   ) {
     }
 }
 
@@ -379,7 +379,7 @@ class ConstructorPropertyPromotionMultiLineAttributesOK
         #[ORM\ManyToOne(
             Something: true,
             SomethingElse: 'text',
-        )]
+       )]
         #[Groups([
             'ArrayEntry',
             'Another.ArrayEntry',
@@ -389,9 +389,9 @@ class ConstructorPropertyPromotionMultiLineAttributesOK
                 'ArrayEntry',
                 'Another.ArrayEntry',
             ]
-        )]
+       )]
         private Type $property
-    ) {
+   ) {
         // Do something.
     }
 }
@@ -402,7 +402,7 @@ class ConstructorPropertyPromotionMultiLineAttributesIncorrectIndent
     #[ORM\ManyToOne(
         Something: true,
         SomethingElse: 'text',
-    )]
+   )]
             #[Groups([
                 'ArrayEntry',
                 'Another.ArrayEntry',
@@ -412,9 +412,9 @@ class ConstructorPropertyPromotionMultiLineAttributesIncorrectIndent
         'ArrayEntry',
         'Another.ArrayEntry',
     ]
-        )]
+       )]
         private Type $property
-    ) {
+   ) {
         // Do something.
     }
 }

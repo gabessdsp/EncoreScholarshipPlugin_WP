@@ -77,7 +77,7 @@ class UseDeclarationSniff implements Sniff
                     if ($tokens[$i]['code'] === T_WHITESPACE
                         && ($tokens[($i - 1)]['line'] === $tokens[$i]['line']
                         || $tokens[($i + 1)]['line'] === $tokens[$i]['line'])
-                    ) {
+                   ) {
                         continue;
                     }
 
@@ -119,7 +119,7 @@ class UseDeclarationSniff implements Sniff
                                 if ($tokens[$i]['code'] === T_WHITESPACE
                                     && $tokens[($i - 1)]['line'] !== $tokens[$i]['line']
                                     && $tokens[($i + 1)]['line'] !== $tokens[$i]['line']
-                                ) {
+                               ) {
                                     $phpcsFile->fixer->replaceToken($i, '');
                                 }
 
@@ -153,7 +153,7 @@ class UseDeclarationSniff implements Sniff
                             $phpcsFile->fixer->beginChangeset();
                             for ($x = ($useToken - 1); $x > $prev; $x--) {
                                 if ($tokens[$x]['line'] === $tokens[$useToken]['line']
-                                ) {
+                               ) {
                                     // Preserve indent.
                                     continue;
                                 }
@@ -231,7 +231,7 @@ class UseDeclarationSniff implements Sniff
 
                         if (isset(Tokens::$commentTokens[$tokens[$next]['code']]) === true
                             && $tokens[$next]['line'] === $tokens[$end]['line']
-                        ) {
+                       ) {
                             continue;
                         }
 
@@ -294,7 +294,7 @@ class UseDeclarationSniff implements Sniff
             for ($i = ($stackPtr + 1); $i < $opener; $i++) {
                 if ($tokens[$i]['line'] !== $tokens[($i + 1)]['line']
                     && $tokens[$i]['code'] !== T_WHITESPACE
-                ) {
+               ) {
                     $canFix = false;
                     break;
                 }

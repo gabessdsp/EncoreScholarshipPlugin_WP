@@ -63,7 +63,7 @@ class LogicalOperatorSpacingSniff implements Sniff
             $prev = $phpcsFile->findPrevious(T_WHITESPACE, ($stackPtr - 1), null, true);
             if ($tokens[$stackPtr]['line'] === $tokens[$prev]['line']
                 && $tokens[($stackPtr - 1)]['length'] !== 1
-            ) {
+           ) {
                 $found = $tokens[($stackPtr - 1)]['length'];
                 $error = 'Expected 1 space before logical operator; %s found';
                 $data  = [$found];
@@ -85,7 +85,7 @@ class LogicalOperatorSpacingSniff implements Sniff
             $next = $phpcsFile->findNext(T_WHITESPACE, ($stackPtr + 1), null, true);
             if ($tokens[$stackPtr]['line'] === $tokens[$next]['line']
                 && $tokens[($stackPtr + 1)]['length'] !== 1
-            ) {
+           ) {
                 $found = $tokens[($stackPtr + 1)]['length'];
                 $error = 'Expected 1 space after logical operator; %s found';
                 $data  = [$found];

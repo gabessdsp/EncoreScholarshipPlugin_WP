@@ -58,7 +58,7 @@ class DisallowMultipleAssignmentsSniff implements Sniff
             foreach ($nested as $opener => $closer) {
                 if (isset($tokens[$opener]['parenthesis_owner']) === true
                     && $tokens[$tokens[$opener]['parenthesis_owner']]['code'] === T_WHILE
-                ) {
+               ) {
                     return;
                 }
             }
@@ -130,7 +130,7 @@ class DisallowMultipleAssignmentsSniff implements Sniff
         if ($varToken < $start
             && $tokens[$varToken]['code'] !== T_OPEN_PARENTHESIS
             && $tokens[$varToken]['code'] !== T_OPEN_SQUARE_BRACKET
-        ) {
+       ) {
             $varToken = $start;
         }
 
@@ -152,7 +152,7 @@ class DisallowMultipleAssignmentsSniff implements Sniff
             || $tokens[$varToken]['code'] === T_SEMICOLON
             || $tokens[$varToken]['code'] === T_CLOSE_PARENTHESIS
             || isset($allowed[$tokens[$varToken]['code']]) === true
-        ) {
+       ) {
             return;
         }
 
@@ -171,7 +171,7 @@ class DisallowMultipleAssignmentsSniff implements Sniff
             foreach ($nested as $opener => $closer) {
                 if (isset($tokens[$opener]['parenthesis_owner']) === true
                     && isset($controlStructures[$tokens[$tokens[$opener]['parenthesis_owner']]['code']]) === true
-                ) {
+               ) {
                     $errorCode .= 'InControlStructure';
                     break;
                 }

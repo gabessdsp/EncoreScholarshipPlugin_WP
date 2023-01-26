@@ -76,7 +76,7 @@ class IncrementDecrementUsageSniff implements Sniff
             || ($tokens[($stackPtr - 1)]['code'] === T_STRING
             && ($tokens[($stackPtr - 2)]['code'] === T_OBJECT_OPERATOR
             || $tokens[($stackPtr - 2)]['code'] === T_NULLSAFE_OBJECT_OPERATOR))
-        ) {
+       ) {
             $start = ($stackPtr + 1);
         } else {
             $start = ($stackPtr + 2);

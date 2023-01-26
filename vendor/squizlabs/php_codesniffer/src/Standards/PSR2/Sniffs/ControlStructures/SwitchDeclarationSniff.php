@@ -52,7 +52,7 @@ class SwitchDeclarationSniff implements Sniff
         // We can't process SWITCH statements unless we know where they start and end.
         if (isset($tokens[$stackPtr]['scope_opener']) === false
             || isset($tokens[$stackPtr]['scope_closer']) === false
-        ) {
+       ) {
             return;
         }
 
@@ -84,7 +84,7 @@ class SwitchDeclarationSniff implements Sniff
             if ($type === 'case'
                 && ($tokens[($nextCase + 1)]['code'] !== T_WHITESPACE
                 || $tokens[($nextCase + 1)]['content'] !== ' ')
-            ) {
+           ) {
                 $error = 'CASE keyword must be followed by a single space';
                 $fix   = $phpcsFile->addFixableError($error, $nextCase, 'SpacingAfterCase');
                 if ($fix === true) {
@@ -111,7 +111,7 @@ class SwitchDeclarationSniff implements Sniff
                     if (isset(Tokens::$emptyTokens[$tokens[$next]['code']]) === false
                         || (isset(Tokens::$commentTokens[$tokens[$next]['code']]) === true
                         && $tokens[$next]['line'] !== $tokens[$opener]['line'])
-                    ) {
+                   ) {
                         break;
                     }
                 }
@@ -192,7 +192,7 @@ class SwitchDeclarationSniff implements Sniff
                     $prevCode = $phpcsFile->findPrevious(T_WHITESPACE, ($nextCode - 1), $nextCase, true);
                     if (isset(Tokens::$commentTokens[$tokens[$prevCode]['code']]) === false
                         && $this->findNestedTerminator($phpcsFile, ($opener + 1), $nextCode) === false
-                    ) {
+                   ) {
                         $error = 'There must be a comment when fall-through is intentional in a non-empty case body';
                         $phpcsFile->addError($error, $nextCase, 'TerminatingComment');
                     }
@@ -287,7 +287,7 @@ class SwitchDeclarationSniff implements Sniff
                     return $this->findNestedTerminator($phpcsFile, ($scopeOpener + 1), $scopeCloser);
                 } else if ($tokens[$prevToken]['code'] === T_ELSEIF
                     || $tokens[$prevToken]['code'] === T_ELSE
-                ) {
+               ) {
                     // If we find a terminating statement within this block,
                     // we continue with the previous ELSEIF or IF clause.
                     $hasTerminator = $this->findNestedTerminator($phpcsFile, ($scopeOpener + 1), $scopeCloser);

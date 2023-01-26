@@ -194,7 +194,7 @@ class Comment
             preg_match('/@[^\s]+/', $string, $matches, 0, $start);
             if (isset($matches[0]) === true
                 && substr(strtolower($matches[0]), 0, 7) !== '@phpcs:'
-            ) {
+           ) {
                 $tagName  = $matches[0];
                 $start   += strlen($tagName);
                 $tokens[] = [

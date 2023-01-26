@@ -4,14 +4,14 @@ class Something extends SomethingElse implements Whatever {}
 abstract public private protected function whatever() {}
 const array();
 foreach ($var as $var) { exit; }
-if ($a and $b or $c xor $d) { die; } elseif($var ) { } else {}
+if ($a and $b or $c xor $d) { die; } elseif($var) { } else {}
 goto a;
 
 Class Something EXTENDS SomethingElse implementS Whatever {}
 Abstract Public Private Protected function whatever() {}
 CONST array();
 ForEach ($var As $var) { Exit; }
-If ($a AND $b OR $c XOR $d) { Die; } ElseIf($var ) { } Else {}
+If ($a AND $b OR $c XOR $d) { Die; } ElseIf($var) { } Else {}
 GOTO a;
 $b = function (Array $a) {};
 const PRIVATE;

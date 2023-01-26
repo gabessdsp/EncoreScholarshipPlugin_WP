@@ -104,7 +104,7 @@ class ArbitraryParenthesesSpacingSniff implements Sniff
         if ($preOpener !== false
             && isset($this->ignoreTokens[$tokens[$preOpener]['code']]) === true
             && isset($tokens[$preOpener]['scope_condition']) === false
-        ) {
+       ) {
             // Function or language construct call.
             return;
         }
@@ -112,7 +112,7 @@ class ArbitraryParenthesesSpacingSniff implements Sniff
         // Check for empty parentheses.
         if ($tokens[$stackPtr]['code'] === T_OPEN_PARENTHESIS
             && isset($tokens[$stackPtr]['parenthesis_closer']) === true
-        ) {
+       ) {
             $nextNonEmpty = $phpcsFile->findNext(T_WHITESPACE, ($stackPtr + 1), null, true);
             if ($nextNonEmpty === $tokens[$stackPtr]['parenthesis_closer']) {
                 $phpcsFile->addWarning('Empty set of arbitrary parentheses found.', $stackPtr, 'FoundEmpty');
@@ -126,7 +126,7 @@ class ArbitraryParenthesesSpacingSniff implements Sniff
 
         if ($tokens[$stackPtr]['code'] === T_OPEN_PARENTHESIS
             && isset($tokens[($stackPtr + 1)], $tokens[($stackPtr + 2)]) === true
-        ) {
+       ) {
             $nextToken = $tokens[($stackPtr + 1)];
 
             if ($nextToken['code'] !== T_WHITESPACE) {
@@ -141,7 +141,7 @@ class ArbitraryParenthesesSpacingSniff implements Sniff
 
             if ($this->spacing !== $inside
                 && ($inside !== 'newline' || $this->ignoreNewlines === false)
-            ) {
+           ) {
                 $error = 'Expected %s space after open parenthesis; %s found';
                 $data  = [
                     $this->spacing,
@@ -180,7 +180,7 @@ class ArbitraryParenthesesSpacingSniff implements Sniff
 
         if ($tokens[$stackPtr]['code'] === T_CLOSE_PARENTHESIS
             && isset($tokens[($stackPtr - 1)], $tokens[($stackPtr - 2)]) === true
-        ) {
+       ) {
             $prevToken = $tokens[($stackPtr - 1)];
 
             if ($prevToken['code'] !== T_WHITESPACE) {
@@ -195,7 +195,7 @@ class ArbitraryParenthesesSpacingSniff implements Sniff
 
             if ($this->spacing !== $inside
                 && ($inside !== 'newline' || $this->ignoreNewlines === false)
-            ) {
+           ) {
                 $error = 'Expected %s space before close parenthesis; %s found';
                 $data  = [
                     $this->spacing,

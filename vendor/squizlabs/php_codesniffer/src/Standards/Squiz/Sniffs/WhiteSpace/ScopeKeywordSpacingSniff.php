@@ -55,32 +55,32 @@ class ScopeKeywordSpacingSniff implements Sniff
         if ($tokens[$stackPtr]['code'] === T_STATIC) {
             if (($nextToken === false || $tokens[$nextToken]['code'] === T_DOUBLE_COLON)
                 || $tokens[$prevToken]['code'] === T_NEW
-            ) {
+           ) {
                 // Late static binding, e.g., static:: OR new static() usage or live coding.
                 return;
             }
 
             if ($prevToken !== false
                 && $tokens[$prevToken]['code'] === T_TYPE_UNION
-            ) {
+           ) {
                 // Not a scope keyword, but a union return type.
                 return;
             }
 
             if ($prevToken !== false
                 && $tokens[$prevToken]['code'] === T_NULLABLE
-            ) {
+           ) {
                 // Not a scope keyword, but a return type.
                 return;
             }
 
             if ($prevToken !== false
                 && $tokens[$prevToken]['code'] === T_COLON
-            ) {
+           ) {
                 $prevPrevToken = $phpcsFile->findPrevious(Tokens::$emptyTokens, ($prevToken - 1), null, true);
                 if ($prevPrevToken !== false
                     && $tokens[$prevPrevToken]['code'] === T_CLOSE_PARENTHESIS
-                ) {
+               ) {
                     // Not a scope keyword, but a return type.
                     return;
                 }
@@ -100,7 +100,7 @@ class ScopeKeywordSpacingSniff implements Sniff
             $lastCloseParens = end($nestedParens);
             if (isset($tokens[$lastCloseParens]['parenthesis_owner']) === true
                 && $tokens[$tokens[$lastCloseParens]['parenthesis_owner']]['code'] === T_FUNCTION
-            ) {
+           ) {
                 $isInFunctionDeclaration = true;
             }
         }
@@ -108,7 +108,7 @@ class ScopeKeywordSpacingSniff implements Sniff
         if ($nextToken !== false
             && $tokens[$nextToken]['code'] === T_VARIABLE
             && $isInFunctionDeclaration === false
-        ) {
+       ) {
             $endOfStatement = $phpcsFile->findNext(T_SEMICOLON, ($nextToken + 1));
             if ($endOfStatement === false) {
                 // Live coding.
@@ -119,7 +119,7 @@ class ScopeKeywordSpacingSniff implements Sniff
             if ($multiProperty !== false
                 && $tokens[$stackPtr]['line'] !== $tokens[$nextToken]['line']
                 && $tokens[$nextToken]['line'] !== $tokens[$endOfStatement]['line']
-            ) {
+           ) {
                 // Allow for multiple properties definitions to each be on their own line.
                 return;
             }

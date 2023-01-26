@@ -32,14 +32,14 @@ $array = Array('val1', 'val2');
 $array = array(
           'key1' => 'value1',
           'key2' => 'value2',
-         );
+        );
         ]]>
         </code>
         <code title="Invalid: first key on same line">
         <![CDATA[
 $array = array('key1' => 'value1',
           'key2' => 'value2',
-         );
+        );
         ]]>
         </code>
     </code_comparison>
@@ -54,7 +54,7 @@ $array = array('key1' => 'value1',
 $array = array(
          <em> </em>'key1' => 'value1',
          <em> </em>'key2' => 'value2',
-         );
+        );
         ]]>
         </code>
         <code title="Invalid: keys and parenthesis aligned incorrectly">
@@ -77,7 +77,7 @@ $array = array(
 $array = array(
           'keyTen'<em>    </em>=> 'ValueTen',
           'keyTwenty'<em> </em>=> 'ValueTwenty',
-         );
+        );
         ]]>
         </code>
         <code title="Invalid: alignment incorrect">
@@ -85,7 +85,7 @@ $array = array(
 $array = array(
           'keyTen'<em> </em>=> 'ValueTen',
           'keyTwenty'<em> </em>=> 'ValueTwenty',
-         );
+        );
         ]]>
         </code>
     </code_comparison>
@@ -101,7 +101,7 @@ $array = array(
           'key1' => 'value1',
           'key2' => 'value2',
           'key3' => 'value3'<em>,</em>
-         );
+        );
         ]]>
         </code>
         <code title="Invalid: no comma after last value">
@@ -110,7 +110,7 @@ $array = array(
           'key1' => 'value1',
           'key2' => 'value2',
           'key3' => 'value3'<em> </em>
-         );
+        );
         ]]>
         </code>
     </code_comparison>

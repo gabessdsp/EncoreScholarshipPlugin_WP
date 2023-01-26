@@ -71,7 +71,7 @@ class EndFileNewlineSniff implements Sniff
         $lastLine = $tokens[$lastToken]['line'];
         if ($tokens[$lastToken]['code'] === T_WHITESPACE
             || $tokens[$lastToken]['code'] === T_DOC_COMMENT_WHITESPACE
-        ) {
+       ) {
             $lastCode = $phpcsFile->findPrevious([T_WHITESPACE, T_DOC_COMMENT_WHITESPACE], ($lastToken - 1), null, true);
         } else {
             $lastCode = $lastToken;

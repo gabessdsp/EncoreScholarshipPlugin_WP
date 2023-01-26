@@ -71,7 +71,7 @@ function setDefault(#[ImportValue(
                 ['type' => 'bool'],
             ],
         ]
-    )] ?bool $value = null): void
+   )] ?bool $value = null): void
     {
         // Do something
     }

@@ -74,7 +74,7 @@ class DuplicateClassDefinitionSniff implements Sniff
             $beforePrev = $phpcsFile->findPrevious(Tokens::$emptyTokens, ($prev - 1), null, true);
             if ($beforePrev !== false
                 && $tokens[$beforePrev]['code'] === T_CLOSE_CURLY_BRACKET
-            ) {
+           ) {
                 $scope = 'main';
             }
 

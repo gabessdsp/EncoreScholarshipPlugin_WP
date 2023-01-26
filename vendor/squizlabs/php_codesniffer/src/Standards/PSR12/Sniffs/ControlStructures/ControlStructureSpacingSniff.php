@@ -62,7 +62,7 @@ class ControlStructureSpacingSniff implements Sniff
 
         if (isset($tokens[$stackPtr]['parenthesis_opener']) === false
             || isset($tokens[$stackPtr]['parenthesis_closer']) === false
-        ) {
+       ) {
             return;
         }
 
@@ -97,7 +97,7 @@ class ControlStructureSpacingSniff implements Sniff
             if ($tokens[$i]['column'] !== 1
                 || $tokens[($i + 1)]['line'] > $tokens[$i]['line']
                 || isset(Tokens::$commentTokens[$tokens[$i]['code']]) === true
-            ) {
+           ) {
                 continue;
             }
 
@@ -108,7 +108,7 @@ class ControlStructureSpacingSniff implements Sniff
             // Leave indentation inside multi-line strings.
             if (isset(Tokens::$textStringTokens[$tokens[$i]['code']]) === true
                 || isset(Tokens::$heredocTokens[$tokens[$i]['code']]) === true
-            ) {
+           ) {
                 continue;
             }
 

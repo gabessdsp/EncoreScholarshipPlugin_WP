@@ -105,7 +105,7 @@ myFunction(
             return true;
         },
         'baz' => false
-    )
+   )
 );
 $qux = array_filter(
     $quux, function ($x) {
@@ -120,27 +120,27 @@ $this->listeners[] = $events->getSharedManager()->attach(
 // phpcs:set PSR2.Methods.FunctionCallSignature requiredSpacesBeforeClose 1
 foo('Testing
     multiline text'
- );
+);
 
 foo('Testing
     multiline text: ' // . $text
- );
+);
 
 foo('Testing
     multiline text: ' /* . $text */
- );
+);
 
 foo('Testing
     multiline text: ' /* . $text */
     // . $other_text
- );
+);
 
 foo('Testing
     multiline text: ' /*
  . $text
 // . $text2
  */
- );
+);
 // phpcs:set PSR2.Methods.FunctionCallSignature requiredSpacesBeforeClose 0
 
 foo('Testing
@@ -149,7 +149,7 @@ foo('Testing
 
 foo('Testing
     multiline text'
- );
+);
 
 foo('Testing
     multiline text' // hello
@@ -172,10 +172,10 @@ foo('Testing
 $var = foo('Testing
     multiline'
     // hi
-    ) + foo('Testing
+   ) + foo('Testing
     multiline'
     // hi
-    )
+   )
 ;
 
 class Test
@@ -185,14 +185,14 @@ class Test
         return new static(
           'arg',
               'foo'
-        );
+       );
     }
 
     public function getSelf()
     {
         return new self(
          'a', 'b', 'c'
-        );
+       );
     }
 }
 
@@ -225,7 +225,7 @@ return trim(preg_replace_callback(
                     return '';
                 },
                 $search
-            ));
+           ));
 
 return trim(preg_replace_callback(
 // sprintf replaces IGNORED_CHARS multiple times: for %s as well as %1$s (argument numbering)
@@ -248,20 +248,20 @@ array_fill_keys(
     keys: range(
         1,
         12,
-    ),
+   ),
     value: true,
 );
 
 array_fill_keys(
     keys: range(1,
             12,
-    ), value: true,
+   ), value: true,
 );
 
 // phpcs:set PSR2.Methods.FunctionCallSignature allowMultipleArguments true
 array_fill_keys(
     keys: range(1,
             12,
-    ), value: true,
+   ), value: true,
 );
 // phpcs:set PSR2.Methods.FunctionCallSignature allowMultipleArguments false

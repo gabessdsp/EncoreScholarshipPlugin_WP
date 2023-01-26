@@ -335,7 +335,7 @@ class Common
         $classFormat=false,
         $public=true,
         $strict=true
-    ) {
+   ) {
         // Check the first character first.
         if ($classFormat === false) {
             $legalFirstChar = '';

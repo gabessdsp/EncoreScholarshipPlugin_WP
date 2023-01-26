@@ -78,7 +78,7 @@ class LineEndingsSniff implements Sniff
             $lastToken = ($phpcsFile->numTokens - 1);
             if ($tokens[$lastToken]['line'] === 1
                 && $tokens[$lastToken]['content'] !== "\n"
-            ) {
+           ) {
                 return;
             }
         }
@@ -115,7 +115,7 @@ class LineEndingsSniff implements Sniff
             for ($i = 0; $i < $phpcsFile->numTokens; $i++) {
                 if (isset($tokens[($i + 1)]) === true
                     && $tokens[($i + 1)]['line'] <= $tokens[$i]['line']
-                ) {
+               ) {
                     continue;
                 }
 

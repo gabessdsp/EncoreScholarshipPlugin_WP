@@ -13,7 +13,7 @@ function foo(<em>&...$spread</em>) {
     bar(
         [<em>...$foo</em>],
         <em>...array_values($keyedArray)</em>
-    );
+   );
 }
         ]]>
         </code>
@@ -22,11 +22,11 @@ function foo(<em>&...$spread</em>) {
 function bar(<em>... </em>$spread) {
     bar(<em>...
         </em>$spread
-    );
+   );
 
     bar(
         [<em>...  </em>$foo ],<em>.../*comment*/</em>array_values($keyedArray)
-    );
+   );
 }
         ]]>
         </code>

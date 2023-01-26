@@ -66,7 +66,7 @@ class FunctionCallArgumentSpacingSniff implements Sniff
 
         if ($tokens[$stackPtr]['code'] === T_CLOSE_CURLY_BRACKET
             && isset($tokens[$stackPtr]['scope_condition']) === true
-        ) {
+       ) {
             // Not a function call.
             return;
         }
@@ -115,7 +115,7 @@ class FunctionCallArgumentSpacingSniff implements Sniff
         while (($nextSeparator = $phpcsFile->findNext($find, ($nextSeparator + 1), $closeBracket)) !== false) {
             if ($tokens[$nextSeparator]['code'] === T_CLOSURE
                 || $tokens[$nextSeparator]['code'] === T_ANON_CLASS
-            ) {
+           ) {
                 // Skip closures.
                 $nextSeparator = $tokens[$nextSeparator]['scope_closer'];
                 continue;

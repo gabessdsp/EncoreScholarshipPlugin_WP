@@ -50,7 +50,7 @@ class CamelCapsMethodNameSniff extends GenericCamelCapsFunctionNameSniff
             $magicPart = strtolower(substr($methodName, 2));
             if (isset($this->magicMethods[$magicPart]) === true
                 || isset($this->methodsDoubleUnderscore[$magicPart]) === true
-            ) {
+           ) {
                 return;
             }
         }

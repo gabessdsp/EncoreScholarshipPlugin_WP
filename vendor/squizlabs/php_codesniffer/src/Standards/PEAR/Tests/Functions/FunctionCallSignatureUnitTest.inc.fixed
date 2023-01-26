@@ -113,7 +113,7 @@ function doSomething()
             $this->getX() // no comma here
                 ->doY()  // this is still the first method argument
                 ->doZ()  // this is still the first method argument
-        );
+       );
 }
 
 $var = myFunction(
@@ -154,7 +154,7 @@ function doSomething()
             $this->getX() // no comma here
                 ->doY()  // this is still the first method argument
                 ->doZ()  // this is still the first method argument
-        );
+       );
 }
 
 doError(
@@ -184,13 +184,13 @@ foo(
         'is',
     'an',
     'array'
-    ),
+   ),
     array(
         'this',
         'is',
         'an',
         'array'
-     ),
+    ),
     function($x)
     {
         echo 'wee';
@@ -210,14 +210,14 @@ function foo()
          * comment
         */
         'string'
-    );
+   );
 }
 
 // phpcs:set PEAR.Functions.FunctionCallSignature requiredSpacesAfterOpen 1
 // phpcs:set PEAR.Functions.FunctionCallSignature requiredSpacesBeforeClose 1
-test($arg, $arg2 );
-test($arg, $arg2 );
-test($arg, $arg2 );
+test($arg, $arg2);
+test($arg, $arg2);
+test($arg, $arg2);
 test();
 test();
 test();
@@ -228,12 +228,12 @@ test();
 <script>
     var foo = <?php echo bar(
         'baz'
-    ); ?>;
+   ); ?>;
 </script>
     <script>
         var foo = <?php echo bar(
             'baz'
-        ); ?>;
+       ); ?>;
     </script>
 <?php
 
@@ -254,7 +254,7 @@ $this->log(// ...
         isset($e->getData()['object']['evidence_details'])
             ? $e->getData()['object']['evidence_details']['due_by']
             : ''
-    ),
+   ),
     array($e->getData()['object'])
 );
 
@@ -265,7 +265,7 @@ $this->log(// ...
         [
             'class' => $class
         ]
-    ); ?>
+   ); ?>
 </div>
 
 <?php
@@ -273,7 +273,7 @@ if (true) {
     $test = '
    ' . function_0(
         $argument_0
-    );
+   );
 }
 
 if (true) {
@@ -281,7 +281,7 @@ if (true) {
    ' . function_0(
         $argument_0,
         $argument_1
-    );
+   );
 }
 
 myFunction(
@@ -290,7 +290,7 @@ myFunction(
             return true;
         },
         'baz' => false
-    )
+   )
 );
 $qux = array_filter(
     $quux, function ($x) {
@@ -311,7 +311,7 @@ foo(
         $foo = 'foo';
         return;
     },
-    )
+   )
 );
 
 foo(
@@ -335,14 +335,14 @@ class Test
         return new static(
             'arg',
             'foo'
-        );
+       );
     }
 
     public function getSelf()
     {
         return new self(
             'a','b', 'c'
-        );
+       );
     }
 }
 
@@ -390,7 +390,7 @@ function foo()
     Bar(
         function () {
         }
-    );
+   );
 }
 
 $deprecated_functions = [
@@ -398,7 +398,7 @@ $deprecated_functions = [
     => function_call(// 7 spaces, not 8. This is the problem line.
         $a,
         $b
-    ),
+   ),
 ];
 
 $deprecated_functions = [
@@ -406,7 +406,7 @@ $deprecated_functions = [
         => function_call(// 9 spaces, not 8. This is the problem line.
             $a,
             $b
-        ),
+       ),
 ];
 
 // phpcs:set PEAR.Functions.FunctionCallSignature allowMultipleArguments false
@@ -449,7 +449,7 @@ function m()
     ' . f(
         '1',
         '2',
-    ) . '
+   ) . '
     ' : '');
 }
 
@@ -464,7 +464,7 @@ class C
 WHERE f IN(" . implode(
                 ",",
                 $a
-            ) . ")";
+           ) . ")";
     }
 }
 
@@ -472,7 +472,7 @@ $notices = array(
     'index' => sprintf(
         translation_function('a text string with %s placeholder'),
         'replacement'
-    ),
+   ),
 );
 
 $componentType = $this->componentTypeRepository->findByType($this->identifier) ?:
@@ -481,18 +481,18 @@ $componentType = $this->componentTypeRepository->findByType($this->identifier) ?
         $this->className,
         true,
         $this->isPrototypal
-    );
+   );
 
 return [
     'export-path' => 'exports/database/'
         . env(
             'APP_CUSTOMER',
             'not-configured'
-        )
+       )
         . '/' . env(
             'APP_IDENTIFIER',
             'not-configured'
-        ),
+       ),
 ];
 
 $methods .=
@@ -500,22 +500,22 @@ $methods .=
         array_keys($replacements),
         array_values($replacements),
         $methodTemplate
-    )
+   )
     . PHP_EOL . PHP_EOL . str_repeat(' ', 4);
 
 $rangeValues['min'] =
     $this->adjustLowerThreshold(
         $this->normalizeRatingForFilter($rangeValues['min'])
-    );
+   );
 
 $salesOrderThresholdTransfer->fromArray($salesOrderThresholdEntity->toArray(), true)
     ->setSalesOrderThresholdValue(
         $this->mapSalesOrderThresholdValueTransfer($salesOrderThresholdTransfer, $salesOrderThresholdEntity)
-    )->setCurrency(
+   )->setCurrency(
         (new CurrencyTransfer())->fromArray($salesOrderThresholdEntity->getCurrency()->toArray(), true)
-    )->setStore(
+   )->setStore(
         (new StoreTransfer())->fromArray($salesOrderThresholdEntity->getStore()->toArray(), true)
-    );
+   );
 
 return trim(
     preg_replace_callback(
@@ -532,7 +532,7 @@ return trim(
             return '';
         },
         $search
-    )
+   )
 );
 
 $a = ['a' => function ($b) { return $b; }];
@@ -543,7 +543,7 @@ array_fill_keys(
     keys: range(
         1,
         12,
-    ),
+   ),
     value: true,
 );
 
@@ -551,7 +551,7 @@ array_fill_keys(
     keys: range(
         1,
         12,
-    ), value: true,
+   ), value: true,
 );
 
 // phpcs:set PEAR.Functions.FunctionCallSignature allowMultipleArguments false
@@ -559,7 +559,7 @@ array_fill_keys(
     keys: range(
         1,
         12,
-    ),
+   ),
     value: true,
 );
 // phpcs:set PEAR.Functions.FunctionCallSignature allowMultipleArguments true

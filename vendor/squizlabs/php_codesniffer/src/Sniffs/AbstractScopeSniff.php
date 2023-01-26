@@ -72,7 +72,7 @@ abstract class AbstractScopeSniff implements Sniff
         array $scopeTokens,
         array $tokens,
         $listenOutside=false
-    ) {
+   ) {
         if (empty($scopeTokens) === true) {
             $error = 'The scope tokens list cannot be empty';
             throw new RuntimeException($error);

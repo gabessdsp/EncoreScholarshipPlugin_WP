@@ -129,7 +129,7 @@ if (foo) {
 if (array_key_exists(key, value)
     && foo.bar.baz(
         key, value2
-    )
+   )
 ) {
 }
 
@@ -161,7 +161,7 @@ if (IPP.errorCode() == 401
 function bar() {
     if (a
         && b
-    ) {
+   ) {
         return false;
     }
 }
@@ -170,7 +170,7 @@ if (a
     && foo(
         'a',
         'b'
-    )
+   )
 ) {
     return false;
 }
@@ -213,7 +213,7 @@ if (IPP.errorCode() == 401
 	 * phpcs:disable Standard.Category.Sniff -- for reasons.
 	 */
         || bar == 3200
-    ) {
+   ) {
         return false;
     }
 

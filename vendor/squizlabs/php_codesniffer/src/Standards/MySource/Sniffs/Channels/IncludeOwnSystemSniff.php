@@ -88,7 +88,7 @@ class IncludeOwnSystemSniff implements Sniff
         $phpcsFile,
         array $tokens,
         $stackPtr
-    ) {
+   ) {
 
         return false;
 

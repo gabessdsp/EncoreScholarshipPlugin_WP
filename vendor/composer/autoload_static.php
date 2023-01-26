@@ -8,7 +8,7 @@ class ComposerStaticInitad00092b0a550b46e70b04c05d33cd71
 {
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-    );
+   );
 
     public static function getInitializer(ClassLoader $loader)
     {

@@ -65,7 +65,7 @@ class ClassDeclarationSniff extends PSR2ClassDeclarationSniff
 
                 if ($tokens[($stackPtr - 2)]['code'] !== T_ABSTRACT
                     && $tokens[($stackPtr - 2)]['code'] !== T_FINAL
-                ) {
+               ) {
                     if ($spaces !== 0) {
                         $type  = strtolower($tokens[$stackPtr]['content']);
                         $error = 'Expected 0 spaces before %s keyword; %s found';
@@ -111,7 +111,7 @@ class ClassDeclarationSniff extends PSR2ClassDeclarationSniff
                 && ($tokens[$nextContent]['code'] === T_WHITESPACE
                 || $tokens[$nextContent]['code'] === T_COMMENT
                 || isset(Tokens::$phpcsCommentTokens[$tokens[$nextContent]['code']]) === true)
-            ) {
+           ) {
                 continue;
             }
 
@@ -131,7 +131,7 @@ class ClassDeclarationSniff extends PSR2ClassDeclarationSniff
 
         if ($difference === -1
             || $tokens[$lastContent]['line'] === $tokens[$closeBrace]['line']
-        ) {
+       ) {
             $error = 'Closing %s brace must be on a line by itself';
             $data  = [$tokens[$stackPtr]['content']];
             $fix   = $phpcsFile->addFixableError($error, $closeBrace, 'CloseBraceSameLine', $data);

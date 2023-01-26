@@ -76,7 +76,7 @@ class DisallowSelfActionsSniff implements Sniff
             $prevToken = $phpcsFile->findPrevious(T_WHITESPACE, ($i - 1), null, true);
             if ($tokens[$prevToken]['content'] !== 'self'
                 && $tokens[$prevToken]['content'] !== 'static'
-            ) {
+           ) {
                 continue;
             }
 

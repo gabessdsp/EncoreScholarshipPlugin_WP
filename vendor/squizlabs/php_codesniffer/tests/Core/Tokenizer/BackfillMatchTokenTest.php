@@ -489,7 +489,7 @@ class BackfillMatchTokenTest extends AbstractMethodUnitTest
                     $token,
                     $tokens[$i]['conditions'],
                     $tokenType.' condition not added for token belonging to the '.$tokenType.' structure'
-                );
+               );
             }
         }
 

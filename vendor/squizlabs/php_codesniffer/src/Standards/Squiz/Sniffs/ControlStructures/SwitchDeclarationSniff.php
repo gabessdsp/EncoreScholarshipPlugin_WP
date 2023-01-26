@@ -62,7 +62,7 @@ class SwitchDeclarationSniff implements Sniff
         // We can't process SWITCH statements unless we know where they start and end.
         if (isset($tokens[$stackPtr]['scope_opener']) === false
             || isset($tokens[$stackPtr]['scope_closer']) === false
-        ) {
+       ) {
             return;
         }
 
@@ -109,7 +109,7 @@ class SwitchDeclarationSniff implements Sniff
                     $padding = str_repeat(' ', ($caseAlignment - 1));
                     if ($tokens[$nextCase]['column'] === 1
                         || $tokens[($nextCase - 1)]['code'] !== T_WHITESPACE
-                    ) {
+                   ) {
                         $phpcsFile->fixer->addContentBefore($nextCase, $padding);
                     } else {
                         $phpcsFile->fixer->replaceToken(($nextCase - 1), $padding);
@@ -120,7 +120,7 @@ class SwitchDeclarationSniff implements Sniff
             if ($type === 'Case'
                 && ($tokens[($nextCase + 1)]['type'] !== 'T_WHITESPACE'
                 || $tokens[($nextCase + 1)]['content'] !== ' ')
-            ) {
+           ) {
                 $error = 'CASE keyword must be followed by a single space';
                 $fix   = $phpcsFile->addFixableError($error, $nextCase, 'SpacingAfterCase');
                 if ($fix === true) {
@@ -153,7 +153,7 @@ class SwitchDeclarationSniff implements Sniff
                 || $tokens[$nextBreak]['code'] === T_CONTINUE
                 || $tokens[$nextBreak]['code'] === T_THROW
                 || $tokens[$nextBreak]['code'] === T_EXIT
-            ) {
+           ) {
                 if ($tokens[$nextBreak]['scope_condition'] === $nextCase) {
                     // Only need to check a couple of things once, even if the
                     // break is shared between multiple case statements, or even
@@ -166,7 +166,7 @@ class SwitchDeclarationSniff implements Sniff
                             $padding = str_repeat(' ', ($caseAlignment - 1));
                             if ($tokens[$nextBreak]['column'] === 1
                                 || $tokens[($nextBreak - 1)]['code'] !== T_WHITESPACE
-                            ) {
+                           ) {
                                 $phpcsFile->fixer->addContentBefore($nextBreak, $padding);
                             } else {
                                 $phpcsFile->fixer->replaceToken(($nextBreak - 1), $padding);

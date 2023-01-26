@@ -49,7 +49,7 @@ class OpeningBraceSpaceSniff implements Sniff
         $next   = $phpcsFile->findNext(T_WHITESPACE, ($opener + 1), null, true);
         if ($next === false
             || $tokens[$next]['line'] <= ($tokens[$opener]['line'] + 1)
-        ) {
+       ) {
             return;
         }
 

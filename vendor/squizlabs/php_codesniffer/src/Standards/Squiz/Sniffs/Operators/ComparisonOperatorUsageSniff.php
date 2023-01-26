@@ -122,7 +122,7 @@ class ComparisonOperatorUsageSniff implements Sniff
                         // IF statement.
                         if (isset($tokens[$i]['parenthesis_closer']) === true
                             && $tokens[$i]['parenthesis_closer'] >= $stackPtr
-                        ) {
+                       ) {
                             break;
                         }
                     }//end if
@@ -181,7 +181,7 @@ class ComparisonOperatorUsageSniff implements Sniff
             if ($type === T_OPEN_PARENTHESIS
                 && isset($tokens[$i]['parenthesis_closer']) === true
                 && isset(Tokens::$functionNameTokens[$tokens[$lastNonEmpty]['code']]) === true
-            ) {
+           ) {
                 $i            = $tokens[$i]['parenthesis_closer'];
                 $lastNonEmpty = $i;
                 continue;
@@ -194,7 +194,7 @@ class ComparisonOperatorUsageSniff implements Sniff
             if ($phpcsFile->tokenizerType !== 'JS'
                 && ($tokens[$i]['code'] === T_BOOLEAN_AND
                 || $tokens[$i]['code'] === T_BOOLEAN_OR)
-            ) {
+           ) {
                 $requiredOps++;
 
                 // When the instanceof operator is used with another operator
@@ -224,7 +224,7 @@ class ComparisonOperatorUsageSniff implements Sniff
         if ($phpcsFile->tokenizerType !== 'JS'
             && $foundOps < $requiredOps
             && ($requiredOps !== $foundBooleans)
-        ) {
+       ) {
             $error = 'Implicit true comparisons prohibited; use === TRUE instead';
             $phpcsFile->addError($error, $stackPtr, 'ImplicitTrue');
         }

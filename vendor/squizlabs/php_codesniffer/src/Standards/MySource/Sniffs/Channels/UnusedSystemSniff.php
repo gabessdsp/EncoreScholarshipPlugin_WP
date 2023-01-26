@@ -46,7 +46,7 @@ class UnusedSystemSniff implements Sniff
         if ($methodName === 'includesystem'
             || $methodName === 'includeasset'
             || $methodName === 'includewidget'
-        ) {
+       ) {
             $systemName = $phpcsFile->findNext(T_WHITESPACE, ($stackPtr + 3), null, true);
             if ($systemName === false || $tokens[$systemName]['code'] !== T_CONSTANT_ENCAPSED_STRING) {
                 // Must be using a variable instead of a specific system name.
@@ -95,7 +95,7 @@ class UnusedSystemSniff implements Sniff
             if ($tokens[$i]['code'] !== T_DOUBLE_COLON
                 && $tokens[$i]['code'] !== T_EXTENDS
                 && $tokens[$i]['code'] !== T_IMPLEMENTS
-            ) {
+           ) {
                 continue;
             }
 

@@ -83,7 +83,7 @@ class DisallowSizeFunctionsInLoopsSniff implements Sniff
         for ($i = ($start + 1); $i < $end; $i++) {
             if ($tokens[$i]['code'] === T_STRING
                 && isset($this->forbiddenFunctions[$tokenizer][$tokens[$i]['content']]) === true
-            ) {
+           ) {
                 $functionName = $tokens[$i]['content'];
                 if ($tokenizer === 'JS') {
                     // Needs to be in the form object.function to be valid.
@@ -97,7 +97,7 @@ class DisallowSizeFunctionsInLoopsSniff implements Sniff
                     // Make sure it isn't a member var.
                     if ($tokens[($i - 1)]['code'] === T_OBJECT_OPERATOR
                         || $tokens[($i - 1)]['code'] === T_NULLSAFE_OBJECT_OPERATOR
-                    ) {
+                   ) {
                         continue;
                     }
 

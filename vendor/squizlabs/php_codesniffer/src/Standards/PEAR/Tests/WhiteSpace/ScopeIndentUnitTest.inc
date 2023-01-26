@@ -141,9 +141,9 @@ class Test2
                              'hello',
                              'hello again' => array(
                                                'hello',
-                                              ),
-                            ),
-                 );
+                                             ),
+                           ),
+                );
     }
 }
 
@@ -166,7 +166,7 @@ abstract class Test3
                     if ($last >= 3 &&
                         $ts[0]['token'] != T_CLASS &&
                         $ts[$last - 2]['token'] == T_OBJECT_OPERATOR &&
-                        $ts[$last - 3]['token'] == T_VARIABLE ) {
+                        $ts[$last - 3]['token'] == T_VARIABLE) {
 
 
                         if (true) {

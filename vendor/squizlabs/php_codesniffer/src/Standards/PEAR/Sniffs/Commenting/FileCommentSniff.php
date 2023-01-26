@@ -111,7 +111,7 @@ class FileCommentSniff implements Sniff
                     ($commentStart + 1),
                     null,
                     true
-                );
+               );
             }
         }
 
@@ -130,7 +130,7 @@ class FileCommentSniff implements Sniff
             return ($phpcsFile->numTokens + 1);
         } else if ($commentStart === false
             || $tokens[$commentStart]['code'] !== T_DOC_COMMENT_OPEN_TAG
-        ) {
+       ) {
             $phpcsFile->addError('Missing file doc comment', $errorToken, 'Missing');
             $phpcsFile->recordMetric($stackPtr, 'File has doc comment', 'no');
             return ($phpcsFile->numTokens + 1);
@@ -145,7 +145,7 @@ class FileCommentSniff implements Sniff
 
             if ($tokens[$nextToken]['code'] === T_ATTRIBUTE
                 && isset($tokens[$nextToken]['attribute_closer']) === true
-            ) {
+           ) {
                 $nextToken = $tokens[$nextToken]['attribute_closer'];
                 continue;
             }
@@ -189,7 +189,7 @@ class FileCommentSniff implements Sniff
                 break;
             } else if ($tokens[$i]['code'] === T_DOC_COMMENT_STRING
                 && strstr(strtolower($tokens[$i]['content']), 'php version') !== false
-            ) {
+           ) {
                 $found = true;
                 break;
             }
@@ -569,7 +569,7 @@ class FileCommentSniff implements Sniff
                 && strstr($content, 'SVN:') === false
                 && strstr($content, 'GIT:') === false
                 && strstr($content, 'HG:') === false
-            ) {
+           ) {
                 $error = 'Invalid version "%s" in file comment; consider "CVS: <cvs_id>" or "SVN: <svn_id>" or "GIT: <git_id>" or "HG: <hg_id>" instead';
                 $data  = [$content];
                 $phpcsFile->addWarning($error, $tag, 'InvalidVersion', $data);

@@ -30,30 +30,30 @@ class MyClass
         $fourthParameter=false,
         $fifthParameter=123.12,
         $sixthParam=true
-    ) /** w00t */ {
+   ) /** w00t */ {
     }
 
     public function someFunctionWithAVeryLongName2($firstParameter='something',
         $secondParameter='booooo',
         $third=null
-    ) {
+   ) {
     }
 
      public function someFunctionWithAVeryLongName3(
          $firstParameter, $secondParameter, $third=null
-     ) {
+    ) {
      }
 
      public function someFunctionWithAVeryLongName4(
          $firstParameter, $secondParameter
-     ) {
+    ) {
      }
 
      public function someFunctionWithAVeryLongName5(
          $firstParameter,
          $secondParameter=array(1,2,3),
          $third=null
-     ) {
+    ) {
      }
 
 }
@@ -205,7 +205,7 @@ class ConstructorPropertyPromotionSingleLineDocblockIndentOK
         public string $public,
         /** @var string */
         private string $private,
-    ) {
+   ) {
     }
 }
 
@@ -223,7 +223,7 @@ class ConstructorPropertyPromotionMultiLineDocblockAndAttributeIndentOK
          */
         #[NotBlank]
         private string $private,
-    ) {
+   ) {
     }
 }
 
@@ -234,7 +234,7 @@ class ConstructorPropertyPromotionSingleLineDocblockIncorrectIndent
       public string $public,
           /** @var string */
           private string $private,
-    ) {
+   ) {
     }
 }
 
@@ -252,6 +252,6 @@ class ConstructorPropertyPromotionMultiLineDocblockAndAttributeIncorrectIndent
  */
 #[NotBlank]
 private string $private,
-    ) {
+   ) {
     }
 }

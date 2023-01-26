@@ -58,7 +58,7 @@ class ClassCommentSniff extends FileCommentSniff
 
             if ($tokens[$commentEnd]['code'] === T_ATTRIBUTE_END
                 && isset($tokens[$commentEnd]['attribute_opener']) === true
-            ) {
+           ) {
                 $commentEnd = $tokens[$commentEnd]['attribute_opener'];
                 continue;
             }
@@ -68,7 +68,7 @@ class ClassCommentSniff extends FileCommentSniff
 
         if ($tokens[$commentEnd]['code'] !== T_DOC_COMMENT_CLOSE_TAG
             && $tokens[$commentEnd]['code'] !== T_COMMENT
-        ) {
+       ) {
             $errorData[] = $phpcsFile->getDeclarationName($stackPtr);
             $phpcsFile->addError('Missing doc comment for %s %s', $stackPtr, 'Missing', $errorData);
             $phpcsFile->recordMetric($stackPtr, 'Class has doc comment', 'no');

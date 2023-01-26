@@ -77,7 +77,7 @@ class DuplicateClassNameSniff implements Sniff
                     ($stackPtr + 1),
                     null,
                     true
-                );
+               );
 
                 $namespace = trim($phpcsFile->getTokensAsString(($stackPtr + 1), ($nsEnd - $stackPtr - 1)));
                 $stackPtr  = $nsEnd;

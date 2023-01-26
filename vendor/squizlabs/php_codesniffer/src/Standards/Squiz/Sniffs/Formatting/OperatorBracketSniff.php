@@ -118,12 +118,12 @@ class OperatorBracketSniff implements Sniff
 
         if ($tokens[$stackPtr]['code'] === T_BITWISE_OR
             && isset($tokens[$stackPtr]['nested_parenthesis']) === true
-        ) {
+       ) {
             $brackets    = $tokens[$stackPtr]['nested_parenthesis'];
             $lastBracket = array_pop($brackets);
             if (isset($tokens[$lastBracket]['parenthesis_owner']) === true
                 && $tokens[$tokens[$lastBracket]['parenthesis_owner']]['code'] === T_CATCH
-            ) {
+           ) {
                 // This is a pipe character inside a catch statement, so it is acting
                 // as an exception type separator and not an arithmetic operation.
                 return;
@@ -307,7 +307,7 @@ class OperatorBracketSniff implements Sniff
                 || isset(Tokens::$operators[$tokens[$before]['code']]) === true
                 || isset(Tokens::$castTokens[$tokens[$before]['code']]) === true
                 || isset($allowed[$tokens[$before]['code']]) === true
-            ) {
+           ) {
                 continue;
             }
 
@@ -347,7 +347,7 @@ class OperatorBracketSniff implements Sniff
                 || isset(Tokens::$operators[$tokens[$after]['code']]) === true
                 || isset(Tokens::$castTokens[$tokens[$after]['code']]) === true
                 || isset($allowed[$tokens[$after]['code']]) === true
-            ) {
+           ) {
                 continue;
             }
 

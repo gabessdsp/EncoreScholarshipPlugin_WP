@@ -171,7 +171,7 @@ class UnusedFunctionParameterSniff implements Sniff
             } else if ($code === T_DOUBLE_QUOTED_STRING
                 || $code === T_START_HEREDOC
                 || $code === T_START_NOWDOC
-            ) {
+           ) {
                 // Tokenize strings that can contain variables.
                 // Make sure the string is re-joined if it occurs over multiple lines.
                 $content = $token['content'];

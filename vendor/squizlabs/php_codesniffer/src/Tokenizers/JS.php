@@ -353,7 +353,7 @@ class JS extends Tokenizer
                     && $inComment === ''
                     && trim($char) === ''
                     && trim($buffer) !== ''
-                ) {
+               ) {
                     $tokens[] = [
                         'code'    => T_STRING,
                         'type'    => 'T_STRING',
@@ -471,7 +471,7 @@ class JS extends Tokenizer
                 && (preg_match('|[a-zA-z0-9_]|', $char) === 0
                 || isset($chars[($i + 1)]) === false
                 || preg_match('|[a-zA-z0-9_]|', $chars[($i + 1)]) === 0)
-            ) {
+           ) {
                 $matchedToken    = false;
                 $lookAheadLength = ($maxTokenLength - strlen($buffer));
 
@@ -507,7 +507,7 @@ class JS extends Tokenizer
                             if ($oldType === 'T_COMMENT'
                                 && $newType === 'T_DOC_COMMENT'
                                 && $chars[($i + $x + 1)] === '/'
-                            ) {
+                           ) {
                                 if (PHP_CODESNIFFER_VERBOSITY > 1) {
                                     echo "\t\t* look ahead ignored T_DOC_COMMENT, continuing *".PHP_EOL;
                                 }
@@ -624,7 +624,7 @@ class JS extends Tokenizer
             // Keep track of content inside comments.
             if ($inComment === ''
                 && array_key_exists($buffer, $this->commentTokens) === true
-            ) {
+           ) {
                 // This is not really a comment if the content
                 // looks like \// (i.e., it is escaped).
                 if (isset($chars[($i - 2)]) === true && $chars[($i - 2)] === '\\') {
@@ -763,25 +763,25 @@ class JS extends Tokenizer
                 while ($tokenContent !== $endContent) {
                     if ($endContent === null
                         && strpos($tokenContent, $this->eolChar) !== false
-                    ) {
+                   ) {
                         // A null end token means the comment ends at the end of
                         // the line so we look for newlines and split the token.
                         $tokens[$stackPtr]['content'] = substr(
                             $tokenContent,
                             (strpos($tokenContent, $this->eolChar) + strlen($this->eolChar))
-                        );
+                       );
 
                         $tokenContent = substr(
                             $tokenContent,
                             0,
                             (strpos($tokenContent, $this->eolChar) + strlen($this->eolChar))
-                        );
+                       );
 
                         // If the substr failed, skip the token as the content
                         // will now be blank.
                         if ($tokens[$stackPtr]['content'] !== false
                             && $tokens[$stackPtr]['content'] !== ''
-                        ) {
+                       ) {
                             $stackPtr--;
                         }
 
@@ -846,7 +846,7 @@ class JS extends Tokenizer
             // Convert numbers, including decimals.
             if ($token['code'] === T_STRING
                 || $token['code'] === T_OBJECT_OPERATOR
-            ) {
+           ) {
                 $newContent  = '';
                 $oldStackPtr = $stackPtr;
                 while (preg_match('|^[0-9\.]+$|', $tokens[$stackPtr]['content']) !== 0) {
@@ -881,7 +881,7 @@ class JS extends Tokenizer
                     if ($tokens[$i]['code'] !== T_PROTOTYPE
                         && $tokens[$i]['code'] !== T_LNUMBER
                         && $tokens[$i]['code'] !== T_DNUMBER
-                    ) {
+                   ) {
                         $tokens[$i]['code'] = T_STRING;
                         $tokens[$i]['type'] = 'T_STRING';
                     }
@@ -1102,7 +1102,7 @@ class JS extends Tokenizer
             } else if ($this->tokens[$i]['code'] === T_OPEN_CURLY_BRACKET
                 && isset($this->tokens[$i]['scope_condition']) === false
                 && isset($this->tokens[$i]['bracket_closer']) === true
-            ) {
+           ) {
                 $condition = $this->tokens[$i]['conditions'];
                 $condition = end($condition);
                 if ($condition === T_CLASS) {
@@ -1222,7 +1222,7 @@ class JS extends Tokenizer
 
                 if ($this->tokens[$label]['code'] !== T_STRING
                     && $this->tokens[$label]['code'] !== T_CONSTANT_ENCAPSED_STRING
-                ) {
+               ) {
                     continue;
                 }
 

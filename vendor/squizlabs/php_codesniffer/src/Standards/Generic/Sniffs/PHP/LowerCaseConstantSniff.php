@@ -74,7 +74,7 @@ class LowerCaseConstantSniff implements Sniff
         if ($tokens[$stackPtr]['code'] === T_FUNCTION
             || $tokens[$stackPtr]['code'] === T_CLOSURE
             || $tokens[$stackPtr]['code'] === T_FN
-        ) {
+       ) {
             if (isset($tokens[$stackPtr]['parenthesis_closer']) === false) {
                 return;
             }

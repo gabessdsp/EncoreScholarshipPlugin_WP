@@ -50,7 +50,7 @@ abstract class Generator
                 DIRECTORY_SEPARATOR.'Sniffs'.DIRECTORY_SEPARATOR,
                 DIRECTORY_SEPARATOR.'Docs'.DIRECTORY_SEPARATOR,
                 $file
-            );
+           );
             $docFile = str_replace('Sniff.php', 'Standard.xml', $docFile);
 
             if (is_file($docFile) === true) {

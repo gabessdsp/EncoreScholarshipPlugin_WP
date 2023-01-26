@@ -76,7 +76,7 @@ class Notifysend implements Report
             'notify-send ',
             '',
             exec($this->path.' --version')
-        );
+       );
 
     }//end __construct()
 
@@ -132,7 +132,7 @@ class Notifysend implements Report
         $width=80,
         $interactive=false,
         $toScreen=true
-    ) {
+   ) {
         $checkedFiles = explode(PHP_EOL, trim($cachedData));
 
         $msg = $this->generateMessage($checkedFiles, $totalErrors, $totalWarnings);

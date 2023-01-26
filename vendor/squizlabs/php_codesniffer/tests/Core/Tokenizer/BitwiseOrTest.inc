@@ -54,7 +54,7 @@ class TypeUnion
 
         /* testTypeUnionParam2 */
         Foo|\Bar /* testTypeUnionParam3 */ |Baz &...$paramB = null,
-    ) {
+   ) {
         /* testBitwiseOr3 */
         return (($a1 ^ $b1) |($a2 ^ $b2)) + $c;
     }
@@ -66,7 +66,7 @@ class TypeUnion
         Partially\Qualified\NameA|Partially\Qualified\NameB $paramB,
         /* testTypeUnionParamFullyQualified */
         \Fully\Qualified\NameA|\Fully\Qualified\NameB $paramC,
-    ) {}
+   ) {}
 
     /* testTypeUnionReturnType */
     public function returnType() : int|false {}
@@ -101,7 +101,7 @@ function globalFunctionWithSpreadAndReference(
 $closureWithReturnType = function ($string = NONSENSE | FAKE)/* testTypeUnionClosureReturn */ : \Package\MyA|PackageB {};
 
 /* testTypeUnionArrowParam */
-$arrowWithParamType = fn (object|array $param, /* testBitwiseOrArrowParamDefault */ ?int $int = CONSTA | CONSTB )
+$arrowWithParamType = fn (object|array $param, /* testBitwiseOrArrowParamDefault */ ?int $int = CONSTA | CONSTB)
     /* testBitwiseOrArrowExpression */
     => $param | $int;
 
@@ -120,7 +120,7 @@ $array = [
 
 /* testBitwiseOrTryCatch */
 try {
-} catch (ExceptionA | ExceptionB $e ) {
+} catch (ExceptionA | ExceptionB $e) {
 }
 
 /* testBitwiseOrNonArrowFnFunctionCall */

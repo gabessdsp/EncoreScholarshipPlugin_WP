@@ -67,7 +67,7 @@ class ControlStructureSpacingSniff implements Sniff
 
         if (isset($tokens[$stackPtr]['parenthesis_opener']) === true
             && isset($tokens[$stackPtr]['parenthesis_closer']) === true
-        ) {
+       ) {
             $parenOpener = $tokens[$stackPtr]['parenthesis_opener'];
             $parenCloser = $tokens[$stackPtr]['parenthesis_closer'];
             if ($tokens[($parenOpener + 1)]['code'] === T_WHITESPACE) {
@@ -92,7 +92,7 @@ class ControlStructureSpacingSniff implements Sniff
 
             if ($tokens[$parenOpener]['line'] === $tokens[$parenCloser]['line']
                 && $tokens[($parenCloser - 1)]['code'] === T_WHITESPACE
-            ) {
+           ) {
                 $gap   = $tokens[($parenCloser - 1)]['length'];
                 $error = 'Expected 0 spaces before closing bracket; %s found';
                 $data  = [$gap];
@@ -124,7 +124,7 @@ class ControlStructureSpacingSniff implements Sniff
             if ($code === T_WHITESPACE
                 || ($code === T_INLINE_HTML
                 && trim($tokens[$firstContent]['content']) === '')
-            ) {
+           ) {
                 continue;
             }
 
@@ -132,7 +132,7 @@ class ControlStructureSpacingSniff implements Sniff
             if ($tokens[$firstContent]['line'] === $tokens[$scopeOpener]['line']
                 && (isset(Tokens::$emptyTokens[$code]) === true
                 || $code === T_CLOSE_TAG)
-            ) {
+           ) {
                 continue;
             }
 
@@ -151,7 +151,7 @@ class ControlStructureSpacingSniff implements Sniff
 
         if (isset($ignore[$tokens[$firstContent]['code']]) === false
             && $tokens[$firstContent]['line'] >= ($tokens[$scopeOpener]['line'] + 2)
-        ) {
+       ) {
             $gap = ($tokens[$firstContent]['line'] - $tokens[$scopeOpener]['line'] - 1);
             $phpcsFile->recordMetric($stackPtr, 'Blank lines at start of control structure', $gap);
 
@@ -182,14 +182,14 @@ class ControlStructureSpacingSniff implements Sniff
                 ($scopeCloser - 1),
                 null,
                 true
-            );
+           );
 
             $lastNonEmptyContent = $phpcsFile->findPrevious(
                 Tokens::$emptyTokens,
                 ($scopeCloser - 1),
                 null,
                 true
-            );
+           );
 
             $checkToken = $lastContent;
             if (isset($tokens[$lastNonEmptyContent]['scope_condition']) === true) {
@@ -198,7 +198,7 @@ class ControlStructureSpacingSniff implements Sniff
 
             if (isset($ignore[$tokens[$checkToken]['code']]) === false
                 && $tokens[$lastContent]['line'] <= ($tokens[$scopeCloser]['line'] - 2)
-            ) {
+           ) {
                 $errorToken = $scopeCloser;
                 for ($i = ($scopeCloser - 1); $i > $lastContent; $i--) {
                     if ($tokens[$i]['line'] < $tokens[$scopeCloser]['line']) {
@@ -239,7 +239,7 @@ class ControlStructureSpacingSniff implements Sniff
             $next = $phpcsFile->findNext(Tokens::$emptyTokens, ($scopeCloser + 1), null, true);
             if ($next !== false
                 && ($tokens[$next]['code'] === T_SEMICOLON || $tokens[$next]['code'] === T_COMMA)
-            ) {
+           ) {
                 $scopeCloser = $next;
             }
         }
@@ -249,11 +249,11 @@ class ControlStructureSpacingSniff implements Sniff
             ($scopeCloser + 1),
             null,
             true
-        );
+       );
 
         if ($tokens[$trailingContent]['code'] === T_COMMENT
             || isset(Tokens::$phpcsCommentTokens[$tokens[$trailingContent]['code']]) === true
-        ) {
+       ) {
             // Special exception for code where the comment about
             // an ELSE or ELSEIF is written between the control structures.
             $nextCode = $phpcsFile->findNext(
@@ -261,12 +261,12 @@ class ControlStructureSpacingSniff implements Sniff
                 ($scopeCloser + 1),
                 null,
                 true
-            );
+           );
 
             if ($tokens[$nextCode]['code'] === T_ELSE
                 || $tokens[$nextCode]['code'] === T_ELSEIF
                 || $tokens[$trailingContent]['line'] === $tokens[$scopeCloser]['line']
-            ) {
+           ) {
                 $trailingContent = $nextCode;
             }
         }//end if
@@ -280,7 +280,7 @@ class ControlStructureSpacingSniff implements Sniff
 
         if ($tokens[$trailingContent]['code'] === T_WHILE
             && $tokens[$stackPtr]['code'] === T_DO
-        ) {
+       ) {
             // DO with WHILE.
             return;
         }
@@ -294,7 +294,7 @@ class ControlStructureSpacingSniff implements Sniff
             && $tokens[$trailingContent]['scope_condition'] !== $trailingContent
             && isset($tokens[$trailingContent]['scope_opener']) === true
             && $tokens[$trailingContent]['scope_opener'] !== $trailingContent
-        ) {
+       ) {
             // Another control structure's closing brace.
             $owner = $tokens[$trailingContent]['scope_condition'];
             if ($tokens[$owner]['code'] === T_FUNCTION) {
@@ -306,7 +306,7 @@ class ControlStructureSpacingSniff implements Sniff
             if ($tokens[$owner]['code'] === T_CLOSURE
                 && ($phpcsFile->hasCondition($stackPtr, [T_FUNCTION, T_CLOSURE]) === true
                 || isset($tokens[$stackPtr]['nested_parenthesis']) === true)
-            ) {
+           ) {
                 return;
             }
 
@@ -331,7 +331,7 @@ class ControlStructureSpacingSniff implements Sniff
             && $tokens[$trailingContent]['code'] !== T_CATCH
             && $tokens[$trailingContent]['code'] !== T_FINALLY
             && $tokens[$trailingContent]['line'] === ($tokens[$scopeCloser]['line'] + 1)
-        ) {
+       ) {
             $error = 'No blank line found after control structure';
             $fix   = $phpcsFile->addFixableError($error, $scopeCloser, 'NoLineAfterClose');
             if ($fix === true) {
@@ -340,12 +340,12 @@ class ControlStructureSpacingSniff implements Sniff
                     ($scopeCloser + 1),
                     null,
                     true
-                );
+               );
 
                 if (($tokens[$trailingContent]['code'] === T_COMMENT
                     || isset(Tokens::$phpcsCommentTokens[$tokens[$trailingContent]['code']]) === true)
                     && $tokens[$trailingContent]['line'] === $tokens[$scopeCloser]['line']
-                ) {
+               ) {
                     $phpcsFile->fixer->addNewline($trailingContent);
                 } else {
                     $phpcsFile->fixer->addNewline($scopeCloser);

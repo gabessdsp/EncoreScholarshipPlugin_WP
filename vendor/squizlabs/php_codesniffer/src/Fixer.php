@@ -337,7 +337,7 @@ class Fixer
     {
         if ($this->inChangeset === true
             && isset($this->changeset[$stackPtr]) === true
-        ) {
+       ) {
             return $this->changeset[$stackPtr];
         } else {
             return $this->tokens[$stackPtr];
@@ -479,7 +479,7 @@ class Fixer
 
         if ($this->inChangeset === false
             && isset($this->fixedTokens[$stackPtr]) === true
-        ) {
+       ) {
             $indent = "\t";
             if (empty($this->changeset) === false) {
                 $indent .= "\t";
@@ -540,7 +540,7 @@ class Fixer
         } else {
             if ($this->oldTokenValues[$stackPtr]['prev'] === $content
                 && $this->oldTokenValues[$stackPtr]['loop'] === ($this->loops - 1)
-            ) {
+           ) {
                 if (PHP_CODESNIFFER_VERBOSITY > 1) {
                     $indent = "\t";
                     if (empty($this->changeset) === false) {
@@ -771,14 +771,14 @@ class Fixer
         for ($i = $start; $i <= $end; $i++) {
             if ($tokens[$i]['column'] !== 1
                 || $tokens[($i + 1)]['line'] !== $tokens[$i]['line']
-            ) {
+           ) {
                 continue;
             }
 
             $length = 0;
             if ($tokens[$i]['code'] === T_WHITESPACE
                 || $tokens[$i]['code'] === T_DOC_COMMENT_WHITESPACE
-            ) {
+           ) {
                 $length = $tokens[$i]['length'];
 
                 $padding = ($length + $change);

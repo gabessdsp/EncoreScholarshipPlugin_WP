@@ -9,7 +9,7 @@ function test()
 
     $c = Array(
             'a' => 1,
-         );
+        );
 }
 
 class TestClass
@@ -17,12 +17,12 @@ class TestClass
     public $good = array(
                     'width'  => '',
                     'height' => '',
-                   );
+                  );
 
     private $_bad = Array(
                     'width' => '',
                     'height' => ''
-                     );
+                    );
 
 
     public function test()
@@ -30,28 +30,28 @@ class TestClass
         $truck = array(
                  'width' => '',
                   'height' => '',
-                 );
+                );
 
         $plane = Array(
                 'width' => '',
                   'height' => '',
-                 );
+                );
 
         $car = array(
                 'width' => '',
                 'height' => '',
-               );
+              );
 
         $bus = array(
                 'width'  =>   '',
                 'height' => ''
-               );
+              );
 
         $train = array  (
                    TRUE,
                   FALSE,
                   'aaa'
-                 );
+                );
 
         $inline = array('aaa', 'bbb', 'ccc');
         $inline = array('aaa');
@@ -65,16 +65,16 @@ class TestClass
                                     '111c'      => 'child',
                                     'children'  => Array(
                                                     'child' => 'aaa',
-                                                   ),
-                                   ),
+                                                  ),
+                                  ),
                    'short_name' => 'big'
-                  );
+                 );
     }
 
 }//end class
 
 $value = array ();
-$value = array( );
+$value = array();
 $value = array('1'=>$one, '2'  =>  $two, '3'=> $three, '4' =>$four);
 $value = array('1'=>$one);
 
@@ -90,84 +90,84 @@ $value = array(
 $value = array(
           '1'=> TRUE,
           FALSE,
-         );
+        );
 
 $value = array(
           TRUE,
           '1' => FALSE,
-         );
+        );
 
 $value = array(1,
           2 ,
           3 ,
-         );
+        );
 
 $value = array(1 => $one,
           2 => $two ,
           3 => $three ,
-         );
+        );
 
 $value = array(
           'tag'   => $tag,
           'space' => $this->_getIndentation($tag, $tagElement),
-         );
+        );
 
 $expected = array(
              array(
               '1' => 1,
               '1' => 2,
-             ),
-            );
+            ),
+           );
 
 $expected = array(
              array(
               '1' => 1,
               '1' => 2
-             )
-            );
+            )
+           );
 
 // Space in second arg.
 $args = array(
          '"'.$this->id.'"',
          (int) $hasSessions,
-        );
+       );
 
 // No errors.
 $paths = array(
           Init::ROOT_DIR.'/Systems'   => 'Systems',
           Init::ROOT_DIR.'/Installer' => 'Systems',
-         );
+        );
 
 $x = array(
-     );
+    );
 
 $x = array('test'
-     );
+    );
 $x = array('test',
-     );
+    );
 $x = array('name' => 'test',
-     );
+    );
 
 $x = array(
       $x,
-     );
+    );
 
 $func = array(
          $x,
          'get'.$x.'Replacement'
-        );
+       );
 
 $array = array(
           'input_one' => 'one',
           'inputTwo'  => 'two',
           'input_3'   => 3,
-         );
+        );
 
 $array = array(
           'input_one',
           'inputTwo',
           'input_3',
-         );
+        );
 
 // Malformed
 $foo = array(1
@@ -177,32 +177,32 @@ $listItems[$aliasPath] = array('itemContent' => implode('<br/>', $aliases));
 
 $listItems[$aliasPath] = array(
                           'itemContent' => implode('<br/>', $aliases)
-                         );
+                        );
 
 $x = array
   (
       $x,
       $y,
-     );
+    );
 
 $x = array
 (
       $x,
       $y,
-     );
+    );
 
 $x = array(
 
       $x,
       $y,
-     );
+    );
 
 $test = array(
          'test' => TestFunction::blah(
              $value1,
              $value2
-         ),
-        );
+        ),
+       );
 
 $c = array('a' => 1,);
 
@@ -211,7 +211,7 @@ function b()
     $a = array(
             'a'   => a('a'),
 
-    );
+   );
 
 }
 
@@ -228,43 +228,43 @@ $array = array(
           'required'   => TRUE,
           'validators' => array(
                            new \Zend\Validator\InArray(array('haystack' => array_keys($aSubjects))),
-                          ),
-         );
+                         ),
+        );
 
 $var = array(
         'ViewHelper',
         array('Foo'),
         'Errors',
-       );
+      );
 
 $data = array(
          'first',
          'second',
          'third',
          // Add more here
-        );
+       );
 
 $data = array(
          'first',
          'second',
          //'third',
-        );
+       );
 
 $data = array(
          'first',
          'second'
          //'third',
-        );
+       );
 
 $foo = array(
         $this->getViewName() . '.id'    => 'value',
         $this->getViewName() . '.title' => 'value',
-       );
+      );
 
 $foo = array(
         $this->getViewName() . '.id',
         $this->getViewName() . '.title',
-       );
+      );
 
 $weightings = array(
                T_CLOSURE             => 100,
@@ -288,18 +288,18 @@ $weightings = array(
                */
 
                T_IS_GREATER_OR_EQUAL => 5,
-              );
+             );
 
 foreach (array(
         'foo'    => 'bar',
         'foobaz' => 'bazzy',
-    ) as $key => $value) {
+   ) as $key => $value) {
 }
 
 $ids = array(
         '1', // Foo.
         '13', // Bar.
-       );
+      );
 
 array(
  'key1' => function($bar) {
@@ -317,7 +317,7 @@ array(
  'key1' => array(
             '1',
             '2',
-           )
+          )
 );
 
 $var = array(
@@ -327,7 +327,7 @@ $var = array(
         <div id="%s">
             %s
         </div>',
-       );
+      );
 
 function test() : array
 {
@@ -343,7 +343,7 @@ get_current_screen()->add_help_tab(array(
 Here comes some text.
 EOD
 ,
-                                    ));
+                                   ));
 
 $a = array
 // comment
@@ -366,8 +366,8 @@ $foo = array
                 ,'bar3'   => 1
                 ,'bar4'   => 1
                 ,'bar5'   => 1
-                )
-        );
+               )
+       );
 
 $foo = array(
         '1' => $row['status'] === 'rejected'
@@ -377,12 +377,12 @@ $foo = array(
             ? self::STATUS_PENDING
             : self::STATUS_VERIFIED,
         '3' => strtotime($row['date']),
-       );
+      );
 
 $foo = foo(
     array(
     // comment
-    )
+   )
 );
 
 $foo = array(
@@ -392,54 +392,54 @@ HERE
         <<<HERE
 HERE
       ,
-       );
+      );
 
 array(
  lorem(
      1
- ), 2,
+), 2,
 );
 
 array(
  1 => lorem(
      1
- ), 2 => 2,
+), 2 => 2,
 );
 
 $foo = array(
         'тип'  => 'авто',
         'цвет' => 'синий',
-       );
+      );
 
 $paths = array(
           Init::ROOT_DIR.'/тип'  => 'авто',
           Init::ROOT_DIR.'/цвет' => 'синий',
-         );
+        );
 
 $foo = array(<<<JSON
 {
 }
 JSON
-       );
+      );
 
 $array = array(
           'a'   => fn() => return 1,
           'bb'  => fn() => return 2,
-          'ccc' => (true ) ?
+          'ccc' => (true) ?
               fn() => return 1 :
               fn() => return 2,
-         );
+        );
 
 $array = array(
           1 => '1',
           2 => fn ($x) => yield 'a' => $x,
           3 => '3',
-         );
+        );
 
 $foo = array(
         $this->fn => 'value',
         $foo->fn => 'value',
-       );
+      );
 
 array($a, $b,
 $c);
@@ -473,7 +473,7 @@ yield array(
 
 yield array(
        static fn () : string => '',
-      );
+     );
 
 $foo = [
         'foo' => match ($anything) {
@@ -485,4 +485,4 @@ $foo = [
 // Intentional syntax error.
 $a = array(
       'a' =>
-     );
+    );

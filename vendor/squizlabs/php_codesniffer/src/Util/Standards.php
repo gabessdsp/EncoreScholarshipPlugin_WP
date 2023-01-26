@@ -78,7 +78,7 @@ class Standards
     public static function getInstalledStandardDetails(
         $includeGeneric=false,
         $standardsDir=''
-    ) {
+   ) {
         $rulesets = [];
 
         if ($standardsDir === '') {
@@ -167,7 +167,7 @@ class Standards
     public static function getInstalledStandards(
         $includeGeneric=false,
         $standardsDir=''
-    ) {
+   ) {
         $installedStandards = [];
 
         if ($standardsDir === '') {
@@ -248,7 +248,7 @@ class Standards
             if (is_file($standard) === true
                 && (substr(strtolower($standard), -4) === '.xml'
                 || substr(strtolower($standard), -9) === '.xml.dist')
-            ) {
+           ) {
                 return true;
             }
 

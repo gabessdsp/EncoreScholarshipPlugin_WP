@@ -64,7 +64,7 @@ class SpreadOperatorSpacingAfterSniff implements Sniff
 
         if ($this->ignoreNewlines === true
             && $tokens[$stackPtr]['line'] !== $tokens[$nextNonEmpty]['line']
-        ) {
+       ) {
             $phpcsFile->recordMetric($stackPtr, 'Spacing after spread operator', 'newline');
             return;
         }

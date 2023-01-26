@@ -104,7 +104,7 @@ class OnlyConstructorPropertyPromotion {
     public function __construct(
         public string $name = '',
         protected $bar
-    ) {}
+   ) {}
 }
 
 class ConstructorPropertyPromotionMixedWithNormalParams {
@@ -112,7 +112,7 @@ class ConstructorPropertyPromotionMixedWithNormalParams {
         public string $name = '',
         ?int $optionalParam = 0,
         mixed $requiredParam,
-    ) {}
+   ) {}
 }
 
 // Intentional syntax error. Must be last thing in the file.

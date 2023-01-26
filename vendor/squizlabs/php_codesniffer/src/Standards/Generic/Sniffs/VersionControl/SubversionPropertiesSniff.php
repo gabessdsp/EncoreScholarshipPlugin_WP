@@ -65,7 +65,7 @@ class SubversionPropertiesSniff implements Sniff
         foreach ($allProperties as $key => $value) {
             if (isset($properties[$key]) === true
                 && isset($this->properties[$key]) === false
-            ) {
+           ) {
                 $error = 'Unexpected Subversion property "%s" = "%s"';
                 $data  = [
                     $key,
@@ -77,7 +77,7 @@ class SubversionPropertiesSniff implements Sniff
 
             if (isset($properties[$key]) === false
                 && isset($this->properties[$key]) === true
-            ) {
+           ) {
                 $error = 'Missing Subversion property "%s" = "%s"';
                 $data  = [
                     $key,
@@ -89,7 +89,7 @@ class SubversionPropertiesSniff implements Sniff
 
             if ($properties[$key] !== null
                 && $properties[$key] !== $this->properties[$key]
-            ) {
+           ) {
                 $error = 'Subversion property "%s" = "%s" does not match "%s"';
                 $data  = [
                     $key,

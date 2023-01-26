@@ -110,8 +110,8 @@ if ($defaultPageDesign === 0
     $settingsUpdated = FALSE;
 }
 
-foreach ($blah as $var ) {
-    if ( $blah    ) {
+foreach ($blah as $var) {
+    if ( $blah   ) {
     }
 }
 
@@ -173,7 +173,7 @@ if ($one) {
 
 do {
     echo 'hi';
-} while ( $blah  );
+} while ( $blah );
 
 if ($one) {
 }
@@ -254,7 +254,7 @@ echo 'hi';
 
 <?php
 
-$expr = match($foo ){
+$expr = match($foo){
 
     1 => 1,
     2 => 2,

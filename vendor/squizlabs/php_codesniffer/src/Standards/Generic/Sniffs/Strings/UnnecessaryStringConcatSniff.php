@@ -90,7 +90,7 @@ class UnnecessaryStringConcatSniff implements Sniff
 
         if (isset(Tokens::$stringTokens[$tokens[$prev]['code']]) === true
             && isset(Tokens::$stringTokens[$tokens[$next]['code']]) === true
-        ) {
+       ) {
             if ($tokens[$prev]['content'][0] === $tokens[$next]['content'][0]) {
                 // Before we throw an error for PHP, allow strings to be
                 // combined if they would have < and ? next to each other because
@@ -106,7 +106,7 @@ class UnnecessaryStringConcatSniff implements Sniff
 
                 if ($this->allowMultiline === true
                     && $tokens[$prev]['line'] !== $tokens[$next]['line']
-                ) {
+               ) {
                     return;
                 }
 

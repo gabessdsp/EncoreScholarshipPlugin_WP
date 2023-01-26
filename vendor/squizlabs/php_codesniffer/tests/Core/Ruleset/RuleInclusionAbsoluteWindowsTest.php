@@ -105,13 +105,13 @@ class RuleInclusionAbsoluteWindowsTest extends TestCase
         $this->assertSame(
             'PHP_CodeSniffer\Standards\Generic\Sniffs\Formatting\SpaceAfterCastSniff',
             $this->ruleset->sniffCodes['Generic.Formatting.SpaceAfterCast']
-        );
+       );
 
         // Test that the sniff property is correctly set.
         $this->assertSame(
             '10',
             $this->ruleset->sniffs['PHP_CodeSniffer\Standards\Generic\Sniffs\Formatting\SpaceAfterCastSniff']->spacing
-        );
+       );
 
     }//end testWindowsStylePathRuleInclusion()
 

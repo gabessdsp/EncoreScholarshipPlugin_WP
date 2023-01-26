@@ -52,7 +52,7 @@ class ShortFormTypeKeywordsSniff implements Sniff
             && $typecastLc === 'bool')
             || ($tokens[$stackPtr]['code'] === T_INT_CAST
             && $typecastLc === 'int')
-        ) {
+       ) {
             return;
         }
 

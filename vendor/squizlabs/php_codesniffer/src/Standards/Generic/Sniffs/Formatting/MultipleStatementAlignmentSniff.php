@@ -147,7 +147,7 @@ class MultipleStatementAlignmentSniff implements Sniff
 
             if (isset($tokens[$assign]['scope_opener']) === true
                 && $tokens[$assign]['level'] === $tokens[$stackPtr]['level']
-            ) {
+           ) {
                 if (isset($scopes[$tokens[$assign]['code']]) === true) {
                     // This type of scope indicates that the assignment block is over.
                     break;
@@ -176,7 +176,7 @@ class MultipleStatementAlignmentSniff implements Sniff
                     && ($tokens[$assign]['line'] - $tokens[$lastCode]['line']) > 1
                     && $tokens[$assign]['level'] === $tokens[$stackPtr]['level']
                     && $arrayEnd === null
-                ) {
+               ) {
                     break;
                 }
 
@@ -187,14 +187,14 @@ class MultipleStatementAlignmentSniff implements Sniff
 
                 if ($tokens[$assign]['code'] === T_OPEN_SHORT_ARRAY
                     && isset($tokens[$assign]['bracket_closer']) === true
-                ) {
+               ) {
                     $arrayEnd = $tokens[$assign]['bracket_closer'];
                 }
 
                 if ($tokens[$assign]['code'] === T_ARRAY
                     && isset($tokens[$assign]['parenthesis_opener']) === true
                     && isset($tokens[$tokens[$assign]['parenthesis_opener']]['parenthesis_closer']) === true
-                ) {
+               ) {
                     $arrayEnd = $tokens[$tokens[$assign]['parenthesis_opener']]['parenthesis_closer'];
                 }
 
@@ -265,7 +265,7 @@ class MultipleStatementAlignmentSniff implements Sniff
                 ($assign - 1),
                 null,
                 true
-            );
+           );
 
             // Make sure we wouldn't break our max padding length if we
             // aligned with this statement, or they wouldn't break the max

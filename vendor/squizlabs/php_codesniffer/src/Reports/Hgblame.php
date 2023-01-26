@@ -39,7 +39,7 @@ class Hgblame extends VersionControl
             '|(.+[0-9]{2}:[0-9]{2}:[0-9]{2}\s[0-9]{4}\s.[0-9]{4}:)|',
             $line,
             $blameParts
-        );
+       );
 
         if (isset($blameParts[0]) === false) {
             return false;

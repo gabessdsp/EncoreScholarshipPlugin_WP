@@ -70,7 +70,7 @@ class ControlStructureSpacingSniff implements Sniff
 
         if (isset($tokens[$stackPtr]['parenthesis_opener']) === false
             || isset($tokens[$stackPtr]['parenthesis_closer']) === false
-        ) {
+       ) {
             return;
         }
 

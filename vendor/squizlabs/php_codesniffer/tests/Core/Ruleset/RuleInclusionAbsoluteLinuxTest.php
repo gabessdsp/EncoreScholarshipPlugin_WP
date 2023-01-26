@@ -104,13 +104,13 @@ class RuleInclusionAbsoluteLinuxTest extends TestCase
         $this->assertSame(
             'PHP_CodeSniffer\Standards\Generic\Sniffs\Formatting\SpaceAfterNotSniff',
             $this->ruleset->sniffCodes['Generic.Formatting.SpaceAfterNot']
-        );
+       );
 
         // Test that the sniff properties are correctly set.
         $this->assertSame(
             '10',
             $this->ruleset->sniffs['PHP_CodeSniffer\Standards\Generic\Sniffs\Formatting\SpaceAfterNotSniff']->spacing
-        );
+       );
 
     }//end testLinuxStylePathRuleInclusion()
 

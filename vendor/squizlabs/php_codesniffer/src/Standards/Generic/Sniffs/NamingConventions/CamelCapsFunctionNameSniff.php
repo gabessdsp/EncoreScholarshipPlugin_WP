@@ -132,7 +132,7 @@ class CamelCapsFunctionNameSniff extends AbstractScopeSniff
             $magicPart = substr($methodNameLc, 2);
             if (isset($this->magicMethods[$magicPart]) === true
                 || isset($this->methodsDoubleUnderscore[$magicPart]) === true
-            ) {
+           ) {
                 return;
             }
 

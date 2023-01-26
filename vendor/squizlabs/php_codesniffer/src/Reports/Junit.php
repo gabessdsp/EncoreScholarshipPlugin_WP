@@ -108,7 +108,7 @@ class Junit implements Report
         $width=80,
         $interactive=false,
         $toScreen=true
-    ) {
+   ) {
         // Figure out the total number of tests.
         $tests   = 0;
         $matches = [];

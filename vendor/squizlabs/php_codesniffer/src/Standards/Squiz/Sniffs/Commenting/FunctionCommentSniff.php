@@ -120,7 +120,7 @@ class FunctionCommentSniff extends PEARFunctionCommentSniff
                         for ($returnToken = $stackPtr; $returnToken < $endToken; $returnToken++) {
                             if ($tokens[$returnToken]['code'] === T_CLOSURE
                                 || $tokens[$returnToken]['code'] === T_ANON_CLASS
-                            ) {
+                           ) {
                                 $returnToken = $tokens[$returnToken]['scope_closer'];
                                 continue;
                             }
@@ -128,7 +128,7 @@ class FunctionCommentSniff extends PEARFunctionCommentSniff
                             if ($tokens[$returnToken]['code'] === T_RETURN
                                 || $tokens[$returnToken]['code'] === T_YIELD
                                 || $tokens[$returnToken]['code'] === T_YIELD_FROM
-                            ) {
+                           ) {
                                 break;
                             }
                         }
@@ -151,7 +151,7 @@ class FunctionCommentSniff extends PEARFunctionCommentSniff
                         for ($returnToken = $stackPtr; $returnToken < $endToken; $returnToken++) {
                             if ($tokens[$returnToken]['code'] === T_CLOSURE
                                 || $tokens[$returnToken]['code'] === T_ANON_CLASS
-                            ) {
+                           ) {
                                 $returnToken = $tokens[$returnToken]['scope_closer'];
                                 continue;
                             }
@@ -159,7 +159,7 @@ class FunctionCommentSniff extends PEARFunctionCommentSniff
                             if ($tokens[$returnToken]['code'] === T_RETURN
                                 || $tokens[$returnToken]['code'] === T_YIELD
                                 || $tokens[$returnToken]['code'] === T_YIELD_FROM
-                            ) {
+                           ) {
                                 break;
                             }
                         }
@@ -471,7 +471,7 @@ class FunctionCommentSniff extends PEARFunctionCommentSniff
                             || $suggestedTypeHint === 'int'
                             || $suggestedTypeHint === 'float'
                             || $suggestedTypeHint === 'bool'
-                        ) {
+                       ) {
                             $errorCode = 'Scalar'.$errorCode;
                         }
 
@@ -524,7 +524,7 @@ class FunctionCommentSniff extends PEARFunctionCommentSniff
                     foreach ($param['commentLines'] as $lineNum => $line) {
                         if ($lineNum === 0
                             || $param['commentLines'][$lineNum]['indent'] === 0
-                        ) {
+                       ) {
                             continue;
                         }
 
@@ -533,7 +533,7 @@ class FunctionCommentSniff extends PEARFunctionCommentSniff
                         $phpcsFile->fixer->replaceToken(
                             ($param['commentLines'][$lineNum]['token'] - 1),
                             str_repeat(' ', $newIndent)
-                        );
+                       );
                     }
 
                     $phpcsFile->fixer->endChangeset();
@@ -648,7 +648,7 @@ class FunctionCommentSniff extends PEARFunctionCommentSniff
                 foreach ($param['commentLines'] as $lineNum => $line) {
                     if ($lineNum === 0
                         || $param['commentLines'][$lineNum]['indent'] === 0
-                    ) {
+                   ) {
                         continue;
                     }
 
@@ -660,7 +660,7 @@ class FunctionCommentSniff extends PEARFunctionCommentSniff
                     $phpcsFile->fixer->replaceToken(
                         ($param['commentLines'][$lineNum]['token'] - 1),
                         str_repeat(' ', $newIndent)
-                    );
+                   );
                 }
 
                 $phpcsFile->fixer->endChangeset();
@@ -706,7 +706,7 @@ class FunctionCommentSniff extends PEARFunctionCommentSniff
                 foreach ($param['commentLines'] as $lineNum => $line) {
                     if ($lineNum === 0
                         || $param['commentLines'][$lineNum]['indent'] === 0
-                    ) {
+                   ) {
                         continue;
                     }
 
@@ -719,7 +719,7 @@ class FunctionCommentSniff extends PEARFunctionCommentSniff
                     $phpcsFile->fixer->replaceToken(
                         ($param['commentLines'][$lineNum]['token'] - 1),
                         str_repeat(' ', $newIndent)
-                    );
+                   );
                 }
 
                 $phpcsFile->fixer->endChangeset();

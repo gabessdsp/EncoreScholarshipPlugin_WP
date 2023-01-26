@@ -54,7 +54,7 @@ class ClosingBraceSniff implements Sniff
         $next   = $phpcsFile->findNext(T_WHITESPACE, ($closer + 1), null, true);
         if ($next === false
             || $tokens[$next]['line'] !== $tokens[$closer]['line']
-        ) {
+       ) {
             return;
         }
 

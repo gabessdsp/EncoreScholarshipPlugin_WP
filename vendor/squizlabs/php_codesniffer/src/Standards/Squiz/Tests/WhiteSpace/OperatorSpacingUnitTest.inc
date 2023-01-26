@@ -206,7 +206,7 @@ function foo(string $a = '', ?string $b = ''): ?string {}
 $text = preg_replace_callback(
 		self::CHAR_REFS_REGEX,
 		[ 'Sanitizer', 'decodeCharReferencesCallback' ],
-		$text, /* limit */ -1, $count );
+		$text, /* limit */ -1, $count);
 
 if (true || /* test */ -1 == $b) {}
 $y = 10 + /* test */ -2;
@@ -216,7 +216,7 @@ Hooks::run('ParserOptionsRegister', [
 	&self::$defaults,
 	&self::$inCacheKey,
 	&self::$lazyOptions,
-] );
+]);
 
 $x = $foo ? function (): int {
     return 1;
@@ -253,7 +253,7 @@ $a =
 $foo = is_array($bar) ? array_map(
         function () {},
         $bar
-    ) : $bar;
+   ) : $bar;
 
 function bar(): array {}
 

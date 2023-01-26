@@ -59,7 +59,7 @@ class SpaceAfterCastSniff implements Sniff
 
         if ($tokens[$stackPtr]['code'] === T_BINARY_CAST
             && $tokens[$stackPtr]['content'] === 'b'
-        ) {
+       ) {
             // You can't replace a space after this type of binary casting.
             return;
         }
@@ -71,7 +71,7 @@ class SpaceAfterCastSniff implements Sniff
 
         if ($this->ignoreNewlines === true
             && $tokens[$stackPtr]['line'] !== $tokens[$nextNonEmpty]['line']
-        ) {
+       ) {
             $phpcsFile->recordMetric($stackPtr, 'Spacing after cast statement', 'newline');
             return;
         }

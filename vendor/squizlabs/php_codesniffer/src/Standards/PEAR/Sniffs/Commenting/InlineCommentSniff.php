@@ -54,11 +54,11 @@ class InlineCommentSniff implements Sniff
             }
         } else if ($tokens[$stackPtr]['content'][0] === '/'
             && $tokens[$stackPtr]['content'][1] === '/'
-        ) {
+       ) {
             $phpcsFile->recordMetric($stackPtr, 'Inline comment style', '// ...');
         } else if ($tokens[$stackPtr]['content'][0] === '/'
             && $tokens[$stackPtr]['content'][1] === '*'
-        ) {
+       ) {
             $phpcsFile->recordMetric($stackPtr, 'Inline comment style', '/* ... */');
         }
 

@@ -21,7 +21,7 @@ class Admin
         <div class="wrap">
             <h1>
                 All Applications
-                <?php if ($is_admin ) { ?>
+                <?php if ($is_admin) { ?>
                     |
                     <a style="color: #FF0000;"
                         href="admin.php?page=sch-delete-application-all&amp;_wpnonce=<?php
@@ -36,9 +36,9 @@ class Admin
                 array(
                 'numberposts' => -1,
                 'post_type' => 'sch_application'
-                )
-            );
-            if (count($applications) > 0 ) {
+               )
+           );
+            if (count($applications) > 0) {
                 ?>
                 <table class="wp-list-table widefat fixed striped posts" style="margin-top: 20px;">
                     <thead>
@@ -55,7 +55,7 @@ class Admin
                     </thead>
                     <tbody>
                     <?php
-                    foreach ($applications as $application ) {
+                    foreach ($applications as $application) {
                         $application = new Application($application);
                         $student = $application->student();
                         ?>
@@ -75,45 +75,45 @@ class Admin
                             ?></td>
                             <td><?php
                             $staff_names = array();
-                            foreach ($application->get_meta('staff') as $member ) {
+                            foreach ($application->get_meta('staff') as $member) {
                                 if (! isset($staff[$member])) {
                                     $s = new Staff(new \WP_User($member));
                                     $staff[ $member ] = array(
                                         'applications' => array(),
                                         'name' => $s->get('display_name'),
-                                    );
+                                   );
                                     foreach (get_posts(
                                         array(
                                         'numberposts' => -1,
                                         'author' => $member,
                                         'post_type' => 'sch_recommendation',
-                                        )
-                                    ) as $recommendation ) {
-                                        $recommendation = new Recommendation($recommendation );
+                                       )
+                                   ) as $recommendation) {
+                                        $recommendation = new Recommendation($recommendation);
                                         $staff[ $member ]['applications'][] = (int) (
                                             $recommendation->get_meta('sch_application')
-                                        );
+                                       );
                                     }
                                 }
                                 if (in_array(
                                     (int) $application->ID,
                                     $staff[$member]['applications']
-                                )
-                                ) {
+                               )
+                               ) {
                                     $staff_names[] = $staff[ $member ]['name'];
                                 }
                             }
                             echo htmlspecialchars(
                                 implode(
                                     ', ', $staff_names
-                                )
-                            );
+                               )
+                           );
                             ?></td>
                             <td><?php echo $application->post_date; ?></td>
                             <td><?php echo $application->post_modified; ?></td>
                             <td><?php
                             $counselor = $application->counselor();
-                            if ($counselor ) {
+                            if ($counselor) {
                                 $transcript = $counselor->transcript_for($application);
                                 echo $transcript
                                     ? '<a href="' . esc_attr($transcript['url']) . '">Uploaded</a>'
@@ -124,14 +124,14 @@ class Admin
                             ?>
                             <td>
                                 <a href="admin.php?page=sch-render<?php
-                                if ($is_admin ) {
+                                if ($is_admin) {
                                     echo '-admin';
                                 }
                                 ?>&amp;application=<?php
                                     echo $application->ID;
                                 ?>">View</a>
                                 <?php
-                                if ($is_admin ) {
+                                if ($is_admin) {
                                     ?>
                                     |
                                     <a style="color: #FF0000;"
@@ -140,7 +140,7 @@ class Admin
                                         ?>&amp;_wpnonce=<?php
                                             echo wp_create_nonce(
                                                 'sch-delete-application-' . $application->ID
-                                            );
+                                           );
                                         ?>">Delete</a>
                                 <?php } ?>
                             </td>
@@ -165,8 +165,8 @@ class Admin
             || ! wp_verify_nonce(
                 $_GET['_wpnonce'],
                 'sch-delete-application-' . $application->ID
-            )
-        ) { 
+           )
+       ) { 
             ?>
             <h1>Invalid request</h1>
             <p><a href="admin.php?page=sch-all-applications-admin">Click here to
@@ -205,11 +205,11 @@ class Admin
         $application = get_post((int) $_POST['application']);
         if (null !== $application && wp_verify_nonce(
             $_POST['_wpnonce'], 'sch-really-delete-application-' . $application->ID
-        )
-        ) {
+       )
+       ) {
             $application = new Application($application);
             // delete any recommendations
-            foreach ($application->recommendations() as $rec ) {
+            foreach ($application->recommendations() as $rec) {
                 wp_delete_post($rec->ID);
             }
 
@@ -220,7 +220,7 @@ class Admin
                 $transcripts = $counselor->get_meta('transcripts');
                 if (is_array($transcripts)
                     && isset($transcripts[ (int) $application->ID])
-                ) {
+               ) {
                     @unlink($transcripts[ (int) $application->ID ]['file']);
                     unset($transcripts[ (int) $application->ID ]);
                     $counselor->set_meta('transcripts', $transcripts);
@@ -242,7 +242,7 @@ class Admin
             <input type="hidden" name="_wpnonce"
                 value="<?php echo wp_create_nonce(
                     'sch-really-delete-application-all'
-                );
+               );
                         ?>">
             <p>You are about to delete <strong>all applications</strong>.</p>
             <p>Note that this will also delete any associated recommendations or
@@ -260,27 +260,27 @@ class Admin
         if (wp_verify_nonce(
             $_POST['_wpnonce'],
             'sch-really-delete-application-all'
-        )
-        ) {
+       )
+       ) {
             foreach (get_posts(
                 array(
                 'numberposts' => -1,
                 'post_type' => 'sch_application'
-                )
-            ) as $application ) {
+               )
+           ) as $application) {
                 $application = new Application($application);
                 // delete any recommendations
-                foreach ($application->recommendations() as $rec ) {
+                foreach ($application->recommendations() as $rec) {
                     wp_delete_post($rec->ID);
                 }
 
                 $counselor = $application->counselor();
                 // delete any uploaded transcript
-                if (false !== $counselor ) {
+                if (false !== $counselor) {
                     $transcripts = $counselor->get_meta('transcripts');
                     if (is_array($transcripts)
                         && isset($transcripts[ (int) $application->ID ])
-                    ) {
+                   ) {
                         @unlink($transcripts[ (int) $application->ID ]['file']);
                         unset($transcripts[ (int) $application->ID ]);
                         $counselor->set_meta('transcripts', $transcripts);
@@ -288,7 +288,7 @@ class Admin
                 }
 
                 // finally, delete the application.
-                wp_delete_post($application->ID, true );
+                wp_delete_post($application->ID, true);
             }
         }
 
@@ -301,7 +301,7 @@ class Admin
         if (! $user->exists()
             // count_user_posts returns a string????????????
             || 0 === (int) count_user_posts($user->ID, 'sch_application')
-        ) {
+       ) {
             $string = 'Apply';
         } else {
             $string = 'Edit application';
@@ -315,7 +315,7 @@ class Admin
             'sch-application',
             '\Scholarship\Application::form',
             'dashicons-welcome-learn-more'
-        );
+       );
 
         // list tagged applications
         add_menu_page(
@@ -325,7 +325,7 @@ class Admin
             'sch-tagged',
             '\Scholarship\Staff::tagged_applications',
             'dashicons-welcome-learn-more'
-        );
+       );
         // recommendation editor
         add_submenu_page(
             // this value prevents a menu item from appearing
@@ -335,7 +335,7 @@ class Admin
             'edit_sch_recommendations',
             'sch-recommend',
             '\Scholarship\Recommendation::form'
-        );
+       );
 
         // for judges
         // all applications
@@ -346,7 +346,7 @@ class Admin
             'sch-all-applications',
             '\Scholarship\Admin::allApplications',
             'dashicons-welcome-learn-more'
-        );
+       );
         // render application
         add_submenu_page(
             'options.php',
@@ -355,7 +355,7 @@ class Admin
             'read_private_sch_applications',
             'sch-render',
             '\Scholarship\Application::render'
-        );
+       );
 
         // for site admins
         // all applications
@@ -366,7 +366,7 @@ class Admin
             'sch-all-applications-admin',
             '\Scholarship\Admin::allApplications',
             'dashicons-welcome-learn-more'
-        );
+       );
         // render application
         add_submenu_page(
             'options.php',
@@ -375,7 +375,7 @@ class Admin
             'manage_options',
             'sch-render-admin',
             '\Scholarship\Application::render'
-        );
+       );
 
         // confirmation pages
         add_submenu_page(
@@ -385,7 +385,7 @@ class Admin
             'manage_options',
             'sch-delete-application',
             '\Scholarship\Admin::delete_application'
-        );
+       );
         add_submenu_page(
             'options.php',
             'Delete All Applications',
@@ -393,7 +393,7 @@ class Admin
             'manage_options',
             'sch-delete-application-all',
             '\Scholarship\Admin::delete_application_all'
-        );
+       );
 
         // transcript listing
         add_menu_page(
@@ -403,7 +403,7 @@ class Admin
             'sch-transcripts',
             '\Scholarship\Counselor::transcripts',
             'dashicons-welcome-learn-more'
-        );
+       );
         // transcript upload page
         add_submenu_page(
             'options.php',
@@ -412,7 +412,7 @@ class Admin
             'upload_transcripts',
             'sch-upload-transcript',
             '\Scholarship\Counselor::upload_transcript'
-        );
+       );
 
         // settings page
         add_options_page(
@@ -422,34 +422,34 @@ class Admin
             'manage_options',
             'sch-options',
             '\Scholarship\Options::options_page'
-        );
+       );
     }
-    public static function application_script($hook )
+    public static function application_script($hook)
     {
         if ('toplevel_page_sch-application' !== $hook
-            && !(('post.php' === $hook || 'post-new.php' === $hook )
+            && !(('post.php' === $hook || 'post-new.php' === $hook)
             && isset($_GET['post_type'])
-            && 'sch_application' === $_GET['post_type'] )
-        ) {
+            && 'sch_application' === $_GET['post_type'])
+       ) {
             return;
         }
 
         wp_enqueue_style(
             'sch-application-css',
             URL::get('/css/sch_application.css')
-        );
+       );
         wp_enqueue_script(
             'sch-application-script',
             URL::get('/js/sch_application.js'),
             array('jquery')
-        );
+       );
         wp_localize_script(
             'sch-application-script', 'wordpress', array(
             'ajax_url' => admin_url('admin-ajax.php'),
             'staffnonce' => wp_create_nonce('sch_search_staff'),
             'counselornonce' => wp_create_nonce('sch_search_counselors'),
-            )
-        );
+           )
+       );
     }
     public static function handle_search_staff()
     {
@@ -458,14 +458,14 @@ class Admin
         if (preg_match('/^[^a-zA-Z0-9]$/', $_POST['search'])) {
             wp_send_json($response);
         }
-        foreach (get_users('role=staff') as $member ) {
-            $member = new Staff($member );
+        foreach (get_users('role=staff') as $member) {
+            $member = new Staff($member);
             $name = $member->get('display_name');
             $email = $member->user_email;
             if (false !== stripos($email, $_POST['search'])
                 || false !== stripos($name, $_POST['search'])
-            ) {
-                $response[] = array('name' => $name, 'email' => $email );
+           ) {
+                $response[] = array('name' => $name, 'email' => $email);
             }
         }
         wp_send_json($response);
@@ -477,24 +477,24 @@ class Admin
         if (preg_match('/^[^a-zA-Z0-9]$/', $_POST['search'])) {
             wp_send_json($response);
         }
-        foreach (get_users('role=counselor') as $counselor ) {
+        foreach (get_users('role=counselor') as $counselor) {
             $name = $counselor->get('display_name');
             $email = $counselor->user_email;
             if (false !== stripos($email, $_POST['search'])
                 || false !== stripos($name, $_POST['search'])
-            ) {
-                $response[] = array('name' => $name, 'email' => $email );
+           ) {
+                $response[] = array('name' => $name, 'email' => $email);
             }
         }
         wp_send_json($response);
     }
 
 
-    public static function login_redirect($redirect, $requested, $user )
+    public static function login_redirect($redirect, $requested, $user)
     {
         if (! is_wp_error($user)) {
-            foreach (array('student', 'staff', 'counselor', 'judge') as $role ) {
-                if ($user->has_cap($role) && (! Options::get('sch_enabled', $role)) ) {
+            foreach (array('student', 'staff', 'counselor', 'judge') as $role) {
+                if ($user->has_cap($role) && (! Options::get('sch_enabled', $role))) {
                     wp_logout();
                     return wp_login_url() . '?sch_disabled=true';
                 }
@@ -511,12 +511,12 @@ class Admin
         }
         return $redirect;
     }
-    public static function login_message($message ) {
-        if (isset($_GET['sch_disabled'] )) {
+    public static function login_message($message) {
+        if (isset($_GET['sch_disabled'])) {
             $message = '<div id="login_error"><strong>ERROR</strong>: '
                 . htmlentities(Options::get('sch_disabled_message'))
                 . '</div>';
-        } elseif (isset($_GET['sch_saved'] )) {
+        } elseif (isset($_GET['sch_saved'])) {
             $message = '<p class="message">Your work has been saved, but no further edits are permitted.</p>';
         }
         return $message;

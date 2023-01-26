@@ -56,7 +56,7 @@ class DisallowYodaConditionsSniff implements Sniff
 
         if ($previousIndex === false
             || in_array($tokens[$previousIndex]['code'], $relevantTokens, true) === false
-        ) {
+       ) {
             return;
         }
 
@@ -88,7 +88,7 @@ class DisallowYodaConditionsSniff implements Sniff
                 ($tokens[$previousIndex]['parenthesis_opener'] - 1),
                 null,
                 true
-            );
+           );
 
             if ($closeParenthesisIndex === false || $tokens[$closeParenthesisIndex]['code'] !== T_ARRAY) {
                 if ($tokens[$closeParenthesisIndex]['code'] === T_STRING) {
@@ -100,7 +100,7 @@ class DisallowYodaConditionsSniff implements Sniff
                     T_VARIABLE,
                     ($previousIndex - 1),
                     $tokens[$previousIndex]['parenthesis_opener']
-                );
+               );
 
                 // If a variable exists, it is not Yoda.
                 if ($found !== false) {
@@ -115,7 +115,7 @@ class DisallowYodaConditionsSniff implements Sniff
                 }
             } else if ($tokens[$closeParenthesisIndex]['code'] === T_ARRAY
                 && $this->isArrayStatic($phpcsFile, $closeParenthesisIndex) === false
-            ) {
+           ) {
                 return;
             }//end if
         }//end if
@@ -124,7 +124,7 @@ class DisallowYodaConditionsSniff implements Sniff
             'Usage of Yoda conditions is not allowed; switch the expression order',
             $stackPtr,
             'Found'
-        );
+       );
 
     }//end process()
 

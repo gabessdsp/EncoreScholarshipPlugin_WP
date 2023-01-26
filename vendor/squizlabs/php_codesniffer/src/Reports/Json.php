@@ -95,7 +95,7 @@ class Json implements Report
         $width=80,
         $interactive=false,
         $toScreen=true
-    ) {
+   ) {
         echo '{"totals":{"errors":'.$totalErrors.',"warnings":'.$totalWarnings.',"fixable":'.$totalFixable.'},"files":{';
         echo rtrim($cachedData, ',');
         echo "}}".PHP_EOL;

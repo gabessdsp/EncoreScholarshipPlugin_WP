@@ -4,14 +4,14 @@ declare   (ticks=1);
 declare(  ticks=1);
 declare(TIcKs  =1);
 declare(ticks=   1);
-declare(ticks=1   );
+declare(ticks=1  );
 declare(ticks=1);
-declare(ticks=1   )    ;
+declare(ticks=1  )    ;
 declare(ticks=1) /* test */;
-declare(/* test */ ticks=1    )    ;
+declare(/* test */ ticks=1   )    ;
 declare(/* test */ ticks /* test */ =1);
 declare( ticks
-=1   );
+=1  );
 
     declare(ticks=1) { }
 

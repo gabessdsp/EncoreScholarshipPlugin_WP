@@ -72,7 +72,7 @@ function nested_attributes_test() {}
 function multiline_attributes_on_parameter_test(#[
     AttributeWithParams(
         'foo'
-    )
+   )
                                                 ] int $param) {}
 
 /* testAttributeContainingTextLookingLikeCloseTag */

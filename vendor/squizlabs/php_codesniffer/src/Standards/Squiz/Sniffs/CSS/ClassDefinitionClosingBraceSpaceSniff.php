@@ -57,7 +57,7 @@ class ClassDefinitionClosingBraceSpaceSniff implements Sniff
 
             if (isset(Tokens::$emptyTokens[$tokens[$next]['code']]) === true
                 && $tokens[$next]['line'] === $tokens[$stackPtr]['line']
-            ) {
+           ) {
                 // Trailing comment.
                 continue;
             }
@@ -109,7 +109,7 @@ class ClassDefinitionClosingBraceSpaceSniff implements Sniff
             T_CLOSE_CURLY_BRACKET,
             ($stackPtr - 1),
             $tokens[$stackPtr]['bracket_opener']
-        );
+       );
 
         if ($found !== false) {
             return;

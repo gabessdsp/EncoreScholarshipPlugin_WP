@@ -46,7 +46,7 @@ class GetRequestDataSniff implements Sniff
             && $varName !== '$_GET'
             && $varName !== '$_POST'
             && $varName !== '$_FILES'
-        ) {
+       ) {
             return;
         }
 

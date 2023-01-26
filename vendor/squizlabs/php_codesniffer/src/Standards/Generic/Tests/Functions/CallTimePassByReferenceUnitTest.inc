@@ -25,7 +25,7 @@ $foo(&$myvar);
 if (is_array($foo = &$this->bar())) {
 }
 
-Hooks::run('SecondaryDataUpdates', [ $title, $old, $recursive, $parserOutput, &$updates ] );
+Hooks::run('SecondaryDataUpdates', [ $title, $old, $recursive, $parserOutput, &$updates ]);
 
 $foo = Bar(&$fooBar);
 
@@ -35,5 +35,5 @@ myfunc($myvar[0]&$myvar);
 myfunc(myclass::MY_CONST&$myvar);
 myfunc(MY_CONST&$myvar);
 
-efg(true == &$b );
-efg(true === &$b );
+efg(true == &$b);
+efg(true === &$b);

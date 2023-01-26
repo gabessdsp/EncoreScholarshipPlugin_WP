@@ -51,14 +51,14 @@ if (($condition1
 
 if ((condition1
     || condition2)
- ) {
+) {
 }
 
 if (
     (
     condition1
     || condition2
-    )
+   )
     && condition3
 ) {
 }
@@ -133,7 +133,7 @@ if (foo)
 if (array_key_exists(key, value)
     && foo.bar.baz(
         key, value2
-    )
+   )
 ) {
 }
 
@@ -174,7 +174,7 @@ if (a
     && foo(
         'a',
         'b'
-    )) {
+   )) {
     return false;
 }
 
@@ -216,7 +216,7 @@ if (IPP.errorCode() == 401
 	 * phpcs:disable Standard.Category.Sniff -- for reasons.
 	 */
     bar == 3200
-    ) {
+   ) {
         return false;
     }
 

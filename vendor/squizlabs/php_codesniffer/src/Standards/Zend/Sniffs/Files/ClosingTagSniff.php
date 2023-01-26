@@ -58,7 +58,7 @@ class ClosingTagSniff implements Sniff
                 if ($tokens[$prev]['code'] !== T_SEMICOLON
                     && $tokens[$prev]['code'] !== T_CLOSE_CURLY_BRACKET
                     && $tokens[$prev]['code'] !== T_OPEN_TAG
-                ) {
+               ) {
                     $phpcsFile->fixer->addContent($prev, ';');
                 }
 

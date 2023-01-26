@@ -292,13 +292,13 @@ switch ($foo) {
     return array(
             'whiz',
             'bang',
-           );
+          );
 
     case 2:
     return helper_func(
         'whiz',
         'bang'
-    );
+   );
 
     default:
     throw new Exception();
@@ -308,12 +308,12 @@ switch ($foo) {
     case 'bar':
     throw new \Exception(
         'bar'
-    );
+   );
 
     default:
     throw new \Exception(
         'bar'
-    );
+   );
 }
 
 $foo = $foo ?

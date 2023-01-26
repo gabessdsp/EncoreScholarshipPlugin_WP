@@ -1234,7 +1234,7 @@ EOD;
             'enable before disable, sniff not in standard'                                                 => [
                 'code'             => '
                     // phpcs:enable Generic.PHP.NoSilencedErrors -- Because reasons
-                    $var = @delete($filename );
+                    $var = @delete($filename);
                     ',
                 'expectedErrors'   => 0,
                 'expectedWarnings' => 0,

@@ -107,7 +107,7 @@ class SelfMemberReferenceSniff extends AbstractScopeSniff
                     while ($tokens[$currentPointer]['code'] === T_NS_SEPARATOR
                         || $tokens[$currentPointer]['code'] === T_STRING
                         || isset(Tokens::$emptyTokens[$tokens[$currentPointer]['code']]) === true
-                    ) {
+                   ) {
                         if (isset(Tokens::$emptyTokens[$tokens[$currentPointer]['code']]) === true) {
                             --$currentPointer;
                             continue;
@@ -194,7 +194,7 @@ class SelfMemberReferenceSniff extends AbstractScopeSniff
         while ($tokens[$currentPointer]['code'] === T_NS_SEPARATOR
             || $tokens[$currentPointer]['code'] === T_STRING
             || isset(Tokens::$emptyTokens[$tokens[$currentPointer]['code']]) === true
-        ) {
+       ) {
             if (isset(Tokens::$emptyTokens[$tokens[$currentPointer]['code']]) === true) {
                 --$currentPointer;
                 continue;
@@ -229,7 +229,7 @@ class SelfMemberReferenceSniff extends AbstractScopeSniff
             $namespace = $this->getDeclarationNameWithNamespace(
                 $phpcsFile->getTokens(),
                 ($endOfNamespaceDeclaration - 1)
-            );
+           );
         }
 
         return $namespace;

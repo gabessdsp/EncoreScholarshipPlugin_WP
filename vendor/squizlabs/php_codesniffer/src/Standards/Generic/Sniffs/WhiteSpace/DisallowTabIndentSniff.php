@@ -101,7 +101,7 @@ class DisallowTabIndentSniff implements Sniff
             if (($tokens[$i]['code'] === T_INLINE_HTML
                 || $tokens[$i]['code'] === T_COMMENT)
                 && preg_match('`^(\s*)\S.*`s', $content, $matches) > 0
-            ) {
+           ) {
                 if (isset($matches[1]) === true) {
                     $indentation = $matches[1];
                 }
@@ -110,7 +110,7 @@ class DisallowTabIndentSniff implements Sniff
             if (($tokens[$i]['code'] === T_DOC_COMMENT_WHITESPACE
                 || $tokens[$i]['code'] === T_COMMENT)
                 && $indentation === ' '
-            ) {
+           ) {
                 // Ignore all non-indented comments, especially for recording metrics.
                 continue;
             }
@@ -119,7 +119,7 @@ class DisallowTabIndentSniff implements Sniff
             if ($content === $indentation
                 && isset($tokens[($i + 1)]) === true
                 && $tokens[$i]['line'] < $tokens[($i + 1)]['line']
-            ) {
+           ) {
                 // Don't record metrics for empty lines.
                 $recordMetrics = false;
             }

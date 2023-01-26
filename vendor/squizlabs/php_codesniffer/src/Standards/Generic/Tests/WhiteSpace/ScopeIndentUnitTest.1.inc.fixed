@@ -141,9 +141,9 @@ class Test2
                              'hello',
                              'hello again' => array(
                                                'hello',
-                                              ),
-                            ),
-                 );
+                                             ),
+                           ),
+                );
     }
 }
 
@@ -166,7 +166,7 @@ abstract class Test3
                         if ($last >= 3 &&
                             $ts[0]['token'] != T_CLASS &&
                             $ts[$last - 2]['token'] == T_OBJECT_OPERATOR &&
-                            $ts[$last - 3]['token'] == T_VARIABLE ) {
+                            $ts[$last - 3]['token'] == T_VARIABLE) {
 
 
                             if (true) {
@@ -369,7 +369,7 @@ class a {
             function () {
                 echo 123;
             }
-        );
+       );
     }
 }
 
@@ -408,7 +408,7 @@ Each line of this string is always said to be at column 0,
                 at the beginning of each line
 and the ending STRING on the next line is reported as having to be indented.
 STRING
-    );
+   );
 }
 
 class MyClass
@@ -447,8 +447,8 @@ class AnonymousFn
                     $b = $c / 2;
                     return Array($a, $b, $c);
                 },
-            ),
-        );
+           ),
+       );
     }
 }
 ?>
@@ -583,8 +583,8 @@ $mockedDatabase->expects($this->at(2))
             function ($subject)
             {
             }
-        )
-    );
+       )
+   );
 
 /** @var Database $mockedDatabase */
 /** @var Container $mockedContainer */
@@ -596,7 +596,7 @@ echo $string->append('foo')
                 function ()
                 {
                 }
-            );
+           );
 
 echo PHP_EOL;
 
@@ -669,8 +669,8 @@ function foo()
                                   'screenshot' => Test::getScreenshotPath(
                                       $projectid,
                                       $result['class_name'],
-                                  ),
-                                 );
+                                 ),
+                                );
 
 }
 
@@ -680,8 +680,8 @@ $this->mockedDatabase
             function () {
                 return;
             }
-        )
-    );
+       )
+   );
 
 $this->subject->recordLogin();
 
@@ -696,7 +696,7 @@ function a()
                         $d->whereNull();
                         $d->orWhere();
                     }
-                )
+               )
                 ->first();
 
         if (static::$a[$b] === null) {
@@ -704,8 +704,8 @@ function a()
                 array(
                     'a' => $a->id,
                     'a' => $a->id,
-                )
-            );
+               )
+           );
         }
     }
 
@@ -717,7 +717,7 @@ $foo->load(
         'bar' => function ($baz) {
             $baz->call();
         }
-    )
+   )
 );
 
 hello();
@@ -728,7 +728,7 @@ $foo = array_unique(
             return $entry * 2;
         },
         array()
-    )
+   )
 );
 bar($foo);
 
@@ -740,10 +740,10 @@ class PHP_CodeSniffer_Tokenizers_JS
                                        'end'    => array(
                                                     T_BREAK    => T_BREAK,
                                                     T_RETURN   => T_RETURN,
-                                                   ),
+                                                  ),
                                        'strict' => true,
-                                      ),
-                           );
+                                     ),
+                          );
 }
 
 echo $string->
@@ -754,13 +754,13 @@ echo $string->
             function ()
             {
             }
-        );
+       );
 
 $str = 'the items I want to show are: ' .
     implode(
         ', ',
         array('a', 'b', 'c')
-    );
+   );
 
 echo $str;
 
@@ -783,7 +783,7 @@ $domains = array_unique(
             return $urlObject->registerableDomain;
         },
         $sites
-    )
+   )
 );
 
 return $domains;
@@ -806,9 +806,9 @@ endif;
 $this
     ->method(array(
         'foo' => 'bar',
-    ), 'arg', array(
+   ), 'arg', array(
         'foo' => 'bar',
-    ));
+   ));
 
 class Foo
 {
@@ -839,7 +839,7 @@ array(
 <script>
     var foo = <?php echo bar(
         'baz'
-    ); ?>;
+   ); ?>;
 </script>
 <?php
 
@@ -882,7 +882,7 @@ declare(ticks=1) {
 $a =
     (
         $b = 1
-    );
+   );
 $c = 2;
 
 $a =
@@ -904,7 +904,7 @@ class foo
         $foo = array('b' => 'c',
                 'd' => array(
                     array('e' => 'f')
-                    ));
+                   ));
         echo '42';
     }
 }
@@ -929,8 +929,8 @@ switch ($foo) {
             array(),
             $functionReturningString(
                 $withMultiLineParam[1]
-            )
-        );
+           )
+       );
     case 8:
         return $param[0][0];
 }
@@ -1029,7 +1029,7 @@ switch ($parameter) {
             'foo' => in_array(
                 'foo',
                 []
-            ),
+           ),
         ];
 
     default:
@@ -1056,7 +1056,7 @@ class SomeClass
 $params = self::validate_parameters(self::read_competency_framework_parameters(),
                                     array(
                                         'id' => $id,
-                                    ));
+                                   ));
 
 $framework = api::read_framework($params['id']);
 self::validate_context($framework->get_context());
@@ -1075,10 +1075,10 @@ class Test123
     protected static
         $prop3 = array(
             'testA' => 123,
-        ),
+       ),
         $prop4 = array(
             'testB' => 456,
-        );
+       );
 
     protected static $prop5;
 }
@@ -1088,7 +1088,7 @@ $foo = foo(
         $foo->debug(
             $a,
             $b
-        );
+       );
 
         if ($a) {
             $b = $a;
@@ -1105,7 +1105,7 @@ if (somethingIsTrue()) {
             true,
             'foo',
             'bar'
-        );
+       );
 
         if (somethingElseIsTrue()) {
             doOneThing();
@@ -1150,7 +1150,7 @@ class Test {
 
     public function b(
         $a
-    ) {
+   ) {
         echo $a;
     }
 }
@@ -1160,7 +1160,7 @@ $foo = foo(
         $foo->debug(
             $a,
             $b
-        );
+       );
 
         if ($a) {
             $b = $a;
@@ -1229,7 +1229,7 @@ switch ($sContext) {
 }
 
 array_map(
-    static function ($item ) {
+    static function ($item) {
         echo $item;
     },
     $some_array
@@ -1260,13 +1260,13 @@ function foo()
     });
 }
 
-switch ($a ) {
+switch ($a) {
     case 'a':
         $b = 2;
         /**
          * A comment.
          */
-        apply_filter('something', $b );
+        apply_filter('something', $b);
     break;
 
     case 'aa':
@@ -1274,7 +1274,7 @@ switch ($a ) {
         /*
          * A comment.
          */
-        apply_filter('something', $b );
+        apply_filter('something', $b);
     break;
 
     case 'b':
@@ -1335,7 +1335,7 @@ if ($foo) {
 function foo()
 {
     $foo = array(
-    );
+   );
 
     if ($foo) {
         echo 'foo';
@@ -1356,7 +1356,7 @@ function foo()
     <?php echo
         foo(
             $foo
-        );
+       );
     ?>
 </div>
 
@@ -1386,7 +1386,7 @@ if (true) {
 foo(function () {
     if ($conditionA &&
         $conditionB
-    ) {
+   ) {
         if ($conditionC) {
             $a = 1;
         }
@@ -1465,14 +1465,14 @@ echo $string?->append('foo')
 if (true) {
     ?><?php echo addslashes(
         ''
-    )?><?php
+   )?><?php
 }
 
 class Foo
 {
     public function __construct(
         public int $intArg,
-    ) {
+   ) {
     }
 }
 
@@ -1492,7 +1492,7 @@ $value = match ($value) {
 
 $value = match (
   $value
-  ) {
+ ) {
     '' => null,
     false
       => false,
@@ -1510,7 +1510,7 @@ function toString(): string
         match ($type) {
             'foo' => 'bar',
         },
-    );
+   );
 }
 
 $list = [

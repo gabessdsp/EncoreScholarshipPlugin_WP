@@ -125,7 +125,7 @@ abstract class AbstractArraySniff implements Sniff
 
             if ($tokens[$ptr]['code'] === T_COMMA
                 || $tokens[$ptr]['code'] === T_DOUBLE_ARROW
-            ) {
+           ) {
                 return $ptr;
             }
 

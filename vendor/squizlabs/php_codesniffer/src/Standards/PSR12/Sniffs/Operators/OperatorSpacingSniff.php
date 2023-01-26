@@ -65,14 +65,14 @@ class OperatorSpacingSniff extends SquizOperatorSpacingSniff
         // Skip short ternary.
         if ($tokens[($stackPtr)]['code'] === T_INLINE_ELSE
             && $tokens[($stackPtr - 1)]['code'] === T_INLINE_THEN
-        ) {
+       ) {
             $checkBefore = false;
         }
 
         // Skip operator with comment on previous line.
         if ($tokens[($stackPtr - 1)]['code'] === T_COMMENT
             && $tokens[($stackPtr - 1)]['line'] < $tokens[$stackPtr]['line']
-        ) {
+       ) {
             $checkBefore = false;
         }
 
@@ -80,7 +80,7 @@ class OperatorSpacingSniff extends SquizOperatorSpacingSniff
             // Skip short ternary.
             if ($tokens[$stackPtr]['code'] === T_INLINE_THEN
                 && $tokens[($stackPtr + 1)]['code'] === T_INLINE_ELSE
-            ) {
+           ) {
                 $checkAfter = false;
             }
         } else {

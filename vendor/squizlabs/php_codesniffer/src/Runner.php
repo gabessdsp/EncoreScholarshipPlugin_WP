@@ -124,7 +124,7 @@ class Runner
             if ($this->config->interactive === false
                 && ($toScreen === false
                 || (($this->reporter->totalErrors + $this->reporter->totalWarnings) === 0 && $this->config->showProgress === true))
-            ) {
+           ) {
                 Util\Timing::printRunTime();
             }
         } catch (DeepExitException $e) {
@@ -548,7 +548,7 @@ class Runner
         if (PHP_CODESNIFFER_VERBOSITY === 0
             && $this->config->interactive === false
             && $this->config->showProgress === true
-        ) {
+       ) {
             echo PHP_EOL.PHP_EOL;
         }
 
@@ -764,7 +764,7 @@ class Runner
                 $childOutput['totalWarnings'],
                 $childOutput['totalFixable'],
                 $childOutput['totalFixed']
-            );
+           );
             $this->printProgress($file, $totalBatches, $numProcessed);
         }//end while
 
@@ -787,7 +787,7 @@ class Runner
     {
         if (PHP_CODESNIFFER_VERBOSITY > 0
             || $this->config->showProgress === false
-        ) {
+       ) {
             return;
         }
 
@@ -877,7 +877,7 @@ class Runner
         if ($numProcessed === $numFiles
             && $numFiles > $numPerLine
             && ($numProcessed % $numPerLine) !== 0
-        ) {
+       ) {
             $padding += ($numPerLine - ($numFiles - (floor($numFiles / $numPerLine) * $numPerLine)));
         }
 

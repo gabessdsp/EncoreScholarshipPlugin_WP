@@ -89,7 +89,7 @@ class AnonClassDeclarationSniff extends ClassDeclarationSniff
         if ($implements !== false
             && $tokens[$opener]['line'] !== $tokens[$implements]['line']
             && $tokens[$opener]['line'] === $tokens[$prev]['line']
-        ) {
+       ) {
             // Opening brace must be on a new line as implements list wraps.
             $error = 'Opening brace must be on the line after the last implemented interface';
             $fix   = $phpcsFile->addFixableError($error, $opener, 'OpenBraceSameLine');
@@ -194,7 +194,7 @@ class AnonClassDeclarationSniff extends ClassDeclarationSniff
                     while (isset(Tokens::$emptyTokens[$tokens[$prev]['code']]) === true) {
                         if (($tokens[$prev]['code'] === T_COMMENT)
                             && (strpos($tokens[$prev]['content'], '*/') !== false)
-                        ) {
+                       ) {
                             break;
                         }
 

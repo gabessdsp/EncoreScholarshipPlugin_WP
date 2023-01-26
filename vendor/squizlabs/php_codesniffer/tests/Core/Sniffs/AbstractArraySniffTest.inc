@@ -41,7 +41,7 @@ HERE
     <<<HERE
 HERE
   ,
-   );
+  );
 
 /* testArrowFunctionValue */
 $foo = array(

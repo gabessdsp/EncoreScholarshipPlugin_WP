@@ -63,7 +63,7 @@ class ScopeClosingBraceSniff implements Sniff
         // want to process the closer once, so skip this one.
         if (isset($tokens[$scopeEnd]['scope_condition']) === false
             || $tokens[$scopeEnd]['scope_condition'] !== $stackPtr
-        ) {
+       ) {
             return;
         }
 
@@ -102,7 +102,7 @@ class ScopeClosingBraceSniff implements Sniff
             ($scopeEnd - 1),
             $scopeStart,
             true
-        );
+       );
 
         if ($tokens[$lastContent]['line'] === $tokens[$scopeEnd]['line']) {
             $error = 'Closing brace must be on a line by itself';
@@ -139,7 +139,7 @@ class ScopeClosingBraceSniff implements Sniff
         $fix = false;
         if ($tokens[$stackPtr]['code'] === T_CASE
             || $tokens[$stackPtr]['code'] === T_DEFAULT
-        ) {
+       ) {
             // BREAK statements should be indented n spaces from the
             // CASE or DEFAULT statement.
             $expectedIndent = ($startColumn + $this->indent - 1);

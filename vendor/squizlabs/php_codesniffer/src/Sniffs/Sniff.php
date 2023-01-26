@@ -31,7 +31,7 @@ interface Sniff
      *            T_WHITESPACE,
      *            T_DOC_COMMENT,
      *            T_COMMENT,
-     *           );
+     *          );
      * </code>
      *
      * @return mixed[]

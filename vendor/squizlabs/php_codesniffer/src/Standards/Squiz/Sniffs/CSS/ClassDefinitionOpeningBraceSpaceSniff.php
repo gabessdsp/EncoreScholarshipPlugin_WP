@@ -115,7 +115,7 @@ class ClassDefinitionOpeningBraceSpaceSniff implements Sniff
                 T_OPEN_CURLY_BRACKET,
                 ($stackPtr + 1),
                 $tokens[$stackPtr]['bracket_closer']
-            );
+           );
 
             if ($found === false) {
                 // Not nested.

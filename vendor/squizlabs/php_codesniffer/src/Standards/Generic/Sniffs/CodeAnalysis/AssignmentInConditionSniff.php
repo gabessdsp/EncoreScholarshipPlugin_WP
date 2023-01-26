@@ -159,7 +159,7 @@ class AssignmentInConditionSniff implements Sniff
                     'Variable assignment found within a condition. Did you mean to do a comparison ?',
                     $hasAssignment,
                     $errorCode
-                );
+               );
             }
 
             $startPos = $hasAssignment;

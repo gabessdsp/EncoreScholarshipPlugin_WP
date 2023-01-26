@@ -42,7 +42,7 @@ class TypeIntersection
 
         /* testTypeIntersectionParam2 */
         Foo&\Bar /* testTypeIntersectionParam3 */ &Baz /* testBitwiseAnd3 */ &...$paramB = null,
-    ) {
+   ) {
         /* testBitwiseAnd4 */
         return (($a1 ^ $b1) &($a2 ^ $b2)) + $c;
     }
@@ -54,7 +54,7 @@ class TypeIntersection
         Partially\Qualified\NameA&Partially\Qualified\NameB $paramB,
         /* testTypeIntersectionParamFullyQualified */
         \Fully\Qualified\NameA&\Fully\Qualified\NameB $paramC,
-    ) {}
+   ) {}
 
     /* testTypeIntersectionReturnType */
     public function returnType() : Foo&Bar {}
@@ -89,7 +89,7 @@ function globalFunctionWithSpreadAndReference(
 $closureWithReturnType = function ($string = NONSENSE & FAKE)/* testTypeIntersectionClosureReturn */ : \Package\MyA&PackageB {};
 
 /* testTypeIntersectionArrowParam */
-$arrowWithParamType = fn (Foo&Bar $param, /* testBitwiseAndArrowParamDefault */ ?int $int = CONSTA & CONSTB )
+$arrowWithParamType = fn (Foo&Bar $param, /* testBitwiseAndArrowParamDefault */ ?int $int = CONSTA & CONSTB)
     /* testBitwiseAndArrowExpression */
     => $param & $int;
 

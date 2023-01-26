@@ -26,7 +26,7 @@ func(
         $bar->foo()
         ->bar()
             ->func()
-    );
+   );
 
 $object
     ->setBar($foo)

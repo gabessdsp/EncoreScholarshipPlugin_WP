@@ -71,7 +71,7 @@ class IncludeSystemSniff extends AbstractScopeSniff
             ($stackPtr - 1),
             null,
             true
-        );
+       );
 
         // Don't process class names represented by variables as this can be
         // an inexact science.
@@ -247,7 +247,7 @@ class IncludeSystemSniff extends AbstractScopeSniff
                 || $tokens[$i]['code'] === T_INTERFACE
                 || $tokens[$i]['code'] === T_FUNCTION)
                 && isset($tokens[$i]['scope_closer']) === true
-            ) {
+           ) {
                 $i = $tokens[$i]['scope_closer'];
                 continue;
             }

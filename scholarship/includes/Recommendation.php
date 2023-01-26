@@ -15,26 +15,26 @@ class Recommendation extends PostWrapper {
     public static function form() {
 
         $member = new Staff(wp_get_current_user());
-        $post = get_post((int) $_GET['application'] );
-        if (null === $post ) {
+        $post = get_post((int) $_GET['application']);
+        if (null === $post) {
             return;
         }
-        $application = new Application($post );
+        $application = new Application($post);
         $staff = $application->get_meta('staff');
-        if (! in_array((int) $member->ID, $staff )) {
+        if (! in_array((int) $member->ID, $staff)) {
             return;
         }
 
-        $student = new Student(new \WP_User((int) $application->post_author ));
+        $student = new Student(new \WP_User((int) $application->post_author));
         $student_fullname = $student->get('first_name') . ' ' . $student->get('last_name');
         $picture = $student->get_meta('picture');
 
-        $recommendation = $application->recommendation_by($member );
+        $recommendation = $application->recommendation_by($member);
         $recommendation_value = false === $recommendation
             ? ''
             : $recommendation->post_content;
 
-        if (false === $recommendation ) {
+        if (false === $recommendation) {
             $questions = array();
         } else {
             $questions = $recommendation->get_meta('questions');
@@ -44,9 +44,9 @@ class Recommendation extends PostWrapper {
         <div id="poststuff" class="wrap">
             <form id="post" method="POST" action="admin-post.php?action=sch-recommend"><!-- id for compatibility with post-new.php -->
                 <input type="hidden" name="action" value="sch-recommend">
-                <input type="hidden" name="application" value="<?php echo esc_attr($application->ID ); ?>">
-                <input type="hidden" name="_wpnonce" value="<?php echo wp_create_nonce('sch-recommend-' . $application->ID ); ?>">
-                <h1><?php if (false === $recommendation ) { ?>Recommend This Application<?php } else { ?>Edit Your Recommendation<?php } ?></h1>
+                <input type="hidden" name="application" value="<?php echo esc_attr($application->ID); ?>">
+                <input type="hidden" name="_wpnonce" value="<?php echo wp_create_nonce('sch-recommend-' . $application->ID); ?>">
+                <h1><?php if (false === $recommendation) { ?>Recommend This Application<?php } else { ?>Edit Your Recommendation<?php } ?></h1>
                 <p>Review the student's information and application:</p>
                 <div id="post-body" class="metabox-holder columns-2" style="margin-top: 20px;">
                     <div id="post-body-content" class="postarea wp-editor-expand">
@@ -68,35 +68,35 @@ class Recommendation extends PostWrapper {
                                     array(
                                         'text', 'position',
                                         'What is your position as a staff member?',
-                                    ),
+                                   ),
                                     array(
                                         'checkbox', 'performer',
                                         'Is the student a performer?',
-                                    ),
+                                   ),
                                     array(
                                         'checkbox', 'pit_performer',
                                         'Is the student a pit performer?',
-                                    ),
+                                   ),
                                     array(
                                         'checkbox', 'truthful',
                                         'To the best of your knowledge, has the student been truthful with their application so far?',
-                                    ),
+                                   ),
                                     array(
                                         'number', 'shows',
                                         'How many shows has the student participated in?',
-                                    ),
+                                   ),
                                     array(
                                         'number', 'available',
                                         'How many shows are/were available to the student?',
-                                    ),
-                                ) as $input ) {
-                                    list($type, $name, $label ) = $input;
+                                   ),
+                               ) as $input) {
+                                    list($type, $name, $label) = $input;
                                     Util::table_input(
                                         $type,
                                         $name,
                                         $label,
-                                        Util::get($questions, $name )
-                                    );
+                                        Util::get($questions, $name)
+                                   );
                                 }
                                 ?>
                             </tbody>
@@ -127,13 +127,13 @@ class Recommendation extends PostWrapper {
                                     'Concern for others' => 'concern',
                                     'Self-confidence' => 'self_confidence',
                                     'Initiative/Independence' => 'initiative',
-                                ) as $label => $name ) {
+                               ) as $label => $name) {
                                     Util::table_input(
                                         'range',
                                         $name,
                                         $label,
-                                        Util::get($questions, $name )
-                                    );
+                                        Util::get($questions, $name)
+                                   );
                                 }
                                 ?>
                             </tbody>
@@ -166,20 +166,20 @@ class Recommendation extends PostWrapper {
     public static function post() {
         $member = wp_get_current_user();
         if (! wp_verify_nonce($_POST['_wpnonce'], 'sch-recommend-'
-            . $_POST['application'] ) || ! $member->exists()
+            . $_POST['application']) || ! $member->exists()
             || ! $member->has_cap('staff')) {
             die('Unauthorized request');
         }
 
         $appid = (int) $_POST['application'];
 
-        $application = get_post($appid );
-        if (null === $application ) {
+        $application = get_post($appid);
+        if (null === $application) {
             return;
         }
-        $application = new Application($application );
+        $application = new Application($application);
         $staff = $application->get_meta('staff');
-        if (! in_array((int) $member->ID, $staff )) {
+        if (! in_array((int) $member->ID, $staff)) {
             return;
         }
 
@@ -187,16 +187,16 @@ class Recommendation extends PostWrapper {
             'post_type' => 'sch_recommendation',
             'post_status' => 'publish',
             'post_author' => $member->ID,
-        );
+       );
 
         foreach (get_posts(array(
             'numberposts' => -1,
             'author' => $member->ID,
             'post_type' => 'sch_recommendation'
-        )) as $p ) {
-            $p = new Recommendation($p );
+       )) as $p) {
+            $p = new Recommendation($p);
             // This cast seems necessary even though the appid is stored as an int...
-            if ((int) $p->get_meta('sch_application') === $appid ) {
+            if ((int) $p->get_meta('sch_application') === $appid) {
                 $recommendation['ID'] = $p->ID;
                 break;
             }
@@ -208,8 +208,8 @@ class Recommendation extends PostWrapper {
             'performer',
             'pit_performer',
             'truthful',
-        ) as $checkbox ) {
-            $questions[ $checkbox ] = ('yes' === Util::get($_POST, $checkbox ));
+       ) as $checkbox) {
+            $questions[ $checkbox ] = ('yes' === Util::get($_POST, $checkbox));
         }
         foreach (array(
             'shows',
@@ -225,19 +225,19 @@ class Recommendation extends PostWrapper {
             'concern',
             'self_confidence',
             'initiative',
-        ) as $number ) {
-            $questions[ $number ] = intval(Util::get($_POST, $number, 0 ));
+       ) as $number) {
+            $questions[ $number ] = intval(Util::get($_POST, $number, 0));
         }
 
         $recommendation['post_content'] = strip_shortcodes(
             str_ireplace(
                 '<!--more-->', '',
-                wp_kses_post($_POST['sch_recommendation'] )
-            )
-        );
-        $recid = wp_insert_post($recommendation );
-        update_post_meta($recid, 'sch_application', $appid );
-        update_post_meta($recid, 'questions', $questions );
+                wp_kses_post($_POST['sch_recommendation'])
+           )
+       );
+        $recid = wp_insert_post($recommendation);
+        update_post_meta($recid, 'sch_application', $appid);
+        update_post_meta($recid, 'questions', $questions);
 
         if (Options::get('sch_enabled', 'staff')) {
             wp_redirect(admin_url('admin.php?page=sch-tagged&sch_saved=true'));
@@ -249,6 +249,6 @@ class Recommendation extends PostWrapper {
     }
 
     public function application() {
-        return new Application(get_post((int) get_post_meta($this->ID, 'sch_application', true )) );
+        return new Application(get_post((int) get_post_meta($this->ID, 'sch_application', true)));
     }
 }

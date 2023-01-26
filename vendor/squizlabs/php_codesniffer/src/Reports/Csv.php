@@ -81,7 +81,7 @@ class Csv implements Report
         $width=80,
         $interactive=false,
         $toScreen=true
-    ) {
+   ) {
         echo 'File,Line,Column,Type,Message,Source,Severity,Fixable'.PHP_EOL;
         echo $cachedData;
 

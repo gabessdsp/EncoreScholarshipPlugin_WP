@@ -67,7 +67,7 @@ class OpeningFunctionBraceKernighanRitchieSniff implements Sniff
             && (bool) $this->checkFunctions === false)
             || ($tokens[$stackPtr]['code'] === T_CLOSURE
             && (bool) $this->checkClosures === false)
-        ) {
+       ) {
             return;
         }
 
@@ -105,7 +105,7 @@ class OpeningFunctionBraceKernighanRitchieSniff implements Sniff
                 $phpcsFile->fixer->replaceToken($openingBrace, '');
                 if ($tokens[($openingBrace + 1)]['code'] === T_WHITESPACE
                     && $tokens[($openingBrace + 2)]['line'] > $tokens[$openingBrace]['line']
-                ) {
+               ) {
                     // Brace is followed by a new line, so remove it to ensure we don't
                     // leave behind a blank line at the top of the block.
                     $phpcsFile->fixer->replaceToken(($openingBrace + 1), '');
@@ -113,7 +113,7 @@ class OpeningFunctionBraceKernighanRitchieSniff implements Sniff
                     if ($tokens[($openingBrace - 1)]['code'] === T_WHITESPACE
                         && $tokens[($openingBrace - 1)]['line'] === $tokens[$openingBrace]['line']
                         && $tokens[($openingBrace - 2)]['line'] < $tokens[$openingBrace]['line']
-                    ) {
+                   ) {
                         // Brace is preceded by indent, so remove it to ensure we don't
                         // leave behind more indent than is required for the first line.
                         $phpcsFile->fixer->replaceToken(($openingBrace - 1), '');
@@ -132,7 +132,7 @@ class OpeningFunctionBraceKernighanRitchieSniff implements Sniff
         if ($tokens[$next]['line'] === $tokens[$openingBrace]['line']) {
             if ($next === $tokens[$stackPtr]['scope_closer']
                 || $tokens[$next]['code'] === T_CLOSE_TAG
-            ) {
+           ) {
                 // Ignore empty functions.
                 return;
             }

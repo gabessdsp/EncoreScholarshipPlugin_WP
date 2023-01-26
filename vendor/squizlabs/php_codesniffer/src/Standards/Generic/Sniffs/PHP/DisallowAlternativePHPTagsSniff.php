@@ -133,7 +133,7 @@ class DisallowAlternativePHPTagsSniff implements Sniff
         // Account for incorrect script open tags.
         if ($openTag['code'] === T_INLINE_HTML
             && preg_match('`(<script (?:[^>]+)?language=[\'"]?php[\'"]?(?:[^>]+)?>)`i', $content, $match) === 1
-        ) {
+       ) {
             $error   = 'Script style opening tag used; expected "<?php" but found "%s"';
             $snippet = $this->getSnippet($content, $match[1]);
             $data    = [$match[1].$snippet];

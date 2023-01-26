@@ -118,7 +118,7 @@ class Diff implements Report
         $width=80,
         $interactive=false,
         $toScreen=true
-    ) {
+   ) {
         echo $cachedData;
         if ($toScreen === true && $cachedData !== '') {
             echo PHP_EOL;

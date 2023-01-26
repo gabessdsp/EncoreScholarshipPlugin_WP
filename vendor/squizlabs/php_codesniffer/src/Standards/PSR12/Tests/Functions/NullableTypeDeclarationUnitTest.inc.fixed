@@ -4,14 +4,14 @@ class MyClass {
     public function validNullableTypeHinting(
         ?array $array = null,
         ?MyObject $object
-    ): ?MyObject
+   ): ?MyObject
     {
     }
 
     public function validWithFQN(
         ?\MyNameSpace\MyArray $array = null,
         ?\MyNameSpace\MyObject $object
-    ): ?\MyNameSpace\MyObject
+   ): ?\MyNameSpace\MyObject
     {
     }
 
@@ -22,14 +22,14 @@ class MyClass {
     public function invalidTooMuchWhitespace(
         ?array $array = null,
         ?MyObject
-    ):?MyObject
+   ):?MyObject
     {
     }
 
     public function invalidWithFQNTooMuchWhitespace(
         ?\MyNameSpace\MyArray $array = null,
         ?\MyNameSpace\MyObject
-    ):?\MyNameSpace\MyObject
+   ):?\MyNameSpace\MyObject
     {
     }
 }
@@ -49,12 +49,12 @@ interface MyInterface {
         ? /* a comment, fixing is undesirable */ array $varB,
         ? // phpcs:ignore Standard.Cat.Sniff -- fixing is undesirable
         int $varC
-    ) ?bool;
+   ) ?bool;
 }
 
-function testSelf(?self $self ) : ?self {}
-function testParent(?parent $parent ) : ?parent {}
-function testCallable(?callable $callable ) : ?callable {}
+function testSelf(?self $self) : ?self {}
+function testParent(?parent $parent) : ?parent {}
+function testCallable(?callable $callable) : ?callable {}
 
 // Issue #2552.
 class TestTokenizingOfNullableVsInlineThen {

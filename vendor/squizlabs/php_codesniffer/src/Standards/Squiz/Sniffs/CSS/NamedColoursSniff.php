@@ -77,7 +77,7 @@ class NamedColoursSniff implements Sniff
 
         if ($tokens[($stackPtr - 1)]['code'] === T_HASH
             || $tokens[($stackPtr - 1)]['code'] === T_STRING_CONCAT
-        ) {
+       ) {
             // Class name.
             return;
         }

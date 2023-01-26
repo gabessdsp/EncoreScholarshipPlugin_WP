@@ -93,7 +93,7 @@ class ClassDefinitionNameSpacingSniff implements Sniff
                 $prev = $phpcsFile->findPrevious(T_WHITESPACE, $i, null, true);
                 if ($prev !== false
                     && isset($endTokens[$tokens[$prev]['code']]) === false
-                ) {
+               ) {
                     $error = 'Blank lines are not allowed between class names';
                     $phpcsFile->addError($error, ($i + 1), 'BlankLinesFound');
                 }

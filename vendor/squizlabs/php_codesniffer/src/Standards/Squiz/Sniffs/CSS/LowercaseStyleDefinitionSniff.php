@@ -74,7 +74,7 @@ class LowercaseStyleDefinitionSniff implements Sniff
             if ($tokens[$i]['code'] === T_STYLE
                 || ($inStyle !== null
                 && $tokens[$i]['code'] === T_STRING)
-            ) {
+           ) {
                 $expected = strtolower($tokens[$i]['content']);
                 if ($expected !== $tokens[$i]['content']) {
                     $error = 'Style definitions must be lowercase; expected %s but found %s';

@@ -23,15 +23,15 @@ class Staff extends UserWrapper {
 
         <div class="wrap">
             <h1>Tagged Applications</h1>
-            <?php if (isset($_GET['sch_saved'] )) { ?>
+            <?php if (isset($_GET['sch_saved'])) { ?>
                 <div class="updated notice">
                     <p>Recommendation saved.</p>
                 </div>
             <?php } ?>
-            <?php if (0 === count($tagged )) { ?>
+            <?php if (0 === count($tagged)) { ?>
                 <p><em>You have not been tagged in any applications. Come back later!</em></p>
             <?php } else { ?>
-                <?php if (count($tagged ) > count($recommended )) { ?>
+                <?php if (count($tagged) > count($recommended)) { ?>
                     <h2>Pending Recommendations</h2>
                     <table class="wp-list-table widefat fixed striped posts">
                         <thead>
@@ -44,11 +44,11 @@ class Staff extends UserWrapper {
                             </tr>
                         </thead>
                         <tbody>
-                        <?php foreach ($tagged as $application ) { ?>
-                            <?php if (! in_array($application, $recommended )) { ?>
+                        <?php foreach ($tagged as $application) { ?>
+                            <?php if (! in_array($application, $recommended)) { ?>
                                 <tr>
                                     <td><?php
-                                    $student = new Student(new \WP_User((int) $application->post_author ));
+                                    $student = new Student(new \WP_User((int) $application->post_author));
                                     echo $student->get('first_name') . ' ' . $student->get('last_name');
                                     ?></td>
                                     <td><?php echo $student->get_meta('parent_name'); ?></td>
@@ -61,7 +61,7 @@ class Staff extends UserWrapper {
                         </tbody>
                     </table>
                 <?php } ?>
-                <?php if (0 !== count($recommended )) { ?>
+                <?php if (0 !== count($recommended)) { ?>
                     <h2>Completed Recommendations</h2>
                     <table class="wp-list-table widefat fixed striped posts">
                         <thead>
@@ -74,10 +74,10 @@ class Staff extends UserWrapper {
                             </tr>
                         </thead>
                         <tbody>
-                        <?php foreach ($recommended as $application ) { ?>
+                        <?php foreach ($recommended as $application) { ?>
                             <tr>
                                 <td><?php
-                                $student = new Student(new \WP_User((int) $application->post_author ));
+                                $student = new Student(new \WP_User((int) $application->post_author));
                                 echo $student->get('first_name') . ' ' . $student->get('last_name');
                                 ?></td>
                                 <td><?php echo $student->get_meta('parent_name'); ?></td>
@@ -99,10 +99,10 @@ class Staff extends UserWrapper {
         foreach (get_posts(array(
             'numberposts' => -1,
             'post_type' => 'sch_application'
-        ))  as $application ) {
-            $application = new Application($application );
+       ))  as $application) {
+            $application = new Application($application);
             $staff = $application->get_meta('staff');
-            if (in_array((int) $this->ID, $staff )) {
+            if (in_array((int) $this->ID, $staff)) {
                 $tagged[] = $application;
             }
         }
@@ -114,8 +114,8 @@ class Staff extends UserWrapper {
             'numberposts' => -1,
             'post_type' => 'sch_recommendation',
             'author' => $this->ID
-        )) as $recommendation ) {
-            $recommendation = new Recommendation($recommendation );
+       )) as $recommendation) {
+            $recommendation = new Recommendation($recommendation);
             $recommended[] = $recommendation->application();
         }
         return $recommended;

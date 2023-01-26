@@ -63,7 +63,7 @@ class CreateWidgetTypeCallbackSniff implements Sniff
         $function = $phpcsFile->findNext([T_WHITESPACE, T_COLON], ($create + 1), null, true);
         if ($tokens[$function]['code'] !== T_FUNCTION
             && $tokens[$function]['code'] !== T_CLOSURE
-        ) {
+       ) {
             return;
         }
 
@@ -99,7 +99,7 @@ class CreateWidgetTypeCallbackSniff implements Sniff
             } else if (($tokens[$i]['code'] === T_FUNCTION
                 || $tokens[$i]['code'] === T_CLOSURE)
                 && isset($tokens[$i]['scope_closer']) === true
-            ) {
+           ) {
                 $nestedFunction = $tokens[$i]['scope_closer'];
                 continue;
             }
@@ -114,7 +114,7 @@ class CreateWidgetTypeCallbackSniff implements Sniff
                 continue;
             } else if ($tokens[$i]['code'] !== T_STRING
                 || $tokens[$i]['content'] !== 'callback'
-            ) {
+           ) {
                 continue;
             }
 
@@ -123,7 +123,7 @@ class CreateWidgetTypeCallbackSniff implements Sniff
             if ($tokens[($i + 1)]['code'] !== T_OBJECT_OPERATOR
                 || $tokens[($i + 2)]['content'] !== 'call'
                 || $tokens[($i + 3)]['code'] !== T_OPEN_PARENTHESIS
-            ) {
+           ) {
                 // One last chance; this might be the callback function
                 // being passed to another function, like this
                 // "this.init(something, callback, something)".
@@ -150,7 +150,7 @@ class CreateWidgetTypeCallbackSniff implements Sniff
                     ($bracket - 1),
                     null,
                     true
-                );
+               );
 
                 if ($tokens[$prev]['code'] !== T_STRING) {
                     // This is not a function passing the callback.
@@ -167,7 +167,7 @@ class CreateWidgetTypeCallbackSniff implements Sniff
                 $arg = $phpcsFile->findNext(T_WHITESPACE, ($i + 4), null, true);
                 if ($tokens[$arg]['content'] !== 'this'
                     && $tokens[$arg]['content'] !== 'self'
-                ) {
+               ) {
                     $error = 'The first argument passed to the callback function must be "this" or "self"';
                     $phpcsFile->addError($error, $arg, 'FirstArgNotSelf');
                 }
@@ -201,7 +201,7 @@ class CreateWidgetTypeCallbackSniff implements Sniff
 
             if ($next !== $tokens[$function]['scope_closer']
                 && $tokens[$next]['code'] !== T_RETURN
-            ) {
+           ) {
                 $error = 'The call to the callback function must be followed by a return statement if it is not the last statement in the create() method';
                 $phpcsFile->addError($error, $i, 'NoReturn');
             }

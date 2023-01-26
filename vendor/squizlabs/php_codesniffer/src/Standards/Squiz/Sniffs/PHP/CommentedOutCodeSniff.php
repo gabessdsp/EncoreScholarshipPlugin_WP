@@ -91,14 +91,14 @@ class CommentedOutCodeSniff implements Sniff
             if ($commentStyle === 'line'
                 && ($lastLineSeen + 1) <= $tokens[$i]['line']
                 && strpos($tokens[$i]['content'], '/*') === 0
-            ) {
+           ) {
                 // First non-whitespace token on a new line is start of a different style comment.
                 break;
             }
 
             if ($commentStyle === 'line'
                 && ($lastLineSeen + 1) < $tokens[$i]['line']
-            ) {
+           ) {
                 // Blank line breaks a '//' style comment block.
                 break;
             }
@@ -208,7 +208,7 @@ class CommentedOutCodeSniff implements Sniff
         // Last token is always the closing tag, unless something went wrong.
         if (isset($stringTokens[($numTokens - 1)]) === false
             || $stringTokens[($numTokens - 1)]['code'] !== T_CLOSE_TAG
-        ) {
+       ) {
             return ($lastCommentBlockToken + 1);
         } else {
             array_pop($stringTokens);
@@ -250,7 +250,7 @@ class CommentedOutCodeSniff implements Sniff
             } else if (isset(Tokens::$comparisonTokens[$stringTokens[$i]['code']]) === true
                 || isset(Tokens::$arithmeticTokens[$stringTokens[$i]['code']]) === true
                 || $stringTokens[$i]['code'] === T_GOTO_LABEL
-            ) {
+           ) {
                 // Commented out HTML/XML and other docs contain a lot of these
                 // characters, so it is best to not use them directly.
                 $numPossible++;

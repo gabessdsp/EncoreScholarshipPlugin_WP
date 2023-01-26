@@ -79,7 +79,7 @@ class SemicolonSpacingSniff implements Sniff
             || ($forCondition === true && $nonSpace === $tokens[$owner]['parenthesis_opener'])
             || (isset($tokens[$nonSpace]['scope_opener']) === true
             && $tokens[$nonSpace]['scope_opener'] === $nonSpace)
-        ) {
+       ) {
             // Empty statement.
             return;
         }

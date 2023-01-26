@@ -114,7 +114,7 @@ class DisallowSpaceIndentSniff implements Sniff
             if (($tokens[$i]['code'] === T_INLINE_HTML
                 || $tokens[$i]['code'] === T_COMMENT)
                 && preg_match('`^(\s*)(\S.*)`s', $content, $matches) > 0
-            ) {
+           ) {
                 if (isset($matches[1]) === true) {
                     $content = $matches[1];
 
@@ -128,7 +128,7 @@ class DisallowSpaceIndentSniff implements Sniff
                 }
             } else if (isset($tokens[($i + 1)]) === true
                 && $tokens[$i]['line'] < $tokens[($i + 1)]['line']
-            ) {
+           ) {
                 // There is no content after this whitespace except for a newline.
                 $content       = rtrim($content, "\r\n");
                 $nonWhitespace = $phpcsFile->eolChar;
@@ -157,7 +157,7 @@ class DisallowSpaceIndentSniff implements Sniff
             if (($tokens[$i]['code'] === T_DOC_COMMENT_WHITESPACE
                 || $tokens[$i]['code'] === T_COMMENT)
                 && $content === ' '
-            ) {
+           ) {
                 // Ignore all non-indented comments, especially for recording metrics.
                 continue;
             }

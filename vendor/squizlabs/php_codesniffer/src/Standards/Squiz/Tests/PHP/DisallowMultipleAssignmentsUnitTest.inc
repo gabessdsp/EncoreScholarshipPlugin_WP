@@ -59,7 +59,7 @@ $closureWithDefaultParamter = function(array $testArray=array()) {};
 
 <?php
 
-while (($csvdata = fgetcsv($handle, 2000, $separator )) !== false ) {
+while (($csvdata = fgetcsv($handle, 2000, $separator)) !== false) {
 	// Do something.
 }
 

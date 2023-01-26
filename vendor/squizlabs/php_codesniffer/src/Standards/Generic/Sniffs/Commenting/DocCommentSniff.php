@@ -54,7 +54,7 @@ class DocCommentSniff implements Sniff
         if (isset($tokens[$stackPtr]['comment_closer']) === false
             || ($tokens[$tokens[$stackPtr]['comment_closer']]['content'] === ''
             && $tokens[$stackPtr]['comment_closer'] === ($phpcsFile->numTokens - 1))
-        ) {
+       ) {
             // Don't process an unfinished comment during live coding.
             return;
         }
@@ -197,7 +197,7 @@ class DocCommentSniff implements Sniff
         $prev     = $phpcsFile->findPrevious($empty, ($firstTag - 1), $stackPtr, true);
         if ($tokens[$firstTag]['line'] !== ($tokens[$prev]['line'] + 2)
             && $tokens[$prev]['code'] !== T_DOC_COMMENT_OPEN_TAG
-        ) {
+       ) {
             $error = 'There must be exactly one blank line before the tags in a doc comment';
             $fix   = $phpcsFile->addFixableError($error, $firstTag, 'SpacingBeforeTags');
             if ($fix === true) {
@@ -228,7 +228,7 @@ class DocCommentSniff implements Sniff
                     T_DOC_COMMENT_STRING,
                     ($tag - 1),
                     $tokens[$commentStart]['comment_tags'][($pos - 1)]
-                );
+               );
 
                 if ($prev === false) {
                     $prev = $tokens[$commentStart]['comment_tags'][($pos - 1)];
@@ -242,7 +242,7 @@ class DocCommentSniff implements Sniff
             if ($tokens[$tag]['content'] === '@param') {
                 if ($paramGroupid !== null
                     && $paramGroupid !== $groupid
-                ) {
+               ) {
                     $error = 'Parameter tags must be grouped together in a doc comment';
                     $phpcsFile->addError($error, $tag, 'ParamGroup');
                 }
@@ -261,7 +261,7 @@ class DocCommentSniff implements Sniff
             foreach ($group as $pos => $tag) {
                 if ($paramGroupid === $groupid
                     && $tokens[$tag]['content'] !== '@param'
-                ) {
+               ) {
                     $error = 'Tag %s cannot be grouped with parameter tags in a doc comment';
                     $data  = [$tokens[$tag]['content']];
                     $phpcsFile->addError($error, $tag, 'NonParamGroup', $data);

@@ -48,7 +48,7 @@ class DisallowMultipleStatementsSniff implements Sniff
             if ($prev === false
                 || $tokens[$prev]['code'] === T_OPEN_TAG
                 || $tokens[$prev]['code'] === T_OPEN_TAG_WITH_ECHO
-            ) {
+           ) {
                 $phpcsFile->recordMetric($stackPtr, 'Multiple statements on same line', 'no');
                 return;
             }

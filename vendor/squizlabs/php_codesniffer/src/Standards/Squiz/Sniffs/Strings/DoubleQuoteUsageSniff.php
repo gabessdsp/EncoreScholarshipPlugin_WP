@@ -58,7 +58,7 @@ class DoubleQuoteUsageSniff implements Sniff
         if (isset($tokens[$i]) === true) {
             while ($i < $phpcsFile->numTokens
                 && $tokens[$i]['code'] === $tokens[$stackPtr]['code']
-            ) {
+           ) {
                 if (isset($tokens[$i]['orig_content']) === true) {
                     $workingString .= $tokens[$i]['orig_content'];
                 } else {

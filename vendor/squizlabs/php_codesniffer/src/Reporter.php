@@ -231,7 +231,7 @@ class Reporter
             $this->config->reportWidth,
             $this->config->interactive,
             $toScreen
-        );
+       );
         $generatedReport = ob_get_contents();
         ob_end_clean();
 
@@ -404,7 +404,7 @@ class Reporter
                     $errors[$line][$column] = array_merge(
                         $newWarnings,
                         $errors[$line][$column]
-                    );
+                   );
                 } else {
                     $errors[$line][$column] = $newWarnings;
                 }

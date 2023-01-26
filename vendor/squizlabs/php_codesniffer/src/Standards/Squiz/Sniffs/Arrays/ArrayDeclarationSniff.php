@@ -237,7 +237,7 @@ class ArrayDeclarationSniff implements Sniff
 
             if ($nestedParenthesis === false
                 || $tokens[$nestedParenthesis]['line'] !== $tokens[$stackPtr]['line']
-            ) {
+           ) {
                 $error = 'Array with multiple values cannot be declared on a single line';
                 $fix   = $phpcsFile->addFixableError($error, $stackPtr, 'SingleLineNotAllowed');
                 if ($fix === true) {
@@ -365,7 +365,7 @@ class ArrayDeclarationSniff implements Sniff
             if ($tokens[$nextToken]['code'] === T_OPEN_PARENTHESIS
                 && (isset($tokens[$nextToken]['parenthesis_owner']) === false
                 || $tokens[$nextToken]['parenthesis_owner'] !== $stackPtr)
-            ) {
+           ) {
                 $nextToken = $tokens[$nextToken]['parenthesis_closer'];
                 continue;
             }
@@ -375,7 +375,7 @@ class ArrayDeclarationSniff implements Sniff
                 || $tokens[$nextToken]['code'] === T_CLOSURE
                 || $tokens[$nextToken]['code'] === T_FN
                 || $tokens[$nextToken]['code'] === T_MATCH
-            ) {
+           ) {
                 // Let subsequent calls of this test handle nested arrays.
                 if ($tokens[$lastToken]['code'] !== T_DOUBLE_ARROW) {
                     $indices[] = ['value' => $nextToken];
@@ -441,7 +441,7 @@ class ArrayDeclarationSniff implements Sniff
                         if (($tokens[$prev]['code'] !== T_END_HEREDOC
                             && $tokens[$prev]['code'] !== T_END_NOWDOC)
                             || $tokens[($nextToken - 1)]['line'] === $tokens[$nextToken]['line']
-                        ) {
+                       ) {
                             if ($tokens[($nextToken - 1)]['content'] === $phpcsFile->eolChar) {
                                 $spaceLength = 'newline';
                             } else {
@@ -468,7 +468,7 @@ class ArrayDeclarationSniff implements Sniff
                         ($lastToken + 1),
                         $nextToken,
                         true
-                    );
+                   );
 
                     $indices[]  = ['value' => $valueContent];
                     $singleUsed = true;
@@ -516,7 +516,7 @@ class ArrayDeclarationSniff implements Sniff
                     ($nextToken + 1),
                     $arrayEnd,
                     true
-                );
+               );
 
                 $currentEntry['value'] = $nextContent;
                 $indices[] = $currentEntry;
@@ -591,7 +591,7 @@ class ArrayDeclarationSniff implements Sniff
                 'aaa',
                 'bbb',
                 'd',
-               );
+              );
         */
 
         if ($keyUsed === false && empty($indices) === false) {
@@ -603,7 +603,7 @@ class ArrayDeclarationSniff implements Sniff
                 ($arrayEnd - 1),
                 $lastIndex,
                 true
-            );
+           );
 
             if ($tokens[$trailingContent]['code'] !== T_COMMA) {
                 $phpcsFile->recordMetric($stackPtr, 'Array end comma', 'no');
@@ -634,7 +634,7 @@ class ArrayDeclarationSniff implements Sniff
 
                 if ($tokens[$valuePointer]['code'] === T_CLOSURE
                     || $tokens[$valuePointer]['code'] === T_FN
-                ) {
+               ) {
                     $ignoreTokens += [T_STATIC => T_STATIC];
                 }
 
@@ -697,7 +697,7 @@ class ArrayDeclarationSniff implements Sniff
 
             $a = array(
                   'index'  => '2',
-                 );
+                );
 
             or
 

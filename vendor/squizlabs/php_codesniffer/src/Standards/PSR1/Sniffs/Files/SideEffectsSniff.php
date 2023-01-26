@@ -104,7 +104,7 @@ class SideEffectsSniff implements Sniff
                 || isset($tokens[$i]['sniffCodes']['PSR1']) === true
                 || isset($tokens[$i]['sniffCodes']['PSR1.Files']) === true
                 || isset($tokens[$i]['sniffCodes']['PSR1.Files.SideEffects']) === true)
-            ) {
+           ) {
                 do {
                     $i = $phpcsFile->findNext(T_PHPCS_ENABLE, ($i + 1));
                 } while ($i !== false
@@ -130,7 +130,7 @@ class SideEffectsSniff implements Sniff
             // Ignore PHP tags.
             if ($tokens[$i]['code'] === T_OPEN_TAG
                 || $tokens[$i]['code'] === T_CLOSE_TAG
-            ) {
+           ) {
                 continue;
             }
 
@@ -149,7 +149,7 @@ class SideEffectsSniff implements Sniff
                 || $tokens[$i]['code'] === T_USE
                 || $tokens[$i]['code'] === T_DECLARE
                 || $tokens[$i]['code'] === T_CONST
-            ) {
+           ) {
                 if (isset($tokens[$i]['scope_opener']) === true) {
                     $i = $tokens[$i]['scope_closer'];
                     if ($tokens[$i]['code'] === T_ENDDECLARE) {
@@ -182,7 +182,7 @@ class SideEffectsSniff implements Sniff
             // Ignore attributes.
             if ($tokens[$i]['code'] === T_ATTRIBUTE
                 && isset($tokens[$i]['attribute_closer']) === true
-            ) {
+           ) {
                 $i = $tokens[$i]['attribute_closer'];
                 continue;
             }
@@ -190,7 +190,7 @@ class SideEffectsSniff implements Sniff
             // Detect and skip over symbols.
             if (isset($symbols[$tokens[$i]['code']]) === true
                 && isset($tokens[$i]['scope_closer']) === true
-            ) {
+           ) {
                 if ($firstSymbol === null) {
                     $firstSymbol = $i;
                 }
@@ -199,13 +199,13 @@ class SideEffectsSniff implements Sniff
                 continue;
             } else if ($tokens[$i]['code'] === T_STRING
                 && strtolower($tokens[$i]['content']) === 'define'
-            ) {
+           ) {
                 $prev = $phpcsFile->findPrevious(Tokens::$emptyTokens, ($i - 1), null, true);
                 if ($tokens[$prev]['code'] !== T_OBJECT_OPERATOR
                     && $tokens[$prev]['code'] !== T_NULLSAFE_OBJECT_OPERATOR
                     && $tokens[$prev]['code'] !== T_DOUBLE_COLON
                     && $tokens[$prev]['code'] !== T_FUNCTION
-                ) {
+               ) {
                     if ($firstSymbol === null) {
                         $firstSymbol = $i;
                     }
@@ -224,18 +224,18 @@ class SideEffectsSniff implements Sniff
             // doesn't need to use a full conditional block.
             if ($tokens[$i]['code'] === T_STRING
                 && strtolower($tokens[$i]['content']) === 'defined'
-            ) {
+           ) {
                 $openBracket = $phpcsFile->findNext(Tokens::$emptyTokens, ($i + 1), null, true);
                 if ($openBracket !== false
                     && $tokens[$openBracket]['code'] === T_OPEN_PARENTHESIS
                     && isset($tokens[$openBracket]['parenthesis_closer']) === true
-                ) {
+               ) {
                     $prev = $phpcsFile->findPrevious(Tokens::$emptyTokens, ($i - 1), null, true);
                     if ($tokens[$prev]['code'] !== T_OBJECT_OPERATOR
                         && $tokens[$prev]['code'] !== T_NULLSAFE_OBJECT_OPERATOR
                         && $tokens[$prev]['code'] !== T_DOUBLE_COLON
                         && $tokens[$prev]['code'] !== T_FUNCTION
-                    ) {
+                   ) {
                         $i = $tokens[$openBracket]['parenthesis_closer'];
                         continue;
                     }
@@ -256,7 +256,7 @@ class SideEffectsSniff implements Sniff
                     ($tokens[$i]['scope_opener'] + 1),
                     ($tokens[$i]['scope_closer'] - 1),
                     $tokens
-                );
+               );
 
                 if ($result['symbol'] !== null) {
                     if ($firstSymbol === null) {

@@ -71,7 +71,7 @@ class FunctionDeclarationArgumentSpacingSniff implements Sniff
             || isset($tokens[$stackPtr]['parenthesis_closer']) === false
             || $tokens[$stackPtr]['parenthesis_opener'] === null
             || $tokens[$stackPtr]['parenthesis_closer'] === null
-        ) {
+       ) {
             return;
         }
 

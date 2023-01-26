@@ -70,7 +70,7 @@ class CSSLintSniff implements Sniff
                 '/(error|warning) at line (\d+)/',
                 $output[$i],
                 $matches
-            );
+           );
 
             if ($numMatches === 0) {
                 continue;

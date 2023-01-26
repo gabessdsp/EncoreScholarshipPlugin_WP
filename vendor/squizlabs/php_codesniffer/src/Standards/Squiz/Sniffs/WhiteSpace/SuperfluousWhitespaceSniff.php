@@ -165,7 +165,7 @@ class SuperfluousWhitespaceSniff implements Sniff
                 // Allow a single newline at the end of the last line in the file.
                 if ($tokens[($stackPtr - 1)]['code'] !== T_WHITESPACE
                     && $tokens[$stackPtr]['content'] === $phpcsFile->eolChar
-                ) {
+               ) {
                     return;
                 }
             }//end if
@@ -192,7 +192,7 @@ class SuperfluousWhitespaceSniff implements Sniff
             // Ignore whitespace that is not at the end of a line.
             if (isset($tokens[($stackPtr + 1)]['line']) === true
                 && $tokens[($stackPtr + 1)]['line'] === $tokens[$stackPtr]['line']
-            ) {
+           ) {
                 return;
             }
 
@@ -200,7 +200,7 @@ class SuperfluousWhitespaceSniff implements Sniff
             if ($this->ignoreBlankLines === true
                 && $tokens[$stackPtr]['code'] === T_WHITESPACE
                 && $tokens[($stackPtr - 1)]['line'] !== $tokens[$stackPtr]['line']
-            ) {
+           ) {
                 return;
             }
 
@@ -214,7 +214,7 @@ class SuperfluousWhitespaceSniff implements Sniff
                 }
             } else if ($tokens[($stackPtr - 1)]['content'] !== rtrim($tokens[($stackPtr - 1)]['content'])
                 && $tokens[($stackPtr - 1)]['line'] === $tokens[$stackPtr]['line']
-            ) {
+           ) {
                 $fix = $phpcsFile->addFixableError('Whitespace found at end of line', ($stackPtr - 1), 'EndLine');
                 if ($fix === true) {
                     $phpcsFile->fixer->replaceToken(($stackPtr - 1), rtrim($tokens[($stackPtr - 1)]['content']));
@@ -228,7 +228,7 @@ class SuperfluousWhitespaceSniff implements Sniff
             if (($phpcsFile->hasCondition($stackPtr, [T_FUNCTION, T_CLOSURE]) === true)
                 && $tokens[($stackPtr - 1)]['line'] < $tokens[$stackPtr]['line']
                 && $tokens[($stackPtr - 2)]['line'] === $tokens[($stackPtr - 1)]['line']
-            ) {
+           ) {
                 // Properties and functions in nested classes have their own rules for spacing.
                 $conditions   = $tokens[$stackPtr]['conditions'];
                 $deepestScope = end($conditions);

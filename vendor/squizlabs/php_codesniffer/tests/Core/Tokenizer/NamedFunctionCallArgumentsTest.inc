@@ -72,13 +72,13 @@ function myfoo($💩💩💩, $Пасха, $_valid) {}
 foo(💩💩💩: [], Пасха: 'text', _valid: 123);
 
 /* testMixedPositionalAndNamedArgsWithTernary */
-foo($cond ? true : false, name: $value2 );
+foo($cond ? true : false, name: $value2);
 
 /* testNamedArgWithTernary */
-foo(label: $cond ? true : false, more: $cond ? CONSTANT_A : CONSTANT_B );
+foo(label: $cond ? true : false, more: $cond ? CONSTANT_A : CONSTANT_B);
 
 /* testTernaryWithFunctionCallsInThenElse */
-echo $cond ? foo(label: $something ) : foo(more: $something_else );
+echo $cond ? foo(label: $something) : foo(more: $something_else);
 
 /* testTernaryWithConstantsInThenElse */
 echo $cond ? CONSTANT_NAME : OTHER_CONSTANT;

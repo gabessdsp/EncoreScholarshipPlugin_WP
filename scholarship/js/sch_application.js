@@ -191,7 +191,7 @@
                     },
                     null,
                     "json"
-                ).done(function (data) {
+               ).done(function (data) {
                     var n = 0, match = false;
                     staffinprogress = false;
                     staffcompletions.empty();
@@ -264,7 +264,7 @@
                     },
                     null,
                     "json"
-                ).done(function (data) {
+               ).done(function (data) {
                     counselorinprogress = false;
                     counselorcompletions.empty();
 

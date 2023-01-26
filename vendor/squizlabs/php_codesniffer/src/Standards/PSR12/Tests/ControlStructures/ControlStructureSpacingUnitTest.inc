@@ -1,5 +1,5 @@
 <?php
-while ($expr ) {
+while ($expr) {
 }
 
 if (
@@ -15,7 +15,7 @@ while (
 while (
 $expr1
   && $expr2
-    ) {
+   ) {
 }
 
 do {
@@ -36,7 +36,7 @@ $expr1
     while (
     $expr1
       && $expr2
-        ) {
+       ) {
     }
 }
 
@@ -45,7 +45,7 @@ while (
     && $expr2
 
 
-        ) {
+       ) {
 }
 
 while (
@@ -69,7 +69,7 @@ if (
             <<<EOD
 foobar!
 EOD
-        )
+       )
 ) {
     return;
 }
@@ -81,7 +81,7 @@ EOD
          * A multi-line comment.
          */
         && $foo === true
-    ) {
+   ) {
         break;
     }
 
@@ -89,7 +89,7 @@ match (
     $expr1 &&
     $expr2 &&
     $expr3
-    ) {
+   ) {
     // structure body
 };
 

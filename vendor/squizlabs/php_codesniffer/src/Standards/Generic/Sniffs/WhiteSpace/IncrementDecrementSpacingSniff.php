@@ -65,7 +65,7 @@ class IncrementDecrementSpacingSniff implements Sniff
         if ($nextNonEmpty !== false
             && (($phpcsFile->tokenizerType === 'PHP' && $tokens[$nextNonEmpty]['code'] === T_VARIABLE)
             || ($phpcsFile->tokenizerType === 'JS' && $tokens[$nextNonEmpty]['code'] === T_STRING))
-        ) {
+       ) {
             if ($nextNonEmpty === ($stackPtr + 1)) {
                 $phpcsFile->recordMetric($stackPtr, 'Spacing between in/decrementor and variable', 0);
                 return;
@@ -118,7 +118,7 @@ class IncrementDecrementSpacingSniff implements Sniff
         if ($prevNonEmpty !== false
             && (($phpcsFile->tokenizerType === 'PHP' && $tokens[$prevNonEmpty]['code'] === T_VARIABLE)
             || ($phpcsFile->tokenizerType === 'JS' && $tokens[$prevNonEmpty]['code'] === T_STRING))
-        ) {
+       ) {
             if ($prevNonEmpty === ($stackPtr - 1)) {
                 $phpcsFile->recordMetric($stackPtr, 'Spacing between in/decrementor and variable', 0);
                 return;

@@ -138,7 +138,7 @@ class Ruleset
                 $standard = Util\Common::realpath($standard);
                 if (is_dir($standard) === true
                     && is_file(Util\Common::realpath($standard.DIRECTORY_SEPARATOR.'ruleset.xml')) === true
-                ) {
+               ) {
                     $standard = Util\Common::realpath($standard.DIRECTORY_SEPARATOR.'ruleset.xml');
                 }
             } else {
@@ -390,7 +390,7 @@ class Ruleset
         foreach ($ruleset->rule as $rule) {
             if (isset($rule['ref']) === false
                 || $this->shouldProcessElement($rule) === false
-            ) {
+           ) {
                 continue;
             }
 
@@ -408,11 +408,11 @@ class Ruleset
                 && $parts[0] !== ''
                 && $parts[1] !== ''
                 && $parts[2] !== ''
-            ) {
+           ) {
                 $sniffCode = $parts[0].'.'.$parts[1].'.'.$parts[2];
                 if (isset($this->ruleset[$sniffCode]['severity']) === true
                     && $this->ruleset[$sniffCode]['severity'] === 0
-                ) {
+               ) {
                     // This sniff code has already been turned off, but now
                     // it is being explicitly included again, so turn it back on.
                     $this->ruleset[(string) $rule['ref']]['severity'] = 5;
@@ -472,7 +472,7 @@ class Ruleset
                         $excludedSniffs = array_merge(
                             $excludedSniffs,
                             $this->expandRulesetReference((string) $exclude['name'], $rulesetDir, ($depth + 1))
-                        );
+                       );
                     }
                 }//end foreach
             }//end if
@@ -767,7 +767,7 @@ class Ruleset
                 if ($stdPath !== null && $path !== '') {
                     if (Util\Common::isPharFile($stdPath) === true
                         && strpos($stdPath, 'ruleset.xml') === false
-                    ) {
+                   ) {
                         // Phar files can only return the directory,
                         // since ruleset can be omitted if building one standard.
                         $newRef = Util\Common::realpath($stdPath.$path);
@@ -868,7 +868,7 @@ class Ruleset
         if ($partsCount <= 2
             || $partsCount > count(array_filter($parts))
             || in_array($ref, $newSniffs) === true
-        ) {
+       ) {
             // We are processing a standard, a category of sniffs or a relative path inclusion.
             foreach ($newSniffs as $sniffFile) {
                 $parts = explode(DIRECTORY_SEPARATOR, $sniffFile);
@@ -889,7 +889,7 @@ class Ruleset
             // Custom severity.
             if (isset($rule->severity) === true
                 && $this->shouldProcessElement($rule->severity) === true
-            ) {
+           ) {
                 if (isset($this->ruleset[$code]) === false) {
                     $this->ruleset[$code] = [];
                 }
@@ -909,7 +909,7 @@ class Ruleset
             // Custom message type.
             if (isset($rule->type) === true
                 && $this->shouldProcessElement($rule->type) === true
-            ) {
+           ) {
                 if (isset($this->ruleset[$code]) === false) {
                     $this->ruleset[$code] = [];
                 }
@@ -934,7 +934,7 @@ class Ruleset
             // Custom message.
             if (isset($rule->message) === true
                 && $this->shouldProcessElement($rule->message) === true
-            ) {
+           ) {
                 if (isset($this->ruleset[$code]) === false) {
                     $this->ruleset[$code] = [];
                 }
@@ -954,7 +954,7 @@ class Ruleset
             // Custom properties.
             if (isset($rule->properties) === true
                 && $this->shouldProcessElement($rule->properties) === true
-            ) {
+           ) {
                 foreach ($rule->properties->property as $prop) {
                     if ($this->shouldProcessElement($prop) === false) {
                         continue;
@@ -971,12 +971,12 @@ class Ruleset
                     $name = (string) $prop['name'];
                     if (isset($prop['type']) === true
                         && (string) $prop['type'] === 'array'
-                    ) {
+                   ) {
                         $values = [];
                         if (isset($prop['extend']) === true
                             && (string) $prop['extend'] === 'true'
                             && isset($this->ruleset[$code]['properties'][$name]) === true
-                        ) {
+                       ) {
                             $values = $this->ruleset[$code]['properties'][$name];
                         }
 
@@ -1104,7 +1104,7 @@ class Ruleset
     {
         if (isset($element['phpcbf-only']) === false
             && isset($element['phpcs-only']) === false
-        ) {
+       ) {
             // No exceptions are being made.
             return true;
         }
@@ -1112,14 +1112,14 @@ class Ruleset
         if (PHP_CODESNIFFER_CBF === true
             && isset($element['phpcbf-only']) === true
             && (string) $element['phpcbf-only'] === 'true'
-        ) {
+       ) {
             return true;
         }
 
         if (PHP_CODESNIFFER_CBF === false
             && isset($element['phpcs-only']) === true
             && (string) $element['phpcs-only'] === 'true'
-        ) {
+       ) {
             return true;
         }
 
@@ -1163,7 +1163,7 @@ class Ruleset
             // to see if this sniff is allowed.
             if (empty($restrictions) === false
                 && isset($restrictions[$compareName]) === false
-            ) {
+           ) {
                 continue;
             }
 
@@ -1171,7 +1171,7 @@ class Ruleset
             // to see if this sniff is allowed.
             if (empty($exclusions) === false
                 && isset($exclusions[$compareName]) === true
-            ) {
+           ) {
                 continue;
             }
 

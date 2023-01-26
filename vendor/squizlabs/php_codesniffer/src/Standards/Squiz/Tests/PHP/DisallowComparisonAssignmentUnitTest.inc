@@ -14,7 +14,7 @@ $var = myFunction($one, $two);
 $var = myFunction(
         'one',
         'two'
-       );
+      );
 
 for ($i = ($stackPtr + 1); $i < $endStatement; $i++) {
 }
@@ -26,7 +26,7 @@ $depthAdv = array(
              $this,
              !$directLinks,
              FALSE,
-            );
+           );
 
 $var = myFunction(
     $var,
@@ -34,7 +34,7 @@ $var = myFunction(
      $this,
      !$directLinks,
      FALSE,
-    );
+   );
 );
 
 for ($node = $fieldsTag->nextSibling; $node; $node = $node->nextSibling) {

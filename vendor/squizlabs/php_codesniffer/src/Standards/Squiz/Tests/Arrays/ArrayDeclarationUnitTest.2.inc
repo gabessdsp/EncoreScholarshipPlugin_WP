@@ -201,7 +201,7 @@ $test = [
          'test' => TestFunction::blah(
              $value1,
              $value2
-         ),
+        ),
         ];
 
 $c = ['a' => 1,];
@@ -335,7 +335,7 @@ get_current_screen()->add_help_tab([
 Here comes some text.
 EOD
 ,
-                                    ] );
+                                    ]);
 
 echo [1][0];
 echo 'PHP'[0];
@@ -386,13 +386,13 @@ HERE
 [
  lorem(
      1
- ), 2,
+), 2,
 ];
 
 [
  1 => lorem(
      1
- ), 2 => 2,
+), 2 => 2,
 ];
 
 $foo = [
@@ -414,7 +414,7 @@ JSON
 $array = [
           'a'   => fn() => return 1,
           'bb'  => fn() => return 2,
-          'ccc' => (true ) ?
+          'ccc' => (true) ?
               fn() => return 1 :
               fn() => return 2,
          ];

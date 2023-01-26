@@ -80,7 +80,7 @@ class ControlSignatureSniff implements Sniff
         $isAlternative = false;
         if (isset($tokens[$stackPtr]['scope_opener']) === true
             && $tokens[$tokens[$stackPtr]['scope_opener']]['code'] === T_COLON
-        ) {
+       ) {
             $isAlternative = true;
         }
 
@@ -125,7 +125,7 @@ class ControlSignatureSniff implements Sniff
         // Single space after closing parenthesis.
         if (isset($tokens[$stackPtr]['parenthesis_closer']) === true
             && isset($tokens[$stackPtr]['scope_opener']) === true
-        ) {
+       ) {
             $expected = 1;
             if ($isAlternative === true) {
                 $expected = (int) $this->requiredSpacesBeforeColon;
@@ -195,7 +195,7 @@ class ControlSignatureSniff implements Sniff
                 if ($code === T_WHITESPACE
                     || ($code === T_INLINE_HTML
                     && trim($tokens[$next]['content']) === '')
-                ) {
+               ) {
                     continue;
                 }
 
@@ -203,7 +203,7 @@ class ControlSignatureSniff implements Sniff
                 if ($tokens[$next]['line'] === $tokens[$opener]['line']
                     && (isset(Tokens::$emptyTokens[$code]) === true
                     || $code === T_CLOSE_TAG)
-                ) {
+               ) {
                     continue;
                 }
 
@@ -265,17 +265,17 @@ class ControlSignatureSniff implements Sniff
             if ($closer === false
                 || $tokens[$closer]['code'] !== T_CLOSE_CURLY_BRACKET
                 || $tokens[$tokens[$closer]['scope_condition']]['code'] !== T_DO
-            ) {
+           ) {
                 return;
             }
         } else if ($tokens[$stackPtr]['code'] === T_ELSE
             || $tokens[$stackPtr]['code'] === T_ELSEIF
             || $tokens[$stackPtr]['code'] === T_CATCH
             || $tokens[$stackPtr]['code'] === T_FINALLY
-        ) {
+       ) {
             if (isset($tokens[$stackPtr]['scope_opener']) === true
                 && $tokens[$tokens[$stackPtr]['scope_opener']]['code'] === T_COLON
-            ) {
+           ) {
                 // Special case for alternate syntax, where this token is actually
                 // the closer for the previous block, so there is no spacing to check.
                 return;

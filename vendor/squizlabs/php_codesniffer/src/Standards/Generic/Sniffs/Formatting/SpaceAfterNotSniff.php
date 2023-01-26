@@ -74,7 +74,7 @@ class SpaceAfterNotSniff implements Sniff
 
         if ($this->ignoreNewlines === true
             && $tokens[$stackPtr]['line'] !== $tokens[$nextNonEmpty]['line']
-        ) {
+       ) {
             return;
         }
 

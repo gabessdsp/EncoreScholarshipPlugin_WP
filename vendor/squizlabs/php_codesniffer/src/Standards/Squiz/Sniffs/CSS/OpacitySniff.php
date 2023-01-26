@@ -61,7 +61,7 @@ class OpacitySniff implements Sniff
         if ($next === false
             || ($tokens[$next]['code'] !== T_DNUMBER
             && $tokens[$next]['code'] !== T_LNUMBER)
-        ) {
+       ) {
             return;
         }
 

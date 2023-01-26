@@ -143,7 +143,7 @@ class Full implements Report
                             $msgLine,
                             $maxErrorSpace,
                             PHP_EOL.$paddingLine2
-                        );
+                       );
                     }
 
                     // The padding that goes on the front of the line.
@@ -214,7 +214,7 @@ class Full implements Report
         $width=80,
         $interactive=false,
         $toScreen=true
-    ) {
+   ) {
         if ($cachedData === '') {
             return;
         }

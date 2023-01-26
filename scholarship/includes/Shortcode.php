@@ -11,20 +11,20 @@
 namespace Scholarship;
 
 class Shortcode {
-    public static function shortcode($attrs = array(), $content = null ) {
+    public static function shortcode($attrs = array(), $content = null) {
         if (! current_user_can('student')) {
-            if (null !== $content ) {
-                return do_shortcode(apply_filters('the_content', $content ));
+            if (null !== $content) {
+                return do_shortcode(apply_filters('the_content', $content));
             }
         }
         $student = new Student(wp_get_current_user());
         $application = $student->application();
-        if (false === $application ) {
+        if (false === $application) {
             $goals = '';
             $essay = '';
         } else {
             $goals = $application->get_meta('goals');
-            if (! $goals ) {
+            if (! $goals) {
                 $goals = '';
             }
             $essay = $application->post_content;

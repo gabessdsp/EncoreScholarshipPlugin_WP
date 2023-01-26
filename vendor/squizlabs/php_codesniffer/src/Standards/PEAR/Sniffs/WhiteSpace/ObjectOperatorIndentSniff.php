@@ -133,7 +133,7 @@ class ObjectOperatorIndentSniff implements Sniff
                 $indent = $tokens[($next - 1)];
                 if ($tokens[$prev]['line'] !== $tokens[$next]['line']
                     && $indent['code'] === T_WHITESPACE
-                ) {
+               ) {
                     if ($indent['line'] === $tokens[$next]['line']) {
                         $foundIndent = strlen($indent['content']);
                     } else {
@@ -195,7 +195,7 @@ class ObjectOperatorIndentSniff implements Sniff
                 false,
                 null,
                 true
-            );
+           );
         }//end while
 
     }//end process()

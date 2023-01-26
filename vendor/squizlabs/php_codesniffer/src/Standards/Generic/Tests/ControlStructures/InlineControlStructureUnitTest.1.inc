@@ -118,7 +118,7 @@ switch($response = \Bar::baz('bat', function ($foo) {
 
 $stuff = [1,2,3];
 foreach($stuff as $num)
-    if ($num %2 ) {
+    if ($num %2) {
         echo "even";
     } else {
         echo "odd";
@@ -173,7 +173,7 @@ some
 text
 here
 EOD
-    );
+   );
 
 if ($level == 'district')
     $var = <<<EOD
@@ -207,8 +207,8 @@ switch ($num) {
             return bar(
                 baz(
                     "foobarbaz"
-                )
-            );
+               )
+           );
         break;
 }
 

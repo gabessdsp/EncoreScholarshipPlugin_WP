@@ -95,7 +95,7 @@ class ShorthandSizeSniff implements Sniff
             $content.' ',
             $values,
             PREG_SET_ORDER
-        );
+       );
 
         // Only interested in styles that have multiple sizes defined.
         if ($num < 2) {

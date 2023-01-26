@@ -73,7 +73,7 @@ class FunctionSpacingSniff implements Sniff
         if ($previousNonEmpty !== false
             && $tokens[$previousNonEmpty]['code'] === T_OPEN_TAG
             && $tokens[$previousNonEmpty]['line'] !== 1
-        ) {
+       ) {
             // Ignore functions at the start of an embedded PHP block.
             return;
         }
@@ -84,7 +84,7 @@ class FunctionSpacingSniff implements Sniff
             $this->rulesetProperties = [];
             if (isset($phpcsFile->ruleset->ruleset['Squiz.WhiteSpace.FunctionSpacing']) === true
                 && isset($phpcsFile->ruleset->ruleset['Squiz.WhiteSpace.FunctionSpacing']['properties']) === true
-            ) {
+           ) {
                 $this->rulesetProperties = $phpcsFile->ruleset->ruleset['Squiz.WhiteSpace.FunctionSpacing']['properties'];
                 if (isset($this->rulesetProperties['spacing']) === true) {
                     if (isset($this->rulesetProperties['spacingBeforeFirst']) === false) {
@@ -133,7 +133,7 @@ class FunctionSpacingSniff implements Sniff
         $next = $phpcsFile->findNext($ignore, ($closer + 1), null, true);
         if (isset(Tokens::$emptyTokens[$tokens[$next]['code']]) === true
             && $tokens[$next]['line'] === $tokens[$closer]['line']
-        ) {
+       ) {
             // Skip past "end" comments.
             $next = $phpcsFile->findNext($ignore, ($next + 1), null, true);
         }
@@ -241,7 +241,7 @@ class FunctionSpacingSniff implements Sniff
 
             if ($tokens[$prevContent]['code'] === T_COMMENT
                 || isset(Tokens::$phpcsCommentTokens[$tokens[$prevContent]['code']]) === true
-            ) {
+           ) {
                 // Ignore comments as they can have different spacing rules, and this
                 // isn't a proper function comment anyway.
                 return;
@@ -249,7 +249,7 @@ class FunctionSpacingSniff implements Sniff
 
             while ($tokens[$prevContent]['code'] === T_ATTRIBUTE_END
                 && $tokens[$prevContent]['line'] === ($currentLine - 1)
-            ) {
+           ) {
                 // Account for function attributes.
                 $currentLine = $tokens[$tokens[$prevContent]['attribute_opener']]['line'];
                 $prevContent = $phpcsFile->findPrevious(T_WHITESPACE, ($tokens[$prevContent]['attribute_opener'] - 1), null, true);
@@ -257,7 +257,7 @@ class FunctionSpacingSniff implements Sniff
 
             if ($tokens[$prevContent]['code'] === T_DOC_COMMENT_CLOSE_TAG
                 && $tokens[$prevContent]['line'] === ($currentLine - 1)
-            ) {
+           ) {
                 // Account for function comments.
                 $prevContent = $phpcsFile->findPrevious(T_WHITESPACE, ($tokens[$prevContent]['comment_opener'] - 1), null, true);
             }
@@ -286,7 +286,7 @@ class FunctionSpacingSniff implements Sniff
 
                 if ($tokens[$i]['code'] === T_CLOSE_CURLY_BRACKET
                     && $tokens[$tokens[$i]['scope_condition']]['code'] === T_FUNCTION
-                ) {
+               ) {
                     // Found a previous function.
                     return;
                 }

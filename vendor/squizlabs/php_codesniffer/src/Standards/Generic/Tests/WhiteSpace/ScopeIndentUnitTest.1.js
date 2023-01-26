@@ -59,9 +59,9 @@ this.init = function(data) {
                     reviewData: _reviewData,
                     pageid: itemid
                     }
-                );
+               );
             }
-        );
+       );
     }//end if
 
 };
@@ -92,7 +92,7 @@ a(
                     }
                 }
             }
-        );
+       );
 
         a(
             function() {
@@ -100,7 +100,7 @@ a(
                     a = true;
                 }
             }
-        );
+       );
 
     };
 
@@ -115,7 +115,7 @@ a.prototype = {
             header,
             'safedblclick',
             function() {},
-        );
+       );
 
     if (topContent) {
         ViperUtil.addClass(topContent, 'Viper-popup-top');
@@ -168,7 +168,7 @@ a.prototype = {
                 showfullScreen();
                 }
             }
-        );
+       );
 
     },
 
@@ -184,7 +184,7 @@ a.prototype = {
                 var a = true;
                 }
             }
-        );
+       );
 
     }
 
@@ -231,9 +231,9 @@ class TestBad
     }
 }
 
-(function($ ) {
-    foo(function(value ) {
-            value.bind(function(newval ) {
-                    $('#bar').html(newval );
-            } );
-    } )(jQuery );
+(function($) {
+    foo(function(value) {
+            value.bind(function(newval) {
+                    $('#bar').html(newval);
+            });
+    })(jQuery);

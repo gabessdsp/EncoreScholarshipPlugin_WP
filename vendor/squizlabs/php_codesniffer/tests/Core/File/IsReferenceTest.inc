@@ -3,7 +3,7 @@
 namespace PHP_CodeSniffer\Tests\Core\File;
 
 /* testBitwiseAndA */
-error_reporting(E_NOTICE & E_STRICT );
+error_reporting(E_NOTICE & E_STRICT);
 
 /* testBitwiseAndB */
 $a = [ $something & $somethingElse ];
@@ -12,13 +12,13 @@ $a = [ $something & $somethingElse ];
 $a = [ $first, $something & self::$somethingElse ];
 
 /* testBitwiseAndD */
-$a = array $first, $something & $somethingElse );
+$a = array $first, $something & $somethingElse);
 
 /* testBitwiseAndE */
 $a = [ 'a' => $first, 'b' => $something & $somethingElse ];
 
 /* testBitwiseAndF */
-$a = array('a' => $first, 'b' => $something & \MyClass::$somethingElse );
+$a = array('a' => $first, 'b' => $something & \MyClass::$somethingElse);
 
 /* testBitwiseAndG */
 $a = $something & $somethingElse;
@@ -33,16 +33,16 @@ $closure = function ($a = MY_CONSTANT & parent::OTHER_CONSTANT) {};
 function &myFunction() {}
 
 /* testFunctionPassByReferenceA */
-function myFunction(&$a ) {}
+function myFunction(&$a) {}
 
 /* testFunctionPassByReferenceB */
-function myFunction($a, &$b ) {}
+function myFunction($a, &$b) {}
 
 /* testFunctionPassByReferenceC */
-$closure = function (&$a ) {};
+$closure = function (&$a) {};
 
 /* testFunctionPassByReferenceD */
-$closure = function ($a, &$b ) {};
+$closure = function ($a, &$b) {};
 
 /* testFunctionPassByReferenceE */
 function myFunction(array &$one) {}
@@ -54,10 +54,10 @@ $closure = function (\MyClass &$one) {};
 $closure = function myFunc($param, &...$moreParams) {};
 
 /* testForeachValueByReference */
-foreach($array as $key => &$value ) {}
+foreach($array as $key => &$value) {}
 
 /* testForeachKeyByReference */
-foreach($array as &$key => $value ) {}
+foreach($array as &$key => $value) {}
 
 /* testArrayValueByReferenceA */
 $a = [ 'a' => &$something ];
@@ -72,16 +72,16 @@ $a = [ &$something ];
 $a = [ $something, &$somethingElse ];
 
 /* testArrayValueByReferenceE */
-$a = array('a' => &$something );
+$a = array('a' => &$something);
 
 /* testArrayValueByReferenceF */
-$a = array('a' => $something, 'b' => &$somethingElse );
+$a = array('a' => $something, 'b' => &$somethingElse);
 
 /* testArrayValueByReferenceG */
-$a = array(&$something );
+$a = array(&$something);
 
 /* testArrayValueByReferenceH */
-$a = array($something, &$somethingElse );
+$a = array($something, &$somethingElse);
 
 /* testAssignByReferenceA */
 $b = &$something;

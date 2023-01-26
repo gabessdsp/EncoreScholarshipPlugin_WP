@@ -47,7 +47,7 @@ class DisallowLongArraySyntaxSniff implements Sniff
 
         if (isset($tokens[$stackPtr]['parenthesis_opener']) === false
             || isset($tokens[$stackPtr]['parenthesis_closer']) === false
-        ) {
+       ) {
             // Live coding/parse error, just show the error, don't try and fix it.
             $phpcsFile->addError($error, $stackPtr, 'Found');
             return;

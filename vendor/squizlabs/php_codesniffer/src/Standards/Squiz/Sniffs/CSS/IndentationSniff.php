@@ -62,7 +62,7 @@ class IndentationSniff implements Sniff
         for ($i = 1; $i < $numTokens; $i++) {
             if ($tokens[$i]['code'] === T_COMMENT
                 || isset(Tokens::$phpcsCommentTokens[$tokens[$i]['code']]) === true
-            ) {
+           ) {
                 // Don't check the indent of comments.
                 continue;
             }
@@ -81,7 +81,7 @@ class IndentationSniff implements Sniff
                     T_OPEN_CURLY_BRACKET,
                     ($i + 1),
                     $tokens[$i]['bracket_closer']
-                );
+               );
 
                 if ($found !== false) {
                     $nestingLevel = $indentLevel;
@@ -92,7 +92,7 @@ class IndentationSniff implements Sniff
                 && $tokens[$i]['line'] !== $tokens[($i - 1)]['line'])
                 || ($tokens[($i + 1)]['code'] === T_CLOSE_CURLY_BRACKET
                 && $tokens[$i]['line'] === $tokens[($i + 1)]['line'])
-            ) {
+           ) {
                 $indentLevel--;
                 if ($indentLevel === 0) {
                     $nestingLevel = 0;
@@ -102,7 +102,7 @@ class IndentationSniff implements Sniff
             if ($tokens[$i]['column'] !== 1
                 || $tokens[$i]['code'] === T_OPEN_CURLY_BRACKET
                 || $tokens[$i]['code'] === T_CLOSE_CURLY_BRACKET
-            ) {
+           ) {
                 continue;
             }
 
@@ -117,7 +117,7 @@ class IndentationSniff implements Sniff
             $expectedIndent = ($indentLevel * $this->indent);
             if ($expectedIndent > 0
                 && strpos($tokens[$i]['content'], $phpcsFile->eolChar) !== false
-            ) {
+           ) {
                 if ($nestingLevel !== $indentLevel) {
                     $error = 'Blank lines are not allowed in class definitions';
                     $fix   = $phpcsFile->addFixableError($error, $i, 'BlankLine');

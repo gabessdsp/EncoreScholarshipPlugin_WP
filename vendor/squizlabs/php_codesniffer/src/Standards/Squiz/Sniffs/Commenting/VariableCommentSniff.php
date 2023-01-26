@@ -49,7 +49,7 @@ class VariableCommentSniff extends AbstractVariableSniff
 
             if ($tokens[$commentEnd]['code'] === T_ATTRIBUTE_END
                 && isset($tokens[$commentEnd]['attribute_opener']) === true
-            ) {
+           ) {
                 $commentEnd = $tokens[$commentEnd]['attribute_opener'];
                 continue;
             }
@@ -60,7 +60,7 @@ class VariableCommentSniff extends AbstractVariableSniff
         if ($commentEnd === false
             || ($tokens[$commentEnd]['code'] !== T_DOC_COMMENT_CLOSE_TAG
             && $tokens[$commentEnd]['code'] !== T_COMMENT)
-        ) {
+       ) {
             $phpcsFile->addError('Missing member variable doc comment', $stackPtr, 'Missing');
             return;
         }

@@ -98,7 +98,7 @@ abstract class AbstractMethodUnitTest extends TestCase
             null,
             false,
             $commentString
-        );
+       );
 
         $tokens = self::$phpcsFile->getTokens();
         $end    = ($start + 1);
@@ -121,7 +121,7 @@ abstract class AbstractMethodUnitTest extends TestCase
             $end,
             false,
             $tokenContent
-        );
+       );
 
         if ($target === false) {
             $msg = 'Failed to find test target token for comment string: '.$commentString;

@@ -100,7 +100,7 @@ function myFunction(
                     $arg4,
                     $arg5,
                     $arg6
-                    )
+                   )
 {
 }
 
@@ -111,7 +111,7 @@ function myFunction(
                     $arg4,
                     $arg5,
                     $arg6
-                    ) {
+                   ) {
 }
 
 function myFunction() {}

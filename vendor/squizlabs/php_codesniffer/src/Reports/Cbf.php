@@ -143,7 +143,7 @@ class Cbf implements Report
         $width=80,
         $interactive=false,
         $toScreen=true
-    ) {
+   ) {
         $lines = explode(PHP_EOL, $cachedData);
         array_pop($lines);
 

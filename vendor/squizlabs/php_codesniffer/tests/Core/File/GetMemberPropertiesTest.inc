@@ -177,8 +177,8 @@ function_call('param', new class {
     public $year = 2017;
 
     /* testNestedMethodParam 2 */
-    public function __construct($open, $post_id ) {}
-}, 10, 2 );
+    public function __construct($open, $post_id) {}
+}, 10, 2);
 
 class PHP8Mixed {
     /* testPHP8MixedTypeHint */

@@ -35,7 +35,7 @@ class Summary implements Report
         if (PHP_CODESNIFFER_VERBOSITY === 0
             && $report['errors'] === 0
             && $report['warnings'] === 0
-        ) {
+       ) {
             // Nothing to print.
             return false;
         }
@@ -72,7 +72,7 @@ class Summary implements Report
         $width=80,
         $interactive=false,
         $toScreen=true
-    ) {
+   ) {
         $lines = explode(PHP_EOL, $cachedData);
         array_pop($lines);
 
@@ -114,7 +114,7 @@ class Summary implements Report
                     return strcasecmp($partA, $partB);
                 }
             }
-        );
+       );
 
         $width = min($width, ($maxLength + 21));
         $width = max($width, 70);

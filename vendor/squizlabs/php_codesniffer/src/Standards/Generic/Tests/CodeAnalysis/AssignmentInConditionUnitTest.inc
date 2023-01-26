@@ -7,23 +7,23 @@ if ($a === 123) {
 } elseif ($a != 123) {}
 
 function abc($a = 'default') {}
-if (in_array($a, array(1 => 'a', 2 => 'b')) ) {}
+if (in_array($a, array(1 => 'a', 2 => 'b'))) {}
 
-switch ($a === $b ) {}
-switch (true ) {
+switch ($a === $b) {}
+switch (true) {
 	case $sample == 'something':
 		break;
 }
 
-for ($i = 0; $i == 100; $i++ ) {}
-for ($i = 0; $i >= 100; $i++ ) {}
-for ($i = 0; ; $i++ ) {}
+for ($i = 0; $i == 100; $i++) {}
+for ($i = 0; $i >= 100; $i++) {}
+for ($i = 0; ; $i++) {}
 for (;;) {}
 
 do {
-} while ($sample == false );
+} while ($sample == false);
 
-while ($sample === false ) {}
+while ($sample === false) {}
 
 // Silly, but not an assignment.
 if (123 = $a) {}
@@ -33,11 +33,11 @@ if (array(1 => 'a', 2 => 'b') = $b) {}
 if (SOME_CONSTANT = 123) {
 } else if(self::SOME_CONSTANT -= 10) {}
 
-if ($a() = 123 ) {
-} else if ($b->something() = 123 ) {
-} elseif ($c::something() = 123 ) {}
+if ($a() = 123) {
+} else if ($b->something() = 123) {
+} elseif ($c::something() = 123) {}
 
-switch (true ) {
+switch (true) {
 	case 'something' = $sample:
 		break;
 }
@@ -45,7 +45,7 @@ switch (true ) {
 // Assignments in condition.
 if ($a = 123) {
 } elseif ($a = 'abc') {
-} else if($a += 10 ) {
+} else if($a += 10) {
 } else if($a -= 10) {
 } else if($a *= 10) {
 } else if($a **= 10) {
@@ -70,10 +70,10 @@ if ($a[] = 123) {
 } elseif (parent::$a *= 123) {
 } elseif (static::$a = 123) {
 } elseif (MyClass::$a .= 'abc') {
-} else if($this->something += 10 ) {}
+} else if($this->something += 10) {}
 
-switch ($a = $b ) {}
-switch (true ) {
+switch ($a = $b) {}
+switch (true) {
 	case $sample = 'something':
 		break;
 
@@ -81,13 +81,13 @@ switch (true ) {
 		break;
 }
 
-for ($i = 0; $i = 100; $i++ ) {}
-for ($i = 0; $i = 100 && $b = false; $i++ ) {}
+for ($i = 0; $i = 100; $i++) {}
+for ($i = 0; $i = 100 && $b = false; $i++) {}
 
 do {
-} while ($sample = false );
+} while ($sample = false);
 
-while ($sample = false ) {}
+while ($sample = false) {}
 
 if ($a = 123) :
 endif;

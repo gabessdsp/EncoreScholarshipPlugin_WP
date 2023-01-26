@@ -157,7 +157,7 @@ abstract class VersionControl implements Report
         $width=80,
         $interactive=false,
         $toScreen=true
-    ) {
+   ) {
         $errorsShown = ($totalErrors + $totalWarnings);
         if ($errorsShown === 0) {
             // Nothing to show.

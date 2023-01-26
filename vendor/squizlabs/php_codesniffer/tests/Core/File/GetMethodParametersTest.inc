@@ -95,7 +95,7 @@ class ConstructorPropertyPromotionNoTypes {
         public $x = 0.0,
         protected $y = '',
         private $z = null,
-    ) {}
+   ) {}
 }
 
 class ConstructorPropertyPromotionWithTypes {
@@ -143,7 +143,7 @@ class ParametersWithAttributes(
         #[WithoutArgument] #[SingleArgument(0)] $nonTypedParamTwoAttributes,
         #[MyAttribute(array("key" => "value"))]
         &...$otherParam,
-    ) {}
+   ) {}
 }
 
 /* testPHP8IntersectionTypes */

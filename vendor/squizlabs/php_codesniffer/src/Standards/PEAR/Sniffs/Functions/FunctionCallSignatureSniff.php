@@ -91,7 +91,7 @@ class FunctionCallSignatureSniff implements Sniff
 
         if ($tokens[$stackPtr]['code'] === T_CLOSE_CURLY_BRACKET
             && isset($tokens[$stackPtr]['scope_condition']) === true
-        ) {
+       ) {
             // Not a function call.
             return;
         }
@@ -297,7 +297,7 @@ class FunctionCallSignatureSniff implements Sniff
                     while (isset(Tokens::$emptyTokens[$tokens[$prev]['code']]) === true) {
                         if (($tokens[$prev]['code'] === T_COMMENT)
                             && (strpos($tokens[$prev]['content'], '*/') !== false)
-                        ) {
+                       ) {
                             break;
                         }
 
@@ -342,7 +342,7 @@ class FunctionCallSignatureSniff implements Sniff
         $first = $phpcsFile->findFirstOnLine(T_WHITESPACE, $stackPtr, true);
         if ($tokens[$first]['code'] === T_CONSTANT_ENCAPSED_STRING
             && $tokens[($first - 1)]['code'] === T_CONSTANT_ENCAPSED_STRING
-        ) {
+       ) {
             // We are in a multi-line string, so find the start and use
             // the indent from there.
             $prev  = $phpcsFile->findPrevious(T_CONSTANT_ENCAPSED_STRING, ($first - 2), null, true);
@@ -357,7 +357,7 @@ class FunctionCallSignatureSniff implements Sniff
             if ($tokens[$first]['code'] === T_INLINE_HTML
                 || ($tokens[$first]['code'] === T_CONSTANT_ENCAPSED_STRING
                 && $tokens[($first - 1)]['code'] === T_CONSTANT_ENCAPSED_STRING)
-            ) {
+           ) {
                 $trimmed = ltrim($tokens[$first]['content']);
                 if ($trimmed === '') {
                     $foundFunctionIndent = strlen($tokens[$first]['content']);
@@ -404,7 +404,7 @@ class FunctionCallSignatureSniff implements Sniff
                 $phpcsFile->fixer->addContent(
                     $openBracket,
                     $phpcsFile->eolChar.str_repeat(' ', ($foundFunctionIndent + $this->indent))
-                );
+               );
             }
         }
 
@@ -417,7 +417,7 @@ class FunctionCallSignatureSniff implements Sniff
                 $phpcsFile->fixer->addContentBefore(
                     $closeBracket,
                     $phpcsFile->eolChar.str_repeat(' ', ($foundFunctionIndent + $this->indent))
-                );
+               );
             }
         }
 
@@ -454,7 +454,7 @@ class FunctionCallSignatureSniff implements Sniff
 
         if ($tokens[($i - 1)]['code'] === T_WHITESPACE
             && $tokens[($i - 1)]['line'] === $tokens[$i]['line']
-        ) {
+       ) {
             // Make sure we check the indent.
             $i--;
         }
@@ -477,7 +477,7 @@ class FunctionCallSignatureSniff implements Sniff
                 // Ignore multi-line string indentation.
                 if (isset(Tokens::$stringTokens[$tokens[$i]['code']]) === true
                     && $tokens[$i]['code'] === $tokens[($i - 1)]['code']
-                ) {
+               ) {
                     continue;
                 }
 
@@ -518,12 +518,12 @@ class FunctionCallSignatureSniff implements Sniff
 
                     if ($tokens[$i]['code'] !== T_WHITESPACE
                         && $tokens[$i]['code'] !== T_DOC_COMMENT_WHITESPACE
-                    ) {
+                   ) {
                         // Just check if it is a multi-line block comment. If so, we can
                         // calculate the indent from the whitespace before the content.
                         if ($tokens[$i]['code'] === T_COMMENT
                             && $tokens[($i - 1)]['code'] === T_COMMENT
-                        ) {
+                       ) {
                             $trimmedLength = strlen(ltrim($tokens[$i]['content']));
                             if ($trimmedLength === 0) {
                                 // This is a blank comment line, so indenting it is
@@ -542,7 +542,7 @@ class FunctionCallSignatureSniff implements Sniff
                     if ($foundIndent < $expectedIndent
                         || ($inArg === false
                         && $expectedIndent !== $foundIndent)
-                    ) {
+                   ) {
                         $error = 'Multi-line function call not indented correctly; expected %s spaces but found %s';
                         $data  = [
                             $expectedIndent,
@@ -611,7 +611,7 @@ class FunctionCallSignatureSniff implements Sniff
                             $phpcsFile->fixer->addContentBefore(
                                 $next,
                                 $phpcsFile->eolChar.str_repeat(' ', ($foundFunctionIndent + $this->indent))
-                            );
+                           );
                             $phpcsFile->fixer->endChangeset();
                         }
                     }

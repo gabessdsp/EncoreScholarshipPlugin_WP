@@ -65,7 +65,7 @@ class FileCommentSniff implements Sniff
         if (isset($tokens[$commentStart]['comment_closer']) === false
             || ($tokens[$tokens[$commentStart]['comment_closer']]['content'] === ''
             && $tokens[$commentStart]['comment_closer'] === ($phpcsFile->numTokens - 1))
-        ) {
+       ) {
             // Don't process an unfinished file comment during live coding.
             return ($phpcsFile->numTokens + 1);
         }
@@ -79,7 +79,7 @@ class FileCommentSniff implements Sniff
 
             if ($tokens[$nextToken]['code'] === T_ATTRIBUTE
                 && isset($tokens[$nextToken]['attribute_closer']) === true
-            ) {
+           ) {
                 $nextToken = $tokens[$nextToken]['attribute_closer'];
                 continue;
             }

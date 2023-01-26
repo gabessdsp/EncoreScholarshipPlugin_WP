@@ -81,7 +81,7 @@ abstract class AbstractVariableSniff extends AbstractScopeSniff
 
         if ($tokens[$stackPtr]['code'] === T_DOUBLE_QUOTED_STRING
             || $tokens[$stackPtr]['code'] === T_HEREDOC
-        ) {
+       ) {
             // Check to see if this string has a variable in it.
             $pattern = '|(?<!\\\\)(?:\\\\{2})*\${?[a-zA-Z0-9_]+}?|';
             if (preg_match($pattern, $tokens[$stackPtr]['content']) !== 0) {
@@ -131,7 +131,7 @@ abstract class AbstractVariableSniff extends AbstractScopeSniff
                 $owner = $tokens[$opener]['parenthesis_owner'];
                 if ($tokens[$owner]['code'] === T_FUNCTION
                     || $tokens[$owner]['code'] === T_CLOSURE
-                ) {
+               ) {
                     $inFunction = true;
                     break;
                 }
@@ -167,7 +167,7 @@ abstract class AbstractVariableSniff extends AbstractScopeSniff
             return $this->processVariable($phpcsFile, $stackPtr);
         } else if ($tokens[$stackPtr]['code'] === T_DOUBLE_QUOTED_STRING
             || $tokens[$stackPtr]['code'] === T_HEREDOC
-        ) {
+       ) {
             // Check to see if this string has a variable in it.
             $pattern = '|(?<!\\\\)(?:\\\\{2})*\${?[a-zA-Z0-9_]+}?|';
             if (preg_match($pattern, $tokens[$stackPtr]['content']) !== 0) {

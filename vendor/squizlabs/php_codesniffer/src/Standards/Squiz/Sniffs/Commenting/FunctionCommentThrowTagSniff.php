@@ -94,7 +94,7 @@ class FunctionCommentThrowTagSniff implements Sniff
             if ($tokens[$nextToken]['code'] === T_NEW
                 || $tokens[$nextToken]['code'] === T_NS_SEPARATOR
                 || $tokens[$nextToken]['code'] === T_STRING
-            ) {
+           ) {
                 if ($tokens[$nextToken]['code'] === T_NEW) {
                     $currException = $phpcsFile->findNext(
                         [
@@ -106,7 +106,7 @@ class FunctionCommentThrowTagSniff implements Sniff
                         false,
                         null,
                         true
-                    );
+                   );
                 } else {
                     $currException = $nextToken;
                 }
@@ -122,7 +122,7 @@ class FunctionCommentThrowTagSniff implements Sniff
                         true,
                         null,
                         true
-                    );
+                   );
 
                     if ($endException === false) {
                         $thrownExceptions[] = $tokens[$currException]['content'];
@@ -141,14 +141,14 @@ class FunctionCommentThrowTagSniff implements Sniff
                     false,
                     null,
                     false
-                );
+               );
 
                 if ($catch !== false) {
                     $thrownVar = $phpcsFile->findPrevious(
                         T_VARIABLE,
                         ($tokens[$catch]['parenthesis_closer'] - 1),
                         $tokens[$catch]['parenthesis_opener']
-                    );
+                   );
 
                     if ($tokens[$thrownVar]['content'] === $tokens[$nextToken]['content']) {
                         $exceptions = explode('|', $phpcsFile->getTokensAsString(($tokens[$catch]['parenthesis_opener'] + 1), ($thrownVar - $tokens[$catch]['parenthesis_opener'] - 1)));

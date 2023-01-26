@@ -70,7 +70,7 @@ class Info implements Report
         $width=80,
         $interactive=false,
         $toScreen=true
-    ) {
+   ) {
         $lines = explode(PHP_EOL, $cachedData);
         array_pop($lines);
 
@@ -146,7 +146,7 @@ class Info implements Report
                         number_format($count),
                         $percentPrefix,
                         $percent
-                    );
+                   );
                 }
 
                 echo "\t".str_repeat('-', ($valueWidth + $countWidth + 15)).PHP_EOL;
@@ -154,7 +154,7 @@ class Info implements Report
                     "\t%-{$valueWidth}s => %{$countWidth}s (100.00%%)".PHP_EOL,
                     'total',
                     number_format($totalCount)
-                );
+               );
             }//end if
 
             echo PHP_EOL;

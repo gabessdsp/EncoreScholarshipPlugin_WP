@@ -104,7 +104,7 @@ function myFunction()
             return mt_rand(-1, 1);
             echo 'done';
         }
-    );
+   );
 
 }//end myFunction()
 
@@ -162,13 +162,13 @@ function returnOverMultipleLines($color) {
             return someFunction(
                 'multiple',
                 'arguments'
-            );
+           );
             echo $foo;
         default:
             return array(
                 'multiline',
                 'array'
-            );
+           );
     }
 }
 
@@ -176,7 +176,7 @@ function test() {
     return array(
                 'multiline',
                 'array'
-            );
+           );
     echo $foo;
 }
 
@@ -222,7 +222,7 @@ switch (true) {
                 $foo = $bar;  // when this is removed it works ok
                 return false; // from here on it reports unreachable
             }
-        );
+       );
 }
 
 for($i=0,$j=50; $i<100; $i++) {
@@ -261,9 +261,9 @@ echo 'j hit 17';
 // Issue 2512.
 class TestAlternativeControlStructures {
 
-    public function alternative_switch_in_function($var ) {
+    public function alternative_switch_in_function($var) {
 
-        switch ($var ) :
+        switch ($var) :
             case 'value1':
                 do_something();
                 break;
@@ -278,11 +278,11 @@ class TestAlternativeControlStructures {
     public function various_alternative_control_structures() {
         $_while = 1;
 
-        for ($a = 0; $a++ < 1; ) :
-            foreach ([ 1 ] as $b ) :
-                while ($_while-- ) :
-                    if (1 ) :
-                        switch (1 ) :
+        for ($a = 0; $a++ < 1;) :
+            foreach ([ 1 ] as $b) :
+                while ($_while--) :
+                    if (1) :
+                        switch (1) :
                             default:
                                 echo 'yay, we made it!';
                                 break;

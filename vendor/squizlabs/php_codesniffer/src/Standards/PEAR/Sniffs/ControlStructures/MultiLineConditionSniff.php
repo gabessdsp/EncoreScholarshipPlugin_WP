@@ -119,7 +119,7 @@ class MultiLineConditionSniff implements Sniff
                         $next = $phpcsFile->findNext(T_WHITESPACE, ($closeBracket + 1), null, true);
                         if ($tokens[$next]['code'] !== T_COMMENT
                             && isset(Tokens::$phpcsCommentTokens[$tokens[$next]['code']]) === false
-                        ) {
+                       ) {
                             $phpcsFile->fixer->addNewlineBefore($closeBracket);
                         } else {
                             $next = $phpcsFile->findNext(Tokens::$emptyTokens, ($next + 1), null, true);
@@ -148,7 +148,7 @@ class MultiLineConditionSniff implements Sniff
 
                 if ($tokens[$i]['code'] === T_COMMENT
                     || isset(Tokens::$phpcsCommentTokens[$tokens[$i]['code']]) === true
-                ) {
+               ) {
                     $prevLine = $tokens[$i]['line'];
                     continue;
                 }
@@ -185,7 +185,7 @@ class MultiLineConditionSniff implements Sniff
                         $fixable = true;
                         if (isset(Tokens::$booleanOperators[$tokens[$prev]['code']]) === false
                             && $phpcsFile->findNext(T_WHITESPACE, ($prev + 1), $next, true) !== false
-                        ) {
+                       ) {
                             // Condition spread over multi-lines interspersed with comments.
                             $fixable = false;
                         }
@@ -246,7 +246,7 @@ class MultiLineConditionSniff implements Sniff
             $length = 0;
         } else if ($openBrace === ($closeBracket + 2)
             && $tokens[($closeBracket + 1)]['code'] === T_WHITESPACE
-        ) {
+       ) {
             $length = $tokens[($closeBracket + 1)]['length'];
         } else {
             // Confused, so don't check.

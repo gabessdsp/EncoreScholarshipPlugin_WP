@@ -79,7 +79,7 @@ class PostStatementCommentSniff implements Sniff
         if ($lastContent === false
             || $tokens[$lastContent]['line'] !== $commentLine
             || $tokens[$stackPtr]['column'] === 1
-        ) {
+       ) {
             return;
         }
 
@@ -90,7 +90,7 @@ class PostStatementCommentSniff implements Sniff
         // Special case for JS files and PHP closures.
         if ($tokens[$lastContent]['code'] === T_COMMA
             || $tokens[$lastContent]['code'] === T_SEMICOLON
-        ) {
+       ) {
             $lastContent = $phpcsFile->findPrevious(T_WHITESPACE, ($lastContent - 1), null, true);
             if ($lastContent === false || $tokens[$lastContent]['code'] === T_CLOSE_CURLY_BRACKET) {
                 return;
@@ -103,7 +103,7 @@ class PostStatementCommentSniff implements Sniff
             foreach ($nestedParens as $open => $close) {
                 if (isset($tokens[$open]['parenthesis_owner']) === true
                     && isset($this->controlStructureExceptions[$tokens[$tokens[$open]['parenthesis_owner']]['code']]) === true
-                ) {
+               ) {
                     return;
                 }
             }

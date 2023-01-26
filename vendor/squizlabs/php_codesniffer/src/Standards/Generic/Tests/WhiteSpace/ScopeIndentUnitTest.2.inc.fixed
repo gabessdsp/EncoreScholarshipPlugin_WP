@@ -141,9 +141,9 @@ class Test2
 							 'hello',
 							 'hello again' => array(
 											   'hello',
-											  ),
+											 ),
 							),
-				 );
+				);
 	}
 }
 
@@ -166,7 +166,7 @@ abstract class Test3
 						if ($last >= 3 &&
 							$ts[0]['token'] != T_CLASS &&
 							$ts[$last - 2]['token'] == T_OBJECT_OPERATOR &&
-							$ts[$last - 3]['token'] == T_VARIABLE ) {
+							$ts[$last - 3]['token'] == T_VARIABLE) {
 
 
 							if (true) {
@@ -669,8 +669,8 @@ function foo()
 								  'screenshot' => Test::getScreenshotPath(
 									$projectid,
 									$result['class_name'],
-								  ),
-								 );
+								 ),
+								);
 
 }
 
@@ -740,10 +740,10 @@ class PHP_CodeSniffer_Tokenizers_JS
 									   'end'    => array(
 													T_BREAK    => T_BREAK,
 													T_RETURN   => T_RETURN,
-												   ),
+												  ),
 									   'strict' => true,
-									  ),
-						   );
+									 ),
+						  );
 }
 
 echo $string->
@@ -1229,7 +1229,7 @@ switch ($sContext) {
 }
 
 array_map(
-	static function ($item ) {
+	static function ($item) {
 		echo $item;
 	},
 	$some_array
@@ -1260,13 +1260,13 @@ function foo()
 	});
 }
 
-switch ($a ) {
+switch ($a) {
 	case 'a':
 		$b = 2;
 		/**
 		 * A comment.
 		 */
-		apply_filter('something', $b );
+		apply_filter('something', $b);
 	break;
 
 	case 'aa':
@@ -1274,7 +1274,7 @@ switch ($a ) {
 		/*
 		 * A comment.
 		 */
-		apply_filter('something', $b );
+		apply_filter('something', $b);
 	break;
 
 	case 'b':
@@ -1492,7 +1492,7 @@ $value = match ($value) {
 
 $value = match (
   $value
-  ) {
+ ) {
 	'' => null,
 	false
 	  => false,

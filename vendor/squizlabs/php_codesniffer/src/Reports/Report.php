@@ -58,7 +58,7 @@ interface Report
         $width=80,
         $interactive=false,
         $toScreen=true
-    );
+   );
 
 
 }//end interface

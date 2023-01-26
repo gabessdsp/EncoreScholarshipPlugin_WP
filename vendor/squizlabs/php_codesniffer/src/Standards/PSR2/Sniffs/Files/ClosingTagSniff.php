@@ -46,7 +46,7 @@ class ClosingTagSniff implements Sniff
         for ($i = 0; $i < $phpcsFile->numTokens; $i++) {
             if ($tokens[$i]['code'] === T_INLINE_HTML
                 && trim($tokens[$i]['content']) !== ''
-            ) {
+           ) {
                 return $phpcsFile->numTokens;
             }
         }
@@ -68,7 +68,7 @@ class ClosingTagSniff implements Sniff
                 if ($tokens[$prev]['code'] !== T_SEMICOLON
                     && $tokens[$prev]['code'] !== T_CLOSE_CURLY_BRACKET
                     && $tokens[$prev]['code'] !== T_OPEN_TAG
-                ) {
+               ) {
                     $phpcsFile->fixer->addContent($prev, ';');
                 }
 

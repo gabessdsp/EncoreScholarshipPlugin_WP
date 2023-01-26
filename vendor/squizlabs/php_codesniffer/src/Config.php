@@ -66,7 +66,7 @@ use PHP_CodeSniffer\Util\Common;
  *                                                      array(
  *                                                          'reportName1' => 'outputFile',
  *                                                          'reportName2' => null,
- *                                                      );
+ *                                                     );
  *                                                  If the array value is NULL, the report will be written to the screen.
  *
  * @property string[] $unknown Any arguments gathered on the command line that are unknown to us.
@@ -226,7 +226,7 @@ class Config
             if ($value === 'auto'
                 && function_exists('shell_exec') === true
                 && preg_match('|\d+ (\d+)|', shell_exec('stty size 2>&1'), $matches) === 1
-            ) {
+           ) {
                 $value = (int) $matches[1];
             } else {
                 $value = (int) $value;
@@ -369,7 +369,7 @@ class Config
 
         if (defined('STDIN') === false
             || stripos(PHP_OS, 'WIN') === 0
-        ) {
+       ) {
             return;
         }
 
@@ -379,7 +379,7 @@ class Config
         if ($this->stdin === true
             || (Util\Common::isStdinATTY() === false
             && feof($handle) === false)
-        ) {
+       ) {
             $readStreams = [$handle];
             $writeSteams = null;
 
@@ -756,7 +756,7 @@ class Config
         case 'config-set':
             if (isset($this->cliArgs[($pos + 1)]) === false
                 || isset($this->cliArgs[($pos + 2)]) === false
-            ) {
+           ) {
                 $error  = 'ERROR: Setting a config option requires a name and value'.PHP_EOL.PHP_EOL;
                 $error .= $this->printShortUsage(true);
                 throw new DeepExitException($error, 3);
@@ -814,7 +814,7 @@ class Config
         case 'runtime-set':
             if (isset($this->cliArgs[($pos + 1)]) === false
                 || isset($this->cliArgs[($pos + 2)]) === false
-            ) {
+           ) {
                 $error  = 'ERROR: Setting a runtime config option requires a name and value'.PHP_EOL.PHP_EOL;
                 $error .= $this->printShortUsage(true);
                 throw new DeepExitException($error, 3);
@@ -866,11 +866,11 @@ class Config
                 self::$overriddenDefaults['exclude'] = true;
             } else if (defined('PHP_CODESNIFFER_IN_TESTS') === false
                 && substr($arg, 0, 6) === 'cache='
-            ) {
+           ) {
                 if ((isset(self::$overriddenDefaults['cache']) === true
                     && $this->cache === false)
                     || isset(self::$overriddenDefaults['cacheFile']) === true
-                ) {
+               ) {
                     break;
                 }
 
@@ -1164,7 +1164,7 @@ class Config
                 $patterns = preg_split(
                     '/(?<=(?<!\\\\)\\\\\\\\),|(?<!\\\\),/',
                     substr($arg, 7)
-                );
+               );
 
                 $ignored = [];
                 foreach ($patterns as $pattern) {
@@ -1180,7 +1180,7 @@ class Config
                 self::$overriddenDefaults['ignored'] = true;
             } else if (substr($arg, 0, 10) === 'generator='
                 && PHP_CODESNIFFER_CBF === false
-            ) {
+           ) {
                 if (isset(self::$overriddenDefaults['generator']) === true) {
                     break;
                 }
@@ -1553,7 +1553,7 @@ class Config
     {
         if (isset(self::$overriddenDefaults['runtime-set']) === true
             && isset(self::$overriddenDefaults['runtime-set'][$key]) === true
-        ) {
+       ) {
             return false;
         }
 
@@ -1569,7 +1569,7 @@ class Config
                 $configFile = dirname(__DIR__).DIRECTORY_SEPARATOR.'CodeSniffer.conf';
                 if (is_file($configFile) === false
                     && strpos('@data_dir@', '@data_dir') === false
-                ) {
+               ) {
                     // If data_dir was replaced, this is a PEAR install and we can
                     // use the PEAR data dir to store the conf file.
                     $configFile = '@data_dir@/PHP_CodeSniffer/CodeSniffer.conf';
@@ -1578,7 +1578,7 @@ class Config
 
             if (is_file($configFile) === true
                 && is_writable($configFile) === false
-            ) {
+           ) {
                 $error = 'ERROR: Config file '.$configFile.' is not writable'.PHP_EOL.PHP_EOL;
                 throw new DeepExitException($error, 3);
             }
@@ -1647,7 +1647,7 @@ class Config
             $configFile = dirname(__DIR__).DIRECTORY_SEPARATOR.'CodeSniffer.conf';
             if (is_file($configFile) === false
                 && strpos('@data_dir@', '@data_dir') === false
-            ) {
+           ) {
                 $configFile = '@data_dir@/PHP_CodeSniffer/CodeSniffer.conf';
             }
         }

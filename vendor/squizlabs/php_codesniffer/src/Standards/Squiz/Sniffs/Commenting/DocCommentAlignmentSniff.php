@@ -94,7 +94,7 @@ class DocCommentAlignmentSniff implements Sniff
         for ($i = ($stackPtr + 1); $i <= $endComment; $i++) {
             if ($tokens[$i]['code'] !== T_DOC_COMMENT_STAR
                 && $tokens[$i]['code'] !== T_DOC_COMMENT_CLOSE_TAG
-            ) {
+           ) {
                 continue;
             }
 
@@ -145,7 +145,7 @@ class DocCommentAlignmentSniff implements Sniff
                 }
             } else if ($tokens[($i + 2)]['code'] === T_DOC_COMMENT_TAG
                 && $tokens[($i + 1)]['content'] !== ' '
-            ) {
+           ) {
                 $error = 'Expected 1 space after asterisk; %s found';
                 $data  = [$tokens[($i + 1)]['length']];
                 $fix   = $phpcsFile->addFixableError($error, $i, 'SpaceAfterStar', $data);

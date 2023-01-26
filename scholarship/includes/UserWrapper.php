@@ -1,4 +1,13 @@
 <?php
+/**
+ * Php version 7.4
+ * 
+ * @category Scholarship
+ * @package  Scholarship
+ * @author   McKenna Interactive <info@mckennastudios.com>
+ * @license  N/A https://mckennastudios.com
+ * @link     https://mckennastudios.com
+ */
 namespace Scholarship;
 defined('ABSPATH') || die('this file requires wordpress core');
 

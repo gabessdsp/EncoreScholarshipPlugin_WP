@@ -2,7 +2,7 @@
 /**
  * Php version 7.4
  * Plugin Name:    Scholarship Applications
- * Version:        0.4
+ * Version:        1.0.0
  * License:        BSD 2-clause
 
  * Copyright (c) 2015-2018, Sam Heybey

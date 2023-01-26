@@ -37,7 +37,7 @@ function foo($bar)
 BAZ;
 }
 
-function foo( $parameter ) {
+function foo($parameter ) {
     $wango = <<<HERE
 1 Must be a HEREdoc of at least one line
 HERE;
@@ -55,14 +55,14 @@ HERE;
 HERE;
 }
 
-function foo( $parameter ) {
+function foo($parameter ) {
     return <<<HTML
 <?xml version="1.0"?>
 <value>$parameter</value>
 HTML;
 }
 
-print foo( 'PARAMETER' );
+print foo('PARAMETER');
 print "\n";
 
 function foo($bar)

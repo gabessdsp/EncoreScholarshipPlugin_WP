@@ -27,7 +27,7 @@ for ( ; ; ) {}
 
 // But it should when the semi-colon in a `for` follows a comment (but shouldn't move the semi-colon).
 for ( /* Deliberately left empty. */ ; $ptr >= 0; $ptr-- ) {}
-for ( $i = 1 ; /* Deliberately left empty. */ ; $i++ ) {}
+for ($i = 1 ; /* Deliberately left empty. */ ; $i++ ) {}
 
 switch ($foo) {
     case 'foo':

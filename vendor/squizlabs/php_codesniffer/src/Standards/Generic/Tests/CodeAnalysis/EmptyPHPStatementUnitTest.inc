@@ -51,10 +51,10 @@ function_call();
 
 <?php
 // Guard against false positives for two consecutive semi-colons in a for statement.
-for ( $i = 0; ; $i++ ) {}
+for ($i = 0; ; $i++ ) {}
 
 // Test for useless semi-colons
-for ( $i = 0; ; $i++ ) {};
+for ($i = 0; ; $i++ ) {};
 
 if (true) {};
 
@@ -62,7 +62,7 @@ while (true) {};
 
 class ABC {}   ;  ;
 
-switch ( $a ) {
+switch ($a ) {
     case 1:
         break;
     case 2:

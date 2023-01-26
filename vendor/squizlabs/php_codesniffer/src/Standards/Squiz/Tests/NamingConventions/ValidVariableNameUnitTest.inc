@@ -109,7 +109,7 @@ class a
 
     private
         $varN = true,
-        $varO = array( 'a', 'b' ),
+        $varO = array('a', 'b'),
         $varP = 'string',
         $varQ = 123;
 }

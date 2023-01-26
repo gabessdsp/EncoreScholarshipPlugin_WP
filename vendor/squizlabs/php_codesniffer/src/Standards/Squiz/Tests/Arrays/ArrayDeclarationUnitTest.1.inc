@@ -343,13 +343,13 @@ get_current_screen()->add_help_tab( array(
 Here comes some text.
 EOD
 ,
-                                    ) );
+                                    ));
 
 $a = array
 // comment
-( 'a', 'b' );
+('a', 'b');
 
-$a = array /* comment */ ( 'a', 'b' );
+$a = array /* comment */ ('a', 'b');
 
 $x = array(
     'a' => false);

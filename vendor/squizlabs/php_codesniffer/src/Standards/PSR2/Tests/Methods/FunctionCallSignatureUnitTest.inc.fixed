@@ -131,10 +131,10 @@ $this->listeners[] = $events->getSharedManager()->attach(
 
 // phpcs:set PSR2.Methods.FunctionCallSignature requiredSpacesBeforeClose 1
 foo('Testing
-    multiline text' );
+    multiline text');
 
 foo('Testing
-    multiline text: ' ); // . $text
+    multiline text: '); // . $text
 
 
 foo('Testing

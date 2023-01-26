@@ -23,7 +23,7 @@ if ($defaultPageDesign === 0
     $settingsUpdated = FALSE;
 }
 
-foreach ( $blah as $var ) {
+foreach ($blah as $var ) {
     if (  $blah    ) {
     }
 }
@@ -49,7 +49,7 @@ while ( /* comment */
 // phpcs:set PSR2.ControlStructures.ControlStructureSpacing requiredSpacesAfterOpen 1
 // phpcs:set PSR2.ControlStructures.ControlStructureSpacing requiredSpacesBeforeClose 1
 foreach ($something as $blah => $that) {}
-foreach ( $something as $blah => $that ) {}
+foreach ($something as $blah => $that ) {}
 foreach (  $something as $blah => $that  ) {}
 // phpcs:set PSR2.ControlStructures.ControlStructureSpacing requiredSpacesAfterOpen 0
 // phpcs:set PSR2.ControlStructures.ControlStructureSpacing requiredSpacesBeforeClose 0
@@ -70,12 +70,12 @@ if ($expr1
 }
 
 $r = match ($x) {};
-$r = match ( $x ) {};
+$r = match ($x ) {};
 
 // phpcs:set PSR2.ControlStructures.ControlStructureSpacing requiredSpacesAfterOpen 1
 // phpcs:set PSR2.ControlStructures.ControlStructureSpacing requiredSpacesBeforeClose 1
 $r = match ($x) {};
-$r = match ( $x ) {};
+$r = match ($x ) {};
 $r = match (  $x  ) {};
 // phpcs:set PSR2.ControlStructures.ControlStructureSpacing requiredSpacesAfterOpen 0
 // phpcs:set PSR2.ControlStructures.ControlStructureSpacing requiredSpacesBeforeClose 0

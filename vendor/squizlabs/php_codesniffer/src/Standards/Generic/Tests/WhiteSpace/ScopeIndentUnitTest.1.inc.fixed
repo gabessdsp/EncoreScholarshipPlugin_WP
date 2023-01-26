@@ -1229,7 +1229,7 @@ switch ($sContext) {
 }
 
 array_map(
-    static function ( $item ) {
+    static function ($item ) {
         echo $item;
     },
     $some_array
@@ -1260,13 +1260,13 @@ function foo()
     });
 }
 
-switch ( $a ) {
+switch ($a ) {
     case 'a':
         $b = 2;
         /**
          * A comment.
          */
-        apply_filter( 'something', $b );
+        apply_filter('something', $b );
     break;
 
     case 'aa':
@@ -1274,7 +1274,7 @@ switch ( $a ) {
         /*
          * A comment.
          */
-        apply_filter( 'something', $b );
+        apply_filter('something', $b );
     break;
 
     case 'b':

@@ -43,7 +43,7 @@ for (
 
 ) {}
 
-if ( $condition === true // comment
+if ($condition === true // comment
     && $anotherCondition === false
 ) {}
 

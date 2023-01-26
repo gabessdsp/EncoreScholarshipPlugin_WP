@@ -342,7 +342,7 @@ switch ($foo) {
 }
 
 // Issue 3352.
-switch ( $test ) {
+switch ($test ) {
     case 2: // comment followed by empty line
 
         break;
@@ -407,7 +407,7 @@ switch ($foo) {
 
 // Issue #3297.
 // Okay - finally will always be executed, so all branches are covered by the `return` in finally.
-switch ( $a ) {
+switch ($a ) {
     case 1:
         try {
             doSomething();
@@ -424,7 +424,7 @@ switch ( $a ) {
 }
 
 // Okay - all - non-finally - branches have a terminating statement.
-switch ( $a ) {
+switch ($a ) {
     case 1:
         try {
             return false;
@@ -444,7 +444,7 @@ switch ( $a ) {
 
 // Okay - finally will always be executed, so all branches are covered by the `return` in finally.
 // Non-standard structure order.
-switch ( $a ) {
+switch ($a ) {
     case 1:
         try {
             doSomething();
@@ -462,7 +462,7 @@ switch ( $a ) {
 
 // Okay - all - non-finally - branches have a terminating statement.
 // Non-standard structure order.
-switch ( $a ) {
+switch ($a ) {
     case 1:
         try {
             return false;
@@ -479,7 +479,7 @@ switch ( $a ) {
 }
 
 // All okay, no finally. Any exception still uncaught will terminate the case anyhow, so we're good.
-switch ( $a ) {
+switch ($a ) {
     case 1:
         try {
             return false;
@@ -494,7 +494,7 @@ switch ( $a ) {
 }
 
 // All okay, no catch
-switch ( $a ) {
+switch ($a ) {
     case 1:
         try {
             return true;
@@ -507,7 +507,7 @@ switch ( $a ) {
 }
 
 // All okay, try-catch nested in if.
-switch ( $a ) {
+switch ($a ) {
     case 1:
         if ($a) {
             try {
@@ -524,7 +524,7 @@ switch ( $a ) {
 }
 
 // Missing fall-through comment.
-switch ( $a ) {
+switch ($a ) {
     case 1:
         try {
             doSomething();
@@ -537,7 +537,7 @@ switch ( $a ) {
 }
 
 // Missing fall-through comment. One of the catches does not have a terminating statement.
-switch ( $a ) {
+switch ($a ) {
     case 1:
         try {
             return false;
@@ -554,7 +554,7 @@ switch ( $a ) {
 }
 
 // Missing fall-through comment. Try does not have a terminating statement.
-switch ( $a ) {
+switch ($a ) {
     case 1:
         try {
             doSomething();
@@ -571,7 +571,7 @@ switch ( $a ) {
 }
 
 // Missing fall-through comment. One of the catches does not have a terminating statement.
-switch ( $a ) {
+switch ($a ) {
     case 1:
         try {
             return false;

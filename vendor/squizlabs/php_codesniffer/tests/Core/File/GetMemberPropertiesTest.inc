@@ -101,7 +101,7 @@ class TestMemberProperties
         /* testGroupPrivate 1 */
         $varO = true,
         /* testGroupPrivate 2 */
-        $varP = array( 'a' => 'a', 'b' => 'b' ),
+        $varP = array('a' => 'a', 'b' => 'b'),
         /* testGroupPrivate 3 */
         $varQ = 'string',
         /* testGroupPrivate 4 */
@@ -162,7 +162,7 @@ $globalVariable = true;
 /* testNotAVariable */
 return;
 
-$a = ( $foo == $bar ? new stdClass() :
+$a = ($foo == $bar ? new stdClass() :
     new class() {
         /* testNestedProperty 1 */
         public $var = true;
@@ -172,12 +172,12 @@ $a = ( $foo == $bar ? new stdClass() :
     }
 );
 
-function_call( 'param', new class {
+function_call('param', new class {
     /* testNestedProperty 2 */
     public $year = 2017;
 
     /* testNestedMethodParam 2 */
-    public function __construct( $open, $post_id ) {}
+    public function __construct($open, $post_id ) {}
 }, 10, 2 );
 
 class PHP8Mixed {

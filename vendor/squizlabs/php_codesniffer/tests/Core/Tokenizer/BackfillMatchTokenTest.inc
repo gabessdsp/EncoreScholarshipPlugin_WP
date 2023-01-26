@@ -86,7 +86,7 @@ function arrowFunctionInMatchNoTrailingComma($x) {
 }
 
 /* testMatchInFunctionCallParamNotLowercase */
-var_dump(MATCH ( 'foo' ) {
+var_dump(MATCH ('foo') {
     'foo' => dump_and_return('foo'),
     'bar' => dump_and_return('bar'),
 });
@@ -100,7 +100,7 @@ match (1) {
 };
 
 /* testMatchWithDuplicateConditionsWithComments */
-echo match /*comment*/ ( $value /*comment*/ ) {
+echo match /*comment*/ ($value /*comment*/ ) {
     // Comment.
     2, 1 => '2, 1',
     1 => 1,

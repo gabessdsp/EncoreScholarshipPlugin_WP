@@ -62,7 +62,7 @@ abstract class Foo
 class MyOtherClass
 {
     public
-        $varK = array( 'a', 'b' );
+        $varK = array('a', 'b');
 
     protected    $varK,
         $varL,
@@ -73,7 +73,7 @@ class MyOtherClass
 
     private
         $varO = true,
-        $varP = array( 'a' => 'a', 'b' => 'b' ),
+        $varP = array('a' => 'a', 'b' => 'b'),
         $varQ = 'string',
         $varR = 123;
 

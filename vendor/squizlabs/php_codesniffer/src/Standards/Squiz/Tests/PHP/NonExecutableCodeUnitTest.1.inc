@@ -261,9 +261,9 @@ echo 'j hit 17';
 // Issue 2512.
 class TestAlternativeControlStructures {
 
-    public function alternative_switch_in_function( $var ) {
+    public function alternative_switch_in_function($var ) {
 
-        switch ( $var ) :
+        switch ($var ) :
             case 'value1':
                 do_something();
                 break;
@@ -278,9 +278,9 @@ class TestAlternativeControlStructures {
     public function various_alternative_control_structures() {
         $_while = 1;
 
-        for ( $a = 0; $a++ < 1; ) :
+        for ($a = 0; $a++ < 1; ) :
             foreach ( [ 1 ] as $b ) :
-                while ( $_while-- ) :
+                while ($_while-- ) :
                     if ( 1 ) :
                         switch ( 1 ) :
                             default:

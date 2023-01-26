@@ -250,7 +250,7 @@ class phpcsCommentTest {
 class MyOtherClass
 {
     public
-        $varK = array( 'a', 'b' );
+        $varK = array('a', 'b');
     protected static
         $varK,
         $varL,
@@ -260,7 +260,7 @@ class MyOtherClass
 
     private
         $varO = true,
-        $varP = array( 'a' => 'a', 'b' => 'b' ),
+        $varP = array('a' => 'a', 'b' => 'b'),
         $varQ = 'string',
         $varR = 123;
 }
@@ -272,7 +272,7 @@ class ClassUsingSimpleTraits
 
 
     /* comment */
-    public $firstVar = array( 'a', 'b' );
+    public $firstVar = array('a', 'b');
     protected $secondVar = true;
 }
 
@@ -285,7 +285,7 @@ class ClassUsingComplexTraits
 
 
 
-    public $firstVar = array( 'a', 'b' );
+    public $firstVar = array('a', 'b');
 
 
     /* comment */

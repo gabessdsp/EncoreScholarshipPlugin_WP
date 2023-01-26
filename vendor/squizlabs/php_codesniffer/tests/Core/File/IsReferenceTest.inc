@@ -18,7 +18,7 @@ $a = array $first, $something & $somethingElse );
 $a = [ 'a' => $first, 'b' => $something & $somethingElse ];
 
 /* testBitwiseAndF */
-$a = array( 'a' => $first, 'b' => $something & \MyClass::$somethingElse );
+$a = array('a' => $first, 'b' => $something & \MyClass::$somethingElse );
 
 /* testBitwiseAndG */
 $a = $something & $somethingElse;
@@ -36,13 +36,13 @@ function &myFunction() {}
 function myFunction( &$a ) {}
 
 /* testFunctionPassByReferenceB */
-function myFunction( $a, &$b ) {}
+function myFunction($a, &$b ) {}
 
 /* testFunctionPassByReferenceC */
 $closure = function ( &$a ) {};
 
 /* testFunctionPassByReferenceD */
-$closure = function ( $a, &$b ) {};
+$closure = function ($a, &$b ) {};
 
 /* testFunctionPassByReferenceE */
 function myFunction(array &$one) {}
@@ -54,10 +54,10 @@ $closure = function (\MyClass &$one) {};
 $closure = function myFunc($param, &...$moreParams) {};
 
 /* testForeachValueByReference */
-foreach( $array as $key => &$value ) {}
+foreach($array as $key => &$value ) {}
 
 /* testForeachKeyByReference */
-foreach( $array as &$key => $value ) {}
+foreach($array as &$key => $value ) {}
 
 /* testArrayValueByReferenceA */
 $a = [ 'a' => &$something ];
@@ -72,16 +72,16 @@ $a = [ &$something ];
 $a = [ $something, &$somethingElse ];
 
 /* testArrayValueByReferenceE */
-$a = array( 'a' => &$something );
+$a = array('a' => &$something );
 
 /* testArrayValueByReferenceF */
-$a = array( 'a' => $something, 'b' => &$somethingElse );
+$a = array('a' => $something, 'b' => &$somethingElse );
 
 /* testArrayValueByReferenceG */
 $a = array( &$something );
 
 /* testArrayValueByReferenceH */
-$a = array( $something, &$somethingElse );
+$a = array($something, &$somethingElse );
 
 /* testAssignByReferenceA */
 $b = &$something;
@@ -132,7 +132,7 @@ functionCall($something, &namespace\SomeClass::$somethingElse);
 $foobar2 = &new Foobar();
 
 /* testNewByReferenceB */
-functionCall( $something , &new Foobar() );
+functionCall($something , &new Foobar());
 
 /* testUseByReference */
 $closure = function() use (&$var){};

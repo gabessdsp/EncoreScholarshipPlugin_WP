@@ -67,12 +67,12 @@ $anon = new class(label: $string, more: false) {
     public function __construct($label, $more) {}
 };
 
-function myfoo( $💩💩💩, $Пасха, $_valid) {}
+function myfoo($💩💩💩, $Пасха, $_valid) {}
 /* testNonAsciiNames */
 foo(💩💩💩: [], Пасха: 'text', _valid: 123);
 
 /* testMixedPositionalAndNamedArgsWithTernary */
-foo( $cond ? true : false, name: $value2 );
+foo($cond ? true : false, name: $value2 );
 
 /* testNamedArgWithTernary */
 foo( label: $cond ? true : false, more: $cond ? CONSTANT_A : CONSTANT_B );

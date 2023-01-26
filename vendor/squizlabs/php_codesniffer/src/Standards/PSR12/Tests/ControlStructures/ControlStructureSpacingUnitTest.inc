@@ -1,5 +1,5 @@
 <?php
-while ( $expr ) {
+while ($expr ) {
 }
 
 if (

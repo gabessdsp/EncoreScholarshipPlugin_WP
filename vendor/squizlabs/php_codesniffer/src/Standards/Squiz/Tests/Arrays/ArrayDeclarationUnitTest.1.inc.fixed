@@ -364,7 +364,7 @@ get_current_screen()->add_help_tab( array(
 Here comes some text.
 EOD
 ,
-                                    ) );
+                                    ));
 
 $a = array
 // comment

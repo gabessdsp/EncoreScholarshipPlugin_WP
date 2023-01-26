@@ -55,5 +55,5 @@ class test
     }
 }
 
-( function ( $ ) {
+( function ($ ) {
     foo(function ( value ) {} )( jQuery );

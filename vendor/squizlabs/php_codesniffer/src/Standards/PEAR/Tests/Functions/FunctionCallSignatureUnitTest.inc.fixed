@@ -215,9 +215,9 @@ function foo()
 
 // phpcs:set PEAR.Functions.FunctionCallSignature requiredSpacesAfterOpen 1
 // phpcs:set PEAR.Functions.FunctionCallSignature requiredSpacesBeforeClose 1
-test( $arg, $arg2 );
-test( $arg, $arg2 );
-test( $arg, $arg2 );
+test($arg, $arg2 );
+test($arg, $arg2 );
+test($arg, $arg2 );
 test();
 test();
 test();

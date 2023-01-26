@@ -290,12 +290,12 @@ if ($this) {
         foo(${$a[$b]});
 }
 
-while ( $level-- ) ob_end_clean();
+while ($level-- ) ob_end_clean();
 
-while ( $level-- )
+while ($level-- )
 	ob_end_clean();
 
-while ( $level-- ):
+while ($level-- ):
 	ob_end_clean();
 endwhile;
 

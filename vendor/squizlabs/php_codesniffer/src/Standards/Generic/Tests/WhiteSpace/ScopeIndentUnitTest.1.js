@@ -231,9 +231,9 @@ class TestBad
     }
 }
 
-( function( $ ) {
+( function($ ) {
     foo(function( value ) {
             value.bind( function( newval ) {
-                    $( '#bar' ).html( newval );
+                    $('#bar').html( newval );
             } );
     } )( jQuery );

@@ -20,7 +20,7 @@ get_current_screen()->add_help_tab( array(
 Here comes some text.
 EOD
 . '</hr>',
-) );
+));
 
 // phpcs:set Squiz.Strings.ConcatenationSpacing spacing 1
 

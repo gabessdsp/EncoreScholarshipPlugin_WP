@@ -2,19 +2,19 @@
 namespace Scholarship;
 
 class Shortcode {
-    public static function shortcode( $attrs = array(), $content = null ) {
-        if ( ! current_user_can( 'student' ) ) {
+    public static function shortcode($attrs = array(), $content = null ) {
+        if ( ! current_user_can('student')) {
             if ( null !== $content ) {
-                return do_shortcode( apply_filters( 'the_content', $content ) );
+                return do_shortcode( apply_filters('the_content', $content ));
             }
         }
-        $student = new Student( wp_get_current_user() );
+        $student = new Student( wp_get_current_user());
         $application = $student->application();
         if ( false === $application ) {
             $goals = '';
             $essay = '';
         } else {
-            $goals = $application->get_meta( 'goals' );
+            $goals = $application->get_meta('goals');
             if ( ! $goals ) {
                 $goals = '';
             }
@@ -24,18 +24,18 @@ class Shortcode {
         ob_start();
         ?>
         <form method="POST" action="<?php
-            echo admin_url( 'admin-post.php?action=sch-apply' );
+            echo admin_url('admin-post.php?action=sch-apply');
         ?>">
             <input type="hidden" name="action" value="sch-apply">
             <input type="hidden" name="_wpnonce" value="<?php
-                echo wp_create_nonce( 'sch-apply' ); 
+                echo wp_create_nonce('sch-apply'); 
             ?>">
             <h2>What are your career goals? They are not required to be
             related to theatre.</h2>
-            <?php wp_editor( $goals, 'sch_application_goals' ); ?>
+            <?php wp_editor($goals, 'sch_application_goals'); ?>
             <h2>In the length of 250-500 words, describe how your high school
             theatre experience has impacted your life.</h2>
-            <?php wp_editor( $essay, 'sch_application_essay' ); ?>
+            <?php wp_editor($essay, 'sch_application_essay'); ?>
             <p><input type="submit" value="Save and submit"></p>
         </form>
         <?php

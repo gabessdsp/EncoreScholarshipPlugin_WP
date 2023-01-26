@@ -5,9 +5,9 @@ test($arg, $arg2);
 isset ();
 test( );
 test() ;
-test( $arg);
-empty( $arg );
-eval ( $arg );
+test($arg);
+empty($arg );
+eval ($arg );
 
 if (is_array($arg) === true) {
 
@@ -211,7 +211,7 @@ function foo()
 // phpcs:set PEAR.Functions.FunctionCallSignature requiredSpacesAfterOpen 1
 // phpcs:set PEAR.Functions.FunctionCallSignature requiredSpacesBeforeClose 1
 test($arg, $arg2);
-test( $arg, $arg2 );
+test($arg, $arg2 );
 test(  $arg, $arg2  );
 test();
 test( );

@@ -87,7 +87,7 @@ function pseudoTypeIterableAndArray(iterable|array|Traversable $var) {}
 
 /* testPHP8DuplicateTypeInUnionWhitespaceAndComment */
 // Intentional fatal error - duplicate types are not allowed in union types, but that's not the concern of the method.
-function duplicateTypeInUnion( int | string /*comment*/ | INT $var) {}
+function duplicateTypeInUnion(int | string /*comment*/ | INT $var) {}
 
 class ConstructorPropertyPromotionNoTypes {
     /* testPHP8ConstructorPropertyPromotionNoTypes */

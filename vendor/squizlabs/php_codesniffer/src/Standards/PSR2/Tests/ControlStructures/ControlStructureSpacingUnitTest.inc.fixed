@@ -35,12 +35,12 @@ if ($defaultPageDesign === 0
     $settingsUpdated = FALSE;
 }
 
-if ( // comment
+if (// comment
     $something
 ) {
 }
 
-while ( /* comment */
+while (/* comment */
     true
 ) {
 }

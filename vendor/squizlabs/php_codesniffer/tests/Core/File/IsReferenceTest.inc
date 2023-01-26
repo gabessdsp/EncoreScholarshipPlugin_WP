@@ -3,7 +3,7 @@
 namespace PHP_CodeSniffer\Tests\Core\File;
 
 /* testBitwiseAndA */
-error_reporting( E_NOTICE & E_STRICT );
+error_reporting(E_NOTICE & E_STRICT );
 
 /* testBitwiseAndB */
 $a = [ $something & $somethingElse ];
@@ -33,13 +33,13 @@ $closure = function ($a = MY_CONSTANT & parent::OTHER_CONSTANT) {};
 function &myFunction() {}
 
 /* testFunctionPassByReferenceA */
-function myFunction( &$a ) {}
+function myFunction(&$a ) {}
 
 /* testFunctionPassByReferenceB */
 function myFunction($a, &$b ) {}
 
 /* testFunctionPassByReferenceC */
-$closure = function ( &$a ) {};
+$closure = function (&$a ) {};
 
 /* testFunctionPassByReferenceD */
 $closure = function ($a, &$b ) {};
@@ -78,7 +78,7 @@ $a = array('a' => &$something );
 $a = array('a' => $something, 'b' => &$somethingElse );
 
 /* testArrayValueByReferenceG */
-$a = array( &$something );
+$a = array(&$something );
 
 /* testArrayValueByReferenceH */
 $a = array($something, &$somethingElse );

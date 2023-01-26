@@ -11,24 +11,24 @@ $baz = function () {
     return !  $bar;
 };
 
-if ( !
+if (!
     ($x || $y)
 ) {
     return !$bar;
 }
 
-if ( ! // phpcs:ignore Standard.Cat.SniffName -- for reasons.
+if (! // phpcs:ignore Standard.Cat.SniffName -- for reasons.
     ($x || $y)
 ) {}
 
 // phpcs:set Generic.Formatting.SpaceAfterNot ignoreNewlines true
-if ( !
+if (!
     ($x || $y)
 ) {
     return !$bar;
 }
 
-if ( ! // phpcs:ignore Standard.Cat.SniffName -- for reasons.
+if (! // phpcs:ignore Standard.Cat.SniffName -- for reasons.
     ($x || $y)
 ) {}
 // phpcs:set Generic.Formatting.SpaceAfterNot ignoreNewlines false
@@ -45,7 +45,7 @@ $baz = function () {
     return !  $bar;
 };
 
-if ( !
+if (!
     ($x || $y)
 ) {
     return !$bar;
@@ -62,24 +62,24 @@ $baz = function () {
     return !  $bar;
 };
 
-if ( !
+if (!
     ($x || $y)
 ) {
     return ! $bar;
 }
 
-if ( ! // phpcs:ignore Standard.Cat.SniffName -- for reasons.
+if (! // phpcs:ignore Standard.Cat.SniffName -- for reasons.
     ($x || $y)
 ) {}
 
 // phpcs:set Generic.Formatting.SpaceAfterNot ignoreNewlines true
-if ( !
+if (!
     ($x || $y)
 ) {
     return !    $bar;
 }
 
-if ( ! // phpcs:ignore Standard.Cat.SniffName -- for reasons.
+if (! // phpcs:ignore Standard.Cat.SniffName -- for reasons.
     ($x || $y)
 ) {}
 // phpcs:set Generic.Formatting.SpaceAfterNot ignoreNewlines false

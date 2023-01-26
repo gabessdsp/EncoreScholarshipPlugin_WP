@@ -15,7 +15,7 @@ echo 'test' . 1;
 echo 'test' . 1.1;
 echo 'test' . 1 . 'test' . 2.2 . 'test'   .   3;
 
-get_current_screen()->add_help_tab( array(
+get_current_screen()->add_help_tab(array(
 'id'        => <<<EOD
 Here comes some text.
 EOD

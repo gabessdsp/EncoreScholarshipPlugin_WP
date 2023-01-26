@@ -111,7 +111,7 @@ if ($defaultPageDesign === 0
 }
 
 foreach ($blah as $var ) {
-    if (  $blah    ) {
+    if ( $blah    ) {
     }
 }
 
@@ -173,7 +173,7 @@ if ($one) {
 
 do {
     echo 'hi';
-} while (  $blah  );
+} while ( $blah  );
 
 if ($one) {
 }

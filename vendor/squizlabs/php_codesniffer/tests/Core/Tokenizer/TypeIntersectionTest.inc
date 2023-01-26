@@ -60,7 +60,7 @@ class TypeIntersection
     public function returnType() : Foo&Bar {}
 
     /* testTypeIntersectionConstructorPropertyPromotion */
-    public function __construct( public Foo&Bar $property) {}
+    public function __construct(public Foo&Bar $property) {}
 
     /* testTypeIntersectionAbstractMethodReturnType1 */
     abstract public function abstractMethod(): Foo&Bar /* testTypeIntersectionAbstractMethodReturnType2 */ &Baz;
@@ -117,4 +117,4 @@ function (int&string $var) {};
 
 /* testLiveCoding */
 // Intentional parse error. This has to be the last test in the file.
-return function( Foo&
+return function(Foo&

@@ -55,7 +55,7 @@ $var = (boolean) /* comment */ $var2;
 $var = (int)
 	$var2;
 
-if ( (string) // phpcs:ignore Standard.Cat.SniffName -- for reasons.
+if ((string) // phpcs:ignore Standard.Cat.SniffName -- for reasons.
     $x === 'test'
 ) {}
 
@@ -63,7 +63,7 @@ if ( (string) // phpcs:ignore Standard.Cat.SniffName -- for reasons.
 $var = (int)
 	$var1 + (bool)  $var2;
 
-if ( (string) // phpcs:ignore Standard.Cat.SniffName -- for reasons.
+if ((string) // phpcs:ignore Standard.Cat.SniffName -- for reasons.
     $x === 'test'
 ) {}
 // phpcs:set Generic.Formatting.SpaceAfterCast ignoreNewlines false

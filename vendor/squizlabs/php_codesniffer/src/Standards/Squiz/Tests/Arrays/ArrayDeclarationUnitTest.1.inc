@@ -73,8 +73,8 @@ class TestClass
 
 }//end class
 
-$value = array ( );
-$value = array(  );
+$value = array ();
+$value = array( );
 $value = array('1'=>$one, '2'  =>  $two, '3'=> $three, '4' =>$four);
 $value = array('1'=>$one);
 
@@ -338,7 +338,7 @@ $fields = array(
            'id'    => array('type' => 'INT'),
            'value' => array('type' => 'VARCHAR'));
 
-get_current_screen()->add_help_tab( array(
+get_current_screen()->add_help_tab(array(
                                      'id' => <<<EOD
 Here comes some text.
 EOD
@@ -425,7 +425,7 @@ JSON
 $array = array(
           'a'   => fn() => return 1,
           'bb'  => fn() => return 2,
-          'ccc' => ( true ) ?
+          'ccc' => (true ) ?
               fn() => return 1 :
               fn() => return 2,
          );

@@ -49,21 +49,21 @@ class Options {
     );
 
     public static function get_default($name, $index = false ) {
-        if ( false !== $index ) {
+        if (false !== $index ) {
             return self::$defaults[ $name ][ $index ];
         }
         return self::$defaults[ $name ];
     }
     public static function get($name, $index = false ) {
-        if ( ! isset(self::$data[ $name ] )) {
+        if (! isset(self::$data[ $name ] )) {
             self::$data[ $name ] = get_option($name );
-            if ( self::$data[ $name ] === false ) {
+            if (self::$data[ $name ] === false ) {
                 self::$data[ $name ] = self::get_default($name );
             }
         }
 
-        if ( false !== $index ) {
-            if ( isset( self::$data[ $name ][ $index ] )) {
+        if (false !== $index ) {
+            if (isset(self::$data[ $name ][ $index ] )) {
                 return self::$data[ $name ][ $index ];
             } else {
                 return '';
@@ -160,12 +160,12 @@ class Options {
     }
 
     public static function sanitize_enabled($value ) {
-        if ( ! is_array($value )) {
+        if (! is_array($value )) {
             $value = array();
         }
         $enabled = array();
-        foreach ( array('student', 'staff', 'counselor', 'judge') as $role ) {
-            if ( isset($value[ $role ] )
+        foreach (array('student', 'staff', 'counselor', 'judge') as $role ) {
+            if (isset($value[ $role ] )
                 && 'true' === trim($value[ $role ] )) {
                 $enabled[ $role ] = true;
             } else {
@@ -180,17 +180,17 @@ class Options {
     }
 
     private static function sanitize_mail_option($value, $name ) {
-        if ( ! is_array($value )) {
+        if (! is_array($value )) {
             $value = array();
         }
 
-        foreach ( array('body', 'subject') as $part ) {
-            if ( empty($value[ $part ] ) ||
+        foreach (array('body', 'subject') as $part ) {
+            if (empty($value[ $part ] ) ||
                 ('' === trim($value[ $part ] )) ) {
                 $value[ $part ] = self::get_default('sch_mail_' . $name, $part );
             }
         }
-        $value['subject'] = trim( str_replace(
+        $value['subject'] = trim(str_replace(
             "\n", '', $value['subject'] ));
         $value['body'] = trim($value['body'] );
 
@@ -214,11 +214,11 @@ class Options {
     }
 
     public static function field_enabled() {
-        foreach ( array('student', 'staff', 'counselor', 'judge') as $role ) {
+        foreach (array('student', 'staff', 'counselor', 'judge') as $role ) {
             ?>
             <label><input type="checkbox" id="sch_enabled_<?php echo $role; ?>"
                 name="sch_enabled[<?php echo $role; ?>]" value="true"<?php
-            if ( Options::get('sch_enabled', $role )) {
+            if (Options::get('sch_enabled', $role )) {
                 echo ' checked';
             }
             ?>> <?php echo ucfirst($role ); ?></label><br>
@@ -230,7 +230,7 @@ class Options {
         <?php
     }
     public static function field_disabled_message() {
-        $disabled_message = esc_attr( self::get('sch_disabled_message'));
+        $disabled_message = esc_attr(self::get('sch_disabled_message'));
         ?>
         <input class="regular-text" type="text" id="sch_disabled_message"
             name="sch_disabled_message" title="Leave blank to restore default"
@@ -245,14 +245,14 @@ class Options {
         <input class="regular-text" type="text" id="sch_mail_<?php echo $message; ?>_subject"
             name="sch_mail_<?php echo $message; ?>[subject]"
             title="Leave blank to restore default"
-            value="<?php echo esc_attr( self::get('sch_mail_' . $message, 'subject')); ?>">
+            value="<?php echo esc_attr(self::get('sch_mail_' . $message, 'subject')); ?>">
         </label></p>
         <p><label>Body:<br>
         <textarea class="large-text" rows="20"
             title="Leave blank to restore default"
             id="sch_mail_<?php echo $message; ?>_body"
             name="sch_mail_<?php echo $message; ?>[body]"><?php
-            echo esc_html( self::get('sch_mail_' . $message, 'body'));
+            echo esc_html(self::get('sch_mail_' . $message, 'body'));
         ?></textarea></label></p>
         <?php
     }
@@ -332,14 +332,14 @@ class Options {
     }
 
     public static function options_page() {
-        if ( ! current_user_can('manage_options')) {
+        if (! current_user_can('manage_options')) {
             return;
         }
      
         settings_errors('sch_messages');
         ?>
         <div class="wrap">
-            <h1><?php echo esc_html( get_admin_page_title()); ?></h1>
+            <h1><?php echo esc_html(get_admin_page_title()); ?></h1>
             <form action="options.php" method="post">
                 <?php
                 // output security fields

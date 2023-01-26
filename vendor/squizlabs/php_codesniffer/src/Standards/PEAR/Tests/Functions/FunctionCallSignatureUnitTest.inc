@@ -3,7 +3,7 @@
 test();
 test($arg, $arg2);
 isset ();
-test( );
+test();
 test() ;
 test($arg);
 empty($arg );
@@ -31,7 +31,7 @@ make_foo($string/*the string*/, true/*test*/);
 make_foo($string/*the string*/, true/*test*/ );
 make_foo($string /*the string*/, true /*test*/);
 make_foo(/*the string*/$string, /*test*/true);
-make_foo( /*the string*/$string, /*test*/true);
+make_foo(/*the string*/$string, /*test*/true);
 
 // No errors should be throw here because
 // this is multi-line.
@@ -40,7 +40,7 @@ throw new Exception(
 );
 
 // Objects are the same as a normal call.
-$obj = new TestClass( );
+$obj = new TestClass();
 
 // Heredocs dont need to be indented.
 method_call(
@@ -212,10 +212,10 @@ function foo()
 // phpcs:set PEAR.Functions.FunctionCallSignature requiredSpacesBeforeClose 1
 test($arg, $arg2);
 test($arg, $arg2 );
-test(  $arg, $arg2  );
+test( $arg, $arg2  );
+test();
 test();
 test( );
-test(  );
 // phpcs:set PEAR.Functions.FunctionCallSignature requiredSpacesAfterOpen 0
 // phpcs:set PEAR.Functions.FunctionCallSignature requiredSpacesBeforeClose 0
 
@@ -382,7 +382,7 @@ function foo()
 
 $deprecated_functions = [
     'the_category_ID'
-       => function_call( // 7 spaces, not 8. This is the problem line.
+       => function_call(// 7 spaces, not 8. This is the problem line.
         $a,
         $b
     ),
@@ -390,7 +390,7 @@ $deprecated_functions = [
 
 $deprecated_functions = [
     'the_category_ID'
-         => function_call( // 9 spaces, not 8. This is the problem line.
+         => function_call(// 9 spaces, not 8. This is the problem line.
         $a,
         $b
     ),
@@ -524,7 +524,7 @@ return trim(preg_replace_callback(
             ));
 
 $a = ['a' => function ($b) { return $b; }];
-$a['a']( 1 );
+$a['a'](1 );
 
 // PHP 8.0 named parameters.
 array_fill_keys(
@@ -536,14 +536,14 @@ array_fill_keys(
 );
 
 array_fill_keys(
-    keys: range( 1,
+    keys: range(1,
             12,
     ), value: true,
 );
 
 // phpcs:set PEAR.Functions.FunctionCallSignature allowMultipleArguments false
 array_fill_keys(
-    keys: range( 1,
+    keys: range(1,
             12,
     ), value: true,
 );

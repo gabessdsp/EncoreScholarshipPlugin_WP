@@ -274,7 +274,7 @@ public function mixedType($a1, $a2, $a3, $a4)
  *
  * @param array(MyClass)         $a1 OK.
  * @param array()                $a2 Invalid type.
- * @param array(                 $a3 Typo.
+ * @param array(                $a3 Typo.
  * @param array(int)             $a4 Use 'array(integer)' instead.
  * @param array(int => integer)  $a5 Use 'array(integer => integer)' instead.
  * @param array(integer => bool) $a6 Use 'array(integer => boolean)' instead.

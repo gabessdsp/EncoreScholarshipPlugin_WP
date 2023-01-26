@@ -72,7 +72,7 @@ class TypeUnion
     public function returnType() : int|false {}
 
     /* testTypeUnionConstructorPropertyPromotion */
-    public function __construct( public bool|null $property) {}
+    public function __construct(public bool|null $property) {}
 
     /* testTypeUnionAbstractMethodReturnType1 */
     abstract public function abstractMethod(): object|array /* testTypeUnionAbstractMethodReturnType2 */ |false;
@@ -120,7 +120,7 @@ $array = [
 
 /* testBitwiseOrTryCatch */
 try {
-} catch ( ExceptionA | ExceptionB $e ) {
+} catch (ExceptionA | ExceptionB $e ) {
 }
 
 /* testBitwiseOrNonArrowFnFunctionCall */
@@ -131,4 +131,4 @@ function &fn(int|false $something) {}
 
 /* testLiveCoding */
 // Intentional parse error. This has to be the last test in the file.
-return function( type|
+return function(type|

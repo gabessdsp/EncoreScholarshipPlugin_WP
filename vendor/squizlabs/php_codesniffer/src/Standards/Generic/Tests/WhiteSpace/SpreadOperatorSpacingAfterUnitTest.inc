@@ -1,7 +1,7 @@
 <?php
 
-function foo( &...$spread ) {
-    bar( ...$spread );
+function foo(&...$spread ) {
+    bar(...$spread );
 
     bar(
         [ ...$foo ],
@@ -9,7 +9,7 @@ function foo( &...$spread ) {
     );
 }
 
-function bar( &   ... $spread ) {
+function bar(&   ... $spread ) {
     bar(...
 
 
@@ -28,8 +28,8 @@ function bar( &   ... $spread ) {
 // phpcs:set Generic.WhiteSpace.SpreadOperatorSpacingAfter ignoreNewlines false
 
 // phpcs:set Generic.WhiteSpace.SpreadOperatorSpacingAfter spacing 1
-function foo( &... $spread ) {
-    bar( ... $spread );
+function foo(&... $spread ) {
+    bar(... $spread );
 
     bar(
         [ ... $foo ],
@@ -37,7 +37,7 @@ function foo( &... $spread ) {
     );
 }
 
-function bar( &   ...$spread ) {
+function bar(&   ...$spread ) {
     bar(...
         $spread
     );
@@ -48,8 +48,8 @@ function bar( &   ...$spread ) {
 }
 
 // phpcs:set Generic.WhiteSpace.SpreadOperatorSpacingAfter spacing 2
-function foo( &...  $spread ) {
-    bar( ...  $spread );
+function foo(&...  $spread ) {
+    bar(...  $spread );
 
     bar(
         [ ...  $foo ],
@@ -57,7 +57,7 @@ function foo( &...  $spread ) {
     );
 }
 
-function bar( &   ... $spread ) {
+function bar(&   ... $spread ) {
     bar(...
         $spread
     );
@@ -70,4 +70,4 @@ function bar( &   ... $spread ) {
 // phpcs:set Generic.WhiteSpace.SpreadOperatorSpacingAfter spacing 0
 
 // Intentional parse error. This has to be the last test in the file.
-function bar( ...
+function bar(...

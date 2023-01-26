@@ -13,14 +13,14 @@ defined('ABSPATH') || die('this file requires wordpress core');
 
 class Mail {
     public static function mail_user($user, $subject, $body, $replace ) {
-        if ( ! is_object($user )) { // allow passing in plaintext email for simplicity's sake
+        if (! is_object($user )) { // allow passing in plaintext email for simplicity's sake
             $user = get_user_by('email', $user );
         }
 
-        $replace = array_merge( array(
+        $replace = array_merge(array(
             // The blogname option is escaped with esc_html on the way into the database in sanitize_option
             // we want to reverse this for the plain text arena of emails.
-            'site' => wp_specialchars_decode( Options::get('blogname'), ENT_QUOTES ),
+            'site' => wp_specialchars_decode(Options::get('blogname'), ENT_QUOTES ),
             'tagurl' => wp_login_url('wp-admin/admin.php?page=sch-tagged'),
             'transcripturl' => wp_login_url('wp-admin/admin.php?page=sch-transcript'),
         ), $replace );
@@ -36,7 +36,7 @@ class Mail {
         // you cannot directly index an array returned from a function in old php
         $tmp = explode('@', $email );
         $username = sanitize_user($tmp[0], true );
-        if ( false !== get_user_by('login', $username )) {
+        if (false !== get_user_by('login', $username )) {
             $n = 0;
             do {
                 $n += 1;
@@ -45,14 +45,14 @@ class Mail {
             $username = $u;
         }
 
-        $userid = (int) wp_insert_user( array(
+        $userid = (int) wp_insert_user(array(
             'user_login' => $username,
             'user_email' => $email,
             'user_pass' => wp_generate_password(),
             'role' => $role,
         ));
 
-        $student = new Student( wp_get_current_user());
+        $student = new Student(wp_get_current_user());
         $replace = array(
             'username' => $username,
             'email' => $email,
@@ -73,15 +73,15 @@ class Mail {
         );
 
         // Generate something random for a password reset key.
-        $key = wp_generate_password( 20, false );
+        $key = wp_generate_password(20, false );
 
         /** This action is documented in wp-login.php */
         do_action('retrieve_password_key', $user->user_login, $key );
 
         // Now insert the key, hashed, into the DB.
-        if ( empty($wp_hasher )) {
+        if (empty($wp_hasher )) {
             require_once ABSPATH . WPINC . '/class-phpass.php';
-            $wp_hasher = new PasswordHash( 8, true );
+            $wp_hasher = new PasswordHash(8, true );
         }
         $hashed = time() . ':' . $wp_hasher->HashPassword($key );
         $wpdb->update(

@@ -36,17 +36,17 @@ for ($i = 0;; $i++) {
 // phpcs:set Squiz.ControlStructures.ForLoopDeclaration requiredSpacesBeforeClose 1
 for ($i = 0; $i < 10; $i++) {}
 for ($i = 0; $i < 10; $i++ ) {}
-for (  $i = 0; $i < 10; $i++  ) {}
+for ( $i = 0; $i < 10; $i++  ) {}
 // phpcs:set Squiz.ControlStructures.ForLoopDeclaration requiredSpacesAfterOpen 0
 // phpcs:set Squiz.ControlStructures.ForLoopDeclaration requiredSpacesBeforeClose 0
 
-for (         ; $i < 10; $i++) {}
+for (        ; $i < 10; $i++) {}
 for (; $i < 10; $i++) {}
 
 // phpcs:set Squiz.ControlStructures.ForLoopDeclaration requiredSpacesAfterOpen 1
 // phpcs:set Squiz.ControlStructures.ForLoopDeclaration requiredSpacesBeforeClose 1
-for ( ; $i < 10; $i++ ) {}
-for (         ; $i < 10; $i++ ) {}
+for (; $i < 10; $i++ ) {}
+for (        ; $i < 10; $i++ ) {}
 for (; $i < 10; $i++ ) {}
 
 for ($i = 0; $i < 10; ) {}
@@ -56,7 +56,7 @@ for ($i = 0; $i < 10;     ) {}
 // phpcs:set Squiz.ControlStructures.ForLoopDeclaration requiredSpacesBeforeClose 0
 
 // Test handling of comments and inline annotations.
-for ( /*phpcs:enable*/ $i = 0 /*start*/ ;    /*end*/$i < 10/*comment*/; $i++ /*comment*/   ) {}
+for (/*phpcs:enable*/ $i = 0 /*start*/ ;    /*end*/$i < 10/*comment*/; $i++ /*comment*/   ) {}
 
 // Test multi-line FOR control structure.
 for (

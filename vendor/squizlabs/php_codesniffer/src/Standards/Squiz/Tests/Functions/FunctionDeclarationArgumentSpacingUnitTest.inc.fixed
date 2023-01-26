@@ -51,9 +51,9 @@ function myFunc($blah = 'hello') {}
 function myFunc($blah ) {}
 function myFunc($blah ) {}
 function myFunc($blah ) {}
-function myFunc( array $blah ) {}
-function myFunc( array $blah ) {}
-function myFunc( array $blah ) {}
+function myFunc(array $blah ) {}
+function myFunc(array $blah ) {}
+function myFunc(array $blah ) {}
 function myFunc() {}
 function myFunc() {}
 
@@ -76,7 +76,7 @@ function myFunc(...$args) {}
 function myFunc(...$args) {}
 function myFunc(...$args) {}
 
-function foo( // comment
+function foo(// comment
     $bar,
     \NS\ClassName $nsTypeHint,
     /* not a type hint */ $baz,

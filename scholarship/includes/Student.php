@@ -17,18 +17,18 @@ class Student extends UserWrapper {
             return;
         }
 
-        $first_name = trim( sanitize_text_field($_POST['user_first_name'] ));
-        $last_name = trim( sanitize_text_field($_POST['user_last_name'] ));
+        $first_name = trim(sanitize_text_field($_POST['user_first_name'] ));
+        $last_name = trim(sanitize_text_field($_POST['user_last_name'] ));
         $tel = Util::normalize_tel($_POST['user_tel'] );
-        $gender = trim( sanitize_text_field($_POST['user_gender'] ));
-        $address = trim( sanitize_text_field($_POST['user_address'] ));
-        $city = trim( sanitize_text_field($_POST['user_city'] ));
+        $gender = trim(sanitize_text_field($_POST['user_gender'] ));
+        $address = trim(sanitize_text_field($_POST['user_address'] ));
+        $city = trim(sanitize_text_field($_POST['user_city'] ));
         $state = Util::validate_state($_POST['user_state'] );
         $zip = Util::validate_zip($_POST['user_zip'] );
-        $dob = Util::parse_date( trim($_POST['user_dob'] ));
+        $dob = Util::parse_date(trim($_POST['user_dob'] ));
 
-        $parent_email = trim( sanitize_email($_POST['user_parent_email'] ));
-        $parent_name = trim( sanitize_text_field($_POST['user_parent_name'] ));
+        $parent_email = trim(sanitize_email($_POST['user_parent_email'] ));
+        $parent_name = trim(sanitize_text_field($_POST['user_parent_name'] ));
         $parent_tel = Util::normalize_tel($_POST['user_parent_tel'] );
 
 
@@ -55,21 +55,21 @@ class Student extends UserWrapper {
         }
 
         $user = new \WP_User($student );
-        if ( ! $user->has_cap('student')) {
+        if (! $user->has_cap('student')) {
             return;
         }
         $user = new Student($user );
 
         $tel = Util::normalize_tel($_POST['tel'] );
-        $gender = trim( sanitize_text_field($_POST['gender'] ));
-        $dob = Util::parse_date( trim( sanitize_text_field($_POST['dob'] )) );
-        $address = trim( sanitize_text_field($_POST['address'] ));
-        $city = trim( sanitize_text_field($_POST['city'] ));
+        $gender = trim(sanitize_text_field($_POST['gender'] ));
+        $dob = Util::parse_date(trim(sanitize_text_field($_POST['dob'] )) );
+        $address = trim(sanitize_text_field($_POST['address'] ));
+        $city = trim(sanitize_text_field($_POST['city'] ));
         $state = Util::validate_state($_POST['state'] );
         $zip = Util::validate_zip($_POST['zip'] );
 
-        $parent_email = trim( sanitize_email($_POST['parent_email'] ));
-        $parent_name = trim( sanitize_text_field($_POST['parent_name'] ));
+        $parent_email = trim(sanitize_email($_POST['parent_email'] ));
+        $parent_name = trim(sanitize_text_field($_POST['parent_name'] ));
         $parent_tel = Util::normalize_tel($_POST['parent_tel'] );
 
         $user->set_meta('tel', $tel );
@@ -83,7 +83,7 @@ class Student extends UserWrapper {
         $user->set_meta('parent_name', $parent_name );
         $user->set_meta('parent_tel', $parent_tel );
 
-        if ( isset( Util::$data['picture'] )) {
+        if (isset(Util::$data['picture'] )) {
             $old_picture = $user->get_meta('picture');
             @unlink($old_picture['file'] );
             $user->set_meta('picture', Util::$data['picture'] );
@@ -91,12 +91,12 @@ class Student extends UserWrapper {
     }
 
     public function application() {
-        $posts = get_posts( array(
+        $posts = get_posts(array(
             'numberposts' => 1,
             'post_type' => 'sch_application',
             'author' => $this->user->ID
         ));
-        if ( count($posts ) !== 1 ) { 
+        if (count($posts ) !== 1 ) { 
             return false;
         }
         return new Application($posts[0] );
@@ -118,7 +118,7 @@ class Student extends UserWrapper {
                             src="<?php echo esc_attr($picture['url'] ); ?>">
                     </p>
                     <p>
-                    <?php foreach ( array(
+                    <?php foreach (array(
                         'gender' => 'Gender',
                         'dob' => 'Date of birth',
                         'parent_name' => "Parent's name",

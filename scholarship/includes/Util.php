@@ -23,12 +23,12 @@ class Util {
     }
     public static function parse_date($date ) {
         $a = explode('-', $date );
-        if ( count($a ) !== 3 ) {
+        if (count($a ) !== 3 ) {
             return false;
         }
 
         list($year, $month, $day ) = $a;
-        if ( strlen($year ) !== 4 || strlen($month ) !== 2 ||
+        if (strlen($year ) !== 4 || strlen($month ) !== 2 ||
             strlen($day ) !== 2 ) {
             return false;
         }
@@ -36,7 +36,7 @@ class Util {
         $year = (int) $year;
         $month = (int) $month;
         $day = (int) $day;
-        if ( 1900 > $year || $year > (int) date('Y') ||
+        if (1900 > $year || $year > (int) date('Y') ||
             1 > $month || $month > 12 || 1 > $day || $day > 31 ) {
             return false;
         }
@@ -100,12 +100,12 @@ class Util {
     ?>
 
     <select name="<?php echo $name; ?>" id="<?php echo $id; ?>"<?php
-    if ( null !== $class ) { 
+    if (null !== $class ) { 
         ?>class="<?php echo $class; ?>"<?php
     }
     ?>>
         <?php
-        foreach ( self::$state_array as $code => $statename ) {
+        foreach (self::$state_array as $code => $statename ) {
         ?>
             <option value="<?php echo $code; ?>"<?php
             if ($state === $code ) {
@@ -127,7 +127,7 @@ class Util {
 
     public static function validate_zip($input ) {
         $input = trim($input );
-        if ( preg_match('/^[0-9]{5}(-[0-9]{4})?$/', $input )) {
+        if (preg_match('/^[0-9]{5}(-[0-9]{4})?$/', $input )) {
             return substr($input, 0, 5 );
         }
         return false;
@@ -135,15 +135,15 @@ class Util {
 
     public static function validate_state($input ) {
         $input = trim($input );
-        if ( isset( self::$state_array[ $input ] )) {
+        if (isset(self::$state_array[ $input ] )) {
             return $input;
         }
         return false;
     }
 
     public static function register_link($link ) {
-        if ( ! Options::get('sch_enabled', 'student')) {
-            if ( ! is_user_logged_in()) {
+        if (! Options::get('sch_enabled', 'student')) {
+            if (! is_user_logged_in()) {
                 // disable the registration link if applications are disabled
                 return '';
             }
@@ -233,8 +233,8 @@ class Util {
     }
 
     public static function delete_image($id ) {
-        $user = new Student( new \WP_User($id ));
-        if ( ! $user->has_cap('student')) {
+        $user = new Student(new \WP_User($id ));
+        if (! $user->has_cap('student')) {
             return;
         }
         $pic = $user->get_meta('picture');
@@ -242,7 +242,7 @@ class Util {
     }
 
     public static function get($array, $key, $default = null ) {
-        if ( isset($array[ $key ] )) {
+        if (isset($array[ $key ] )) {
             $default = $array[ $key ];
         }
         return $default;
@@ -253,11 +253,11 @@ class Util {
             ?>
             <tr>
                 <th><?php echo $label; ?></th>
-                <?php foreach ( range( 1, 5 ) as $i ) { ?>
+                <?php foreach (range(1, 5 ) as $i ) { ?>
                     <td><input type="radio"
                         name="<?php echo esc_attr($name ); ?>"
                         value="<?php echo $i; ?>"<?php
-                        if ( intval($value ) === $i ) {
+                        if (intval($value ) === $i ) {
                             echo ' checked';
                         }
                     ?>>
@@ -273,7 +273,7 @@ class Util {
                     name="<?php echo esc_attr($name ); ?>"
                     id="<?php echo esc_attr($name ); ?>"
                     value="yes"<?php
-                        if ( true === $value ) {
+                        if (true === $value ) {
                             echo ' checked';
                         }
                     ?>>
@@ -287,7 +287,7 @@ class Util {
                 <td><input type="text" class="regular-text"
                     name="<?php echo esc_attr($name ); ?>"
                     id="<?php echo esc_attr($name ); ?>"<?php
-                        if ( null !== $value ) {
+                        if (null !== $value ) {
                             echo ' value="';
                             echo esc_attr($value );
                             echo '"';

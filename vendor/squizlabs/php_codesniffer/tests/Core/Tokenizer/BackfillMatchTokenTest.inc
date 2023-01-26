@@ -132,9 +132,9 @@ $array = [
 
 /* testMatchreturningArray */
 $matcher = match ($x) {
-    0 => array( 0 => 1, 'a' => 2, 'b' => 3 ),
+    0 => array(0 => 1, 'a' => 2, 'b' => 3 ),
     1 => [1, 2, 3],
-    2 => array( 1, [1, 2, 3], 2, 3),
+    2 => array(1, [1, 2, 3], 2, 3),
     3 => [ 0 => 1, 'a' => array(1, 2, 3), 'b' => 2, 3],
 };
 

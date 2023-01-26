@@ -181,8 +181,8 @@ enum Base
     }
 }
 
-if ( class_exists( Test :: class )) {}
-if ( class_exists( Test2 ::class )) {}
+if (class_exists(Test :: class )) {}
+if (class_exists(Test2 ::class )) {}
 
 $foo = new class(
     new class implements Countable {

@@ -57,7 +57,7 @@ echo [1, 2, 3]/* testShortArrayLiteralDereferencing */[0];
 (new foo)[0];
 
 /* testClassMemberDereferencingOnInstantiation2 */
-$a = (new Foo( array(1, array(4, 5), 3)))[1][0];
+$a = (new Foo(array(1, array(4, 5), 3)))[1][0];
 
 /* testClassMemberDereferencingOnClone */
 echo (clone $iterable)[20];

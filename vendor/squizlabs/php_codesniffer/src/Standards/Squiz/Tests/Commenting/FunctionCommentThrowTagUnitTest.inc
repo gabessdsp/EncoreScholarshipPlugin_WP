@@ -336,7 +336,7 @@ class Test
     {
         parent::setUp();
 
-        if ( !strlen($this->folderName)) {
+        if (!strlen($this->folderName)) {
             throw new \RuntimeException('The $this->folderName must be specified before proceeding.');
         }
     }
@@ -423,12 +423,12 @@ class SomeClass {
      * @throws InvalidArgumentException          The invalid argument exception.
      */
     protected function validate_something($something ) {
-        if ( ! Prefix_Validator::is_string($something )) {
+        if (! Prefix_Validator::is_string($something )) {
             throw Prefix_Invalid_Argument_Exception::invalid_string_parameter($something, 'something');
         }
 
-        if ( ! in_array($something, $this->valid_http_something, true )) {
-            throw new InvalidArgumentException( sprintf('%s is not a valid HTTP something', $something ));
+        if (! in_array($something, $this->valid_http_something, true )) {
+            throw new InvalidArgumentException(sprintf('%s is not a valid HTTP something', $something ));
         }
 
         return $something;

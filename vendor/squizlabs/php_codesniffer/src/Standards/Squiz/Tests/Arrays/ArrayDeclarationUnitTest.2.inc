@@ -330,7 +330,7 @@ $fields = [
            'id'    => ['type' => 'INT'],
            'value' => ['type' => 'VARCHAR']];
 
-get_current_screen()->add_help_tab( [
+get_current_screen()->add_help_tab([
                                      'id' => <<<EOD
 Here comes some text.
 EOD
@@ -414,7 +414,7 @@ JSON
 $array = [
           'a'   => fn() => return 1,
           'bb'  => fn() => return 2,
-          'ccc' => ( true ) ?
+          'ccc' => (true ) ?
               fn() => return 1 :
               fn() => return 2,
          ];

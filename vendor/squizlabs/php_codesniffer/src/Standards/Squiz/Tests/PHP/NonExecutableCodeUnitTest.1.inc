@@ -279,10 +279,10 @@ class TestAlternativeControlStructures {
         $_while = 1;
 
         for ($a = 0; $a++ < 1; ) :
-            foreach ( [ 1 ] as $b ) :
+            foreach ([ 1 ] as $b ) :
                 while ($_while-- ) :
-                    if ( 1 ) :
-                        switch ( 1 ) :
+                    if (1 ) :
+                        switch (1 ) :
                             default:
                                 echo 'yay, we made it!';
                                 break;

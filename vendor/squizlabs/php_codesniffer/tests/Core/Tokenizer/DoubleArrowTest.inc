@@ -133,7 +133,7 @@ function arraysNestedInMatch() {
         /* testMatchArrowWithShortArrayBodyWithoutKeys */
         1 => [1, 2, 3],
         /* testMatchArrowWithLongArrayBodyWithoutKeys */
-        2 => array( 1, [1, 2, 3], 2, 3),
+        2 => array(1, [1, 2, 3], 2, 3),
         /* testMatchArrowWithShortArrayBodyWithKeys */
         3 => [
             /* testShortArrayArrowInMatchBody1 */

@@ -151,7 +151,7 @@ add_action(
 );
 add_action(
     "admin_post_sch-delete-application-all",
-    "\Scholarship\Admin::delete_application_all_post"
+    "\Scholarship\Admin::deleteApplicationAllPost"
 );
 
 add_action("admin_enqueue_scripts", "\Scholarship\Admin::application_script");

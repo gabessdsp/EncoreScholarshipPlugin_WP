@@ -13,26 +13,26 @@ defined('ABSPATH') || die('this file requires wordpress core');
 
 class Application extends PostWrapper {
     public static function render() {
-        $application = get_post( (int) $_GET['application'] );
-        if ( null === $application ) {
+        $application = get_post((int) $_GET['application'] );
+        if (null === $application ) {
             return;
         }
         $application = new Application($application );
-        $student = new Student( new \WP_User( (int) $application->post_author ));
+        $student = new Student(new \WP_User((int) $application->post_author ));
         $student_fullname = $student->get('first_name') . ' '
             . $student->get('last_name');
 
         $staff = array();
         foreach ($application->get_meta('staff') as $id ) {
-            $member = new Staff ( new \WP_User($id ));
+            $member = new Staff (new \WP_User($id ));
             $recommendation = null;
-            foreach ( get_posts( array(
+            foreach (get_posts(array(
                 'numberposts' => -1,
                 'author' => $member->ID,
                 'post_type' => 'sch_recommendation',
             )) as $r ) {
                 $r = new Recommendation($r );
-                if ( (int) $r->get_meta('sch_application') ===
+                if ((int) $r->get_meta('sch_application') ===
                     (int) $application->ID ) {
                     $recommendation = $r;
                     break; // there will only be one matching recommendation per staff member, so this minimizes the number of iterations.
@@ -79,7 +79,7 @@ class Application extends PostWrapper {
                         </div>
                         <?php
                         foreach ($staff as $member ) {
-                            if ( null !== $member['recommendation'] ) {
+                            if (null !== $member['recommendation'] ) {
                                 $questions = $member['recommendation']->get_meta('questions');
                                 ?>
                                 <div class="postbox">
@@ -95,7 +95,7 @@ class Application extends PostWrapper {
                                         </p>
                                         <p>
                                             <?php
-                                            foreach ( array(
+                                            foreach (array(
                                                 'Student is a performer' => 'performer',
                                                 'Student is a pit performer' => 'pit_performer',
                                                 'Student is truthful' => 'truthful',
@@ -113,7 +113,7 @@ class Application extends PostWrapper {
                                         </p>
                                         <p>
                                             <?php
-                                            foreach ( array(
+                                            foreach (array(
                                                 'Creativity' => 'creativity',
                                                 'Respect accorded by faculty' => 'respect',
                                                 'Disciplined work habits/Follow through' => 'work_ethic',
@@ -159,19 +159,19 @@ class Application extends PostWrapper {
     }
     public static function help() {
         $screen = get_current_screen();
-        $screen->add_help_tab( array(
+        $screen->add_help_tab(array(
             'id' => 'overview',
             'title' => 'Overview',
             'content' => '<p>Fill out all information on the form, then click the "Save and Submit" button.</p>' .
                 '<p><a href="https://yorkencoreawards.com/help/" target="_blank">Click here to read the FAQ.</a></p>',
         ));
-        $screen->add_help_tab( array(
+        $screen->add_help_tab(array(
             'id' => 'staff',
             'title' => 'Staff',
             'content' => '<p>You will need to specify a <em>minimum</em> of two production staff from your school to recommend your application.</p>' .
                 '<p>Type in the text box to search our database by name and e-mail. If we don\'t have a staff member on file, type in their e-mail address and click on the "(Invite staff)" choice that appears.</p>',
         ));
-        $screen->add_help_tab( array(
+        $screen->add_help_tab(array(
             'id' => 'counselor',
             'title' => 'Guidance Counselor',
             'content' => '<p>You will need to specify a guidance counselor to upload your transcript.</p>' .
@@ -185,12 +185,12 @@ class Application extends PostWrapper {
     }
     public static function staff_meta_box($app = null ) {
         $staff = '';
-        if ( null !== $app ) {
+        if (null !== $app ) {
             $staff = $app->get_meta('staff');
         }
         $staff_names = array();
         $staff_value = array();
-        if ( ! empty($staff )) {
+        if (! empty($staff )) {
             foreach ($staff as $id ) {
                 $staff = new \WP_User($id );
                 $staff_names[] = $staff->get('display_name');
@@ -211,12 +211,12 @@ class Application extends PostWrapper {
                 <p>Add or remove staff</p>
                 <textarea name="sch_application_staff" rows="3" cols="20"
                     id="sch_application_staff"<?php
-                    if ( ! empty($staff_value )) {
+                    if (! empty($staff_value )) {
                         echo' data-names="' . esc_attr($staff_names ) . '"';
                     }
                     ?>>
                     <?php
-                    if ( ! empty($staff_value )) {
+                    if (! empty($staff_value )) {
                         echo $staff_value;
                     }
                     ?></textarea>
@@ -239,8 +239,8 @@ class Application extends PostWrapper {
         <?php
     }
     public static function form() {
-        $student = new Student( wp_get_current_user());
-        $posts = get_posts( array(
+        $student = new Student(wp_get_current_user());
+        $posts = get_posts(array(
             'numberposts' => -1,
             'author' => $student->ID,
             'post_type' => 'sch_application',
@@ -248,7 +248,7 @@ class Application extends PostWrapper {
 
         $content = '';
         $post = null;
-        if ( 0 !== count($posts )) {
+        if (0 !== count($posts )) {
             $post = new Application($posts[0] );
             $content = $post->post_content;
         }
@@ -266,7 +266,7 @@ class Application extends PostWrapper {
 
         $counselor = '';
         $goals = '';
-        if ( 0 !== count($posts )) {
+        if (0 !== count($posts )) {
             $goals = $post->get_meta('goals');
             $highschool = $post->get_meta('highschool');
             $gpa = $post->get_meta('gpa');
@@ -276,7 +276,7 @@ class Application extends PostWrapper {
             $activities = $post->get_meta('activities');
             $scholarships = $post->get_meta('scholarships');
 
-            $counselor_user = new \WP_User( (int) $post->get_meta('counselor'));
+            $counselor_user = new \WP_User((int) $post->get_meta('counselor'));
             if ($counselor_user->exists()) {
                 $counselor = $counselor_user->user_email;
             }
@@ -291,13 +291,13 @@ class Application extends PostWrapper {
                 ?>">
                 <h1>
                 <?php
-                if ( null === $post ) {
+                if (null === $post ) {
                     echo 'Apply For a Scholarship';
                 } else {
                     echo 'Edit Your Application';
                 } ?>
                 </h1>
-                <?php if ( isset($_GET['sch_saved'] )) { ?>
+                <?php if (isset($_GET['sch_saved'] )) { ?>
                     <div class="updated notice">
                         <p>Application saved.</p>
                     </div>
@@ -313,7 +313,7 @@ class Application extends PostWrapper {
                             <td>
                                 <input type="text" name="highschool" id="highschool"
                                     class="regular-text"<?php
-                                    if ( isset($highschool )) {
+                                    if (isset($highschool )) {
                                         echo ' value="' . esc_attr($highschool ) .'"';
                                     }
                                     ?> />
@@ -324,7 +324,7 @@ class Application extends PostWrapper {
                             <td>
                                 <input type="number" min="0.0" max="4.0" step="0.01"
                                     name="gpa" id="gpa" class="regular-text"<?php
-                                    if ( isset($gpa )) {
+                                    if (isset($gpa )) {
                                         echo ' value="' . $gpa . '"';
                                     }
                                     ?> />
@@ -336,7 +336,7 @@ class Application extends PostWrapper {
                             <td>
                                 <input type="text" name="director" id="director"
                                     class="regular-text"<?php
-                                    if ( isset($director )) {
+                                    if (isset($director )) {
                                         echo ' value="' . esc_attr($director ) . '"';
                                     }
                                     ?> />
@@ -348,7 +348,7 @@ class Application extends PostWrapper {
                             <td>
                                 <input type="text" name="college" id="college"
                                     class="regular-text"<?php
-                                    if ( isset($college )) {
+                                    if (isset($college )) {
                                         echo ' value="' . esc_attr($college ) . '"';
                                     }
                                     ?> />
@@ -359,14 +359,14 @@ class Application extends PostWrapper {
                             <td>
                                 <input type="checkbox" name="accepted" id="accepted"
                                     value="accepted" <?php
-                                    if ( isset($accepted ) && 'accepted' === $accepted ) {
+                                    if (isset($accepted ) && 'accepted' === $accepted ) {
                                         echo 'checked ';
                                     } ?>/>
                             </td>
                         </tr>
                         </table>
 
-                        <?php foreach ( array(
+                        <?php foreach (array(
                             'nontheatre' => array(
                                 'High School Activities (other than theatre)',
                                 array(
@@ -406,7 +406,7 @@ class Application extends PostWrapper {
                                             list($colslug, $span ) = $tmp;
                                             ?>
                                             <td<?php
-                                            if ( 1 !== $span ) {
+                                            if (1 !== $span ) {
                                                 ?> colspan="<?php echo $span; ?>"<?php
                                             }
                                             ?>><?php echo $name; ?></td>
@@ -422,7 +422,7 @@ class Application extends PostWrapper {
                                 </thead>
                                 <tbody>
                                 <?php
-                                if ( isset($activities[ $slug ] ) && ! empty($activities[ $slug ] )) {
+                                if (isset($activities[ $slug ] ) && ! empty($activities[ $slug ] )) {
                                     $n = 0;
                                     foreach ($activities[ $slug ] as $activity ) { ?>
                                         <tr>
@@ -430,7 +430,7 @@ class Application extends PostWrapper {
                                             foreach ($cols as $name => $tmp ) {
                                                 list($colslug, $span ) = $tmp;
                                                 ?>
-                                                <td <?php if ( 1 !== $span ) {
+                                                <td <?php if (1 !== $span ) {
                                                         echo ' colspan="' . $span . '"';
                                                     } ?>>
                                                     <?php
@@ -463,9 +463,9 @@ class Application extends PostWrapper {
                                                     echo $n;
                                                     ?>][]"
                                                         multiple size="2">
-                                                    <?php foreach ( array( 9, 10, 11, 12 ) as $grade ) { ?>
+                                                    <?php foreach (array(9, 10, 11, 12 ) as $grade ) { ?>
                                                         <option value="<?php echo $grade; ?>"<?php
-                                                        if ( in_array($grade, $activity['grades'] )) {
+                                                        if (in_array($grade, $activity['grades'] )) {
                                                             echo ' selected';
                                                         }
                                                         ?>><?php
@@ -503,7 +503,7 @@ class Application extends PostWrapper {
                                             <label>
                                                 <input type="radio" name="gender" id="gender_male"
                                                     value="male" <?php
-                                                    if ( isset($gender ) && 'male' === $gender ) {
+                                                    if (isset($gender ) && 'male' === $gender ) {
                                                         echo 'checked ';
                                                     }
                                                     ?>/> Male
@@ -511,7 +511,7 @@ class Application extends PostWrapper {
                                             <label>
                                                 <input type="radio" name="gender" id="gender_female"
                                                 value="female" <?php
-                                                if ( isset($gender ) && 'female' === $gender ) {
+                                                if (isset($gender ) && 'female' === $gender ) {
                                                     echo 'checked ';
                                                 }
                                                 ?>/>
@@ -609,8 +609,8 @@ class Application extends PostWrapper {
         <?php
     }
     public static function post() {
-        $student = new Student( wp_get_current_user());
-        if ( ! wp_verify_nonce($_POST['_wpnonce'], 'sch-apply')
+        $student = new Student(wp_get_current_user());
+        if (! wp_verify_nonce($_POST['_wpnonce'], 'sch-apply')
             || ! $student->exists() || ! $student->has_cap('student')) {
             die('Unauthorized request');
         }
@@ -625,7 +625,7 @@ class Application extends PostWrapper {
 
         $oldcounselor = 0;
         $oldstaff = array();
-        if ( false !== $oldapp) {
+        if (false !== $oldapp) {
             $post['ID'] = $oldapp->ID;
             $post['post_date'] = $oldapp->post_date;
             $oldcounselor = (int) $oldapp->get_meta('counselor');
@@ -633,13 +633,13 @@ class Application extends PostWrapper {
         }
 
         $post['post_content'] = strip_shortcodes(
-            str_ireplace( 
+            str_ireplace(
                 '<!--more-->', '',
                 wp_kses_post($_POST['sch_application_essay'] )
             )
         );
         $goals = strip_shortcodes(
-            str_ireplace( 
+            str_ireplace(
                 '<!--more-->', '',
             wp_kses_post($_POST['sch_application_goals'] )
             )
@@ -647,68 +647,68 @@ class Application extends PostWrapper {
 
         // this stuff has all been previously entered, so just don't update if it's invalid
         $tel = Util::normalize_tel($_POST['tel'] );
-        $gender = strtolower( trim( sanitize_text_field($_POST['gender'] )) );
-        $address = trim( sanitize_text_field($_POST['address'] ));
-        $city = trim( sanitize_text_field($_POST['city'] ));
-        $state = trim( sanitize_text_field($_POST['state'] ));
+        $gender = strtolower(trim(sanitize_text_field($_POST['gender'] )) );
+        $address = trim(sanitize_text_field($_POST['address'] ));
+        $city = trim(sanitize_text_field($_POST['city'] ));
+        $state = trim(sanitize_text_field($_POST['state'] ));
         $zip = Util::validate_zip($_POST['zip'] );
-        $dob = Util::parse_date( trim( sanitize_text_field($_POST['dob'] )) );
+        $dob = Util::parse_date(trim(sanitize_text_field($_POST['dob'] )) );
 
-        $parent_email = trim( sanitize_email($_POST['parent_email'] ));
-        $parent_name = trim( sanitize_text_field($_POST['parent_name'] ));
+        $parent_email = trim(sanitize_email($_POST['parent_email'] ));
+        $parent_name = trim(sanitize_text_field($_POST['parent_name'] ));
         $parent_tel = Util::normalize_tel($_POST['parent_tel'] );
 
-        if ( strlen($tel ) === 10 ) {
+        if (strlen($tel ) === 10 ) {
             $student->set_meta('tel', $tel );
         }
         if ('male' === $gender || 'female' === $gender ) {
             $student->set_meta('gender', $gender );
         }
-        if ( strlen($address ) > 0 ) {
+        if (strlen($address ) > 0 ) {
             $student->set_meta('address', $address );
         }
-        if ( strlen($city ) > 0 ) {
+        if (strlen($city ) > 0 ) {
             $student->set_meta('city', $city );
         }
-        if ( false !== $state ) {
+        if (false !== $state ) {
             $student->set_meta('state', $state );
         }
-        if ( false !== $zip ) {
+        if (false !== $zip ) {
             $student->set_meta('zip', $zip );
         }
-        if ( false !== $dob ) {
+        if (false !== $dob ) {
             $student->set_meta('dob', $dob );
         }
 
-        if ( is_email($parent_email )) {
+        if (is_email($parent_email )) {
             $student->set_meta('parent_email', $parent_email );
         }
-        if ( strlen($parent_name ) > 0 ) {
+        if (strlen($parent_name ) > 0 ) {
             $student->set_meta('parent_name', $parent_name );
         }
-        if ( strlen($parent_tel ) === 10 ) {
+        if (strlen($parent_tel ) === 10 ) {
             $student->set_meta('parent_tel', $parent_tel );
         }
 
         // the rest of these are allowed to be empty
-        $highschool = trim( sanitize_text_field($_POST['highschool'] ));
-        $gpa = (float) trim( sanitize_text_field($_POST['gpa'] ));
+        $highschool = trim(sanitize_text_field($_POST['highschool'] ));
+        $gpa = (float) trim(sanitize_text_field($_POST['gpa'] ));
         // except for GPA, which is clamped at 0.0 and 4.0
         if ($gpa < 0.0 ) {
             $gpa = 0.0;
         } elseif ($gpa > 4.0 ) {
             $gpa = 4.0;
         }
-        $director = trim( sanitize_text_field($_POST['director'] ));
-        $college = trim( sanitize_text_field($_POST['college'] ));
-        $accepted = trim( sanitize_text_field($_POST['accepted'] ));
+        $director = trim(sanitize_text_field($_POST['director'] ));
+        $college = trim(sanitize_text_field($_POST['college'] ));
+        $accepted = trim(sanitize_text_field($_POST['accepted'] ));
         if ('accepted' !== $accepted ) {
             $accepted = '';
         }
 
         $activities = array();
 
-        foreach ( array(
+        foreach (array(
             'nontheatre' => array(
                 'name',
             ),
@@ -725,22 +725,22 @@ class Application extends PostWrapper {
                 'amount',
             ),
         ) as $slug => $cols ) {
-            if ( isset($_POST[ $slug ] ) && is_array($_POST[ $slug ] )) {
+            if (isset($_POST[ $slug ] ) && is_array($_POST[ $slug ] )) {
                 $skip = false;
                 foreach ($cols as $col ) {
-                    if ( ! isset($_POST[ $slug ][ $col ] ) ||
+                    if (! isset($_POST[ $slug ][ $col ] ) ||
                         ! is_array($_POST[ $slug ][ $col ] )) {
                         $skip = true;
                         break;
                     }
                 }
-                if ( ! $skip ) {
+                if (! $skip ) {
                     $activities[ $slug ] = array();
                     foreach ($_POST[ $slug ][ $cols[0] ] as $n => $activity ) {
                         $skip = false;
                         $activity = array();
                         foreach ($cols as $col ) {
-                            if ( ! isset($_POST[ $slug ][ $col ][ $n ] ) ||
+                            if (! isset($_POST[ $slug ][ $col ][ $n ] ) ||
                                 strlen($_POST[ $slug ][ $col ][ $n ] ) < 1 ) {
                                 $skip = true;
                                 break;
@@ -748,14 +748,14 @@ class Application extends PostWrapper {
                                 if ('amount' === $col ) {
                                     $activity[ $col ] = intval($_POST[ $slug ][ $col ][ $n ] );
                                 } else {
-                                    $activity[ $col ] = trim( sanitize_text_field(
+                                    $activity[ $col ] = trim(sanitize_text_field(
                                         $_POST[ $slug ][ $col ][ $n ] ));
                                 }
                             }
                         }
 
                         if ('scholarships' !== $slug ) {
-                            if ( ! isset($_POST[ $slug ]['grades'][ $n ] ) ||
+                            if (! isset($_POST[ $slug ]['grades'][ $n ] ) ||
                                 ! is_array($_POST[ $slug ]['grades'][ $n ] )) {
                                 $skip = true;
                             }
@@ -775,7 +775,7 @@ class Application extends PostWrapper {
                                     $grades[] = $grade;
                                 }
                             }
-                            if ( count($grades ) > 0 ) {
+                            if (count($grades ) > 0 ) {
                                 $activity['grades'] = $grades;
                                 $activities[ $slug ][] = $activity;
                             }
@@ -793,9 +793,9 @@ class Application extends PostWrapper {
         $emails = explode(',', sanitize_text_field(
             $_POST['sch_application_staff'] ));
         foreach ($emails as $email ) {
-            $email = trim( sanitize_email($email ));
-            if ( is_email($email )) {
-                if ( false === email_exists($email )) { // new staff
+            $email = trim(sanitize_email($email ));
+            if (is_email($email )) {
+                if (false === email_exists($email )) { // new staff
                     $member = Mail::invite_user($email, 'staff');
                     $staff[] = (int) $member->ID; // ->ID is a string.
                 } else { // existing staff
@@ -803,7 +803,7 @@ class Application extends PostWrapper {
                     if ($member->has_cap('staff')) {
                         $staff[] = (int) $member->ID;
 
-                        if ( ! in_array( (int) $member->ID, $oldstaff )) {
+                        if (! in_array((int) $member->ID, $oldstaff )) {
                             $replace['name'] = $member->get('display_name');
                             Mail::mail_user(
                                 $member,
@@ -818,9 +818,9 @@ class Application extends PostWrapper {
         }
 
         $counselor = 0;
-        $email = trim( sanitize_email($_POST['counselor'] ));
-        if ( is_email($email )) {
-            if ( false === email_exists($email )) { // new counselor
+        $email = trim(sanitize_email($_POST['counselor'] ));
+        if (is_email($email )) {
+            if (false === email_exists($email )) { // new counselor
                 $user = Mail::invite_user($email, 'counselor');
                 $counselor = $user->ID;
             } else {
@@ -840,7 +840,7 @@ class Application extends PostWrapper {
             }
         }
 
-        $post = new Application( get_post( wp_insert_post($post )) );
+        $post = new Application(get_post(wp_insert_post($post )) );
         $post->set_meta('staff', $staff );
         $post->set_meta('counselor', $counselor );
         $post->set_meta('highschool', $highschool );
@@ -851,13 +851,13 @@ class Application extends PostWrapper {
         $post->set_meta('activities', $activities );
         $post->set_meta('goals', $goals );
 
-        if ( Options::get('sch_enabled', 'student')) {
-            wp_redirect( admin_url('admin.php?page=sch-application&sch_saved=true'));
+        if (Options::get('sch_enabled', 'student')) {
+            wp_redirect(admin_url('admin.php?page=sch-application&sch_saved=true'));
         } else {
         // if applications are disabled while the student is editing their
         // application, allow one save and then log them out.
             wp_logout();
-            wp_redirect( wp_login_url() . '?sch_saved=true');
+            wp_redirect(wp_login_url() . '?sch_saved=true');
         }
     }
 
@@ -866,8 +866,8 @@ class Application extends PostWrapper {
     }
 
     public function counselor() {
-        $counselor = new Counselor( new \WP_User( (int) $this->get_meta('counselor')) );
-        if ( null === $counselor || ! $counselor->exists()) {
+        $counselor = new Counselor(new \WP_User((int) $this->get_meta('counselor')) );
+        if (null === $counselor || ! $counselor->exists()) {
             return false;
         }
         return $counselor;
@@ -875,24 +875,24 @@ class Application extends PostWrapper {
 
     public function recommendations() {
         $recommends = array();
-        foreach ( get_posts( array(
+        foreach (get_posts(array(
             'numberposts' => -1,
             'post_type' => 'sch_recommendation'
         )) as $post ) {
-            if ( (int) get_post_meta($post->ID, 'sch_application', true )
+            if ((int) get_post_meta($post->ID, 'sch_application', true )
                 === (int) $this->ID ) {
                 $recommends[] = new Recommendation($post );
             }
         }
         return $recommends;
     }
-    public function recommendation_by( Staff $staff ) {
-        foreach ( get_posts( array(
+    public function recommendation_by(Staff $staff ) {
+        foreach (get_posts(array(
             'numberposts' => -1,
             'post_type' => 'sch_recommendation',
             'author' => $staff->ID
         )) as $post ) {
-            if ( (int) get_post_meta($post->ID, 'sch_application', true )
+            if ((int) get_post_meta($post->ID, 'sch_application', true )
                 === (int) $this->ID ) {
                 return new Recommendation($post );
             }
@@ -909,7 +909,7 @@ class Application extends PostWrapper {
             <div class="inside">
                 <div class="appbox">
                     <p>
-                        <?php foreach ( array(
+                        <?php foreach (array(
                             'highschool' => 'High School',
                             'gpa' => 'Current GPA',
                             'director' => 'Musical Director',
@@ -917,7 +917,7 @@ class Application extends PostWrapper {
                         ) as $attr => $display ) { ?>
                             <strong><?php echo $display; ?>:</strong> <?php
                             $meta = (string) $this->get_meta($attr );
-                            if ( strlen($meta ) > 0 ) {
+                            if (strlen($meta ) > 0 ) {
                                 echo htmlentities($meta );
                             } else {
                                 echo 'N/A';
@@ -934,7 +934,7 @@ class Application extends PostWrapper {
                     </p>
                     <?php
                     $activities = $this->get_meta('activities');
-                    foreach ( array(
+                    foreach (array(
                         'nontheatre' => array(
                             'High School Non-Theatre Activities',
                             array(
@@ -965,7 +965,7 @@ class Application extends PostWrapper {
                     ) as $slug => $tmp ) {
                         list($name, $fields ) = $tmp;
                         ?>
-                        <?php if ( isset($activities[ $slug ] )) { ?>
+                        <?php if (isset($activities[ $slug ] )) { ?>
                             <strong><?php echo $name; ?>:</strong>
                             <?php foreach ($activities[ $slug ] as $activity ) { ?>
                                 <p>
@@ -991,11 +991,11 @@ class Application extends PostWrapper {
                     <?php } ?>
                     <p><strong>Transcript: </strong> <?php
                     $counselor = $this->counselor();
-                    if ( false === $counselor || ! $counselor->exists()) {
+                    if (false === $counselor || ! $counselor->exists()) {
                         echo 'No counselor specified';
                     } else {
                         $transcript = $counselor->transcript_for($this );
-                        if ( false === $transcript ) {
+                        if (false === $transcript ) {
                             echo 'Not uploaded';
                         } else {
                             ?><a href="<?php echo esc_attr($transcript['url'] ); ?>">

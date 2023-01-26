@@ -14,7 +14,7 @@ array_fill(
 );
 
 /* testNamedArgsWithWhitespaceAndComments */
-array_fill ( start_index : 0, /*comment */ count /*comment*/ : 100, value: 50);
+array_fill (start_index : 0, /*comment */ count /*comment*/ : 100, value: 50);
 
 /* testMixedPositionalAndNamedArgs */
 htmlspecialchars($string, double_encode: false);
@@ -75,10 +75,10 @@ foo(💩💩💩: [], Пасха: 'text', _valid: 123);
 foo($cond ? true : false, name: $value2 );
 
 /* testNamedArgWithTernary */
-foo( label: $cond ? true : false, more: $cond ? CONSTANT_A : CONSTANT_B );
+foo(label: $cond ? true : false, more: $cond ? CONSTANT_A : CONSTANT_B );
 
 /* testTernaryWithFunctionCallsInThenElse */
-echo $cond ? foo( label: $something ) : foo( more: $something_else );
+echo $cond ? foo(label: $something ) : foo(more: $something_else );
 
 /* testTernaryWithConstantsInThenElse */
 echo $cond ? CONSTANT_NAME : OTHER_CONSTANT;

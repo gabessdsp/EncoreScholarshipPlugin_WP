@@ -65,7 +65,7 @@ function recurseCreateTree(
 }
 
 
-function test ( ){}
+function test (){}
 
 function parent() {}
 function self() {}

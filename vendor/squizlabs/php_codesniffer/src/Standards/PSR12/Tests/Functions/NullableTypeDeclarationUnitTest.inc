@@ -45,7 +45,7 @@ array_map(function(? int $integer = null): ? int {
 }, []);
 
 interface MyInterface {
-    public function invalidTypeHintsWithNewlinesAndComments( ?
+    public function invalidTypeHintsWithNewlinesAndComments(?
         string $varA,
         ? /* a comment, fixing is undesirable */ array $varB,
         ? // phpcs:ignore Standard.Cat.Sniff -- fixing is undesirable
@@ -54,9 +54,9 @@ interface MyInterface {
         bool;
 }
 
-function testSelf( ? self $self ) : ? self {}
-function testParent( ? parent $parent ) : ? parent {}
-function testCallable( ? callable $callable ) : ? callable {}
+function testSelf(? self $self ) : ? self {}
+function testParent(? parent $parent ) : ? parent {}
+function testCallable(? callable $callable ) : ? callable {}
 
 // Issue #2552.
 class TestTokenizingOfNullableVsInlineThen {

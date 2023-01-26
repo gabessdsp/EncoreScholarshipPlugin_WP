@@ -1,8 +1,8 @@
 <?php
 
 $a = $a+ (bool) $b;
-$a = function_call( (bool) $b);
-if ( (bool) $a === (bool) $b) {}
+$a = function_call((bool) $b);
+if ((bool) $a === (bool) $b) {}
 
 $var = (int) $var2;
 $var = (int) $var2;

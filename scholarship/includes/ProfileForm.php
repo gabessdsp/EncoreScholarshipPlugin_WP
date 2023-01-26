@@ -13,8 +13,8 @@ defined('ABSPATH') || die('this file requires wordpress core');
 
 class ProfileForm {
 
-    public static function fields( \WP_User $user ) {
-        if ( ! $user->has_cap('student')) {
+    public static function fields(\WP_User $user ) {
+        if (! $user->has_cap('student')) {
             return;
         }
         $student = new Student($user );

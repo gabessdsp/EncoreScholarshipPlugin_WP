@@ -253,14 +253,14 @@ array_fill_keys(
 );
 
 array_fill_keys(
-    keys: range( 1,
+    keys: range(1,
             12,
     ), value: true,
 );
 
 // phpcs:set PSR2.Methods.FunctionCallSignature allowMultipleArguments true
 array_fill_keys(
-    keys: range( 1,
+    keys: range(1,
             12,
     ), value: true,
 );

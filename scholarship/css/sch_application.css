@@ -1,0 +1,77 @@
+.sch_application_search input {
+	width: 100%;
+}
+
+.sch_application_search_completions {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.sch_application_search_completions li {
+	margin: 0;
+	padding: 5px;
+	cursor: pointer;
+	border-top: 1px solid whiteSmoke;
+	display: inline-block;
+	width: 100%; /* extends past the edge of the container, but more usable than no width set. */
+	width: calc(100% - 10px); /* looks much better but doesn't work in IE8 (do we have IE8 users? I hope not) */
+}
+
+.sch_application_search_completions li:last-child {
+	border-bottom: 1px solid whiteSmoke;
+}
+
+.sch_application_search_completions li:hover {
+	border-top: 1px solid #AAA;
+	background: whiteSmoke;
+}
+
+.sch_application_search_completions li:hover + li {
+	border-top: 1px solid #AAA;
+}
+
+.sch_application_search_completions li:hover:last-child {
+	border-bottom: 1px solid #AAA;
+}
+
+.sch_application_search_completions em, #sch_application_staff_list em {
+	float: right;
+}
+
+#sch_application_staff_list li {
+	display: inline-block;
+	width: 100%;
+	margin: 0;
+}
+
+#sch_application_staff_list div {
+	padding: 0 5px;
+	font-size: 13px;
+	line-height: 1.8em;
+	margin: 0;
+}
+
+#sch_application_staff_list span a {
+	margin-left: -20px;
+}
+
+.sch_application_activitytable a {
+	text-decoration: underline;
+}
+.sch_application_activitytable td {
+	vertical-align: middle;
+}
+.sch_application_activitytable label {
+	white-space: nowrap;
+}
+.sch_application_activitytable input[type="text"] {
+	width: 100%;
+}
+.sch_application_activitytable input[type="number"] {
+	max-width: calc(100% - 1em);
+}
+.needhelp {
+	font-size: 18px;
+	font-weight: bold;
+}

@@ -98,6 +98,7 @@ class Application extends PostWrapper {
                                             foreach (array(
                                                 'Student is a performer' => 'performer',
                                                 'Student is a pit performer' => 'pit_performer',
+                                                'Student is a crew member' => 'crew_member',
                                                 'Student is truthful' => 'truthful',
                                            ) as $label => $checkbox) {
                                                 ?>

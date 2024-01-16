@@ -80,7 +80,7 @@ class Admin
                                     $s = new Staff(new \WP_User($member));
                                     $staff[ $member ] = array(
                                         'applications' => array(),
-                                        'name' => $s->get('display_name'),
+                                        'name' => $s->get('first_name'),
                                    );
                                     foreach (get_posts(
                                         array(

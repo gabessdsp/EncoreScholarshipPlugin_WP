@@ -572,7 +572,7 @@ class Application extends PostWrapper {
                                             <p>
                                                 <input id="counselor" name="counselor"
                                                 class="form-input-tip" autocomplete="off"
-                                                value="<?php echo esc_attr($counselor); ?>"
+                                                value=""
                                                 type="text">
                                             </p>
                                         </div>

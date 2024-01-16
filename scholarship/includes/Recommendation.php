@@ -61,7 +61,6 @@ class Recommendation extends PostWrapper {
                             </div>
                         </div>
                         <h3>Verify and recommend the student below:</h3>
-                        <p>In order to be fair to all students, please rate where they actually place.  Is this person the top 1% of all students that you have ever had?  Be realistic, no one student can be the top 1% of all the students you have ever had in all 11 categories.</p>
                         <table class="form-table">
                             <tbody>
                                 <?php
@@ -78,18 +77,22 @@ class Recommendation extends PostWrapper {
                                         'checkbox', 'pit_performer',
                                         'Is the student a pit performer?',
                                    ),
+                                   array(
+                                       'checkbox', 'crew_member',
+                                       'Is the student a crew member?',
+                                  ),
                                     array(
                                         'checkbox', 'truthful',
                                         'To the best of your knowledge, has the student been truthful with their application so far?',
                                    ),
                                     array(
                                         'number', 'shows',
-                                        'How many shows has the student participated in?',
+                                        'How many musicals has the student participated in?',
                                    ),
                                     array(
                                         'number', 'available',
                                         'How many shows are/were available to the student?',
-                                   ),
+                                   )
                                ) as $input) {
                                     list($type, $name, $label) = $input;
                                     Util::table_input(
@@ -103,6 +106,7 @@ class Recommendation extends PostWrapper {
                             </tbody>
                         </table>
                         <p>Rate the student in each of the following categories:</p>
+                        <p>In order to be fair to all students, please rate where they actually place.  Is this person the top 1% of all students that you have ever had?  Be realistic, no one student can be the top 1% of all the students you have ever had in all 11 categories.</p>
                         <table class="form-table">
                             <thead>
                                 <tr>
@@ -208,7 +212,8 @@ class Recommendation extends PostWrapper {
         foreach (array(
             'performer',
             'pit_performer',
-            'truthful',
+            'crew_member',
+            'truthful'
        ) as $checkbox) {
             $questions[ $checkbox ] = ('yes' === Util::get($_POST, $checkbox));
         }
@@ -225,7 +230,7 @@ class Recommendation extends PostWrapper {
             'setbacks',
             'concern',
             'self_confidence',
-            'initiative',
+            'initiative'
        ) as $number) {
             $questions[ $number ] = intval(Util::get($_POST, $number, 0));
         }

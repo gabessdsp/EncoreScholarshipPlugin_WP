@@ -61,6 +61,7 @@ class Recommendation extends PostWrapper {
                             </div>
                         </div>
                         <h3>Verify and recommend the student below:</h3>
+                        <p>In order to be fair to all students, please rate where they actually place.  Is this person the top 1% of all students that you have ever had?  Be realistic, no one student can be the top 1% of all the students you have ever had in all 11 categories.</p>
                         <table class="form-table">
                             <tbody>
                                 <?php
@@ -138,7 +139,7 @@ class Recommendation extends PostWrapper {
                                 ?>
                             </tbody>
                         </table>
-                        <p>Please write, in less than 100 words, whatever you think is important about this student. We welcome information that will help us to differentiate this student from others.</p>
+                        <p>Please write, in less than 100 words, whatever you think is important about this student. We welcome information that will help us to differentiate this student from others. This is not a letter of recommendation.  This is where you can give examples and further explain why they may be the top 1% or top 10%.</p>
                         <?php wp_editor($recommendation_value, 'sch_recommendation'); ?>
                     </div>
                     <div id="postbox-container-1" class="postbox-container">

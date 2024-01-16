@@ -24,9 +24,11 @@
             staffsearch = $("#sch_application_newstaff"),
             counselorsearch = $("#counselor"),
             list = $("#sch_application_staff_list"),
+            list2 = $("#sch_application_counselor_list"),
             staffcompletions = $("#sch_application_staff_completions"),
             counselorcompletions = $("#sch_application_counselor_completions"),
             staff = [],
+            counselors = [],
             mailre = /.+@.+\..+/, // overly simple, but address is validated serverside. declared here so it is only compiled once
             rowcount = -1,
             tables = {
@@ -79,6 +81,24 @@
             }
         };
 
+        counselors.contains = function (s) {
+            var i, l = counselors.length;
+            for (i = 0; i < l; i += 1) { // old-style loop so function can short-circuit on success
+                if (counselors[i].email === s.email) {
+                    return true;
+                }
+            }
+            return false;
+        };
+        counselors.remove = function (li) {
+            var i, l = counselors.length;
+            for (i = 0; i < l; i += 1) {
+                if (li.is(counselors[i].li)) {
+                    return counselors.splice(i, 1);
+                }
+            }
+        };
+
         function listitem(s) {
             return $("<li></li>")
                 .append($("<div></div>")
@@ -89,6 +109,20 @@
                         .append($('<a class="ntdelbutton">X</a>')
                             .on("click", function () {
                                 staff.remove(s.li);
+                                s.li.remove();
+                            }))));
+        }
+
+        function listitem(s) {
+            return $("<li></li>")
+                .append($("<div></div>")
+                    .text(s.name + " ")
+                    .append($("<em></em>")
+                        .text(s.email))
+                    .prepend($("<span></span>")
+                        .append($('<a class="ntdelbutton">X</a>')
+                            .on("click", function () {
+                                counselors.remove(s.li);
                                 s.li.remove();
                             }))));
         }
@@ -162,6 +196,18 @@
             member.li = listitem(member);
             staff.push(member);
             list.append(member.li);
+        });
+
+        $.each(textarea.val().split(","), function (index, email) {
+            var member2;
+            email = email.trim();
+            if (email === "") {
+                return;
+            }
+            member2 = {name: textarea.data("names").split(",")[index].trim(), email: email};
+            member2.li = listitem(member2);
+            counselors.push(member2);
+            list2.append(member2.li);
         });
 
         staffsearch.on("input", function () {
@@ -274,8 +320,11 @@
                             .append($("<em></em>")
                                 .text(counselor.email))
                             .on("click", function () {
+                                counselors.push(counselor);
                                 counselorsearch.val(counselor.email);
                                 counselorsearch.focus();
+                                counselor.li = listitem(counselor);
+                                list2.append(counselor.li);
                             });
                     }
 

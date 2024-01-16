@@ -78,9 +78,19 @@ class Admin
                             foreach ($application->get_meta('staff') as $member) {
                                 if (! isset($staff[$member])) {
                                     $s = new Staff(new \WP_User($member));
+
+                                    $staffNameToDisplay = "";
+
+                                    if(null == $s->get('first_name')) {
+                                        $staffNameToDisplay = $s->get('display_name');
+                                    } else {
+                                        $staffNameToDisplay = $s->get('first_name').' '.$s->get('last_name');
+                                    }
+
+
                                     $staff[ $member ] = array(
                                         'applications' => array(),
-                                        'name' => $s->get('first_name'),
+                                        'name' => $staffNameToDisplay,
                                    );
                                     foreach (get_posts(
                                         array(

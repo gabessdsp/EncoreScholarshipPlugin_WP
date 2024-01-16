@@ -56,6 +56,23 @@
 	margin-left: -20px;
 }
 
+#sch_application_counselor_list li {
+	display: inline-block;
+	width: 100%;
+	margin: 0;
+}
+
+#sch_application_counselor_list div {
+	padding: 0 5px;
+	font-size: 13px;
+	line-height: 1.8em;
+	margin: 0;
+}
+
+#sch_application_counselor_list span a {
+	margin-left: -20px;
+}
+
 .sch_application_activitytable a {
 	text-decoration: underline;
 }

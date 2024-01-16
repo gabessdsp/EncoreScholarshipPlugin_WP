@@ -113,7 +113,7 @@
                             }))));
         }
 
-        function listitem(s) {
+        function listitem2(s) {
             return $("<li></li>")
                 .append($("<div></div>")
                     .text(s.name + " ")
@@ -205,7 +205,7 @@
                 return;
             }
             member2 = {name: textarea.data("names").split(",")[index].trim(), email: email};
-            member2.li = listitem(member2);
+            member2.li = listitem2(member2);
             counselors.push(member2);
             list2.append(member2.li);
         });
@@ -323,7 +323,7 @@
                                 counselors.push(counselor);
                                 counselorsearch.val(counselor.email);
                                 counselorsearch.focus();
-                                counselor.li = listitem(counselor);
+                                counselor.li = listitem2(counselor);
                                 list2.append(counselor.li);
                             });
                     }

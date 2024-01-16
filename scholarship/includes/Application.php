@@ -234,7 +234,7 @@ class Application extends PostWrapper {
                 <ul id="sch_application_staff_completions"
                     class="sch_application_search_completions"></ul>
                 <p class="howto">Type to search by name or e-mail</p>
-                <ul class="tagchecklist" id="sch_application_staff_list"></ul>
+                <ul class="tagchecklist" id="sch_application_counselor_list"></ul>
             </div>
         </div>
         <?php
@@ -578,8 +578,8 @@ class Application extends PostWrapper {
                                         </div>
                                         <ul id="sch_application_counselor_completions"
                                         class="hide-if-no-js sch_application_search_completions"></ul>
-                                        <p class="hide-if-no-js howto">Type to search by name or
-                                        e-mail</p>
+                                        <p class="hide-if-no-js howto">Type to search by name or e-mail</p>
+                                        <ul class="tagchecklist" id="sch_application_staff_list"></ul>
                                     </div>
                                 </div>
                             </div>

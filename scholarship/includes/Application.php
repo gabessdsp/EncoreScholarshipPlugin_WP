@@ -183,6 +183,8 @@ class Application extends PostWrapper {
     public static function meta_boxes() {
         add_meta_box('sch_staff_meta', 'Staff',
             '\Scholarship\Application::staff_meta_box', 'sch_application');
+        add_meta_box('sch_counselor_meta', 'Counselor',
+            '\Scholarship\Application::counselor_meta_box', 'sch_application');
     }
     public static function staff_meta_box($app = null) {
         $staff = '';
@@ -236,6 +238,60 @@ class Application extends PostWrapper {
                 <p class="howto">Type to search by name or e-mail</p>
                 <ul class="tagchecklist" id="sch_application_staff_list"></ul>
             </div>
+        </div>
+        <?php
+    }
+    public static function counselor_meta_box($app = null) {
+        $counselorM = '';
+        if (null !== $app) {
+            $counselorM = $app->get_meta('staff');
+        }
+        $counselor_names = array();
+        $counselor_value = array();
+        if (! empty($staff)) {
+            foreach ($staff as $id) {
+                $counselorM = new \WP_User($id);
+                $counselor_names[] = $counselorM->get('display_name');
+                $counselor_value[] = $counselorM->user_email;
+            }
+            $counselor_names = implode($counselor_names, ',');
+            $counselor_value = implode($counselor_value, ',');
+        } else {
+            $counselor_value = '';
+        }
+
+        ?>
+        <div id="sch_application_counselor_meta" class="sch_application_search">
+            <p class="howto">Enter your guidance counselor's email
+            address. They will recieve an e-mail asking them to upload
+            your transcript. You <strong>must</strong> make a formal,
+            in-person request to your counselor for the transcript to
+            be uploaded and inform them that they will be receiving an
+            e-mail. WARNING: sesdrams.org accounts and other internal school use only e-mail addresses will not work here. Contact them to get a different e-mail to use.</p>
+            <div>
+                <label class="screen-reader-text" for="counselor">
+                Guidance Counselor's e-mail address</label>
+                <p>
+                    <input id="counselor" name="counselor"
+                    class="form-input-tip" autocomplete="off"
+                    value=""
+                    type="text">
+                </p>
+            </div>
+            <input type="hidden" id="hiddenCounselor" autocomplete="off" value="<?php
+                if (! empty($counselor_value)) {
+                    echo' data-names="' . esc_attr($counselor_names) . '"';
+                }
+                ?>>
+                <?php
+                if (! empty($counselor_value)) {
+                    echo $counselor_value;
+                }
+            ?>" />
+            <ul id="sch_application_counselor_completions"
+            class="hide-if-no-js sch_application_search_completions"></ul>
+            <p class="hide-if-no-js howto">Type to search by name or e-mail</p>
+            <ul class="tagchecklist" id="sch_application_counselor_list"></ul>
         </div>
         <?php
     }
@@ -559,28 +615,7 @@ class Application extends PostWrapper {
                             <div class="postbox">
                                 <h2 class="hndle" style="cursor: default;"><span>Guidance Counselor</span></h2>
                                 <div class="inside">
-                                    <div id="sch_application_counselor_meta" class="sch_application_search">
-                                        <p class="howto">Enter your guidance counselor's email
-                                        address. They will recieve an e-mail asking them to upload
-                                        your transcript. You <strong>must</strong> make a formal,
-                                        in-person request to your counselor for the transcript to
-                                        be uploaded and inform them that they will be receiving an
-                                        e-mail. WARNING: sesdrams.org accounts and other internal school use only e-mail addresses will not work here. Contact them to get a different e-mail to use.</p>
-                                        <div>
-                                            <label class="screen-reader-text" for="counselor">
-                                            Guidance Counselor's e-mail address</label>
-                                            <p>
-                                                <input id="counselor" name="counselor"
-                                                class="form-input-tip" autocomplete="off"
-                                                value=""
-                                                type="text">
-                                            </p>
-                                        </div>
-                                        <ul id="sch_application_counselor_completions"
-                                        class="hide-if-no-js sch_application_search_completions"></ul>
-                                        <p class="hide-if-no-js howto">Type to search by name or e-mail</p>
-                                        <ul class="tagchecklist" id="sch_application_counselor_list"></ul>
-                                    </div>
+                                    <?php self::counselor_meta_box($post); ?>
                                 </div>
                             </div>
                             <div class="postbox">

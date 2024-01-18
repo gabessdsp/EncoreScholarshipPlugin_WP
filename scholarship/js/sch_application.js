@@ -21,6 +21,7 @@
             counselortimeout = null,
             counselorinprogress = false,
             textarea = $("#sch_application_staff"),
+            textarea2 = $("#hiddenCounselor"),
             staffsearch = $("#sch_application_newstaff"),
             counselorsearch = $("#counselor"),
             list = $("#sch_application_staff_list"),
@@ -186,6 +187,9 @@
             return tr;
         }
 
+        console.log("textarea value");
+        console.log(textarea.val());
+
         $.each(textarea.val().split(","), function (index, email) {
             var member;
             email = email.trim();
@@ -196,18 +200,27 @@
             member.li = listitem(member);
             staff.push(member);
             list.append(member.li);
+            console.log("LISTING A STAFF MEMBER");
         });
 
-        $.each(textarea.val().split(","), function (index, email) {
+        console.log("textarea2 value");
+        console.log(textarea2.val());
+
+        $.each(textarea2.val().split(","), function (index, email) {
+            console.log("TRYING TO LIST A COUNSELOR");
             var member2;
             email = email.trim();
             if (email === "") {
                 return;
             }
-            member2 = {name: textarea.data("names").split(",")[index].trim(), email: email};
+
+            console.log(textarea2.data("names"));
+
+            member2 = {name: textarea2.data("names").trim(), email: email};
             member2.li = listitem2(member2);
             counselors.push(member2);
             list2.append(member2.li);
+            console.log("LISTING A COUNSELOR");
         });
 
         staffsearch.on("input", function () {
@@ -311,6 +324,7 @@
                     null,
                     "json"
                ).done(function (data) {
+                    var n = 0, match = false;
                     counselorinprogress = false;
                     counselorcompletions.empty();
 
@@ -320,21 +334,34 @@
                             .append($("<em></em>")
                                 .text(counselor.email))
                             .on("click", function () {
-                                counselors.push(counselor);
-                                counselorsearch.val(counselor.email);
-                                counselorsearch.focus();
-                                counselor.li = listitem2(counselor);
-                                list2.append(counselor.li);
+                                if (!counselors.contains(counselor)) {
+                                    counselors.push(counselor);
+                                    counselor.li = listitem2(counselor);
+                                    list2.append(counselor.li);
+                                }
                             });
                     }
 
                     if (data.length === 0) {
+                        if (mailre.test(val)) {
+                            counselorcompletions.append(completion({name: "(Invite counselor)", email: val}));
+                        }
                         counselorcompletions.append($('<li><em style="float: none;">No results.</em></li>'));
                         return;
                     }
                     $.each(data, function (ignore, counselor) {
-                        counselorcompletions.append(completion(counselor));
+                        match = match || counselor.email === val;
+                        if (!staff.contains(counselor)) {
+                            n += 1;
+                            counselorcompletions.append(completion(counselor));
+                        }
                     });
+                    if (!match && mailre.test(val)) {
+                        counselorcompletions.append(completion({name: "(Invite counselor)", email: val}));
+                    }
+                    if (n === 0) {
+                        counselorcompletions.append($('<li><em style="float: none;">No more results.</em></li>'));
+                    }
                 }).fail(function () {
                     counselorinprogress = false;
                     counselorcompletions.empty();
@@ -348,6 +375,16 @@
                 emails.push(s.email);
             });
             textarea.val(emails.join(","));
+
+            var counselorEmail = [];
+            console.log('GABE');
+            console.log(counselors);
+            console.log(counselors[0]);
+            $.each(counselors, function (ignore, s) {
+                counselorEmail.push(s.email);
+            });
+            // textarea2.val(counselorEmail.join(","));
+            textarea2.val(counselorEmail);
         });
         staffcompletions.hide();
         counselorcompletions.hide();

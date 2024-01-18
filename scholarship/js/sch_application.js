@@ -216,7 +216,8 @@
 
             console.log(textarea2.data("names"));
 
-            member2 = {name: textarea2.data("names").trim(), email: email};
+            // member2 = {name: textarea2.data("names").trim(), email: email};//problematic trim
+            member2 = {name: textarea2.data("names"), email: email};
             member2.li = listitem2(member2);
             counselors.push(member2);
             list2.append(member2.li);

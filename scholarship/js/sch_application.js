@@ -21,7 +21,7 @@
             counselortimeout = null,
             counselorinprogress = false,
             textarea = $("#sch_application_staff"),
-            textarea2 = $("#hiddenCounselor"),
+            textarea2 = $("#sch_application_counselors"),
             staffsearch = $("#sch_application_newstaff"),
             counselorsearch = $("#counselor"),
             list = $("#sch_application_staff_list"),

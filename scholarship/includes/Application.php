@@ -244,12 +244,17 @@ class Application extends PostWrapper {
     public static function counselor_meta_box($app = null) {
         $counselorM = '';
         if (null !== $app) {
-            $counselorM = $app->get_meta('staff');
+            $counselorM = $app->get_meta('counselor');
         }
+
+        
         $counselor_names = array();
         $counselor_value = array();
-        if (! empty($staff)) {
-            foreach ($staff as $id) {
+
+
+        if (! empty($counselorM)) {
+
+            foreach (explode(',', $counselorM) as $id) {
                 $counselorM = new \WP_User($id);
                 $counselor_names[] = $counselorM->get('display_name');
                 $counselor_value[] = $counselorM->user_email;
@@ -259,7 +264,6 @@ class Application extends PostWrapper {
         } else {
             $counselor_value = '';
         }
-
         ?>
         <div id="sch_application_counselor_meta" class="sch_application_search">
             <p class="howto">Enter your guidance counselor's email
@@ -278,16 +282,15 @@ class Application extends PostWrapper {
                     type="text">
                 </p>
             </div>
-            <input type="hidden" id="hiddenCounselor" autocomplete="off" value="<?php
-                if (! empty($counselor_value)) {
+            <textarea type="hidden" class="hide-if-js" name="sch_application_counselors" id="sch_application_counselors" autocomplete="off" <?php
+                if (! empty($counselor_names)) {
                     echo' data-names="' . esc_attr($counselor_names) . '"';
                 }
-                ?>>
-                <?php
+                ?>><?php
                 if (! empty($counselor_value)) {
                     echo $counselor_value;
                 }
-            ?>" />
+                ?></textarea>
             <ul id="sch_application_counselor_completions"
             class="hide-if-no-js sch_application_search_completions"></ul>
             <p class="hide-if-no-js howto">Type to search by name or e-mail</p>
@@ -854,7 +857,8 @@ class Application extends PostWrapper {
         }
 
         $counselor = 0;
-        $email = trim(sanitize_email($_POST['counselor']));
+        $email = trim(sanitize_email($_POST['sch_application_counselors']));
+
         if (is_email($email)) {
             if (false === email_exists($email)) { // new counselor
                 $user = Mail::invite_user($email, 'counselor');

@@ -15,10 +15,18 @@ class Recommendation extends PostWrapper {
     public static function form() {
 
         $member = new Staff(wp_get_current_user());
-        $post = get_post((int) $_GET['application']);
-        if (null === $post) {
+
+        $post_id = isset($_GET['application']) ? (int) $_GET['application'] : 0;
+        $post = get_post($post_id);
+        
+        if (!$post) {
+            // error_log("Application with ID {$post_id} not found or deleted.");
+            // wp_die(__('The scholarship application you are trying to access no longer exists.', 'scholarship-plugin'));
+            
+            // Gracefully exit without displaying an error
             return;
         }
+
         $application = new Application($post);
         $staff = $application->get_meta('staff');
         if (! in_array((int) $member->ID, $staff)) {

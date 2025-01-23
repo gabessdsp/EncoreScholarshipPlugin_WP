@@ -13,9 +13,16 @@ defined('ABSPATH') || die('this file requires wordpress core');
 
 class PostWrapper {
     protected $post = null;
-    public function __construct(\WP_Post $post) {
+
+    public function __construct($post) {
+        if (!$post instanceof \WP_Post) {
+            // error_log('Invalid argument passed to PostWrapper::__construct. Expected WP_Post, got ' . gettype($post));
+            
+            return; // Gracefully handle the error by returning without setting the post
+        }
         $this->post = $post;
     }
+
     public function __get($name) {
         return $this->post->$name;
     }

@@ -16,11 +16,22 @@ class Counselor extends UserWrapper {
         $counselor = new Counselor(wp_get_current_user());
 
         $requested = array();
-        foreach (get_posts(array(
+
+        $applications = get_posts(array(
             'numberposts' => -1,
             'post_type' => 'sch_application'
-       ))  as $application) {
-            $application = new Application($application);
+        ));
+
+        foreach ($applications as $application_post) {
+            if (!$application_post) {
+                continue; // Skip deleted or missing applications
+            }
+
+            $application = new Application($application_post);
+            if (!$application) {
+                continue; // Skip if the application instance is not valid
+            }
+
             $appcounselor = $application->get_meta('counselor');
             if ((int) $counselor->ID === (int) $appcounselor) {
                 $requested[] = $application;

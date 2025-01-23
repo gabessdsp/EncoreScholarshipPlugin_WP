@@ -542,12 +542,21 @@ class Application extends PostWrapper {
                                 </tbody>
                             </table>
                         <?php } ?>
-                        <h3>What are your career goals? They are not required to be
+                        <h3>In 250-500 words, what are your career goals? They are not required to be
                         related to theatre.</h3>
-                        <?php wp_editor($goals, 'sch_application_goals'); ?>
+                        <?php $editorSettings = array(
+                                    'tinymce'       => true,      // Enable the visual editor
+                                    'quicktags'     => false,     // Disable the text editor
+                                );
+                                wp_editor($goals, 'sch_application_goals', $editorSettings);
+                                ?>
                         <h3>In the length of 250-500 words, describe how your high school
                         theatre experience has impacted your life.</h3>
-                        <?php wp_editor($content, 'sch_application_essay'); ?>
+                        <?php $editorSettings2 = array(
+                                    'tinymce'       => true,      // Enable the visual editor
+                                    'quicktags'     => false,     // Disable the text editor
+                                );
+                                wp_editor($content, 'sch_application_essay', $editorSettings2); ?>
                     </div>
                     <div id="postbox-container-1" class="postbox-container">
                         <div id="side-sortables" class="meta-box-sortables">
@@ -683,6 +692,20 @@ class Application extends PostWrapper {
             wp_kses_post($_POST['sch_application_goals'])
            )
        );
+
+    //    // Trim the content to 500 words
+    //    $trimmedGoalsContent = implode(' ', array_slice(str_word_count($goals, 2), 0, 500));
+
+    //    if (str_word_count($goals) > 500) {
+    //     echo "<script>alert('You entered more than 500 words');</script>";
+    //    }
+
+    //    var_dump(str_word_count($goals, 2));
+    //    echo "<br><br><br>";
+    //    var_dump(str_word_count($trimmedGoalsContent, 2));
+    //    die();
+       
+       // Now $trimmedContent contains the content trimmed to 500 words
 
         // this stuff has all been previously entered, so just don't update if it's invalid
         $tel = Util::normalize_tel($_POST['tel']);

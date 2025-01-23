@@ -187,9 +187,6 @@
             return tr;
         }
 
-        console.log("textarea value");
-        console.log(textarea.val());
-
         $.each(textarea.val().split(","), function (index, email) {
             var member;
             email = email.trim();
@@ -200,28 +197,22 @@
             member.li = listitem(member);
             staff.push(member);
             list.append(member.li);
-            console.log("LISTING A STAFF MEMBER");
         });
 
-        console.log("textarea2 value");
-        console.log(textarea2.val());
-
         $.each(textarea2.val().split(","), function (index, email) {
-            console.log("TRYING TO LIST A COUNSELOR");
             var member2;
             email = email.trim();
             if (email === "") {
                 return;
             }
 
-            console.log(textarea2.data("names"));
+            // console.log(textarea2.data("names"));
 
             // member2 = {name: textarea2.data("names").trim(), email: email};//problematic trim
             member2 = {name: textarea2.data("names"), email: email};
             member2.li = listitem2(member2);
             counselors.push(member2);
             list2.append(member2.li);
-            console.log("LISTING A COUNSELOR");
         });
 
         staffsearch.on("input", function () {
@@ -407,5 +398,6 @@
             $(a).on("click", removerow);
             rowcount += 1;
         });
+
     });
 }(jQuery));

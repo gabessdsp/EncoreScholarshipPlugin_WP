@@ -126,7 +126,7 @@ class Admin
                             if ($counselor) {
                                 $transcript = $counselor->transcript_for($application);
                                 echo $transcript
-                                    ? '<a href="' . esc_attr($transcript['url']) . '">Uploaded</a>'
+                                    ? '<a href="' . esc_attr($transcript['url']) . ' target="_blank"">Uploaded</a>'
                                     : 'Not uploaded';
                             } else {
                                 echo 'No counselor';

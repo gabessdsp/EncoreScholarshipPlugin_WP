@@ -122,16 +122,22 @@ class Admin
                             <td><?php echo $application->post_date; ?></td>
                             <td><?php echo $application->post_modified; ?></td>
                             <td><?php
-                            $counselor = $application->counselor();
-                            if ($counselor) {
-                                $transcript = $counselor->transcript_for($application);
-                                echo $transcript
-                                    ? '<a href="' . esc_attr($transcript['url']) . ' target="_blank"">Uploaded</a>'
-                                    : 'Not uploaded';
-                            } else {
-                                echo 'No counselor';
-                            }
-                            ?>
+                                $counselor = $application->counselor();
+
+                                // Ensure that the counselor is correctly assigned to this application
+                                if ($counselor && (int) $application->get_meta('counselor') === (int) $counselor->ID) {
+                                    $transcript = $counselor->transcript_for($application);
+                                    
+                                    if ($transcript && isset($transcript['url'])) {
+                                        echo '<a href="' . esc_attr($transcript['url']) . '" target="_blank">Uploaded</a>';
+                                    } else {
+                                        echo '<a href="admin.php?page=sch-upload-transcript&application=' . $application->ID . '">Upload Transcript</a>';
+                                    }
+                                } else {
+                                    echo 'No counselor assigned to this student.';
+                                }
+                                ?>
+                            </td>
                             <td>
                                 <a href="admin.php?page=sch-render<?php
                                 if ($is_admin) {

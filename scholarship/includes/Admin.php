@@ -44,9 +44,16 @@ class Admin
                     <thead>
                         <tr>
                             <td>Student</td>
+                            <?php if (current_user_can('manage_options')) { ?>
+                                <td>Student Email</td>
+                            <?php } ?>
                             <td>School</td>
                             <td>Parent</td>
                             <td>Recommended by</td>
+                            <?php if (current_user_can('manage_options')) { ?>
+                                <td>Recommendation Emails</td>
+                                <td>Counselor Email</td>
+                            <?php } ?>
                             <td>Submitted</td>
                             <td>Modified</td>
                             <td>Transcript</td>
@@ -58,12 +65,16 @@ class Admin
                     foreach ($applications as $application) {
                         $application = new Application($application);
                         $student = $application->student();
+                        $counselor = $application->counselor();
                         ?>
                         <tr>
                             <td><?php
                                 echo htmlspecialchars($student->get('first_name')) . ' ' .
                                     htmlspecialchars($student->get('last_name'));
                             ?></td>
+                            <?php if (current_user_can('manage_options')) { ?>
+                                <td><?php echo htmlspecialchars($student->user_email); ?></td>
+                            <?php } ?>
                             <td><?php
                                 $highschool = $application->get_meta('highschool');
                                 echo empty($highschool)
@@ -75,6 +86,7 @@ class Admin
                             ?></td>
                             <td><?php
                             $staff_names = array();
+                            $staff_emails = array();
                             foreach ($application->get_meta('staff') as $member) {
                                 if (! isset($staff[$member])) {
                                     $s = new Staff(new \WP_User($member));
@@ -87,6 +99,7 @@ class Admin
                                         $staffNameToDisplay = $s->get('first_name').' '.$s->get('last_name');
                                     }
 
+                                    $staff_emails[] = $s->user_email; // Collect emails for admins
 
                                     $staff[ $member ] = array(
                                         'applications' => array(),
@@ -119,10 +132,29 @@ class Admin
                                )
                            );
                             ?></td>
+                            <!-- Show these columns only for admins -->
+                            <?php if (current_user_can('manage_options')) { ?>
+                                <td><?php echo htmlspecialchars(implode(', ', $staff_emails)); ?></td>
+                                <td><?php
+                                    if ($counselor && $counselor->user_email) {
+                                        echo htmlspecialchars($counselor->user_email);
+                                    } else {
+                                        echo '<em>No counselor assigned</em>';
+                                    }
+                                ?></td>
+                            <?php } ?>
                             <td><?php echo $application->post_date; ?></td>
                             <td><?php echo $application->post_modified; ?></td>
                             <td><?php
                                 $counselor = $application->counselor();
+
+                                // Log the retrieved counselor ID
+                                error_log("Debugging Transcript Issue - Application ID: " . $application->ID);
+                                if ($counselor) {
+                                    error_log("Counselor Found: " . $counselor->ID . " | Expected: " . $application->get_meta('counselor'));
+                                } else {
+                                    error_log("No counselor found for application ID: " . $application->ID);
+                                }
 
                                 // Ensure that the counselor is correctly assigned to this application
                                 if ($counselor && (int) $application->get_meta('counselor') === (int) $counselor->ID) {

@@ -16,9 +16,8 @@ class PostWrapper {
 
     public function __construct($post) {
         if (!$post instanceof \WP_Post) {
-            // error_log('Invalid argument passed to PostWrapper::__construct. Expected WP_Post, got ' . gettype($post));
-            
-            return; // Gracefully handle the error by returning without setting the post
+            error_log("PostWrapper Error: Expected WP_Post, got " . gettype($post) . ". Value: " . print_r($post, true));
+            return; // Prevents further issues by exiting early
         }
         $this->post = $post;
     }
